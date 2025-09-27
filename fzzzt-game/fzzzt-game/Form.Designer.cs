@@ -58,6 +58,7 @@
             this.pictureBoxConveyorBeltCardEight = new System.Windows.Forms.PictureBox();
             this.labelChiefMechanicTwo = new System.Windows.Forms.Label();
             this.labelChiefMechanicOne = new System.Windows.Forms.Label();
+            this.buttonReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardThree)).BeginInit();
@@ -248,6 +249,7 @@
             // 
             // panelOperations
             // 
+            this.panelOperations.Controls.Add(this.buttonReset);
             this.panelOperations.Controls.Add(this.buttonStartGame);
             this.panelOperations.Location = new System.Drawing.Point(0, 0);
             this.panelOperations.Name = "panelOperations";
@@ -380,6 +382,17 @@
             this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelChiefMechanicOne.Visible = false;
             // 
+            // buttonReset
+            // 
+            this.buttonReset.AutoSize = true;
+            this.buttonReset.Location = new System.Drawing.Point(55, 103);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(87, 37);
+            this.buttonReset.TabIndex = 2;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // FormFzzztGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -456,6 +469,7 @@
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardEight;
         private System.Windows.Forms.Label labelChiefMechanicTwo;
         private System.Windows.Forms.Label labelChiefMechanicOne;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 

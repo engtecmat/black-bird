@@ -42,5 +42,14 @@ namespace fzzzt_game
                 labelChiefMechanicTwo.Visible = true;
             }
         }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            panelPlayerOne.Visible = false;
+            panelConveyorBelt.Visible = false;
+            panelPlayTwo.Visible = false;
+            labelChiefMechanicOne.Visible = false;
+            labelChiefMechanicTwo.Visible = false;
+        }
     }
 }

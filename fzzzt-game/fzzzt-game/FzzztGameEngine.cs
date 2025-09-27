@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace fzzzt_game
 {
@@ -14,9 +10,9 @@ namespace fzzzt_game
     /// game logic, rendering, and input handling.</remarks>
     public class FzzztGameEngine
     {
-        public int GetChiefMechanic()
+        public long GetChiefMechanic()
         {
-           return new DateTime().Millisecond % 2 + 1;
+            return new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds() % 2 + 1;
         }
     }
 }
