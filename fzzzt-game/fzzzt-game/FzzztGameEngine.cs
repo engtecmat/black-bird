@@ -10,9 +10,39 @@ namespace fzzzt_game
     /// game logic, rendering, and input handling.</remarks>
     public class FzzztGameEngine
     {
+        /// <summary>
+        /// Indicates whether the game has started.
+        /// </summary>
+        private bool gameState = false;
+
         public long GetChiefMechanic()
         {
             return new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds() % 2 + 1;
+        }
+
+        /// <summary>
+        /// Determines whether the game has started.
+        /// </summary>
+        /// <returns><see langword="true"/> if the game has started; otherwise, <see langword="false"/>.</returns>
+        public bool IsGameStarted()
+        {
+            return gameState;
+        }
+
+        /// <summary>
+        /// Resets the game state to its initial condition.
+        /// </summary>
+        internal void ResetGame()
+        {
+            gameState = false;
+        }
+
+        /// <summary>
+        /// Starts the game by transitioning the game state to true.
+        /// </summary>
+        internal void StartGame()
+        {
+            gameState = true;
         }
     }
 }
