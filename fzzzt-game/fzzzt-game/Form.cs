@@ -16,5 +16,17 @@ namespace fzzzt_game
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Set up the game when the start button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonStartGame_Click(object sender, EventArgs e)
+        {
+            panelPlayerOne.Visible = true;
+            panelConveyorBelt.Visible = true;
+            panelPlayTwo.Visible = true;
+        }
     }
 }
