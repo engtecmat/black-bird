@@ -56,6 +56,8 @@
             this.pictureBoxPlayerOneCardOne = new System.Windows.Forms.PictureBox();
             this.panelConveyorBelt = new System.Windows.Forms.Panel();
             this.pictureBoxConveyorBeltCardEight = new System.Windows.Forms.PictureBox();
+            this.labelChiefMechanicTwo = new System.Windows.Forms.Label();
+            this.labelChiefMechanicOne = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardThree)).BeginInit();
@@ -230,6 +232,7 @@
             // 
             // panelPlayTwo
             // 
+            this.panelPlayTwo.Controls.Add(this.labelChiefMechanicTwo);
             this.panelPlayTwo.Controls.Add(this.labelPlayerTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxDiscardTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxPlayerTwoCardThree);
@@ -253,6 +256,7 @@
             // 
             // panelPlayerOne
             // 
+            this.panelPlayerOne.Controls.Add(this.labelChiefMechanicOne);
             this.panelPlayerOne.Controls.Add(this.labelPlayerOne);
             this.panelPlayerOne.Controls.Add(this.pictureBoxDiscardPileOne);
             this.panelPlayerOne.Controls.Add(this.pictureBoxPlayerOneCardThree);
@@ -354,6 +358,28 @@
             this.pictureBoxConveyorBeltCardEight.TabIndex = 9;
             this.pictureBoxConveyorBeltCardEight.TabStop = false;
             // 
+            // labelChiefMechanicTwo
+            // 
+            this.labelChiefMechanicTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(651, 286);
+            this.labelChiefMechanicTwo.Name = "labelChiefMechanicTwo";
+            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicTwo.TabIndex = 26;
+            this.labelChiefMechanicTwo.Text = "CM";
+            this.labelChiefMechanicTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicTwo.Visible = false;
+            // 
+            // labelChiefMechanicOne
+            // 
+            this.labelChiefMechanicOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicOne.Location = new System.Drawing.Point(651, 20);
+            this.labelChiefMechanicOne.Name = "labelChiefMechanicOne";
+            this.labelChiefMechanicOne.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicOne.TabIndex = 27;
+            this.labelChiefMechanicOne.Text = "CM";
+            this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicOne.Visible = false;
+            // 
             // FormFzzztGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -428,6 +454,8 @@
         private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardOne;
         private System.Windows.Forms.Panel panelConveyorBelt;
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardEight;
+        private System.Windows.Forms.Label labelChiefMechanicTwo;
+        private System.Windows.Forms.Label labelChiefMechanicOne;
     }
 }
 

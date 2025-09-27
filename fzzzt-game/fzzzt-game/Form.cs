@@ -12,6 +12,11 @@ namespace fzzzt_game
 {
     public partial class FormFzzztGame : Form
     {
+        /// <summary>
+        /// the game engine instance
+        /// </summary>
+        private FzzztGameEngine engine = new FzzztGameEngine();
+
         public FormFzzztGame()
         {
             InitializeComponent();
@@ -27,6 +32,15 @@ namespace fzzzt_game
             panelPlayerOne.Visible = true;
             panelConveyorBelt.Visible = true;
             panelPlayTwo.Visible = true;
+
+            if(engine.GetChiefMechanic() == 1)
+            {
+                labelChiefMechanicOne.Visible = true;
+            }
+            if(engine.GetChiefMechanic() == 2)
+            {
+                labelChiefMechanicTwo.Visible = true;
+            }
         }
     }
 }
