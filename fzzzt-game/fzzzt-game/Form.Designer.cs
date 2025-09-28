@@ -45,8 +45,13 @@
             this.labelPlayerTwo = new System.Windows.Forms.Label();
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelPlayTwo = new System.Windows.Forms.Panel();
+            this.buttonStartAuctionTwo = new System.Windows.Forms.Button();
+            this.labelChiefMechanicTwo = new System.Windows.Forms.Label();
             this.panelOperations = new System.Windows.Forms.Panel();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.panelPlayerOne = new System.Windows.Forms.Panel();
+            this.buttonStartAuctionOne = new System.Windows.Forms.Button();
+            this.labelChiefMechanicOne = new System.Windows.Forms.Label();
             this.labelPlayerOne = new System.Windows.Forms.Label();
             this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerOneCardThree = new System.Windows.Forms.PictureBox();
@@ -56,9 +61,6 @@
             this.pictureBoxPlayerOneCardOne = new System.Windows.Forms.PictureBox();
             this.panelConveyorBelt = new System.Windows.Forms.Panel();
             this.pictureBoxConveyorBeltCardEight = new System.Windows.Forms.PictureBox();
-            this.labelChiefMechanicTwo = new System.Windows.Forms.Label();
-            this.labelChiefMechanicOne = new System.Windows.Forms.Label();
-            this.buttonReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardThree)).BeginInit();
@@ -94,6 +96,7 @@
             this.pictureBoxConveyorBeltDeck.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltDeck.TabIndex = 0;
             this.pictureBoxConveyorBeltDeck.TabStop = false;
+            this.pictureBoxConveyorBeltDeck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // buttonStartGame
             // 
@@ -114,6 +117,7 @@
             this.pictureBoxConveyorBeltCardOne.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardOne.TabIndex = 2;
             this.pictureBoxConveyorBeltCardOne.TabStop = false;
+            this.pictureBoxConveyorBeltCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardThree
             // 
@@ -123,6 +127,8 @@
             this.pictureBoxConveyorBeltCardThree.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardThree.TabIndex = 3;
             this.pictureBoxConveyorBeltCardThree.TabStop = false;
+            this.pictureBoxConveyorBeltCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+
             // 
             // pictureBoxConveyorBeltCardTwo
             // 
@@ -132,6 +138,7 @@
             this.pictureBoxConveyorBeltCardTwo.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardTwo.TabIndex = 4;
             this.pictureBoxConveyorBeltCardTwo.TabStop = false;
+            this.pictureBoxConveyorBeltCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardSix
             // 
@@ -141,6 +148,7 @@
             this.pictureBoxConveyorBeltCardSix.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardSix.TabIndex = 8;
             this.pictureBoxConveyorBeltCardSix.TabStop = false;
+            this.pictureBoxConveyorBeltCardSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardSeven
             // 
@@ -150,6 +158,7 @@
             this.pictureBoxConveyorBeltCardSeven.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardSeven.TabIndex = 7;
             this.pictureBoxConveyorBeltCardSeven.TabStop = false;
+            this.pictureBoxConveyorBeltCardSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardFive
             // 
@@ -159,6 +168,7 @@
             this.pictureBoxConveyorBeltCardFive.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardFive.TabIndex = 6;
             this.pictureBoxConveyorBeltCardFive.TabStop = false;
+            this.pictureBoxConveyorBeltCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardFour
             // 
@@ -168,6 +178,7 @@
             this.pictureBoxConveyorBeltCardFour.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxConveyorBeltCardFour.TabIndex = 5;
             this.pictureBoxConveyorBeltCardFour.TabStop = false;
+            this.pictureBoxConveyorBeltCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardThree
             // 
@@ -177,6 +188,7 @@
             this.pictureBoxPlayerTwoCardThree.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerTwoCardThree.TabIndex = 25;
             this.pictureBoxPlayerTwoCardThree.TabStop = false;
+            this.pictureBoxPlayerTwoCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardFour
             // 
@@ -186,6 +198,7 @@
             this.pictureBoxPlayerTwoCardFour.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerTwoCardFour.TabIndex = 24;
             this.pictureBoxPlayerTwoCardFour.TabStop = false;
+            this.pictureBoxPlayerTwoCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardTwo
             // 
@@ -195,6 +208,7 @@
             this.pictureBoxPlayerTwoCardTwo.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerTwoCardTwo.TabIndex = 23;
             this.pictureBoxPlayerTwoCardTwo.TabStop = false;
+            this.pictureBoxPlayerTwoCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardOne
             // 
@@ -204,6 +218,7 @@
             this.pictureBoxPlayerTwoCardOne.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerTwoCardOne.TabIndex = 22;
             this.pictureBoxPlayerTwoCardOne.TabStop = false;
+            this.pictureBoxPlayerTwoCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxDiscardTwo
             // 
@@ -233,6 +248,7 @@
             // 
             // panelPlayTwo
             // 
+            this.panelPlayTwo.Controls.Add(this.buttonStartAuctionTwo);
             this.panelPlayTwo.Controls.Add(this.labelChiefMechanicTwo);
             this.panelPlayTwo.Controls.Add(this.labelPlayerTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxDiscardTwo);
@@ -247,6 +263,28 @@
             this.panelPlayTwo.TabIndex = 26;
             this.panelPlayTwo.Visible = false;
             // 
+            // buttonStartAuctionTwo
+            // 
+            this.buttonStartAuctionTwo.Location = new System.Drawing.Point(318, 286);
+            this.buttonStartAuctionTwo.Name = "buttonStartAuctionTwo";
+            this.buttonStartAuctionTwo.Size = new System.Drawing.Size(171, 70);
+            this.buttonStartAuctionTwo.TabIndex = 29;
+            this.buttonStartAuctionTwo.Text = "Start Auction";
+            this.buttonStartAuctionTwo.UseVisualStyleBackColor = true;
+            this.buttonStartAuctionTwo.Visible = false;
+            this.buttonStartAuctionTwo.Click += new System.EventHandler(this.buttonStartAuctionTwo_Click);
+            // 
+            // labelChiefMechanicTwo
+            // 
+            this.labelChiefMechanicTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(651, 286);
+            this.labelChiefMechanicTwo.Name = "labelChiefMechanicTwo";
+            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicTwo.TabIndex = 26;
+            this.labelChiefMechanicTwo.Text = "CM";
+            this.labelChiefMechanicTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicTwo.Visible = false;
+            // 
             // panelOperations
             // 
             this.panelOperations.Controls.Add(this.buttonReset);
@@ -256,8 +294,20 @@
             this.panelOperations.Size = new System.Drawing.Size(226, 950);
             this.panelOperations.TabIndex = 27;
             // 
+            // buttonReset
+            // 
+            this.buttonReset.AutoSize = true;
+            this.buttonReset.Location = new System.Drawing.Point(55, 103);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(87, 37);
+            this.buttonReset.TabIndex = 2;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // panelPlayerOne
             // 
+            this.panelPlayerOne.Controls.Add(this.buttonStartAuctionOne);
             this.panelPlayerOne.Controls.Add(this.labelChiefMechanicOne);
             this.panelPlayerOne.Controls.Add(this.labelPlayerOne);
             this.panelPlayerOne.Controls.Add(this.pictureBoxDiscardPileOne);
@@ -271,6 +321,28 @@
             this.panelPlayerOne.Size = new System.Drawing.Size(1178, 378);
             this.panelPlayerOne.TabIndex = 27;
             this.panelPlayerOne.Visible = false;
+            // 
+            // buttonStartAuctionOne
+            // 
+            this.buttonStartAuctionOne.Location = new System.Drawing.Point(318, 20);
+            this.buttonStartAuctionOne.Name = "buttonStartAuctionOne";
+            this.buttonStartAuctionOne.Size = new System.Drawing.Size(171, 70);
+            this.buttonStartAuctionOne.TabIndex = 28;
+            this.buttonStartAuctionOne.Text = "Start Auction";
+            this.buttonStartAuctionOne.UseVisualStyleBackColor = true;
+            this.buttonStartAuctionOne.Visible = false;
+            this.buttonStartAuctionOne.Click += new System.EventHandler(this.buttonStartAuctionOne_Click);
+            // 
+            // labelChiefMechanicOne
+            // 
+            this.labelChiefMechanicOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicOne.Location = new System.Drawing.Point(651, 20);
+            this.labelChiefMechanicOne.Name = "labelChiefMechanicOne";
+            this.labelChiefMechanicOne.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicOne.TabIndex = 27;
+            this.labelChiefMechanicOne.Text = "CM";
+            this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicOne.Visible = false;
             // 
             // labelPlayerOne
             // 
@@ -297,6 +369,7 @@
             this.pictureBoxPlayerOneCardThree.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerOneCardThree.TabIndex = 25;
             this.pictureBoxPlayerOneCardThree.TabStop = false;
+            this.pictureBoxPlayerOneCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxProductionUnitOne
             // 
@@ -315,6 +388,7 @@
             this.pictureBoxPlayerOneCardFour.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerOneCardFour.TabIndex = 24;
             this.pictureBoxPlayerOneCardFour.TabStop = false;
+            this.pictureBoxPlayerOneCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerOneCardTwo
             // 
@@ -324,6 +398,7 @@
             this.pictureBoxPlayerOneCardTwo.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerOneCardTwo.TabIndex = 23;
             this.pictureBoxPlayerOneCardTwo.TabStop = false;
+            this.pictureBoxPlayerOneCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerOneCardOne
             // 
@@ -333,6 +408,7 @@
             this.pictureBoxPlayerOneCardOne.Size = new System.Drawing.Size(50, 70);
             this.pictureBoxPlayerOneCardOne.TabIndex = 22;
             this.pictureBoxPlayerOneCardOne.TabStop = false;
+            this.pictureBoxPlayerOneCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // panelConveyorBelt
             // 
@@ -357,41 +433,9 @@
             this.pictureBoxConveyorBeltCardEight.Location = new System.Drawing.Point(924, 60);
             this.pictureBoxConveyorBeltCardEight.Name = "pictureBoxConveyorBeltCardEight";
             this.pictureBoxConveyorBeltCardEight.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardEight.TabIndex = 9;
             this.pictureBoxConveyorBeltCardEight.TabStop = false;
-            // 
-            // labelChiefMechanicTwo
-            // 
-            this.labelChiefMechanicTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(651, 286);
-            this.labelChiefMechanicTwo.Name = "labelChiefMechanicTwo";
-            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(50, 70);
-            this.labelChiefMechanicTwo.TabIndex = 26;
-            this.labelChiefMechanicTwo.Text = "CM";
-            this.labelChiefMechanicTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicTwo.Visible = false;
-            // 
-            // labelChiefMechanicOne
-            // 
-            this.labelChiefMechanicOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicOne.Location = new System.Drawing.Point(651, 20);
-            this.labelChiefMechanicOne.Name = "labelChiefMechanicOne";
-            this.labelChiefMechanicOne.Size = new System.Drawing.Size(50, 70);
-            this.labelChiefMechanicOne.TabIndex = 27;
-            this.labelChiefMechanicOne.Text = "CM";
-            this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicOne.Visible = false;
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.AutoSize = true;
-            this.buttonReset.Location = new System.Drawing.Point(55, 103);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(87, 37);
-            this.buttonReset.TabIndex = 2;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // FormFzzztGame
             // 
@@ -470,6 +514,7 @@
         private System.Windows.Forms.Label labelChiefMechanicTwo;
         private System.Windows.Forms.Label labelChiefMechanicOne;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonStartAuctionTwo;
+        private System.Windows.Forms.Button buttonStartAuctionOne;
     }
 }
-
