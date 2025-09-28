@@ -31,10 +31,19 @@ namespace fzzzt_game
             panelPlayTwo.Visible = true;
             buttonStartGame.Enabled = false;
             engine.StartGame();
+            PickChiefMechanic();
+        }
+
+        /// <summary>
+        /// Updates the UI to reflect the selected chief mechanic.
+        /// </summary>
+        private void PickChiefMechanic()
+        {
             if (engine.GetChiefMechanic() == 1)
             {
                 labelChiefMechanicOne.Visible = true;
                 buttonStartAuctionOne.Visible = true;
+                return;
             }
             if (engine.GetChiefMechanic() == 2)
             {
