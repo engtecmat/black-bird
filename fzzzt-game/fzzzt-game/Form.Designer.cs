@@ -90,20 +90,22 @@
             // 
             // pictureBoxConveyorBeltDeck
             // 
-            this.pictureBoxConveyorBeltDeck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltDeck.Location = new System.Drawing.Point(244, 60);
+            this.pictureBoxConveyorBeltDeck.Location = new System.Drawing.Point(109, 21);
+            this.pictureBoxConveyorBeltDeck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltDeck.Name = "pictureBoxConveyorBeltDeck";
-            this.pictureBoxConveyorBeltDeck.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltDeck.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltDeck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltDeck.TabIndex = 0;
             this.pictureBoxConveyorBeltDeck.TabStop = false;
-            this.pictureBoxConveyorBeltDeck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // buttonStartGame
             // 
             this.buttonStartGame.AutoSize = true;
-            this.buttonStartGame.Location = new System.Drawing.Point(55, 34);
+            this.buttonStartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStartGame.Location = new System.Drawing.Point(28, 425);
+            this.buttonStartGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStartGame.Name = "buttonStartGame";
-            this.buttonStartGame.Size = new System.Drawing.Size(87, 37);
+            this.buttonStartGame.Size = new System.Drawing.Size(100, 60);
             this.buttonStartGame.TabIndex = 1;
             this.buttonStartGame.Text = "Start";
             this.buttonStartGame.UseVisualStyleBackColor = true;
@@ -111,138 +113,140 @@
             // 
             // pictureBoxConveyorBeltCardOne
             // 
-            this.pictureBoxConveyorBeltCardOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardOne.Location = new System.Drawing.Point(329, 60);
+            this.pictureBoxConveyorBeltCardOne.Location = new System.Drawing.Point(224, 21);
+            this.pictureBoxConveyorBeltCardOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardOne.Name = "pictureBoxConveyorBeltCardOne";
-            this.pictureBoxConveyorBeltCardOne.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardOne.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardOne.TabIndex = 2;
             this.pictureBoxConveyorBeltCardOne.TabStop = false;
-            this.pictureBoxConveyorBeltCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardThree
             // 
-            this.pictureBoxConveyorBeltCardThree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardThree.Location = new System.Drawing.Point(499, 60);
+            this.pictureBoxConveyorBeltCardThree.Location = new System.Drawing.Point(454, 21);
+            this.pictureBoxConveyorBeltCardThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardThree.Name = "pictureBoxConveyorBeltCardThree";
-            this.pictureBoxConveyorBeltCardThree.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardThree.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardThree.TabIndex = 3;
             this.pictureBoxConveyorBeltCardThree.TabStop = false;
-            this.pictureBoxConveyorBeltCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-
             // 
             // pictureBoxConveyorBeltCardTwo
             // 
-            this.pictureBoxConveyorBeltCardTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardTwo.Location = new System.Drawing.Point(414, 60);
+            this.pictureBoxConveyorBeltCardTwo.Location = new System.Drawing.Point(339, 21);
+            this.pictureBoxConveyorBeltCardTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardTwo.Name = "pictureBoxConveyorBeltCardTwo";
-            this.pictureBoxConveyorBeltCardTwo.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardTwo.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardTwo.TabIndex = 4;
             this.pictureBoxConveyorBeltCardTwo.TabStop = false;
-            this.pictureBoxConveyorBeltCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardSix
             // 
-            this.pictureBoxConveyorBeltCardSix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardSix.Location = new System.Drawing.Point(754, 60);
+            this.pictureBoxConveyorBeltCardSix.Location = new System.Drawing.Point(799, 21);
+            this.pictureBoxConveyorBeltCardSix.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardSix.Name = "pictureBoxConveyorBeltCardSix";
-            this.pictureBoxConveyorBeltCardSix.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardSix.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardSix.TabIndex = 8;
             this.pictureBoxConveyorBeltCardSix.TabStop = false;
-            this.pictureBoxConveyorBeltCardSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardSeven
             // 
-            this.pictureBoxConveyorBeltCardSeven.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardSeven.Location = new System.Drawing.Point(839, 60);
+            this.pictureBoxConveyorBeltCardSeven.Location = new System.Drawing.Point(914, 21);
+            this.pictureBoxConveyorBeltCardSeven.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardSeven.Name = "pictureBoxConveyorBeltCardSeven";
-            this.pictureBoxConveyorBeltCardSeven.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardSeven.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardSeven.TabIndex = 7;
             this.pictureBoxConveyorBeltCardSeven.TabStop = false;
-            this.pictureBoxConveyorBeltCardSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardFive
             // 
-            this.pictureBoxConveyorBeltCardFive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardFive.Location = new System.Drawing.Point(669, 60);
+            this.pictureBoxConveyorBeltCardFive.Location = new System.Drawing.Point(684, 21);
+            this.pictureBoxConveyorBeltCardFive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardFive.Name = "pictureBoxConveyorBeltCardFive";
-            this.pictureBoxConveyorBeltCardFive.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardFive.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardFive.TabIndex = 6;
             this.pictureBoxConveyorBeltCardFive.TabStop = false;
-            this.pictureBoxConveyorBeltCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxConveyorBeltCardFour
             // 
-            this.pictureBoxConveyorBeltCardFour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardFour.Location = new System.Drawing.Point(584, 60);
+            this.pictureBoxConveyorBeltCardFour.Location = new System.Drawing.Point(569, 21);
+            this.pictureBoxConveyorBeltCardFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardFour.Name = "pictureBoxConveyorBeltCardFour";
-            this.pictureBoxConveyorBeltCardFour.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardFour.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardFour.TabIndex = 5;
             this.pictureBoxConveyorBeltCardFour.TabStop = false;
-            this.pictureBoxConveyorBeltCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardThree
             // 
-            this.pictureBoxPlayerTwoCardThree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerTwoCardThree.Location = new System.Drawing.Point(584, 157);
+            this.pictureBoxPlayerTwoCardThree.Location = new System.Drawing.Point(599, 151);
+            this.pictureBoxPlayerTwoCardThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerTwoCardThree.Name = "pictureBoxPlayerTwoCardThree";
-            this.pictureBoxPlayerTwoCardThree.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerTwoCardThree.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTwoCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerTwoCardThree.TabIndex = 25;
             this.pictureBoxPlayerTwoCardThree.TabStop = false;
-            this.pictureBoxPlayerTwoCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardFour
             // 
-            this.pictureBoxPlayerTwoCardFour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerTwoCardFour.Location = new System.Drawing.Point(670, 157);
+            this.pictureBoxPlayerTwoCardFour.Location = new System.Drawing.Point(721, 151);
+            this.pictureBoxPlayerTwoCardFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerTwoCardFour.Name = "pictureBoxPlayerTwoCardFour";
-            this.pictureBoxPlayerTwoCardFour.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerTwoCardFour.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTwoCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerTwoCardFour.TabIndex = 24;
             this.pictureBoxPlayerTwoCardFour.TabStop = false;
-            this.pictureBoxPlayerTwoCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardTwo
             // 
-            this.pictureBoxPlayerTwoCardTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerTwoCardTwo.Location = new System.Drawing.Point(498, 157);
+            this.pictureBoxPlayerTwoCardTwo.Location = new System.Drawing.Point(475, 151);
+            this.pictureBoxPlayerTwoCardTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerTwoCardTwo.Name = "pictureBoxPlayerTwoCardTwo";
-            this.pictureBoxPlayerTwoCardTwo.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerTwoCardTwo.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTwoCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerTwoCardTwo.TabIndex = 23;
             this.pictureBoxPlayerTwoCardTwo.TabStop = false;
-            this.pictureBoxPlayerTwoCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerTwoCardOne
             // 
-            this.pictureBoxPlayerTwoCardOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerTwoCardOne.Location = new System.Drawing.Point(412, 157);
+            this.pictureBoxPlayerTwoCardOne.Location = new System.Drawing.Point(352, 151);
+            this.pictureBoxPlayerTwoCardOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerTwoCardOne.Name = "pictureBoxPlayerTwoCardOne";
-            this.pictureBoxPlayerTwoCardOne.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerTwoCardOne.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTwoCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerTwoCardOne.TabIndex = 22;
             this.pictureBoxPlayerTwoCardOne.TabStop = false;
-            this.pictureBoxPlayerTwoCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxDiscardTwo
             // 
             this.pictureBoxDiscardTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDiscardTwo.Location = new System.Drawing.Point(1006, 286);
+            this.pictureBoxDiscardTwo.Location = new System.Drawing.Point(1167, 337);
+            this.pictureBoxDiscardTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxDiscardTwo.Name = "pictureBoxDiscardTwo";
-            this.pictureBoxDiscardTwo.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxDiscardTwo.Size = new System.Drawing.Size(26, 37);
             this.pictureBoxDiscardTwo.TabIndex = 21;
             this.pictureBoxDiscardTwo.TabStop = false;
             // 
             // labelPlayerTwo
             // 
             this.labelPlayerTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPlayerTwo.Location = new System.Drawing.Point(495, 286);
+            this.labelPlayerTwo.Location = new System.Drawing.Point(553, 337);
+            this.labelPlayerTwo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerTwo.Name = "labelPlayerTwo";
-            this.labelPlayerTwo.Size = new System.Drawing.Size(150, 70);
+            this.labelPlayerTwo.Size = new System.Drawing.Size(76, 37);
             this.labelPlayerTwo.TabIndex = 20;
             // 
             // pictureBoxProductionUnitTwo
             // 
             this.pictureBoxProductionUnitTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxProductionUnitTwo.Location = new System.Drawing.Point(84, 286);
+            this.pictureBoxProductionUnitTwo.Location = new System.Drawing.Point(55, 337);
+            this.pictureBoxProductionUnitTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxProductionUnitTwo.Name = "pictureBoxProductionUnitTwo";
-            this.pictureBoxProductionUnitTwo.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxProductionUnitTwo.Size = new System.Drawing.Size(26, 37);
             this.pictureBoxProductionUnitTwo.TabIndex = 19;
             this.pictureBoxProductionUnitTwo.TabStop = false;
             // 
@@ -257,17 +261,20 @@
             this.panelPlayTwo.Controls.Add(this.pictureBoxPlayerTwoCardFour);
             this.panelPlayTwo.Controls.Add(this.pictureBoxPlayerTwoCardTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxPlayerTwoCardOne);
-            this.panelPlayTwo.Location = new System.Drawing.Point(232, 572);
+            this.panelPlayTwo.Location = new System.Drawing.Point(169, 586);
+            this.panelPlayTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPlayTwo.Name = "panelPlayTwo";
-            this.panelPlayTwo.Size = new System.Drawing.Size(1178, 378);
+            this.panelPlayTwo.Size = new System.Drawing.Size(1253, 400);
             this.panelPlayTwo.TabIndex = 26;
             this.panelPlayTwo.Visible = false;
             // 
             // buttonStartAuctionTwo
             // 
-            this.buttonStartAuctionTwo.Location = new System.Drawing.Point(318, 286);
+            this.buttonStartAuctionTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStartAuctionTwo.Location = new System.Drawing.Point(366, 338);
+            this.buttonStartAuctionTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStartAuctionTwo.Name = "buttonStartAuctionTwo";
-            this.buttonStartAuctionTwo.Size = new System.Drawing.Size(171, 70);
+            this.buttonStartAuctionTwo.Size = new System.Drawing.Size(86, 36);
             this.buttonStartAuctionTwo.TabIndex = 29;
             this.buttonStartAuctionTwo.Text = "Start Auction";
             this.buttonStartAuctionTwo.UseVisualStyleBackColor = true;
@@ -277,9 +284,11 @@
             // labelChiefMechanicTwo
             // 
             this.labelChiefMechanicTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(651, 286);
+            this.labelChiefMechanicTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(730, 337);
+            this.labelChiefMechanicTwo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelChiefMechanicTwo.Name = "labelChiefMechanicTwo";
-            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(26, 37);
             this.labelChiefMechanicTwo.TabIndex = 26;
             this.labelChiefMechanicTwo.Text = "CM";
             this.labelChiefMechanicTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,16 +299,19 @@
             this.panelOperations.Controls.Add(this.buttonReset);
             this.panelOperations.Controls.Add(this.buttonStartGame);
             this.panelOperations.Location = new System.Drawing.Point(0, 0);
+            this.panelOperations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelOperations.Name = "panelOperations";
-            this.panelOperations.Size = new System.Drawing.Size(226, 950);
+            this.panelOperations.Size = new System.Drawing.Size(165, 983);
             this.panelOperations.TabIndex = 27;
             // 
             // buttonReset
             // 
             this.buttonReset.AutoSize = true;
-            this.buttonReset.Location = new System.Drawing.Point(55, 103);
+            this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReset.Location = new System.Drawing.Point(28, 517);
+            this.buttonReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(87, 37);
+            this.buttonReset.Size = new System.Drawing.Size(100, 60);
             this.buttonReset.TabIndex = 2;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -316,17 +328,20 @@
             this.panelPlayerOne.Controls.Add(this.pictureBoxPlayerOneCardFour);
             this.panelPlayerOne.Controls.Add(this.pictureBoxPlayerOneCardTwo);
             this.panelPlayerOne.Controls.Add(this.pictureBoxPlayerOneCardOne);
-            this.panelPlayerOne.Location = new System.Drawing.Point(232, 0);
+            this.panelPlayerOne.Location = new System.Drawing.Point(169, 0);
+            this.panelPlayerOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPlayerOne.Name = "panelPlayerOne";
-            this.panelPlayerOne.Size = new System.Drawing.Size(1178, 378);
+            this.panelPlayerOne.Size = new System.Drawing.Size(1253, 400);
             this.panelPlayerOne.TabIndex = 27;
             this.panelPlayerOne.Visible = false;
             // 
             // buttonStartAuctionOne
             // 
-            this.buttonStartAuctionOne.Location = new System.Drawing.Point(318, 20);
+            this.buttonStartAuctionOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStartAuctionOne.Location = new System.Drawing.Point(366, 18);
+            this.buttonStartAuctionOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStartAuctionOne.Name = "buttonStartAuctionOne";
-            this.buttonStartAuctionOne.Size = new System.Drawing.Size(171, 70);
+            this.buttonStartAuctionOne.Size = new System.Drawing.Size(86, 36);
             this.buttonStartAuctionOne.TabIndex = 28;
             this.buttonStartAuctionOne.Text = "Start Auction";
             this.buttonStartAuctionOne.UseVisualStyleBackColor = true;
@@ -336,9 +351,11 @@
             // labelChiefMechanicOne
             // 
             this.labelChiefMechanicOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicOne.Location = new System.Drawing.Point(651, 20);
+            this.labelChiefMechanicOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChiefMechanicOne.Location = new System.Drawing.Point(730, 16);
+            this.labelChiefMechanicOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelChiefMechanicOne.Name = "labelChiefMechanicOne";
-            this.labelChiefMechanicOne.Size = new System.Drawing.Size(50, 70);
+            this.labelChiefMechanicOne.Size = new System.Drawing.Size(26, 37);
             this.labelChiefMechanicOne.TabIndex = 27;
             this.labelChiefMechanicOne.Text = "CM";
             this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -347,68 +364,71 @@
             // labelPlayerOne
             // 
             this.labelPlayerOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPlayerOne.Location = new System.Drawing.Point(495, 20);
+            this.labelPlayerOne.Location = new System.Drawing.Point(553, 17);
+            this.labelPlayerOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerOne.Name = "labelPlayerOne";
-            this.labelPlayerOne.Size = new System.Drawing.Size(150, 70);
+            this.labelPlayerOne.Size = new System.Drawing.Size(76, 37);
             this.labelPlayerOne.TabIndex = 20;
             // 
             // pictureBoxDiscardPileOne
             // 
             this.pictureBoxDiscardPileOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDiscardPileOne.Location = new System.Drawing.Point(1006, 20);
+            this.pictureBoxDiscardPileOne.Location = new System.Drawing.Point(1167, 18);
+            this.pictureBoxDiscardPileOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxDiscardPileOne.Name = "pictureBoxDiscardPileOne";
-            this.pictureBoxDiscardPileOne.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxDiscardPileOne.Size = new System.Drawing.Size(26, 37);
             this.pictureBoxDiscardPileOne.TabIndex = 21;
             this.pictureBoxDiscardPileOne.TabStop = false;
             // 
             // pictureBoxPlayerOneCardThree
             // 
-            this.pictureBoxPlayerOneCardThree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerOneCardThree.Location = new System.Drawing.Point(584, 157);
+            this.pictureBoxPlayerOneCardThree.Location = new System.Drawing.Point(598, 84);
+            this.pictureBoxPlayerOneCardThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerOneCardThree.Name = "pictureBoxPlayerOneCardThree";
-            this.pictureBoxPlayerOneCardThree.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerOneCardThree.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerOneCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerOneCardThree.TabIndex = 25;
             this.pictureBoxPlayerOneCardThree.TabStop = false;
-            this.pictureBoxPlayerOneCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxProductionUnitOne
             // 
             this.pictureBoxProductionUnitOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxProductionUnitOne.Location = new System.Drawing.Point(84, 20);
+            this.pictureBoxProductionUnitOne.Location = new System.Drawing.Point(55, 17);
+            this.pictureBoxProductionUnitOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxProductionUnitOne.Name = "pictureBoxProductionUnitOne";
-            this.pictureBoxProductionUnitOne.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxProductionUnitOne.Size = new System.Drawing.Size(26, 37);
             this.pictureBoxProductionUnitOne.TabIndex = 19;
             this.pictureBoxProductionUnitOne.TabStop = false;
             // 
             // pictureBoxPlayerOneCardFour
             // 
-            this.pictureBoxPlayerOneCardFour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerOneCardFour.Location = new System.Drawing.Point(670, 157);
+            this.pictureBoxPlayerOneCardFour.Location = new System.Drawing.Point(721, 84);
+            this.pictureBoxPlayerOneCardFour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerOneCardFour.Name = "pictureBoxPlayerOneCardFour";
-            this.pictureBoxPlayerOneCardFour.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerOneCardFour.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerOneCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerOneCardFour.TabIndex = 24;
             this.pictureBoxPlayerOneCardFour.TabStop = false;
-            this.pictureBoxPlayerOneCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerOneCardTwo
             // 
-            this.pictureBoxPlayerOneCardTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerOneCardTwo.Location = new System.Drawing.Point(498, 157);
+            this.pictureBoxPlayerOneCardTwo.Location = new System.Drawing.Point(475, 84);
+            this.pictureBoxPlayerOneCardTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerOneCardTwo.Name = "pictureBoxPlayerOneCardTwo";
-            this.pictureBoxPlayerOneCardTwo.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerOneCardTwo.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerOneCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerOneCardTwo.TabIndex = 23;
             this.pictureBoxPlayerOneCardTwo.TabStop = false;
-            this.pictureBoxPlayerOneCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // pictureBoxPlayerOneCardOne
             // 
-            this.pictureBoxPlayerOneCardOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPlayerOneCardOne.Location = new System.Drawing.Point(412, 157);
+            this.pictureBoxPlayerOneCardOne.Location = new System.Drawing.Point(352, 84);
+            this.pictureBoxPlayerOneCardOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxPlayerOneCardOne.Name = "pictureBoxPlayerOneCardOne";
-            this.pictureBoxPlayerOneCardOne.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxPlayerOneCardOne.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerOneCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPlayerOneCardOne.TabIndex = 22;
             this.pictureBoxPlayerOneCardOne.TabStop = false;
-            this.pictureBoxPlayerOneCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // panelConveyorBelt
             // 
@@ -421,31 +441,33 @@
             this.panelConveyorBelt.Controls.Add(this.pictureBoxConveyorBeltCardSeven);
             this.panelConveyorBelt.Controls.Add(this.pictureBoxConveyorBeltCardFour);
             this.panelConveyorBelt.Controls.Add(this.pictureBoxConveyorBeltCardFive);
-            this.panelConveyorBelt.Location = new System.Drawing.Point(232, 382);
+            this.panelConveyorBelt.Location = new System.Drawing.Point(169, 404);
+            this.panelConveyorBelt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelConveyorBelt.Name = "panelConveyorBelt";
-            this.panelConveyorBelt.Size = new System.Drawing.Size(1178, 190);
+            this.panelConveyorBelt.Size = new System.Drawing.Size(1253, 178);
             this.panelConveyorBelt.TabIndex = 28;
             this.panelConveyorBelt.Visible = false;
             // 
             // pictureBoxConveyorBeltCardEight
             // 
-            this.pictureBoxConveyorBeltCardEight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxConveyorBeltCardEight.Location = new System.Drawing.Point(924, 60);
+            this.pictureBoxConveyorBeltCardEight.Location = new System.Drawing.Point(1029, 21);
+            this.pictureBoxConveyorBeltCardEight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxConveyorBeltCardEight.Name = "pictureBoxConveyorBeltCardEight";
-            this.pictureBoxConveyorBeltCardEight.Size = new System.Drawing.Size(50, 70);
+            this.pictureBoxConveyorBeltCardEight.Size = new System.Drawing.Size(100, 140);
             this.pictureBoxConveyorBeltCardEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltCardEight.TabIndex = 9;
             this.pictureBoxConveyorBeltCardEight.TabStop = false;
             // 
             // FormFzzztGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 953);
+            this.ClientSize = new System.Drawing.Size(1424, 985);
             this.Controls.Add(this.panelConveyorBelt);
             this.Controls.Add(this.panelPlayerOne);
             this.Controls.Add(this.panelOperations);
             this.Controls.Add(this.panelPlayTwo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormFzzztGame";
