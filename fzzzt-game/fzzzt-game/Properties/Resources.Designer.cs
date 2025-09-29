@@ -63,9 +63,389 @@ namespace fzzzt_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fzzzt {
+            get {
+                object obj = ResourceManager.GetObject("Fzzzt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fzzzt_Card_Back {
             get {
                 object obj = ResourceManager.GetObject("Fzzzt_Card_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Bolt_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Bolt_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Bolt_Cog_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Bolt_Cog_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Bolt_Cog_Nut_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Bolt_Cog_Nut_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Bolt_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Bolt_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Bolt_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Bolt_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Cog_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Cog_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Cog_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Cog_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Nut_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Nut_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Production_Unit_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Production_Unit_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Five_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Five_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Five_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Five_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Five_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Five_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Five_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Five_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Four_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Four_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Four_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Four_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Four_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Four_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Four_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Four_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Bolt_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Bolt_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Cog_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Cog_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Cog_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Cog_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Cog_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Cog_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Nut_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Nut_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Nut_Bolt_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Nut_Bolt_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Nut_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Nut_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_One_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_One_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Three_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Three_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Three_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Three_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Three_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Three_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Three_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Three_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Two_Bolt {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Two_Bolt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Two_Cog {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Two_Cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Two_Nut {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Two_Nut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Power_Two_Oil {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Power_Two_Oil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Upgrade {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Upgrade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

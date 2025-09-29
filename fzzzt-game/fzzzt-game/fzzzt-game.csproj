@@ -95,5 +95,119 @@
   <ItemGroup>
     <None Include="Resources\Fzzzt_Card_Back.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Bolt_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Cog_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Cog_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Cog_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Nut_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Nut_Bolt_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Nut_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_One_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Five_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Five_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Five_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Five_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Four_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Four_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Four_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Four_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Three_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Three_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Three_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Three_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Two_Bolt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Two_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Two_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Power_Two_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Upgrade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fzzzt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Bolt_Cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Bolt_Cog_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Bolt_Cog_Nut_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Bolt_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Bolt_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Cog_Nut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Cog_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Nut_Oil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_Unit_Oil.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

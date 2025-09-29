@@ -118,7 +118,121 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Fzzzt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fzzzt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fzzzt_Card_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fzzzt_Card_Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Bolt_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Bolt_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Bolt_Cog_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Bolt_Cog_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Bolt_Cog_Nut_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Bolt_Cog_Nut_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Bolt_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Bolt_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Bolt_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Bolt_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Cog_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Cog_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Cog_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Cog_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Nut_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Nut_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Production_Unit_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Production_Unit_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Five_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Five_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Five_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Five_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Five_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Five_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Five_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Five_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Four_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Four_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Four_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Four_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Four_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Four_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Four_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Four_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Bolt_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Bolt_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Cog_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Cog_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Cog_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Cog_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Cog_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Cog_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Nut_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Nut_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Nut_Bolt_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Nut_Bolt_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Nut_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Nut_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_One_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_One_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Three_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Three_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Three_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Three_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Three_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Three_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Three_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Three_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Two_Bolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Two_Bolt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Two_Cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Two_Cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Two_Nut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Two_Nut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Power_Two_Oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Power_Two_Oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Upgrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Upgrade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
