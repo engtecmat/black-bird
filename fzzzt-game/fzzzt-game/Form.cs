@@ -8,7 +8,7 @@ namespace fzzzt_game
         /// <summary>
         /// the game engine instance
         /// </summary>
-        private FzzztGameEngine engine = new FzzztGameEngine();
+        private GameEngine engine = new GameEngine();
 
         public FormFzzztGame()
         {

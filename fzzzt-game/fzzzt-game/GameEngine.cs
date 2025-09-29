@@ -5,12 +5,13 @@ namespace fzzzt_game
     /// <summary>
     /// the core game engine for managing and running the Fzzzt game.
     /// </summary>
-    public class FzzztGameEngine
+    public class GameEngine
     {
         /// <summary>
         /// indicates whether the game has started.
         /// </summary>
-        private bool gameState = false;
+        private bool _gameState = false;
+
 
         /// <summary>
         /// determines the chief mechanic
@@ -27,7 +28,7 @@ namespace fzzzt_game
         /// <returns><see langword="true"/> if the game has started; otherwise, <see langword="false"/>.</returns>
         public bool IsGameStarted()
         {
-            return gameState;
+            return _gameState;
         }
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace fzzzt_game
         /// </summary>
         internal void ResetGame()
         {
-            gameState = false;
+            _gameState = false;
         }
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace fzzzt_game
         /// </summary>
         internal void StartGame()
         {
-            gameState = true;
+            _gameState = true;
         }
     }
 }
