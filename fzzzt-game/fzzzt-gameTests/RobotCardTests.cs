@@ -1,0 +1,34 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+
+namespace fzzzt_game.Tests
+{
+    [TestClass()]
+    public class RobotCardTests
+    {
+        [TestMethod()]
+        public void Test_RobotCard_1()
+        {
+            ISet<ConstructionSymbol> constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut };
+            RobotCard card = new RobotCard(null, 4, 2, 1, constructionSymbols);
+
+            Assert.AreEqual(4, card.GetConveyorBeltNumber());
+            Assert.AreEqual(2, card.GetPointValue());
+            Assert.AreEqual(1, card.GetPower());
+            Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());
+
+        }
+
+        [TestMethod()]
+        public void Test_RobotCard_2()
+        {
+            ISet<ConstructionSymbol> constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil };
+            RobotCard card = new RobotCard(null, 3, 1, 2, constructionSymbols);
+
+            Assert.AreEqual(3, card.GetConveyorBeltNumber());
+            Assert.AreEqual(1, card.GetPointValue());
+            Assert.AreEqual(2, card.GetPower());
+            Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());
+        }
+    }
+}

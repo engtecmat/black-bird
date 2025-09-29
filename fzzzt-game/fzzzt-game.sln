@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fzzzt-game", "fzzzt-game\fzzzt-game.csproj", "{618B563B-CA9F-4A4D-B522-41D3BE461AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fzzzt-gameTests", "fzzzt-gameTests\fzzzt-gameTests.csproj", "{3726DED1-CE0D-4E11-AC02-956886D94E9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{618B563B-CA9F-4A4D-B522-41D3BE461AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{618B563B-CA9F-4A4D-B522-41D3BE461AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{618B563B-CA9F-4A4D-B522-41D3BE461AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3726DED1-CE0D-4E11-AC02-956886D94E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3726DED1-CE0D-4E11-AC02-956886D94E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3726DED1-CE0D-4E11-AC02-956886D94E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3726DED1-CE0D-4E11-AC02-956886D94E9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
