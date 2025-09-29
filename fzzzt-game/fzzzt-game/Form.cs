@@ -84,7 +84,7 @@ namespace fzzzt_game
         private void PlaceDeckFaceDown()
         {
             
-            pictureBoxConveyorBeltDeck.Image = Properties.Resources.Fzzzt_Card_Back;
+            pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
 
             // conveyor belt
             pictureBoxConveyorBeltCardOne.Image = Properties.Resources.Fzzzt_Card_Back;
