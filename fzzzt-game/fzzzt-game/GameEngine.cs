@@ -24,12 +24,22 @@ namespace fzzzt_game
         private List<Player> _players = new List<Player>();
 
         /// <summary>
-        /// determines the chief mechanic
+        /// a random number generator for picking the chief mechanic
+        /// </summary>
+        private Random _random = new Random();
+
+        /// <summary>
+        /// the chief mechanic will be randomly picked in the beginning of the game
+        /// </summary>
+        private Player _chiefMechanic;
+
+        /// <summary>
+        /// return the player who is the chief mechanic
         /// </summary>
         /// <returns></returns>
-        public long GetChiefMechanic()
+        public Player GetChiefMechanic()
         {
-            return new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds() % 2 + 1;
+            return _chiefMechanic;
         }
 
         /// <summary>
@@ -132,8 +142,18 @@ namespace fzzzt_game
             _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Nut }));
             _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
 
-            _players.Add(new Player("Player 1"));
-            _players.Add(new Player("Player 2"));
+            _players.Add(new Player("Player 1", Position.Top));
+            _players.Add(new Player("Player 2", Position.Bottom));
+
+            PickChiefMechanic();
+        }
+
+        /// <summary>
+        /// pick the chief mechanic
+        /// </summary>
+        private void PickChiefMechanic()
+        {
+            _chiefMechanic = _players[_random.Next() % 2];
         }
 
         /// <summary>

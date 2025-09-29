@@ -45,13 +45,13 @@
             this.labelPlayerTwo = new System.Windows.Forms.Label();
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelPlayTwo = new System.Windows.Forms.Panel();
-            this.buttonStartAuctionTwo = new System.Windows.Forms.Button();
-            this.labelChiefMechanicTwo = new System.Windows.Forms.Label();
+            this.buttonStartAuctionBottom = new System.Windows.Forms.Button();
+            this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
             this.panelOperations = new System.Windows.Forms.Panel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.panelPlayerOne = new System.Windows.Forms.Panel();
-            this.buttonStartAuctionOne = new System.Windows.Forms.Button();
-            this.labelChiefMechanicOne = new System.Windows.Forms.Label();
+            this.buttonStartAuctionTop = new System.Windows.Forms.Button();
+            this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.labelPlayerOne = new System.Windows.Forms.Label();
             this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerOneCardThree = new System.Windows.Forms.PictureBox();
@@ -252,8 +252,8 @@
             // 
             // panelPlayTwo
             // 
-            this.panelPlayTwo.Controls.Add(this.buttonStartAuctionTwo);
-            this.panelPlayTwo.Controls.Add(this.labelChiefMechanicTwo);
+            this.panelPlayTwo.Controls.Add(this.buttonStartAuctionBottom);
+            this.panelPlayTwo.Controls.Add(this.labelChiefMechanicBottom);
             this.panelPlayTwo.Controls.Add(this.labelPlayerTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxDiscardTwo);
             this.panelPlayTwo.Controls.Add(this.pictureBoxPlayerTwoCardThree);
@@ -270,29 +270,29 @@
             // 
             // buttonStartAuctionTwo
             // 
-            this.buttonStartAuctionTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStartAuctionTwo.Location = new System.Drawing.Point(366, 338);
-            this.buttonStartAuctionTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonStartAuctionTwo.Name = "buttonStartAuctionTwo";
-            this.buttonStartAuctionTwo.Size = new System.Drawing.Size(86, 36);
-            this.buttonStartAuctionTwo.TabIndex = 29;
-            this.buttonStartAuctionTwo.Text = "Start Auction";
-            this.buttonStartAuctionTwo.UseVisualStyleBackColor = true;
-            this.buttonStartAuctionTwo.Visible = false;
-            this.buttonStartAuctionTwo.Click += new System.EventHandler(this.buttonStartAuctionTwo_Click);
+            this.buttonStartAuctionBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStartAuctionBottom.Location = new System.Drawing.Point(366, 338);
+            this.buttonStartAuctionBottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonStartAuctionBottom.Name = "buttonStartAuctionTwo";
+            this.buttonStartAuctionBottom.Size = new System.Drawing.Size(86, 36);
+            this.buttonStartAuctionBottom.TabIndex = 29;
+            this.buttonStartAuctionBottom.Text = "Start Auction";
+            this.buttonStartAuctionBottom.UseVisualStyleBackColor = true;
+            this.buttonStartAuctionBottom.Visible = false;
+            this.buttonStartAuctionBottom.Click += new System.EventHandler(this.buttonStartAuctionTwo_Click);
             // 
             // labelChiefMechanicTwo
             // 
-            this.labelChiefMechanicTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChiefMechanicTwo.Location = new System.Drawing.Point(730, 337);
-            this.labelChiefMechanicTwo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelChiefMechanicTwo.Name = "labelChiefMechanicTwo";
-            this.labelChiefMechanicTwo.Size = new System.Drawing.Size(26, 37);
-            this.labelChiefMechanicTwo.TabIndex = 26;
-            this.labelChiefMechanicTwo.Text = "CM";
-            this.labelChiefMechanicTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicTwo.Visible = false;
+            this.labelChiefMechanicBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChiefMechanicBottom.Location = new System.Drawing.Point(730, 337);
+            this.labelChiefMechanicBottom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelChiefMechanicBottom.Name = "labelChiefMechanicTwo";
+            this.labelChiefMechanicBottom.Size = new System.Drawing.Size(26, 37);
+            this.labelChiefMechanicBottom.TabIndex = 26;
+            this.labelChiefMechanicBottom.Text = "CM";
+            this.labelChiefMechanicBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicBottom.Visible = false;
             // 
             // panelOperations
             // 
@@ -319,8 +319,8 @@
             // 
             // panelPlayerOne
             // 
-            this.panelPlayerOne.Controls.Add(this.buttonStartAuctionOne);
-            this.panelPlayerOne.Controls.Add(this.labelChiefMechanicOne);
+            this.panelPlayerOne.Controls.Add(this.buttonStartAuctionTop);
+            this.panelPlayerOne.Controls.Add(this.labelChiefMechanicTop);
             this.panelPlayerOne.Controls.Add(this.labelPlayerOne);
             this.panelPlayerOne.Controls.Add(this.pictureBoxDiscardPileOne);
             this.panelPlayerOne.Controls.Add(this.pictureBoxPlayerOneCardThree);
@@ -337,29 +337,29 @@
             // 
             // buttonStartAuctionOne
             // 
-            this.buttonStartAuctionOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStartAuctionOne.Location = new System.Drawing.Point(366, 18);
-            this.buttonStartAuctionOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonStartAuctionOne.Name = "buttonStartAuctionOne";
-            this.buttonStartAuctionOne.Size = new System.Drawing.Size(86, 36);
-            this.buttonStartAuctionOne.TabIndex = 28;
-            this.buttonStartAuctionOne.Text = "Start Auction";
-            this.buttonStartAuctionOne.UseVisualStyleBackColor = true;
-            this.buttonStartAuctionOne.Visible = false;
-            this.buttonStartAuctionOne.Click += new System.EventHandler(this.buttonStartAuctionOne_Click);
+            this.buttonStartAuctionTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStartAuctionTop.Location = new System.Drawing.Point(366, 18);
+            this.buttonStartAuctionTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonStartAuctionTop.Name = "buttonStartAuctionOne";
+            this.buttonStartAuctionTop.Size = new System.Drawing.Size(86, 36);
+            this.buttonStartAuctionTop.TabIndex = 28;
+            this.buttonStartAuctionTop.Text = "Start Auction";
+            this.buttonStartAuctionTop.UseVisualStyleBackColor = true;
+            this.buttonStartAuctionTop.Visible = false;
+            this.buttonStartAuctionTop.Click += new System.EventHandler(this.buttonStartAuctionOne_Click);
             // 
             // labelChiefMechanicOne
             // 
-            this.labelChiefMechanicOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChiefMechanicOne.Location = new System.Drawing.Point(730, 16);
-            this.labelChiefMechanicOne.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelChiefMechanicOne.Name = "labelChiefMechanicOne";
-            this.labelChiefMechanicOne.Size = new System.Drawing.Size(26, 37);
-            this.labelChiefMechanicOne.TabIndex = 27;
-            this.labelChiefMechanicOne.Text = "CM";
-            this.labelChiefMechanicOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicOne.Visible = false;
+            this.labelChiefMechanicTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelChiefMechanicTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChiefMechanicTop.Location = new System.Drawing.Point(730, 16);
+            this.labelChiefMechanicTop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelChiefMechanicTop.Name = "labelChiefMechanicOne";
+            this.labelChiefMechanicTop.Size = new System.Drawing.Size(26, 37);
+            this.labelChiefMechanicTop.TabIndex = 27;
+            this.labelChiefMechanicTop.Text = "CM";
+            this.labelChiefMechanicTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChiefMechanicTop.Visible = false;
             // 
             // labelPlayerOne
             // 
@@ -533,10 +533,10 @@
         private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardOne;
         private System.Windows.Forms.Panel panelConveyorBelt;
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardEight;
-        private System.Windows.Forms.Label labelChiefMechanicTwo;
-        private System.Windows.Forms.Label labelChiefMechanicOne;
+        private System.Windows.Forms.Label labelChiefMechanicBottom;
+        private System.Windows.Forms.Label labelChiefMechanicTop;
         private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button buttonStartAuctionTwo;
-        private System.Windows.Forms.Button buttonStartAuctionOne;
+        private System.Windows.Forms.Button buttonStartAuctionBottom;
+        private System.Windows.Forms.Button buttonStartAuctionTop;
     }
 }

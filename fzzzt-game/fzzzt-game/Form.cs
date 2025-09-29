@@ -31,24 +31,25 @@ namespace fzzzt_game
             panelPlayTwo.Visible = true;
             buttonStartGame.Enabled = false;
             engine.StartGame();
-            PickChiefMechanic();
+            EnpowerChiefMechanic();
         }
 
         /// <summary>
         /// Updates the UI to reflect the selected chief mechanic.
         /// </summary>
-        private void PickChiefMechanic()
+        private void EnpowerChiefMechanic()
         {
-            if (engine.GetChiefMechanic() == 1)
+            Player chiefMechanic = engine.GetChiefMechanic();
+            if (chiefMechanic.AtTop())
             {
-                labelChiefMechanicOne.Visible = true;
-                buttonStartAuctionOne.Visible = true;
+                labelChiefMechanicTop.Visible = true;
+                buttonStartAuctionTop.Visible = true;
                 return;
             }
-            if (engine.GetChiefMechanic() == 2)
+            if (chiefMechanic.AtBottom())
             {
-                labelChiefMechanicTwo.Visible = true;
-                buttonStartAuctionTwo.Visible = true;
+                labelChiefMechanicBottom.Visible = true;
+                buttonStartAuctionBottom.Visible = true;
             }
         }
 
@@ -62,10 +63,10 @@ namespace fzzzt_game
             panelPlayerOne.Visible = false;
             panelConveyorBelt.Visible = false;
             panelPlayTwo.Visible = false;
-            labelChiefMechanicOne.Visible = false;
-            labelChiefMechanicTwo.Visible = false;
-            buttonStartAuctionTwo.Visible = false;
-            buttonStartAuctionOne.Visible = false;
+            labelChiefMechanicTop.Visible = false;
+            labelChiefMechanicBottom.Visible = false;
+            buttonStartAuctionBottom.Visible = false;
+            buttonStartAuctionTop.Visible = false;
             buttonStartGame.Enabled = true;
             engine.ResetGame();
         }
@@ -83,7 +84,7 @@ namespace fzzzt_game
         /// </summary>
         private void PlaceDeckFaceDown()
         {
-            
+
             pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
 
             // conveyor belt
