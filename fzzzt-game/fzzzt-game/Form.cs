@@ -132,7 +132,7 @@ namespace fzzzt_game
 
             // if no card is faced up and clickedCard is not the first card, do nothing
             Card clickedCard = ((Card)clickedPictureBox.Tag);
-            if (engine.GetFacedUpCardCount() == 0)
+            if (engine.GetAllowedFacedUpCardCount() == 0)
             {
                 if (!engine.IsFirstCardOnConveyorBelt(clickedCard))
                 {
@@ -148,7 +148,7 @@ namespace fzzzt_game
             if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
             {
                 // if face-up cards is less than or equal to the allowed count, then turn up the card
-                if(engine.GetFacedUpCards().Count <= engine.GetFacedUpCardCount())
+                if(engine.GetFacedUpCards().Count <= engine.GetAllowedFacedUpCardCount())
                 {
                     engine.AddFacedUpCard(clickedCard);
                     clickedPictureBox.Image = clickedCard.GetFace();

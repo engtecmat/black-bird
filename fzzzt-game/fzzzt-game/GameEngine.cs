@@ -32,7 +32,7 @@ namespace fzzzt_game
         /// <summary>
         /// allowed faced up card count
         /// </summary>
-        private int _facedUpCardCount;
+        private int _allowedFacedUpCardCount;
 
         /// <summary>
         /// current auction cards on the conveyor belt
@@ -94,7 +94,7 @@ namespace fzzzt_game
             _gameState = false;
 
             _deck.Clear();
-            _facedUpCardCount = 0;
+            _allowedFacedUpCardCount = 0;
             _auctionCards.Clear();
             _players.Clear();
             _facedUpCards.Clear();
@@ -281,17 +281,17 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void UpdateFacedUpCardCount(Card card)
         {
-            _facedUpCardCount = card.GetConveyorBeltNumber();
-            _gameView.UpdateMessag("allowed count:" + _facedUpCardCount);
+            _allowedFacedUpCardCount = card.GetConveyorBeltNumber();
+            _gameView.UpdateMessag("allowed count:" + _allowedFacedUpCardCount);
         }
 
         /// <summary>
         /// get the allowed faced up card count
         /// </summary>
         /// <returns></returns>
-        public int GetFacedUpCardCount()
+        public int GetAllowedFacedUpCardCount()
         {
-            return _facedUpCardCount;
+            return _allowedFacedUpCardCount;
         }
 
         /// <summary>
@@ -301,7 +301,10 @@ namespace fzzzt_game
         public void RemoveFacedUpCard(Card card)
         {
             _facedUpCards.Remove(card);
-
+            if (_facedUpCards.Count == 0)
+            {
+                _allowedFacedUpCardCount = 0;
+            }
             _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
     }
