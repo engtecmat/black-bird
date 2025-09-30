@@ -26,18 +26,9 @@ namespace fzzzt_game
         /// <param name="pointValue"></param>
         /// <param name="power"></param>
         /// <param name="constructionSymbols"></param>
-        public RobotCard(Bitmap face, int conveyorBeltNumber, int pointValue, int power, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, power)
+        public RobotCard(Bitmap face, int conveyorBeltNumber, int pointValue, int power, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, power, conveyorBeltNumber)
         {
-            _conveyorBeltNumber = conveyorBeltNumber;
             _constructionSymbols = constructionSymbols;
-        }
-
-        /// <summary>
-        /// get the conveyor belt number
-        /// </summary>
-        public int GetConveyorBeltNumber()
-        {
-            return _conveyorBeltNumber;
         }
 
         /// <summary>

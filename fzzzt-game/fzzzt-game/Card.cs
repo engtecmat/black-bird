@@ -28,16 +28,22 @@ namespace fzzzt_game
         private int _power;
 
         /// <summary>
+        /// it is used to determine how many card can be fliped in the beginning of an auction.
+        /// </summary>
+        private int _conveyorBeltNumber;
+
+        /// <summary>
         /// build a card with a face image, point value, and power.
         /// </summary>
         /// <param name="face"></param>
         /// <param name="pointValue"></param>
         /// <param name="power"></param>
-        protected Card(Bitmap face, int pointValue, int power)
+        protected Card(Bitmap face, int pointValue, int power, int conveyorBeltNumber)
         {
             _face = face;
             _pointValue = pointValue;
             _power = power;
+            _conveyorBeltNumber = conveyorBeltNumber;
         }
 
         /// <summary>
@@ -81,6 +87,15 @@ namespace fzzzt_game
         public Bitmap GetFace()
         {
             return _face;
+        }
+
+        /// <summary>
+        /// get the conveyor belt number
+        /// </summary>
+        /// <returns></returns>
+        public int GetConveyorBeltNumber()
+        {
+            return _conveyorBeltNumber;
         }
     }
 }

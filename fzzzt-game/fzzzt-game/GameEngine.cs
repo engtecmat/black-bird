@@ -25,6 +25,21 @@ namespace fzzzt_game
         private List<Card> _deck = new List<Card>();
 
         /// <summary>
+        /// faced up cards on the conveyor belt
+        /// </summary>
+        private List<Card> _facedUpCards = new List<Card>();
+
+        /// <summary>
+        /// allowed faced up card count
+        /// </summary>
+        private int facedUpCardCount;
+
+        /// <summary>
+        /// current auction cards on the conveyor belt
+        /// </summary>
+        private List<Card> auctionCards = new List<Card>();
+
+        /// <summary>
         /// the players, current versio has two players
         /// </summary>
         private List<Player> _players = new List<Player>();
@@ -194,6 +209,64 @@ namespace fzzzt_game
         public List<Player> GetPlayers()
         {
             return _players;
+        }
+
+        /// <summary>
+        /// get the faced up cards on the table
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public List<Card> GetFacedUpCards()
+        {
+            return _facedUpCards;
+        }
+
+        /// <summary>
+        /// get the auction cards, which are the first 8 cards on the deck
+        /// </summary>
+        /// <returns>eight cards</returns>
+        public List<Card> GetAuctionCards()
+        {
+            auctionCards = _deck.GetRange(0, 8);
+            _deck.RemoveRange(0, 8);
+            return auctionCards;
+        }
+
+        /// <summary>
+        /// check if the card is the first card on the conveyor belt
+        /// </summary>
+        /// <param name="clickedCard"></param>
+        /// <returns></returns>
+        public bool IsFirstCardOnConveyorBelt(Card clickedCard)
+        {
+            return auctionCards.FindIndex(c => c == clickedCard) == 0;
+        }
+
+        /// <summary>
+        /// add a faced up card to the list
+        /// </summary>
+        /// <param name="card"></param>
+        public void AddFacedUpCard(Card card)
+        {
+            _facedUpCards.Add(card);
+        }
+
+        /// <summary>
+        /// update the allowed faced up card count
+        /// </summary>
+        /// <param name="card"></param>
+        public void UpdateFacedUpCardCount(Card card)
+        {
+            facedUpCardCount = card.GetConveyorBeltNumber();
+        }
+
+        /// <summary>
+        /// get the allowed faced up card count
+        /// </summary>
+        /// <returns></returns>
+        public int GetFacedUpCardCount()
+        {
+            return facedUpCardCount;
         }
     }
 }

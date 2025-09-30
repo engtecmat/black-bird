@@ -13,6 +13,9 @@ namespace fzzzt_game
         /// </summary>
         private const int Power = 0;
 
+        // the value is always 3 for production unit cards
+        private const int ConveyorBeltNumber = 3;
+
         /// <summary>
         /// it is used to determine how many card can be fliped in the beginning of an auction.
         /// </summary>
@@ -29,20 +32,9 @@ namespace fzzzt_game
         /// <param name="face"></param>
         /// <param name="pointValue"></param>
         /// <param name="constructionSymbols"></param>
-        public ProductionUnitCard(Bitmap face, int pointValue, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, Power)
+        public ProductionUnitCard(Bitmap face, int pointValue, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, Power, ConveyorBeltNumber)
         {
-            // the value is always 3 for production unit cards
-            _conveyorBeltNumber = 3;
             _constructionSymbols = constructionSymbols;
-        }
-
-        /// <summary>
-        /// get the conveyor belt number
-        /// </summary>
-        /// <returns></returns>
-        public int GetConveyorBeltNumber()
-        {
-            return _conveyorBeltNumber;
         }
 
         /// <summary>

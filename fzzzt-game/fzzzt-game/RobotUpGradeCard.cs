@@ -18,6 +18,9 @@ namespace fzzzt_game
         /// </summary>
         private const int Power = 0;
 
+        // the conveyor belt number of a robot upgrade card is 8
+        private const int ConveyorBeltNumber = 8;
+
         /// <summary>
         /// it is used to determine how many card can be fliped in the beginning of an auction.
         /// </summary>
@@ -32,22 +35,10 @@ namespace fzzzt_game
         /// build a robot upgrade card with a face image.
         /// </summary>
         /// <param name="face"></param>
-        public RobotUpgradeCard(Bitmap face) : base(face, PointValue, Power)
+        public RobotUpgradeCard(Bitmap face) : base(face, PointValue, Power, ConveyorBeltNumber)
         {
-            // the conveyor belt number of a robot upgrade card is 8
-            _conveyorBeltNumber = 8;
-
             // the construction symbols of a robot upgrade card are Bolt, Cog, Nut, Oil
             _constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut, ConstructionSymbol.Oil };
-        }
-
-        /// <summary>
-        /// get the conveyor belt number
-        /// </summary>
-        /// <returns></returns>
-        public int GetConveyorBeltNumber()
-        {
-            return _conveyorBeltNumber;
         }
     }
 }

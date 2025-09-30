@@ -117,6 +117,40 @@ namespace fzzzt_game
         }
 
         /// <summary>
+        /// handle the click event of a card on the conveyor belt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBoxOnConveyorBelt_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            if (clickedPictureBox == null)
+            {
+                return;
+            }
+
+            // if no card is faced up and clickedCard is not the first card, do nothing
+            Card clickedCard = ((Card)clickedPictureBox.Tag);
+            if (engine.GetFacedUpCardCount() == 0)
+            {
+                if (!engine.IsFirstCardOnConveyorBelt(clickedCard))
+                {
+                    return;
+                }
+                engine.AddFacedUpCard(clickedCard);
+                engine.UpdateFacedUpCardCount(clickedCard);
+            }
+
+            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
+            {
+                clickedPictureBox.Image = ((Card)clickedPictureBox.Tag).GetFace();
+                return;
+            }
+
+            clickedPictureBox.Image = GameEngine.FzzztCardBack;
+        }
+
+        /// <summary>
         /// Updates the UI to reflect the selected chief mechanic.
         /// </summary>
         private void EnpowerChiefMechanic()
@@ -166,19 +200,18 @@ namespace fzzzt_game
         /// </summary>
         private void DealCards()
         {
-            // conveyor belt
-            List<Card> cards = engine.GetDeck();
-
             // the first card is the furthest away from the conveyor belt deck
-            foreach (Card card in cards.GetRange(0, 8))
+            List<Card> cards = engine.GetAuctionCards();
+            for (int i = cards.Count - 1; i >= 0; i--)
             {
+                Card card = cards[i];
                 PictureBox pictureBox = new PictureBox();
                 pictureBox.Size = new Size(100, 140);
                 pictureBox.Margin = new Padding(0);
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox.Image = GameEngine.FzzztCardBack;
-                pictureBox.Tag = card.GetFace();
-                pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+                pictureBox.Tag = card;
+                pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 
                 flowLayoutPanelMiddle.Controls.Add(pictureBox);
             }

@@ -17,28 +17,15 @@ namespace fzzzt_game
         /// </summary>
         private const int Power = 3;
 
-        /// <summary>
-        /// it is used to determine how many card can be fliped in the beginning of an auction.
-        /// </summary>
-        private int _conveyorBeltNumber;
+        // the conveyor belt number of a fzzzt card is 1
+        private const int ConveyorBeltNumber = 1;
 
         /// <summary>
         /// build a fzzzt card with a face image.
         /// </summary>
         /// <param name="face"></param>
-        public FzzztCard(Bitmap face) : base(face, PointValue, Power)
+        public FzzztCard(Bitmap face) : base(face, PointValue, Power, ConveyorBeltNumber)
         {
-            // the conveyor belt number of a fzzzt card is 1
-            _conveyorBeltNumber = 1;
-        }
-
-        /// <summary>
-        /// get the conveyor belt number
-        /// </summary>
-        /// <returns></returns>
-        public int GetConveyorBeltNumber()
-        {
-            return _conveyorBeltNumber;
         }
     }
 }
