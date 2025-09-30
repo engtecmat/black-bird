@@ -9,5 +9,10 @@
         /// reset UI
         /// </summary>
         void Reset();
+
+        /// <summary>
+        /// update the message box for debugging
+        /// </summary>
+        void UpdateMessag(string message);
     }
 }

@@ -50,6 +50,7 @@
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.flowLayoutPanelMiddle = new System.Windows.Forms.FlowLayoutPanel();
+            this.textBoxMessage = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
@@ -178,6 +179,7 @@
             // 
             // panelOperations
             // 
+            this.panelOperations.Controls.Add(this.textBoxMessage);
             this.panelOperations.Controls.Add(this.buttonReset);
             this.panelOperations.Controls.Add(this.buttonStartGame);
             this.panelOperations.Location = new System.Drawing.Point(0, 0);
@@ -307,6 +309,15 @@
             this.flowLayoutPanelMiddle.Size = new System.Drawing.Size(1035, 140);
             this.flowLayoutPanelMiddle.TabIndex = 10;
             // 
+            // textBoxMessage
+            // 
+            this.textBoxMessage.Location = new System.Drawing.Point(9, 634);
+            this.textBoxMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxMessage.Multiline = true;
+            this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.Size = new System.Drawing.Size(149, 342);
+            this.textBoxMessage.TabIndex = 3;
+            // 
             // FormFzzztGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,5 +373,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBottom;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMiddle;
+        private System.Windows.Forms.TextBox textBoxMessage;
     }
 }

@@ -281,6 +281,8 @@ namespace fzzzt_game
         public void UpdateFacedUpCardCount(Card card)
         {
             _facedUpCardCount = card.GetConveyorBeltNumber();
+
+            _gameView.UpdateMessag("allowed face-up card count:" + _facedUpCardCount);
         }
 
         /// <summary>

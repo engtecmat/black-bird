@@ -239,5 +239,13 @@ namespace fzzzt_game
             flowLayoutPanelMiddle.Controls.Clear();
             flowLayoutPanelBottom.Controls.Clear();
         }
+
+        /// <summary>
+        /// update message in the textbox
+        /// </summary>
+        public void UpdateMessag(string message)
+        {
+            textBoxMessage.Text = textBoxMessage.Text = message;
+        }
     }
 }
