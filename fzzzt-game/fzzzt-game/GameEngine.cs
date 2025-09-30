@@ -272,6 +272,7 @@ namespace fzzzt_game
         public void AddFacedUpCard(Card card)
         {
             _facedUpCards.Add(card);
+            _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
 
         /// <summary>
@@ -281,8 +282,7 @@ namespace fzzzt_game
         public void UpdateFacedUpCardCount(Card card)
         {
             _facedUpCardCount = card.GetConveyorBeltNumber();
-
-            _gameView.UpdateMessag("allowed face-up card count:" + _facedUpCardCount);
+            _gameView.UpdateMessag("allowed count:" + _facedUpCardCount);
         }
 
         /// <summary>
@@ -292,6 +292,17 @@ namespace fzzzt_game
         public int GetFacedUpCardCount()
         {
             return _facedUpCardCount;
+        }
+
+        /// <summary>
+        /// remove a card the face-up cards
+        /// </summary>
+        /// <param name="card"></param>
+        public void RemoveFacedUpCard(Card card)
+        {
+            _facedUpCards.Remove(card);
+
+            _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
     }
 }

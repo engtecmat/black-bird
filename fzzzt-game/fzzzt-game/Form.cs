@@ -138,17 +138,26 @@ namespace fzzzt_game
                 {
                     return;
                 }
+                clickedPictureBox.Image = clickedCard.GetFace();
                 engine.AddFacedUpCard(clickedCard);
                 engine.UpdateFacedUpCardCount(clickedCard);
-            }
-
-            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
-            {
-                clickedPictureBox.Image = ((Card)clickedPictureBox.Tag).GetFace();
                 return;
             }
 
+            // after the first card is turned up
+            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
+            {
+                // if face-up cards is less than or equal to the allowed count, then turn up the card
+                if(engine.GetFacedUpCards().Count <= engine.GetFacedUpCardCount())
+                {
+                    engine.AddFacedUpCard(clickedCard);
+                    clickedPictureBox.Image = clickedCard.GetFace();
+                    return;
+                }
+            }
+
             clickedPictureBox.Image = GameEngine.FzzztCardBack;
+            engine.RemoveFacedUpCard(clickedCard);
         }
 
         /// <summary>
@@ -245,7 +254,8 @@ namespace fzzzt_game
         /// </summary>
         public void UpdateMessag(string message)
         {
-            textBoxMessage.Text = textBoxMessage.Text = message;
+            textBoxMessage.AppendText(message);
+            textBoxMessage.AppendText(Environment.NewLine);
         }
     }
 }

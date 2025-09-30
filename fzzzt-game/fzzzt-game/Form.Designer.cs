@@ -315,6 +315,7 @@
             this.textBoxMessage.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxMessage.Multiline = true;
             this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxMessage.Size = new System.Drawing.Size(149, 342);
             this.textBoxMessage.TabIndex = 3;
             // 
