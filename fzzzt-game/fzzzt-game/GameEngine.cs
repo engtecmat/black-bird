@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace fzzzt_game
 {
@@ -8,6 +9,11 @@ namespace fzzzt_game
     /// </summary>
     public class GameEngine
     {
+        /// <summary>
+        /// a global card back
+        /// </summary>
+        public static Bitmap FzzztCardBack = Properties.Resources.Fzzzt_Card_Back;
+
         /// <summary>
         /// indicates whether the game has started.
         /// </summary>

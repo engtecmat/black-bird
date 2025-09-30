@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace fzzzt_game
 {
@@ -48,23 +49,67 @@ namespace fzzzt_game
         {
             foreach (Player player in engine.GetPlayers())
             {
+                // player at the top
                 if (player.AtTop())
                 {
                     labelPlayerTop.Text = player.GetName();
                     pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
-                    pictureBoxPlayerTopFirstCard.Image = Properties.Resources.Fzzzt_Card_Back;
-                    pictureBoxPlayerTopSecondCard.Image = Properties.Resources.Fzzzt_Card_Back;
-                    pictureBoxPlayerTopThirdCard.Image = Properties.Resources.Fzzzt_Card_Back;
+                    DisplayCardsForPlayer(player, flowLayoutPanelTop);
 
-                    // player two
-                    pictureBoxPlayerTwoCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
-                    pictureBoxPlayerTwoCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
-                    pictureBoxPlayerTwoCardFour.Image = Properties.Resources.Fzzzt_Card_Back;
                     continue;
                 }
+
+                // player at the bottom
                 labelPlayerBottom.Text = player.GetName();
                 pictureBoxPlayerBottomMechanicFace.Image = player.GetMechanicFace();
+                DisplayCardsForPlayer(player, flowLayoutPanelBottom);
             }
+        }
+
+        /// <summary>
+        /// display the player's cards
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="parent"></param>
+        private void DisplayCardsForPlayer(Player player, Control parent)
+        {
+            foreach (Card card in player.GetCardsInHand())
+            {
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Size = new Size(100, 140);
+                pictureBox.Margin = new Padding(0);
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Image = card.GetFace();
+                pictureBox.Tag = GameEngine.FzzztCardBack;
+                pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+
+                parent.Controls.Add(pictureBox);
+            }
+        }
+
+        /// <summary>
+        /// handle the click event of a card in hand
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            if (clickedPictureBox == null)
+            {
+                return;
+            }
+
+            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
+            {
+                clickedPictureBox.Image = (Image)clickedPictureBox.Tag;
+                clickedPictureBox.Tag = GameEngine.FzzztCardBack;
+                return;
+            }
+
+            Image faceImage = clickedPictureBox.Image;
+            clickedPictureBox.Image = GameEngine.FzzztCardBack;
+            clickedPictureBox.Tag = faceImage;
         }
 
         /// <summary>

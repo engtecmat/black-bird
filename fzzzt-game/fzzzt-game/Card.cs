@@ -50,12 +50,12 @@ namespace fzzzt_game
                 return;
             }
 
-            if (_currentState == Properties.Resources.Fzzzt_Card_Back)
+            if (_currentState == GameEngine.FzzztCardBack)
             {
                 _currentState = _face;
                 return;
             }
-            _currentState = Properties.Resources.Fzzzt_Card_Back;
+            _currentState = GameEngine.FzzztCardBack;
         }
 
         /// <summary>
