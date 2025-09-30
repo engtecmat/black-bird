@@ -142,8 +142,8 @@ namespace fzzzt_game
             _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Nut }));
             _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
 
-            _players.Add(new Player("Player 1", Position.Top));
-            _players.Add(new Player("Player 2", Position.Bottom));
+            _players.Add(new Player("Player 1", Position.Top, Properties.Resources.Mechanic_One));
+            _players.Add(new Player("Player 2", Position.Bottom, Properties.Resources.Mechanic_Two));
 
             PickChiefMechanic();
         }

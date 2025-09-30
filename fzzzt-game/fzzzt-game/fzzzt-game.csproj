@@ -214,5 +214,11 @@
   <ItemGroup>
     <None Include="Resources\Conveyor_Belt_Deck.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mechanic_One.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mechanic_Two.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

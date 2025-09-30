@@ -1,4 +1,6 @@
-﻿namespace fzzzt_game
+﻿using System.Drawing;
+
+namespace fzzzt_game
 {
     /// <summary>
     /// the palyer's filed and behavors
@@ -16,13 +18,19 @@
         private Position _position;
 
         /// <summary>
+        /// the payer's mechanic card
+        /// </summary>
+        private Bitmap _mechanicFace;
+
+        /// <summary>
         /// build a playe with name
         /// </summary>
         /// <param name="name"></param>
-        public Player(string name, Position position)
+        public Player(string name, Position position, Bitmap mechanic)
         {
             _name = name;
             _position = position;
+            _mechanicFace = mechanic;
         }
 
         /// <summary>
@@ -48,8 +56,17 @@
         /// </summary>
         /// <returns>string</returns>
         public string GetName()
-        { 
+        {
             return _name;
+        }
+
+        /// <summary>
+        /// get the mechanic face
+        /// </summary>
+        /// <returns>Bitmap</returns>
+        public Bitmap GetMechanicFace()
+        {
+            return _mechanicFace;
         }
     }
 }

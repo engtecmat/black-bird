@@ -51,9 +51,11 @@ namespace fzzzt_game
                 if (player.AtTop())
                 {
                     labelPlayerTop.Text = player.GetName();
+                    pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
                     continue;
                 }
                 labelPlayerBottom.Text = player.GetName();
+                pictureBoxPlayerBottomMechanicFace.Image = player.GetMechanicFace();
             }
         }
 
@@ -126,14 +128,12 @@ namespace fzzzt_game
             pictureBoxFristCard.Image = cards[0].GetFace();
 
             // player one
-            pictureBoxPlayerOneCardOne.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerOneCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerOneCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerOneCardFour.Image = Properties.Resources.Fzzzt_Card_Back;
 
 
             // player two
-            pictureBoxPlayerTwoCardOne.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerTwoCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerTwoCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
             pictureBoxPlayerTwoCardFour.Image = Properties.Resources.Fzzzt_Card_Back;

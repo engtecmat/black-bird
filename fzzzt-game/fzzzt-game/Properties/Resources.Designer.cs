@@ -93,6 +93,26 @@ namespace fzzzt_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mechanic_One {
+            get {
+                object obj = ResourceManager.GetObject("Mechanic_One", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mechanic_Two {
+            get {
+                object obj = ResourceManager.GetObject("Mechanic_Two", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Production_Unit_Bolt_Cog {
             get {
                 object obj = ResourceManager.GetObject("Production_Unit_Bolt_Cog", resourceCulture);
