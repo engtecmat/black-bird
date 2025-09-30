@@ -97,5 +97,14 @@ namespace fzzzt_game
         {
             return _conveyorBeltNumber;
         }
+
+        /// <summary>
+        /// make it readable
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "power: " + _power + ", pointValue:" + _pointValue + ", conveyorBeltNumber:" + _conveyorBeltNumber;
+        }
     }
 }

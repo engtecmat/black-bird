@@ -97,6 +97,7 @@ namespace fzzzt_game
         /// <param name="parent"></param>
         private void DisplayCardsForPlayer(Player player, Control parent)
         {
+            parent.Controls.Clear();
             foreach (Card card in player.GetCardsInHand())
             {
                 PictureBox pictureBox = new PictureBox();
@@ -104,11 +105,25 @@ namespace fzzzt_game
                 pictureBox.Margin = new Padding(0);
                 pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox.Image = card.GetFace();
-                pictureBox.Tag = GameEngine.FzzztCardBack;
-                pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
-
+                pictureBox.Tag = new CardContext(card, player);
+                pictureBox.DoubleClick += new System.EventHandler(this.cardsInHand_DoubleClick);
                 parent.Controls.Add(pictureBox);
             }
+        }
+
+        /// <summary>
+        /// handl double click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cardsInHand_DoubleClick(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+
+            CardContext cardContext = (CardContext)clickedPictureBox.Tag;
+            cardContext.BidCard();
+            DisplayCardsForPlayer(cardContext.Onwer, flowLayoutPanelBottom);
+            UpdateMessag(clickedPictureBox.Tag + " has been double clicked");
         }
 
         /// <summary>
@@ -116,7 +131,7 @@ namespace fzzzt_game
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBox_Click(object sender, EventArgs e)
+        private void cardsInHand_Click(object sender, EventArgs e)
         {
             PictureBox clickedPictureBox = sender as PictureBox;
             if (clickedPictureBox == null)
