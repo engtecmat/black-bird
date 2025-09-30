@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using System.Collections.Generic;
+
 
 namespace fzzzt_game
 {
@@ -23,14 +25,21 @@ namespace fzzzt_game
         private Bitmap _mechanicFace;
 
         /// <summary>
+        /// cards in hand
+        /// int the beginning, each player has a 1 power, 2 power and 3 power card
+        /// </summary>
+        private ISet<Card> _cardsInHand;
+
+        /// <summary>
         /// build a playe with name
         /// </summary>
         /// <param name="name"></param>
-        public Player(string name, Position position, Bitmap mechanic)
+        public Player(string name, Position position, Bitmap mechanic, ISet<Card> cardsInHand)
         {
             _name = name;
             _position = position;
             _mechanicFace = mechanic;
+            _cardsInHand = cardsInHand;
         }
 
         /// <summary>
@@ -67,6 +76,15 @@ namespace fzzzt_game
         public Bitmap GetMechanicFace()
         {
             return _mechanicFace;
+        }
+
+        /// <summary>
+        /// get the cards in hand
+        /// </summary>
+        /// <returns>a set of cards</returns>
+        public ISet<Card> GetCardsInHand()
+        {
+            return _cardsInHand;
         }
     }
 }

@@ -52,6 +52,14 @@ namespace fzzzt_game
                 {
                     labelPlayerTop.Text = player.GetName();
                     pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
+                    pictureBoxPlayerTopFirstCard.Image = Properties.Resources.Fzzzt_Card_Back;
+                    pictureBoxPlayerTopSecondCard.Image = Properties.Resources.Fzzzt_Card_Back;
+                    pictureBoxPlayerTopThirdCard.Image = Properties.Resources.Fzzzt_Card_Back;
+
+                    // player two
+                    pictureBoxPlayerTwoCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
+                    pictureBoxPlayerTwoCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
+                    pictureBoxPlayerTwoCardFour.Image = Properties.Resources.Fzzzt_Card_Back;
                     continue;
                 }
                 labelPlayerBottom.Text = player.GetName();
@@ -126,18 +134,6 @@ namespace fzzzt_game
             pictureBoxThirdCard.Image = cards[2].GetFace();
             pictureBoxSecondCard.Image = cards[1].GetFace();
             pictureBoxFristCard.Image = cards[0].GetFace();
-
-            // player one
-            pictureBoxPlayerOneCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
-            pictureBoxPlayerOneCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
-            pictureBoxPlayerOneCardFour.Image = Properties.Resources.Fzzzt_Card_Back;
-
-
-            // player two
-            pictureBoxPlayerTwoCardTwo.Image = Properties.Resources.Fzzzt_Card_Back;
-            pictureBoxPlayerTwoCardThree.Image = Properties.Resources.Fzzzt_Card_Back;
-            pictureBoxPlayerTwoCardFour.Image = Properties.Resources.Fzzzt_Card_Back;
-
         }
 
         /// <summary>

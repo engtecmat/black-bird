@@ -54,10 +54,10 @@
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.labelPlayerTop = new System.Windows.Forms.Label();
             this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayerOneCardThree = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPlayerTopSecondCard = new System.Windows.Forms.PictureBox();
             this.pictureBoxProductionUnitOne = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayerOneCardFour = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayerOneCardTwo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPlayerTopThirdCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPlayerTopFirstCard = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTopMechanicFace = new System.Windows.Forms.PictureBox();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.pictureBoxFristCard = new System.Windows.Forms.PictureBox();
@@ -79,10 +79,10 @@
             this.panelOperations.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardPileOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopSecondCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardFour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopThirdCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopFirstCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).BeginInit();
             this.panelMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFristCard)).BeginInit();
@@ -324,10 +324,10 @@
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
             this.panelTop.Controls.Add(this.labelPlayerTop);
             this.panelTop.Controls.Add(this.pictureBoxDiscardPileOne);
-            this.panelTop.Controls.Add(this.pictureBoxPlayerOneCardThree);
+            this.panelTop.Controls.Add(this.pictureBoxPlayerTopSecondCard);
             this.panelTop.Controls.Add(this.pictureBoxProductionUnitOne);
-            this.panelTop.Controls.Add(this.pictureBoxPlayerOneCardFour);
-            this.panelTop.Controls.Add(this.pictureBoxPlayerOneCardTwo);
+            this.panelTop.Controls.Add(this.pictureBoxPlayerTopThirdCard);
+            this.panelTop.Controls.Add(this.pictureBoxPlayerTopFirstCard);
             this.panelTop.Controls.Add(this.pictureBoxPlayerTopMechanicFace);
             this.panelTop.Location = new System.Drawing.Point(169, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(2);
@@ -384,13 +384,13 @@
             // 
             // pictureBoxPlayerOneCardThree
             // 
-            this.pictureBoxPlayerOneCardThree.Location = new System.Drawing.Point(598, 84);
-            this.pictureBoxPlayerOneCardThree.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxPlayerOneCardThree.Name = "pictureBoxPlayerOneCardThree";
-            this.pictureBoxPlayerOneCardThree.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxPlayerOneCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPlayerOneCardThree.TabIndex = 25;
-            this.pictureBoxPlayerOneCardThree.TabStop = false;
+            this.pictureBoxPlayerTopSecondCard.Location = new System.Drawing.Point(598, 84);
+            this.pictureBoxPlayerTopSecondCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxPlayerTopSecondCard.Name = "pictureBoxPlayerOneCardThree";
+            this.pictureBoxPlayerTopSecondCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTopSecondCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPlayerTopSecondCard.TabIndex = 25;
+            this.pictureBoxPlayerTopSecondCard.TabStop = false;
             // 
             // pictureBoxProductionUnitOne
             // 
@@ -404,23 +404,23 @@
             // 
             // pictureBoxPlayerOneCardFour
             // 
-            this.pictureBoxPlayerOneCardFour.Location = new System.Drawing.Point(721, 84);
-            this.pictureBoxPlayerOneCardFour.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxPlayerOneCardFour.Name = "pictureBoxPlayerOneCardFour";
-            this.pictureBoxPlayerOneCardFour.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxPlayerOneCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPlayerOneCardFour.TabIndex = 24;
-            this.pictureBoxPlayerOneCardFour.TabStop = false;
+            this.pictureBoxPlayerTopThirdCard.Location = new System.Drawing.Point(721, 84);
+            this.pictureBoxPlayerTopThirdCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxPlayerTopThirdCard.Name = "pictureBoxPlayerOneCardFour";
+            this.pictureBoxPlayerTopThirdCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTopThirdCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPlayerTopThirdCard.TabIndex = 24;
+            this.pictureBoxPlayerTopThirdCard.TabStop = false;
             // 
             // pictureBoxPlayerOneCardTwo
             // 
-            this.pictureBoxPlayerOneCardTwo.Location = new System.Drawing.Point(475, 84);
-            this.pictureBoxPlayerOneCardTwo.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxPlayerOneCardTwo.Name = "pictureBoxPlayerOneCardTwo";
-            this.pictureBoxPlayerOneCardTwo.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxPlayerOneCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPlayerOneCardTwo.TabIndex = 23;
-            this.pictureBoxPlayerOneCardTwo.TabStop = false;
+            this.pictureBoxPlayerTopFirstCard.Location = new System.Drawing.Point(475, 84);
+            this.pictureBoxPlayerTopFirstCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxPlayerTopFirstCard.Name = "pictureBoxPlayerOneCardTwo";
+            this.pictureBoxPlayerTopFirstCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxPlayerTopFirstCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPlayerTopFirstCard.TabIndex = 23;
+            this.pictureBoxPlayerTopFirstCard.TabStop = false;
             // 
             // pictureBoxPlayerOneCardOne
             // 
@@ -494,10 +494,10 @@
             this.panelOperations.PerformLayout();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardPileOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopSecondCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardFour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopThirdCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopFirstCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).EndInit();
             this.panelMiddle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFristCard)).EndInit();
@@ -528,10 +528,10 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label labelPlayerTop;
         private System.Windows.Forms.PictureBox pictureBoxDiscardPileOne;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardThree;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerTopSecondCard;
         private System.Windows.Forms.PictureBox pictureBoxProductionUnitOne;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardFour;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardTwo;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerTopThirdCard;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerTopFirstCard;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTopMechanicFace;
         private System.Windows.Forms.Panel panelMiddle;
         private System.Windows.Forms.PictureBox pictureBoxFristCard;
