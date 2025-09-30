@@ -145,21 +145,22 @@ namespace fzzzt_game
             }
 
             // if there are cards facing up, the first card should be faced down
-            if (engine.IsFirstCardOnConveyorBelt(clickedCard) && engine.GetFacedUpCards().Count > 1)
+            if ((engine.IsFirstCardOnConveyorBelt(clickedCard) && engine.GetFacedUpCards().Count > 1))
             {
                 return;
             }
 
             // after the first card is turned up
-            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
+            // if face-up cards is less than or equal to the allowed count, then turn up the card
+            if (GameEngine.IsCardBack(clickedPictureBox.Image))
             {
-                // if face-up cards is less than or equal to the allowed count, then turn up the card
-                if (engine.GetFacedUpCards().Count <= engine.GetAllowedFacedUpCardCount())
+                if (engine.FacingUpAllowed())
                 {
                     engine.AddFacedUpCard(clickedCard);
                     clickedPictureBox.Image = clickedCard.GetFace();
                     return;
                 }
+                return;
             }
 
             clickedPictureBox.Image = GameEngine.FzzztCardBack;

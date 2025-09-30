@@ -307,5 +307,24 @@ namespace fzzzt_game
             }
             _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
+
+        /// <summary>
+        /// check if the image is a card back
+        /// </summary>
+        /// <param name="image">image</param>
+        /// <returns>true or false</returns>
+        public static bool IsCardBack(Image image)
+        {
+            return FzzztCardBack == image;
+        }
+
+        /// <summary>
+        /// check if facing up is allowed
+        /// </summary>
+        /// <returns></returns>
+        public bool FacingUpAllowed()
+        {
+            return _facedUpCards.Count < _allowedFacedUpCardCount;
+        }
     }
 }
