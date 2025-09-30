@@ -32,12 +32,12 @@ namespace fzzzt_game
         /// <summary>
         /// allowed faced up card count
         /// </summary>
-        private int facedUpCardCount;
+        private int _facedUpCardCount;
 
         /// <summary>
         /// current auction cards on the conveyor belt
         /// </summary>
-        private List<Card> auctionCards = new List<Card>();
+        private List<Card> _auctionCards = new List<Card>();
 
         /// <summary>
         /// the players, current versio has two players
@@ -53,6 +53,20 @@ namespace fzzzt_game
         /// the chief mechanic will be randomly picked in the beginning of the game
         /// </summary>
         private Player _chiefMechanic;
+
+        /// <summary>
+        /// use game view to update UI
+        /// </summary>
+        private GameView _gameView;
+
+        /// <summary>
+        /// build game engine with game view
+        /// </summary>
+        /// <param name="gameView"></param>
+        public GameEngine(GameView gameView)
+        {
+            _gameView = gameView;
+        }
 
         /// <summary>
         /// return the player who is the chief mechanic
@@ -78,6 +92,15 @@ namespace fzzzt_game
         public void ResetGame()
         {
             _gameState = false;
+
+            _deck.Clear();
+            _facedUpCardCount = 0;
+            _auctionCards.Clear();
+            _players.Clear();
+            _facedUpCards.Clear();
+            _chiefMechanic = null;
+
+            _gameView.Reset();
         }
 
         /// <summary>
@@ -227,9 +250,9 @@ namespace fzzzt_game
         /// <returns>eight cards</returns>
         public List<Card> GetAuctionCards()
         {
-            auctionCards = _deck.GetRange(0, 8);
+            _auctionCards = _deck.GetRange(0, 8);
             _deck.RemoveRange(0, 8);
-            return auctionCards;
+            return _auctionCards;
         }
 
         /// <summary>
@@ -239,7 +262,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool IsFirstCardOnConveyorBelt(Card clickedCard)
         {
-            return auctionCards.FindIndex(c => c == clickedCard) == 0;
+            return _auctionCards.FindIndex(c => c == clickedCard) == 0;
         }
 
         /// <summary>
@@ -257,7 +280,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void UpdateFacedUpCardCount(Card card)
         {
-            facedUpCardCount = card.GetConveyorBeltNumber();
+            _facedUpCardCount = card.GetConveyorBeltNumber();
         }
 
         /// <summary>
@@ -266,7 +289,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public int GetFacedUpCardCount()
         {
-            return facedUpCardCount;
+            return _facedUpCardCount;
         }
     }
 }

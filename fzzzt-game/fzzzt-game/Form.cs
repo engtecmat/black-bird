@@ -6,16 +6,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace fzzzt_game
 {
-    public partial class FormFzzztGame : Form
+    public partial class FormFzzztGame : Form, GameView
     {
         /// <summary>
         /// the game engine instance
         /// </summary>
-        private GameEngine engine = new GameEngine();
+        private GameEngine engine;
 
         public FormFzzztGame()
         {
             InitializeComponent();
+            engine = new GameEngine(this);
         }
 
         /// <summary>
@@ -176,14 +177,6 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            panelTop.Visible = false;
-            panelMiddle.Visible = false;
-            panelBottom.Visible = false;
-            labelChiefMechanicTop.Visible = false;
-            labelChiefMechanicBottom.Visible = false;
-            buttonStartAuctionBottom.Visible = false;
-            buttonStartAuctionTop.Visible = false;
-            buttonStartGame.Enabled = true;
             engine.ResetGame();
         }
 
@@ -223,6 +216,28 @@ namespace fzzzt_game
         private void buttonStartAuctionBottom_Click(object sender, EventArgs e)
         {
             DealCards();
+        }
+
+        /// <summary>
+        /// reset UI to its initial state
+        /// </summary>
+        public void Reset()
+        {
+            panelTop.Visible = false;
+            panelMiddle.Visible = false;
+            panelBottom.Visible = false;
+
+            labelChiefMechanicTop.Visible = false;
+            labelChiefMechanicBottom.Visible = false;
+
+            buttonStartAuctionBottom.Visible = false;
+            buttonStartAuctionTop.Visible = false;
+
+            buttonStartGame.Enabled = true;
+
+            flowLayoutPanelTop.Controls.Clear();
+            flowLayoutPanelMiddle.Controls.Clear();
+            flowLayoutPanelBottom.Controls.Clear();
         }
     }
 }

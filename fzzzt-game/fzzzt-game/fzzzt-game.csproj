@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="FzzztCard.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="GameView.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
