@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace fzzzt_game
 {
@@ -36,6 +37,9 @@ namespace fzzzt_game
             buttonStartGame.Enabled = false;
 
             engine.StartGame();
+
+            pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
+
             EnpowerChiefMechanic();
 
             DisplayPlayers();
@@ -158,27 +162,26 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// Sets the images of all conveyor belt card slots to display the back of the cards
+        /// Deal 8 cards to start an auction
         /// </summary>
         private void DealCards()
         {
-
-            pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
-
             // conveyor belt
             List<Card> cards = engine.GetDeck();
 
             // the first card is the furthest away from the conveyor belt deck
+            foreach (Card card in cards.GetRange(0, 8))
+            {
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Size = new Size(100, 140);
+                pictureBox.Margin = new Padding(0);
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Image = GameEngine.FzzztCardBack;
+                pictureBox.Tag = card.GetFace();
+                pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
 
-
-            pictureBoxEighthCard.Image = cards[7].GetFace();
-            pictureBoxSeventhCard.Image = cards[6].GetFace();
-            pictureBoxSixthCard.Image = cards[5].GetFace();
-            pictureBoxFifthCard.Image = cards[4].GetFace();
-            pictureBoxFourthCard.Image = cards[3].GetFace();
-            pictureBoxThirdCard.Image = cards[2].GetFace();
-            pictureBoxSecondCard.Image = cards[1].GetFace();
-            pictureBoxFristCard.Image = cards[0].GetFace();
+                flowLayoutPanelMiddle.Controls.Add(pictureBox);
+            }
         }
 
         /// <summary>
