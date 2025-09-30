@@ -42,5 +42,14 @@
         {
             return _position == Position.Bottom;
         }
+
+        /// <summary>
+        ///  get the player's name
+        /// </summary>
+        /// <returns>string</returns>
+        public string GetName()
+        { 
+            return _name;
+        }
     }
 }

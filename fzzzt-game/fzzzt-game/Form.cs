@@ -26,12 +26,34 @@ namespace fzzzt_game
             {
                 return;
             }
-            panelPlayerOne.Visible = true;
-            panelConveyorBelt.Visible = true;
-            panelPlayTwo.Visible = true;
+
+            panelTop.Visible = true;
+            panelMiddle.Visible = true;
+            panelBottom.Visible = true;
+
             buttonStartGame.Enabled = false;
+
             engine.StartGame();
             EnpowerChiefMechanic();
+
+            DisplayPlayers();
+        }
+
+        /// <summary>
+        /// display the players, e.g, name, card, .etc.
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void DisplayPlayers()
+        {
+            foreach (Player player in engine.GetPlayers())
+            {
+                if (player.AtTop())
+                {
+                    labelPlayerTop.Text = player.GetName();
+                    continue;
+                }
+                labelPlayerBottom.Text = player.GetName();
+            }
         }
 
         /// <summary>
@@ -60,9 +82,9 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            panelPlayerOne.Visible = false;
-            panelConveyorBelt.Visible = false;
-            panelPlayTwo.Visible = false;
+            panelTop.Visible = false;
+            panelMiddle.Visible = false;
+            panelBottom.Visible = false;
             labelChiefMechanicTop.Visible = false;
             labelChiefMechanicBottom.Visible = false;
             buttonStartAuctionBottom.Visible = false;
