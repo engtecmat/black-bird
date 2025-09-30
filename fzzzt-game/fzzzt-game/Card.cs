@@ -73,5 +73,14 @@ namespace fzzzt_game
         {
             return _power;
         }
+
+        /// <summary>
+        /// get the face of the card
+        /// </summary>
+        /// <returns>Bitmap</returns>
+        public Bitmap GetFace()
+        {
+            return _face;
+        }
     }
 }

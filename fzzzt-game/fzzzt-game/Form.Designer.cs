@@ -30,13 +30,13 @@
         {
             this.pictureBoxConveyorBeltDeck = new System.Windows.Forms.PictureBox();
             this.buttonStartGame = new System.Windows.Forms.Button();
-            this.pictureBoxConveyorBeltCardOne = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardThree = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardTwo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardSix = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardSeven = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardFive = new System.Windows.Forms.PictureBox();
-            this.pictureBoxConveyorBeltCardFour = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEighthCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSixthCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSeventhCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxThirdCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSecondCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFourthCard = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFifthCard = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTwoCardThree = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTwoCardFour = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTwoCardTwo = new System.Windows.Forms.PictureBox();
@@ -60,15 +60,15 @@
             this.pictureBoxPlayerOneCardTwo = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerOneCardOne = new System.Windows.Forms.PictureBox();
             this.panelMiddle = new System.Windows.Forms.Panel();
-            this.pictureBoxConveyorBeltCardEight = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFristCard = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardThree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardTwo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardSix)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardSeven)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardFive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardFour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEighthCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSixthCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeventhCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxThirdCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFourthCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFifthCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardFour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardTwo)).BeginInit();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardOne)).BeginInit();
             this.panelMiddle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardEight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFristCard)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxConveyorBeltDeck
@@ -113,73 +113,73 @@
             // 
             // pictureBoxConveyorBeltCardOne
             // 
-            this.pictureBoxConveyorBeltCardOne.Location = new System.Drawing.Point(224, 21);
-            this.pictureBoxConveyorBeltCardOne.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardOne.Name = "pictureBoxConveyorBeltCardOne";
-            this.pictureBoxConveyorBeltCardOne.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardOne.TabIndex = 2;
-            this.pictureBoxConveyorBeltCardOne.TabStop = false;
+            this.pictureBoxEighthCard.Location = new System.Drawing.Point(224, 21);
+            this.pictureBoxEighthCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxEighthCard.Name = "pictureBoxConveyorBeltCardOne";
+            this.pictureBoxEighthCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxEighthCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEighthCard.TabIndex = 2;
+            this.pictureBoxEighthCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardThree
             // 
-            this.pictureBoxConveyorBeltCardThree.Location = new System.Drawing.Point(454, 21);
-            this.pictureBoxConveyorBeltCardThree.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardThree.Name = "pictureBoxConveyorBeltCardThree";
-            this.pictureBoxConveyorBeltCardThree.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardThree.TabIndex = 3;
-            this.pictureBoxConveyorBeltCardThree.TabStop = false;
+            this.pictureBoxSixthCard.Location = new System.Drawing.Point(454, 21);
+            this.pictureBoxSixthCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxSixthCard.Name = "pictureBoxConveyorBeltCardThree";
+            this.pictureBoxSixthCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxSixthCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSixthCard.TabIndex = 3;
+            this.pictureBoxSixthCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardTwo
             // 
-            this.pictureBoxConveyorBeltCardTwo.Location = new System.Drawing.Point(339, 21);
-            this.pictureBoxConveyorBeltCardTwo.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardTwo.Name = "pictureBoxConveyorBeltCardTwo";
-            this.pictureBoxConveyorBeltCardTwo.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardTwo.TabIndex = 4;
-            this.pictureBoxConveyorBeltCardTwo.TabStop = false;
+            this.pictureBoxSeventhCard.Location = new System.Drawing.Point(339, 21);
+            this.pictureBoxSeventhCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxSeventhCard.Name = "pictureBoxConveyorBeltCardTwo";
+            this.pictureBoxSeventhCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxSeventhCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSeventhCard.TabIndex = 4;
+            this.pictureBoxSeventhCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardSix
             // 
-            this.pictureBoxConveyorBeltCardSix.Location = new System.Drawing.Point(799, 21);
-            this.pictureBoxConveyorBeltCardSix.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardSix.Name = "pictureBoxConveyorBeltCardSix";
-            this.pictureBoxConveyorBeltCardSix.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardSix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardSix.TabIndex = 8;
-            this.pictureBoxConveyorBeltCardSix.TabStop = false;
+            this.pictureBoxThirdCard.Location = new System.Drawing.Point(799, 21);
+            this.pictureBoxThirdCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxThirdCard.Name = "pictureBoxConveyorBeltCardSix";
+            this.pictureBoxThirdCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxThirdCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxThirdCard.TabIndex = 8;
+            this.pictureBoxThirdCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardSeven
             // 
-            this.pictureBoxConveyorBeltCardSeven.Location = new System.Drawing.Point(914, 21);
-            this.pictureBoxConveyorBeltCardSeven.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardSeven.Name = "pictureBoxConveyorBeltCardSeven";
-            this.pictureBoxConveyorBeltCardSeven.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardSeven.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardSeven.TabIndex = 7;
-            this.pictureBoxConveyorBeltCardSeven.TabStop = false;
+            this.pictureBoxSecondCard.Location = new System.Drawing.Point(914, 21);
+            this.pictureBoxSecondCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxSecondCard.Name = "pictureBoxConveyorBeltCardSeven";
+            this.pictureBoxSecondCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxSecondCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSecondCard.TabIndex = 7;
+            this.pictureBoxSecondCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardFive
             // 
-            this.pictureBoxConveyorBeltCardFive.Location = new System.Drawing.Point(684, 21);
-            this.pictureBoxConveyorBeltCardFive.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardFive.Name = "pictureBoxConveyorBeltCardFive";
-            this.pictureBoxConveyorBeltCardFive.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardFive.TabIndex = 6;
-            this.pictureBoxConveyorBeltCardFive.TabStop = false;
+            this.pictureBoxFourthCard.Location = new System.Drawing.Point(684, 21);
+            this.pictureBoxFourthCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxFourthCard.Name = "pictureBoxConveyorBeltCardFive";
+            this.pictureBoxFourthCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxFourthCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFourthCard.TabIndex = 6;
+            this.pictureBoxFourthCard.TabStop = false;
             // 
             // pictureBoxConveyorBeltCardFour
             // 
-            this.pictureBoxConveyorBeltCardFour.Location = new System.Drawing.Point(569, 21);
-            this.pictureBoxConveyorBeltCardFour.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardFour.Name = "pictureBoxConveyorBeltCardFour";
-            this.pictureBoxConveyorBeltCardFour.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardFour.TabIndex = 5;
-            this.pictureBoxConveyorBeltCardFour.TabStop = false;
+            this.pictureBoxFifthCard.Location = new System.Drawing.Point(569, 21);
+            this.pictureBoxFifthCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxFifthCard.Name = "pictureBoxConveyorBeltCardFour";
+            this.pictureBoxFifthCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxFifthCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFifthCard.TabIndex = 5;
+            this.pictureBoxFifthCard.TabStop = false;
             // 
             // pictureBoxPlayerTwoCardThree
             // 
@@ -280,7 +280,7 @@
             this.buttonStartAuctionBottom.Text = "Start Auction";
             this.buttonStartAuctionBottom.UseVisualStyleBackColor = true;
             this.buttonStartAuctionBottom.Visible = false;
-            this.buttonStartAuctionBottom.Click += new System.EventHandler(this.buttonStartAuctionTwo_Click);
+            this.buttonStartAuctionBottom.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
             // labelChiefMechanicBottom
             // 
@@ -347,7 +347,7 @@
             this.buttonStartAuctionTop.Text = "Start Auction";
             this.buttonStartAuctionTop.UseVisualStyleBackColor = true;
             this.buttonStartAuctionTop.Visible = false;
-            this.buttonStartAuctionTop.Click += new System.EventHandler(this.buttonStartAuctionOne_Click);
+            this.buttonStartAuctionTop.Click += new System.EventHandler(this.buttonStartAuctionTop_Click);
             // 
             // labelChiefMechanicTop
             // 
@@ -434,15 +434,15 @@
             // 
             // panelMiddle
             // 
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardEight);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardSix);
+            this.panelMiddle.Controls.Add(this.pictureBoxFristCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxThirdCard);
             this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltDeck);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardOne);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardThree);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardTwo);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardSeven);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardFour);
-            this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltCardFive);
+            this.panelMiddle.Controls.Add(this.pictureBoxEighthCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxSixthCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxSeventhCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxSecondCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxFifthCard);
+            this.panelMiddle.Controls.Add(this.pictureBoxFourthCard);
             this.panelMiddle.Location = new System.Drawing.Point(169, 404);
             this.panelMiddle.Margin = new System.Windows.Forms.Padding(2);
             this.panelMiddle.Name = "panelMiddle";
@@ -452,13 +452,13 @@
             // 
             // pictureBoxConveyorBeltCardEight
             // 
-            this.pictureBoxConveyorBeltCardEight.Location = new System.Drawing.Point(1029, 21);
-            this.pictureBoxConveyorBeltCardEight.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxConveyorBeltCardEight.Name = "pictureBoxConveyorBeltCardEight";
-            this.pictureBoxConveyorBeltCardEight.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxConveyorBeltCardEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxConveyorBeltCardEight.TabIndex = 9;
-            this.pictureBoxConveyorBeltCardEight.TabStop = false;
+            this.pictureBoxFristCard.Location = new System.Drawing.Point(1029, 21);
+            this.pictureBoxFristCard.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxFristCard.Name = "pictureBoxConveyorBeltCardEight";
+            this.pictureBoxFristCard.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxFristCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFristCard.TabIndex = 9;
+            this.pictureBoxFristCard.TabStop = false;
             // 
             // FormFzzztGame
             // 
@@ -476,13 +476,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FzzztGame";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardThree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardTwo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardSix)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardSeven)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardFive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardFour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEighthCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSixthCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeventhCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxThirdCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFourthCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFifthCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardFour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwoCardTwo)).EndInit();
@@ -500,7 +500,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOneCardOne)).EndInit();
             this.panelMiddle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltCardEight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFristCard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -509,13 +509,13 @@
 
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltDeck;
         private System.Windows.Forms.Button buttonStartGame;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardOne;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardThree;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardTwo;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardSix;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardSeven;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardFive;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardFour;
+        private System.Windows.Forms.PictureBox pictureBoxEighthCard;
+        private System.Windows.Forms.PictureBox pictureBoxSixthCard;
+        private System.Windows.Forms.PictureBox pictureBoxSeventhCard;
+        private System.Windows.Forms.PictureBox pictureBoxThirdCard;
+        private System.Windows.Forms.PictureBox pictureBoxSecondCard;
+        private System.Windows.Forms.PictureBox pictureBoxFourthCard;
+        private System.Windows.Forms.PictureBox pictureBoxFifthCard;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTwoCardThree;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTwoCardFour;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTwoCardTwo;
@@ -534,7 +534,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardTwo;
         private System.Windows.Forms.PictureBox pictureBoxPlayerOneCardOne;
         private System.Windows.Forms.Panel panelMiddle;
-        private System.Windows.Forms.PictureBox pictureBoxConveyorBeltCardEight;
+        private System.Windows.Forms.PictureBox pictureBoxFristCard;
         private System.Windows.Forms.Label labelChiefMechanicBottom;
         private System.Windows.Forms.Label labelChiefMechanicTop;
         private System.Windows.Forms.Button buttonReset;
