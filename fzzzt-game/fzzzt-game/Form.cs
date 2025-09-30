@@ -11,12 +11,31 @@ namespace fzzzt_game
         /// <summary>
         /// the game engine instance
         /// </summary>
-        private GameEngine engine;
+        private GameEngine _engine;
 
+        /// <summary>
+        /// for displaying game informaiton
+        /// </summary>
+        private MessageLogForm _messageLogForm;
+
+        /// <summary>
+        /// build form without message log form
+        /// </summary>
         public FormFzzztGame()
         {
             InitializeComponent();
-            engine = new GameEngine(this);
+            _engine = new GameEngine(this);
+        }
+
+        /// <summary>
+        /// build form with message log form
+        /// </summary>
+        /// <param name="messageLogForm"></param>
+        public FormFzzztGame(MessageLogForm messageLogForm)
+        {
+            InitializeComponent();
+            _engine = new GameEngine(this);
+            _messageLogForm = messageLogForm;
         }
 
         /// <summary>
@@ -26,7 +45,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-            if (engine.IsGameStarted())
+            if (_engine.IsGameStarted())
             {
                 return;
             }
@@ -37,7 +56,7 @@ namespace fzzzt_game
 
             buttonStartGame.Enabled = false;
 
-            engine.StartGame();
+            _engine.StartGame();
 
             pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
 
@@ -52,7 +71,7 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         private void DisplayPlayers()
         {
-            foreach (Player player in engine.GetPlayers())
+            foreach (Player player in _engine.GetPlayers())
             {
                 // player at the top
                 if (player.AtTop())
@@ -132,20 +151,20 @@ namespace fzzzt_game
 
             // if no card is faced up and clickedCard is not the first card, do nothing
             Card clickedCard = ((Card)clickedPictureBox.Tag);
-            if (engine.GetAllowedFacedUpCardCount() == 0)
+            if (_engine.GetAllowedFacedUpCardCount() == 0)
             {
-                if (!engine.IsFirstCardOnConveyorBelt(clickedCard))
+                if (!_engine.IsFirstCardOnConveyorBelt(clickedCard))
                 {
                     return;
                 }
                 clickedPictureBox.Image = clickedCard.GetFace();
-                engine.AddFacedUpCard(clickedCard);
-                engine.UpdateFacedUpCardCount(clickedCard);
+                _engine.AddFacedUpCard(clickedCard);
+                _engine.UpdateFacedUpCardCount(clickedCard);
                 return;
             }
 
             // if there are cards facing up, the first card should be faced down
-            if ((engine.IsFirstCardOnConveyorBelt(clickedCard) && engine.GetFacedUpCards().Count > 1))
+            if ((_engine.IsFirstCardOnConveyorBelt(clickedCard) && _engine.GetFacedUpCards().Count > 1))
             {
                 return;
             }
@@ -154,9 +173,9 @@ namespace fzzzt_game
             // if face-up cards is less than or equal to the allowed count, then turn up the card
             if (GameEngine.IsCardBack(clickedPictureBox.Image))
             {
-                if (engine.FacingUpAllowed())
+                if (_engine.FacingUpAllowed())
                 {
-                    engine.AddFacedUpCard(clickedCard);
+                    _engine.AddFacedUpCard(clickedCard);
                     clickedPictureBox.Image = clickedCard.GetFace();
                     return;
                 }
@@ -164,7 +183,7 @@ namespace fzzzt_game
             }
 
             clickedPictureBox.Image = GameEngine.FzzztCardBack;
-            engine.RemoveFacedUpCard(clickedCard);
+            _engine.RemoveFacedUpCard(clickedCard);
         }
 
         /// <summary>
@@ -172,7 +191,7 @@ namespace fzzzt_game
         /// </summary>
         private void EnpowerChiefMechanic()
         {
-            Player chiefMechanic = engine.GetChiefMechanic();
+            Player chiefMechanic = _engine.GetChiefMechanic();
             if (chiefMechanic.AtTop())
             {
                 labelChiefMechanicTop.Visible = true;
@@ -193,7 +212,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            engine.ResetGame();
+            _engine.ResetGame();
         }
 
         /// <summary>
@@ -210,7 +229,7 @@ namespace fzzzt_game
         private void DealCards()
         {
             // the first card is the furthest away from the conveyor belt deck
-            List<Card> cards = engine.GetAuctionCards();
+            List<Card> cards = _engine.GetAuctionCards();
             for (int i = cards.Count - 1; i >= 0; i--)
             {
                 Card card = cards[i];
@@ -261,8 +280,7 @@ namespace fzzzt_game
         /// </summary>
         public void UpdateMessag(string message)
         {
-            textBoxMessage.AppendText(message);
-            textBoxMessage.AppendText(Environment.NewLine);
+            _messageLogForm.UpdateMessage(message);
         }
     }
 }

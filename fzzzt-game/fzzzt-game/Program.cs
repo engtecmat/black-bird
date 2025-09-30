@@ -13,7 +13,11 @@ namespace fzzzt_game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFzzztGame());
+
+            MessageLogForm messageLogForm = new MessageLogForm();
+            messageLogForm.Show();
+            Application.Run(new FormFzzztGame(messageLogForm));
+            //Application.Run(new FormFzzztGame());
         }
     }
 }
