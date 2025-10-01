@@ -31,7 +31,7 @@
             this.pictureBoxConveyorBeltDeck = new System.Windows.Forms.PictureBox();
             this.buttonStartGame = new System.Windows.Forms.Button();
             this.pictureBoxPlayerBottomMechanicFace = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDiscardTwo = new System.Windows.Forms.PictureBox();
+            this.bottomDiscardPile = new System.Windows.Forms.PictureBox();
             this.labelPlayerBottom = new System.Windows.Forms.Label();
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
@@ -41,27 +41,27 @@
             this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
             this.bottomCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOperations = new System.Windows.Forms.Panel();
+            this.printGameStateButton = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.labelPlayerTop = new System.Windows.Forms.Label();
-            this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
+            this.topDiscardPile = new System.Windows.Forms.PictureBox();
             this.pictureBoxProductionUnitOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTopMechanicFace = new System.Windows.Forms.PictureBox();
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.printGameStateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitTwo)).BeginInit();
             this.panelBottom.SuspendLayout();
             this.panelOperations.SuspendLayout();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardPileOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topDiscardPile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).BeginInit();
             this.panelMiddle.SuspendLayout();
@@ -100,15 +100,15 @@
             this.pictureBoxPlayerBottomMechanicFace.TabIndex = 22;
             this.pictureBoxPlayerBottomMechanicFace.TabStop = false;
             // 
-            // pictureBoxDiscardTwo
+            // bottomDiscardPile
             // 
-            this.pictureBoxDiscardTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDiscardTwo.Location = new System.Drawing.Point(1167, 337);
-            this.pictureBoxDiscardTwo.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxDiscardTwo.Name = "pictureBoxDiscardTwo";
-            this.pictureBoxDiscardTwo.Size = new System.Drawing.Size(26, 37);
-            this.pictureBoxDiscardTwo.TabIndex = 21;
-            this.pictureBoxDiscardTwo.TabStop = false;
+            this.bottomDiscardPile.Location = new System.Drawing.Point(1167, 318);
+            this.bottomDiscardPile.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomDiscardPile.Name = "bottomDiscardPile";
+            this.bottomDiscardPile.Size = new System.Drawing.Size(50, 70);
+            this.bottomDiscardPile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bottomDiscardPile.TabIndex = 21;
+            this.bottomDiscardPile.TabStop = false;
             // 
             // labelPlayerBottom
             // 
@@ -137,7 +137,7 @@
             this.panelBottom.Controls.Add(this.bottomStartAuction);
             this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
             this.panelBottom.Controls.Add(this.labelPlayerBottom);
-            this.panelBottom.Controls.Add(this.pictureBoxDiscardTwo);
+            this.panelBottom.Controls.Add(this.bottomDiscardPile);
             this.panelBottom.Controls.Add(this.pictureBoxProductionUnitTwo);
             this.panelBottom.Controls.Add(this.pictureBoxPlayerBottomMechanicFace);
             this.panelBottom.Controls.Add(this.bottomCardInHandPanel);
@@ -214,6 +214,19 @@
             this.panelOperations.Size = new System.Drawing.Size(165, 983);
             this.panelOperations.TabIndex = 27;
             // 
+            // printGameStateButton
+            // 
+            this.printGameStateButton.AutoSize = true;
+            this.printGameStateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printGameStateButton.Location = new System.Drawing.Point(28, 613);
+            this.printGameStateButton.Margin = new System.Windows.Forms.Padding(2);
+            this.printGameStateButton.Name = "printGameStateButton";
+            this.printGameStateButton.Size = new System.Drawing.Size(100, 60);
+            this.printGameStateButton.TabIndex = 3;
+            this.printGameStateButton.Text = "Print";
+            this.printGameStateButton.UseVisualStyleBackColor = true;
+            this.printGameStateButton.Click += new System.EventHandler(this.printGameStateButton_Click);
+            // 
             // buttonReset
             // 
             this.buttonReset.AutoSize = true;
@@ -233,7 +246,7 @@
             this.panelTop.Controls.Add(this.topStartAuction);
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
             this.panelTop.Controls.Add(this.labelPlayerTop);
-            this.panelTop.Controls.Add(this.pictureBoxDiscardPileOne);
+            this.panelTop.Controls.Add(this.topDiscardPile);
             this.panelTop.Controls.Add(this.pictureBoxProductionUnitOne);
             this.panelTop.Controls.Add(this.pictureBoxPlayerTopMechanicFace);
             this.panelTop.Controls.Add(this.topCardInHandPanel);
@@ -288,15 +301,15 @@
             this.labelPlayerTop.TabIndex = 20;
             this.labelPlayerTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxDiscardPileOne
+            // topDiscardPile
             // 
-            this.pictureBoxDiscardPileOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDiscardPileOne.Location = new System.Drawing.Point(1167, 18);
-            this.pictureBoxDiscardPileOne.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxDiscardPileOne.Name = "pictureBoxDiscardPileOne";
-            this.pictureBoxDiscardPileOne.Size = new System.Drawing.Size(26, 37);
-            this.pictureBoxDiscardPileOne.TabIndex = 21;
-            this.pictureBoxDiscardPileOne.TabStop = false;
+            this.topDiscardPile.Location = new System.Drawing.Point(1167, 7);
+            this.topDiscardPile.Margin = new System.Windows.Forms.Padding(2);
+            this.topDiscardPile.Name = "topDiscardPile";
+            this.topDiscardPile.Size = new System.Drawing.Size(50, 70);
+            this.topDiscardPile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.topDiscardPile.TabIndex = 21;
+            this.topDiscardPile.TabStop = false;
             // 
             // pictureBoxProductionUnitOne
             // 
@@ -344,19 +357,6 @@
             this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
-            // printGameStateButton
-            // 
-            this.printGameStateButton.AutoSize = true;
-            this.printGameStateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printGameStateButton.Location = new System.Drawing.Point(28, 613);
-            this.printGameStateButton.Margin = new System.Windows.Forms.Padding(2);
-            this.printGameStateButton.Name = "printGameStateButton";
-            this.printGameStateButton.Size = new System.Drawing.Size(100, 60);
-            this.printGameStateButton.TabIndex = 3;
-            this.printGameStateButton.Text = "Print";
-            this.printGameStateButton.UseVisualStyleBackColor = true;
-            this.printGameStateButton.Click += new System.EventHandler(this.printGameStateButton_Click);
-            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,13 +374,13 @@
             this.Text = "FzzztGame";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitTwo)).EndInit();
             this.panelBottom.ResumeLayout(false);
             this.panelOperations.ResumeLayout(false);
             this.panelOperations.PerformLayout();
             this.panelTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardPileOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topDiscardPile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductionUnitOne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).EndInit();
             this.panelMiddle.ResumeLayout(false);
@@ -393,14 +393,14 @@
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltDeck;
         private System.Windows.Forms.Button buttonStartGame;
         private System.Windows.Forms.PictureBox pictureBoxPlayerBottomMechanicFace;
-        private System.Windows.Forms.PictureBox pictureBoxDiscardTwo;
+        private System.Windows.Forms.PictureBox bottomDiscardPile;
         private System.Windows.Forms.Label labelPlayerBottom;
         private System.Windows.Forms.PictureBox pictureBoxProductionUnitTwo;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelOperations;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label labelPlayerTop;
-        private System.Windows.Forms.PictureBox pictureBoxDiscardPileOne;
+        private System.Windows.Forms.PictureBox topDiscardPile;
         private System.Windows.Forms.PictureBox pictureBoxProductionUnitOne;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTopMechanicFace;
         private System.Windows.Forms.Panel panelMiddle;

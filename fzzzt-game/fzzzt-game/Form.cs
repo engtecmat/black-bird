@@ -192,6 +192,13 @@ namespace fzzzt_game
             Panel cardsInBidPanel = GetCardBidPanel(player);
             cardsInBidPanel.Controls.Clear();
             cardsInBidPanel.Controls.AddRange(cardsInBid);
+
+
+            PictureBox discardPile = GetDiscardPilePictureBox(player);
+            if (player.GetDiscardPile().Count > 0)
+            {
+                discardPile.Image = GameEngine.CardBack;
+            }
         }
 
         /// <summary>
@@ -208,7 +215,6 @@ namespace fzzzt_game
             return bottomCardInHandPanel;
         }
 
-
         /// <summary>
         /// get the panel to display the cards to bid for the player
         /// </summary>
@@ -221,6 +227,19 @@ namespace fzzzt_game
                 return topBidPanel;
             }
             return bottomBidPanel;
+        }
+
+        /// <summary>
+        /// get the picture box to display discard pile 
+        /// </summary>
+        /// <param name="player"></param>
+        private PictureBox GetDiscardPilePictureBox(Player player)
+        {
+            if (player.AtTop())
+            {
+                return topDiscardPile;
+            }
+            return bottomDiscardPile;
         }
 
         /// <summary>
@@ -440,13 +459,13 @@ namespace fzzzt_game
             ISet<int> indcies = new HashSet<int>();
 
             /// get indcies based on the conveyor belt number
-            while(indcies.Count < _engine.GetAllowedFacedUpCardCount() - 1)
+            while (indcies.Count < _engine.GetAllowedFacedUpCardCount() - 1)
             {
                 indcies.Add(random.Next(0, Math.Min(_engine.GetAllowedFacedUpCardCount(), count - 1)));
             }
 
             // face up the cards
-            foreach(int index in indcies)
+            foreach (int index in indcies)
             {
                 FaceUpCardOnConveyorBelt(index);
             }
@@ -503,10 +522,7 @@ namespace fzzzt_game
         /// </summary>
         public void RefreshCardsForPlayers()
         {
-            foreach(Player palyer in _engine.GetPlayers())
-            {
-                DisplayCardsForPlayer(palyer);
-            }
+            _engine.GetPlayers().ForEach(player => DisplayCardsForPlayer(player));
         }
     }
 }
