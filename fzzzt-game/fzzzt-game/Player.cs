@@ -33,7 +33,7 @@ namespace fzzzt_game
         /// <summary>
         /// cards are chosen for bidding
         /// </summary>
-        private ISet<Card> _bidCards;
+        private ISet<Card> _cardsInBid;
 
         /// <summary>
         /// build a playe with name
@@ -45,7 +45,7 @@ namespace fzzzt_game
             _position = position;
             _mechanicFace = mechanic;
             _cardsInHand = cardsInHand;
-            _bidCards = new HashSet<Card>();
+            _cardsInBid = new HashSet<Card>();
         }
 
         /// <summary>
@@ -94,21 +94,30 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// add bid card
+        /// get the cards in bid
         /// </summary>
-        /// <param name="card"></param>
-        public void AddCardToBid(Card card)
+        /// <returns>a set of cards</returns>
+        public ISet<Card> GetCardsInBid()
         {
-            _bidCards.Add(card);
+            return _cardsInBid;
         }
 
         /// <summary>
         /// add bid card
         /// </summary>
         /// <param name="card"></param>
-        public void RemoveBidcard(Card card)
+        public void AddCardToBid(Card card)
         {
-            _bidCards.Remove(card);
+            _cardsInBid.Add(card);
+        }
+
+        /// <summary>
+        /// add bid card
+        /// </summary>
+        /// <param name="card"></param>
+        public void RemoveCardFromBid(Card card)
+        {
+            _cardsInBid.Remove(card);
         }
 
 
@@ -116,7 +125,7 @@ namespace fzzzt_game
         /// add card to hand
         /// </summary>
         /// <param name="card"></param>
-        public void AddHandCard(Card card)
+        public void AddCardToHand(Card card)
         {
             _cardsInHand.Add(card);
         }

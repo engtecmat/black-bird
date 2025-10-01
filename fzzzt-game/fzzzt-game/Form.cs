@@ -78,24 +78,24 @@ namespace fzzzt_game
                 {
                     labelPlayerTop.Text = player.GetName();
                     pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
-                    flowLayoutPanelTop.Controls.Clear();
-                    flowLayoutPanelTop.Controls.AddRange(CreateCardsForPlayer(player));
+                    topCardInHandPanel.Controls.Clear();
+                    topCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
                     continue;
                 }
 
                 // player at the bottom
                 labelPlayerBottom.Text = player.GetName();
                 pictureBoxPlayerBottomMechanicFace.Image = player.GetMechanicFace();
-                flowLayoutPanelBottom.Controls.Clear();
-                flowLayoutPanelBottom.Controls.AddRange(CreateCardsForPlayer(player));
+                bottomCardInHandPanel.Controls.Clear();
+                bottomCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
             }
         }
 
         /// <summary>
-        /// create cards for the player
+        /// create cards that in player's hand
         /// </summary>
         /// <param name="player"></param>
-        private PictureBox[] CreateCardsForPlayer(Player player)
+        private PictureBox[] CreateCardsInHandForPlayer(Player player)
         {
 
             List<PictureBox> pictureBoxes = new List<PictureBox>();
@@ -114,6 +114,25 @@ namespace fzzzt_game
         }
 
         /// <summary>
+        /// create cards that are chosen to bid
+        /// </summary>
+        /// <param name="player"></param>
+        private PictureBox[] CreateCardsInBidForPlayer(Player player)
+        {
+
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
+            foreach (Card card in player.GetCardsInBid())
+            {
+                PictureBox pictureBox = CreateDeafultPictureBox();
+                pictureBox.Image = card.GetFace();
+                pictureBox.Tag = new CardContext(card, player);
+                pictureBox.DoubleClick += new System.EventHandler(this.cardsInBid_DoubleClick);
+                pictureBoxes.Add(pictureBox);
+            }
+            return pictureBoxes.ToArray();
+        }
+
+        /// <summary>
         /// handl double click event
         /// </summary>
         /// <param name="sender"></param>
@@ -124,9 +143,69 @@ namespace fzzzt_game
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.BidCard();
-            flowLayoutPanelBottom.Controls.Clear();
-            flowLayoutPanelBottom.Controls.AddRange(CreateCardsForPlayer(cardContext.Onwer));
-            UpdateMessag(clickedPictureBox.Tag + " has been double clicked");
+
+            DisplayCardsForPlayer(cardContext);
+        }
+
+        /// <summary>
+        /// double click a card in bid panel to cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cardsInBid_DoubleClick(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+
+            CardContext cardContext = (CardContext)clickedPictureBox.Tag;
+            cardContext.CanelBidCard();
+            DisplayCardsForPlayer(cardContext);
+        }
+
+        /// <summary>
+        /// display cards for player
+        /// </summary>
+        /// <param name="cardContext"></param>
+        private void DisplayCardsForPlayer(CardContext cardContext)
+        {
+            PictureBox[] cardsInHand = CreateCardsInHandForPlayer(cardContext.Onwer);
+            PictureBox[] cardsInBid = CreateCardsInBidForPlayer(cardContext.Onwer);
+
+            Panel cardsInHandPanel = GetCardInHandPanel(cardContext.Onwer);
+            cardsInHandPanel.Controls.Clear();
+            cardsInHandPanel.Controls.AddRange(cardsInHand);
+
+            Panel cardsInBidPanel = GetCardBidPanel(cardContext.Onwer);
+            cardsInBidPanel.Controls.Clear();
+            cardsInBidPanel.Controls.AddRange(cardsInBid);
+        }
+
+        /// <summary>
+        /// get the panel to display the cards in hand for the player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        private FlowLayoutPanel GetCardInHandPanel(Player player)
+        {
+            if (player.AtTop())
+            {
+                return topCardInHandPanel;
+            }
+            return bottomCardInHandPanel;
+        }
+
+
+        /// <summary>
+        /// get the panel to display the cards to bid for the player
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        private FlowLayoutPanel GetCardBidPanel(Player player)
+        {
+            if (player.AtTop())
+            {
+                return topBidPanel;
+            }
+            return bottomBidPanel;
         }
 
         /// <summary>
@@ -251,16 +330,26 @@ namespace fzzzt_game
             for (int i = cards.Count - 1; i >= 0; i--)
             {
                 Card card = cards[i];
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Size = new Size(100, 140);
-                pictureBox.Margin = new Padding(0);
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Image = GameEngine.FzzztCardBack;
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 
-                flowLayoutPanelMiddle.Controls.Add(pictureBox);
+                conveyorBeltPanel.Controls.Add(pictureBox);
             }
+        }
+
+        /// <summary>
+        /// default picture box
+        /// </summary>
+        /// <returns></returns>
+        private PictureBox CreateDeafultPictureBox()
+        {
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Size = new Size(100, 140);
+            pictureBox.Margin = new Padding(0);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            return pictureBox;
         }
 
         /// <summary>
@@ -288,9 +377,12 @@ namespace fzzzt_game
 
             buttonStartGame.Enabled = true;
 
-            flowLayoutPanelTop.Controls.Clear();
-            flowLayoutPanelMiddle.Controls.Clear();
-            flowLayoutPanelBottom.Controls.Clear();
+            topCardInHandPanel.Controls.Clear();
+            conveyorBeltPanel.Controls.Clear();
+            bottomCardInHandPanel.Controls.Clear();
+
+            topBidPanel.Controls.Clear();
+            bottomBidPanel.Controls.Clear();
         }
 
         /// <summary>

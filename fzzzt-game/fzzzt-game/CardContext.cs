@@ -38,5 +38,14 @@ namespace fzzzt_game
             _onwer.RemoveCardFromHand(_card);
             _onwer.AddCardToBid(_card);
         }
+
+        /// <summary>
+        /// cancel the card for bidding
+        /// </summary>
+        public void CanelBidCard()
+        {
+            _onwer.RemoveCardFromBid(_card);
+            _onwer.AddCardToHand(_card);
+        }
     }
 }

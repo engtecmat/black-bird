@@ -35,9 +35,10 @@
             this.labelPlayerBottom = new System.Windows.Forms.Label();
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonStartAuctionBottom = new System.Windows.Forms.Button();
             this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
-            this.flowLayoutPanelBottom = new System.Windows.Forms.FlowLayoutPanel();
+            this.bottomCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOperations = new System.Windows.Forms.Panel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
@@ -47,9 +48,10 @@
             this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxProductionUnitOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTopMechanicFace = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
+            this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelMiddle = new System.Windows.Forms.FlowLayoutPanel();
+            this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
@@ -128,19 +130,28 @@
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.buttonStartAuctionBottom);
             this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
             this.panelBottom.Controls.Add(this.labelPlayerBottom);
             this.panelBottom.Controls.Add(this.pictureBoxDiscardTwo);
             this.panelBottom.Controls.Add(this.pictureBoxProductionUnitTwo);
             this.panelBottom.Controls.Add(this.pictureBoxPlayerBottomMechanicFace);
-            this.panelBottom.Controls.Add(this.flowLayoutPanelBottom);
+            this.panelBottom.Controls.Add(this.bottomCardInHandPanel);
             this.panelBottom.Location = new System.Drawing.Point(169, 586);
             this.panelBottom.Margin = new System.Windows.Forms.Padding(2);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1253, 400);
             this.panelBottom.TabIndex = 26;
             this.panelBottom.Visible = false;
+            // 
+            // flowLayoutPanelBidBottom
+            // 
+            this.bottomBidPanel.Location = new System.Drawing.Point(454, 6);
+            this.bottomBidPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomBidPanel.Name = "flowLayoutPanelBidBottom";
+            this.bottomBidPanel.Size = new System.Drawing.Size(796, 140);
+            this.bottomBidPanel.TabIndex = 30;
             // 
             // buttonStartAuctionBottom
             // 
@@ -168,13 +179,13 @@
             this.labelChiefMechanicBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelChiefMechanicBottom.Visible = false;
             // 
-            // flowLayoutPanelBottom
+            // bottomCardInHandPanel
             // 
-            this.flowLayoutPanelBottom.Location = new System.Drawing.Point(454, 151);
-            this.flowLayoutPanelBottom.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            this.flowLayoutPanelBottom.Size = new System.Drawing.Size(796, 140);
-            this.flowLayoutPanelBottom.TabIndex = 30;
+            this.bottomCardInHandPanel.Location = new System.Drawing.Point(454, 151);
+            this.bottomCardInHandPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomCardInHandPanel.Name = "bottomCardInHandPanel";
+            this.bottomCardInHandPanel.Size = new System.Drawing.Size(796, 140);
+            this.bottomCardInHandPanel.TabIndex = 30;
             // 
             // panelOperations
             // 
@@ -201,13 +212,14 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.topBidPanel);
             this.panelTop.Controls.Add(this.buttonStartAuctionTop);
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
             this.panelTop.Controls.Add(this.labelPlayerTop);
             this.panelTop.Controls.Add(this.pictureBoxDiscardPileOne);
             this.panelTop.Controls.Add(this.pictureBoxProductionUnitOne);
             this.panelTop.Controls.Add(this.pictureBoxPlayerTopMechanicFace);
-            this.panelTop.Controls.Add(this.flowLayoutPanelTop);
+            this.panelTop.Controls.Add(this.topCardInHandPanel);
             this.panelTop.Location = new System.Drawing.Point(169, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(2);
             this.panelTop.Name = "panelTop";
@@ -281,17 +293,17 @@
             this.pictureBoxPlayerTopMechanicFace.TabIndex = 22;
             this.pictureBoxPlayerTopMechanicFace.TabStop = false;
             // 
-            // flowLayoutPanelTop
+            // topCardInHandPanel
             // 
-            this.flowLayoutPanelTop.Location = new System.Drawing.Point(457, 84);
-            this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            this.flowLayoutPanelTop.Size = new System.Drawing.Size(793, 140);
-            this.flowLayoutPanelTop.TabIndex = 29;
+            this.topCardInHandPanel.Location = new System.Drawing.Point(457, 84);
+            this.topCardInHandPanel.Name = "topCardInHandPanel";
+            this.topCardInHandPanel.Size = new System.Drawing.Size(793, 140);
+            this.topCardInHandPanel.TabIndex = 29;
             // 
             // panelMiddle
             // 
             this.panelMiddle.Controls.Add(this.pictureBoxConveyorBeltDeck);
-            this.panelMiddle.Controls.Add(this.flowLayoutPanelMiddle);
+            this.panelMiddle.Controls.Add(this.conveyorBeltPanel);
             this.panelMiddle.Location = new System.Drawing.Point(169, 404);
             this.panelMiddle.Margin = new System.Windows.Forms.Padding(2);
             this.panelMiddle.Name = "panelMiddle";
@@ -301,11 +313,19 @@
             // 
             // flowLayoutPanelMiddle
             // 
-            this.flowLayoutPanelMiddle.Location = new System.Drawing.Point(215, 21);
-            this.flowLayoutPanelMiddle.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanelMiddle.Name = "flowLayoutPanelMiddle";
-            this.flowLayoutPanelMiddle.Size = new System.Drawing.Size(1035, 140);
-            this.flowLayoutPanelMiddle.TabIndex = 10;
+            this.conveyorBeltPanel.Location = new System.Drawing.Point(215, 21);
+            this.conveyorBeltPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.conveyorBeltPanel.Name = "flowLayoutPanelMiddle";
+            this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
+            this.conveyorBeltPanel.TabIndex = 10;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.topBidPanel.Location = new System.Drawing.Point(457, 230);
+            this.topBidPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.topBidPanel.Name = "flowLayoutPanel1";
+            this.topBidPanel.Size = new System.Drawing.Size(796, 140);
+            this.topBidPanel.TabIndex = 31;
             // 
             // FormFzzztGame
             // 
@@ -359,8 +379,10 @@
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonStartAuctionBottom;
         private System.Windows.Forms.Button buttonStartAuctionTop;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBottom;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMiddle;
+        private System.Windows.Forms.FlowLayoutPanel bottomCardInHandPanel;
+        private System.Windows.Forms.FlowLayoutPanel topCardInHandPanel;
+        private System.Windows.Forms.FlowLayoutPanel conveyorBeltPanel;
+        private System.Windows.Forms.FlowLayoutPanel bottomBidPanel;
+        private System.Windows.Forms.FlowLayoutPanel topBidPanel;
     }
 }
