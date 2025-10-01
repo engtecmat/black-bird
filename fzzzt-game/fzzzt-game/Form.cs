@@ -456,16 +456,16 @@ namespace fzzzt_game
             FaceUpCardOnConveyorBelt(conveyorBeltPanel.Controls.Count - 1);
 
             Random random = new Random();
-            ISet<int> indcies = new HashSet<int>();
+            ISet<int> indices = new HashSet<int>();
 
-            /// get indcies based on the conveyor belt number
-            while (indcies.Count < _engine.GetAllowedFacedUpCardCount() - 1)
+            /// get indices based on the conveyor belt number
+            while (indices.Count < _engine.GetAllowedFacedUpCardCount() - 1)
             {
-                indcies.Add(random.Next(0, Math.Min(_engine.GetAllowedFacedUpCardCount(), count - 1)));
+                indices.Add(random.Next(0, Math.Min(_engine.GetAllowedFacedUpCardCount(), count - 1)));
             }
 
             // face up the cards
-            foreach (int index in indcies)
+            foreach (int index in indices)
             {
                 FaceUpCardOnConveyorBelt(index);
             }

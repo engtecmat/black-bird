@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace fzzzt_game
 {
@@ -362,10 +363,26 @@ namespace fzzzt_game
         public void StartAuction()
         {
             _isAuctionStarted = true;
-            _cardsInConveyorBelt = _deck.GetRange(0, 8);
-            _deck.RemoveRange(0, 8);
+            PickCardsForConveyorBelt();
             _gameView.RefreshConveyorBelt();
             _gameView.HideStartAuctionButtons();
+        }
+
+        private void PickCardsForConveyorBelt()
+        {
+            ISet<int> indices = new HashSet<int>();
+            Random random = new Random();
+
+            // in the beginning of the game, pick 8 cards for audciton
+            while (indices.Count < 8)
+            {
+                indices.Add(random.Next(0, _deck.Count));
+            }
+            foreach (int index in indices)
+            {
+                _cardsInConveyorBelt.Add(_deck[index]);
+                _deck.RemoveAt(index);
+            }
         }
 
         /// <summary>
