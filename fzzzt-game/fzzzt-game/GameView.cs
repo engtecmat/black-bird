@@ -24,5 +24,15 @@
         /// hide start auction buttons
         /// </summary>
         void HideStartAuctionButtons();
+
+        /// <summary>
+        /// Updates the UI to reflect the selected chief mechanic.
+        /// </summary>
+        void EnpowerChiefMechanic();
+
+        /// <summary>
+        /// this is for AI player to face up cards
+        /// </summary>
+        void FlipCards();
     }
 }

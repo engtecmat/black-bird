@@ -16,7 +16,7 @@ namespace fzzzt_game
 
             MessageLogForm messageLogForm = new MessageLogForm();
             messageLogForm.Show();
-            Application.Run(new FormFzzztGame(messageLogForm));
+            Application.Run(new GameForm(messageLogForm));
             //Application.Run(new FormFzzztGame());
         }
     }

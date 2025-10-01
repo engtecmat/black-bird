@@ -9,11 +9,6 @@ namespace fzzzt_game
     public class RobotCard : Card
     {
         /// <summary>
-        /// it is used to determine how many card can be fliped in the beginning of an auction.
-        /// </summary>
-        private int _conveyorBeltNumber;
-
-        /// <summary>
         /// construction symbols, e.g, Bolt, Cog, Nut, Oil
         /// </summary>
         private ISet<ConstructionSymbol> _constructionSymbols;

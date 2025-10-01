@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Linq;
+using System.Reflection;
 
 namespace fzzzt_game
 {
-    public partial class FormFzzztGame : Form, GameView
+    public partial class GameForm : Form, GameView
     {
         /// <summary>
         /// the game engine instance
@@ -21,7 +22,7 @@ namespace fzzzt_game
         /// <summary>
         /// build form without message log form
         /// </summary>
-        public FormFzzztGame()
+        public GameForm()
         {
             InitializeComponent();
             _engine = new GameEngine(this);
@@ -31,7 +32,7 @@ namespace fzzzt_game
         /// build form with message log form
         /// </summary>
         /// <param name="messageLogForm"></param>
-        public FormFzzztGame(MessageLogForm messageLogForm)
+        public GameForm(MessageLogForm messageLogForm)
         {
             InitializeComponent();
             _engine = new GameEngine(this);
@@ -59,8 +60,6 @@ namespace fzzzt_game
             _engine.StartGame();
 
             pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
-
-            EnpowerChiefMechanic();
 
             DisplayPlayers();
         }
@@ -273,7 +272,6 @@ namespace fzzzt_game
                 }
                 clickedPictureBox.Image = clickedCard.GetFace();
                 _engine.AddFacedUpCard(clickedCard);
-                _engine.UpdateFacedUpCardCount(clickedCard);
                 return;
             }
 
@@ -303,7 +301,7 @@ namespace fzzzt_game
         /// <summary>
         /// Updates the UI to reflect the selected chief mechanic.
         /// </summary>
-        private void EnpowerChiefMechanic()
+        public void EnpowerChiefMechanic()
         {
             Player chiefMechanic = _engine.GetChiefMechanic();
             if (chiefMechanic.AtTop())
@@ -414,6 +412,48 @@ namespace fzzzt_game
         {
             topStartAuction.Visible = false;
             bottomStartAuction.Visible = false;
+        }
+
+        /// <summary>
+        /// this is for AI player to face up cards
+        /// </summary>
+        public void FlipCards()
+        {
+            int count = conveyorBeltPanel.Controls.Count;
+            UpdateMessag(count + " cards on the conveyor belt.");
+            if (count == 0)
+            {
+                return;
+            }
+
+            FaceUpCardOnConveyorBelt(conveyorBeltPanel.Controls.Count - 1);
+
+            Random random = new Random();
+            ISet<int> indcies = new HashSet<int>();
+
+            /// get indcies based on the conveyor belt number
+            while(indcies.Count < _engine.GetAllowedFacedUpCardCount() - 1)
+            {
+                indcies.Add(random.Next(0, Math.Min(_engine.GetAllowedFacedUpCardCount(), count - 1)));
+            }
+
+            // face up the cards
+            foreach(int index in indcies)
+            {
+                FaceUpCardOnConveyorBelt(index);
+            }
+        }
+
+        /// <summary>
+        /// face up a card based on its index
+        /// </summary>
+        /// <param name="index"></param>
+        private void FaceUpCardOnConveyorBelt(int index)
+        {
+            PictureBox pictureBox = (PictureBox)conveyorBeltPanel.Controls[index];
+            Card firstCard = (Card)pictureBox.Tag;
+            pictureBox.Image = firstCard.GetFace();
+            _engine.AddFacedUpCard(firstCard);
         }
     }
 }

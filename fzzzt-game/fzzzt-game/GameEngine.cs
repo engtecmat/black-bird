@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace fzzzt_game
 {
@@ -115,6 +116,21 @@ namespace fzzzt_game
         {
             _gameState = true;
             InitializeDeck();
+            _gameView.EnpowerChiefMechanic();
+            StartAuctionIfChiefMechanicIsAI();
+        }
+
+        /// <summary>
+        /// start an auciton immediately if chief mechanic is AI
+        /// </summary>
+        private void StartAuctionIfChiefMechanicIsAI()
+        {
+            if (_players.FindIndex(player => _chiefMechanic == player && player.IsAI()) == -1)
+            {
+                return;
+            }
+            StartAuction();
+            _gameView.FlipCards();
         }
 
         /// <summary>
@@ -206,8 +222,8 @@ namespace fzzzt_game
             _deck.Remove(playerTwoPower2);
             _deck.Remove(playerTwoPower3);
 
-            _players.Add(new Player("Player 1", Position.Top, Properties.Resources.Mechanic_One, new HashSet<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
-            _players.Add(new Player("Player 2", Position.Bottom, Properties.Resources.Mechanic_Two, new HashSet<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
+            _players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, new HashSet<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
+            _players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, new HashSet<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
 
             PickChiefMechanic();
         }
@@ -218,6 +234,7 @@ namespace fzzzt_game
         private void PickChiefMechanic()
         {
             _chiefMechanic = _players[_random.Next() % 2];
+            _gameView.UpdateMessag(_chiefMechanic.GetName() + " is the chief Mechanic.");
         }
 
         /// <summary>
@@ -277,16 +294,21 @@ namespace fzzzt_game
         public void AddFacedUpCard(Card card)
         {
             _facedUpCards.Add(card);
+            UpdateAllowedFacedUpCardCount();
             _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
 
         /// <summary>
         /// update the allowed faced up card count
         /// </summary>
-        /// <param name="card"></param>
-        public void UpdateFacedUpCardCount(Card card)
+        public void UpdateAllowedFacedUpCardCount()
         {
-            _allowedFacedUpCardCount = card.GetConveyorBeltNumber();
+            if(_facedUpCards.Count !=1)
+            {
+                return;
+            }
+
+            _allowedFacedUpCardCount = _facedUpCards.First().GetConveyorBeltNumber();
             _gameView.UpdateMessag("allowed count:" + _allowedFacedUpCardCount);
         }
 

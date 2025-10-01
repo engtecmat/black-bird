@@ -1,6 +1,6 @@
 ﻿namespace fzzzt_game
 {
-    partial class FormFzzztGame
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.

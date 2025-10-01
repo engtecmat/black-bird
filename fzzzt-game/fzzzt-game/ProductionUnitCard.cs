@@ -17,11 +17,6 @@ namespace fzzzt_game
         private const int ConveyorBeltNumber = 3;
 
         /// <summary>
-        /// it is used to determine how many card can be fliped in the beginning of an auction.
-        /// </summary>
-        private int _conveyorBeltNumber;
-
-        /// <summary>
         /// a construction symbol, e.g, Bolt, Cog, Nut, Oil
         /// </summary>
         private ISet<ConstructionSymbol> _constructionSymbols;
