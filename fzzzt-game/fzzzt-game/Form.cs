@@ -78,26 +78,27 @@ namespace fzzzt_game
                 {
                     labelPlayerTop.Text = player.GetName();
                     pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
-                    DisplayCardsForPlayer(player, flowLayoutPanelTop);
-
+                    flowLayoutPanelTop.Controls.Clear();
+                    flowLayoutPanelTop.Controls.AddRange(CreateCardsForPlayer(player));
                     continue;
                 }
 
                 // player at the bottom
                 labelPlayerBottom.Text = player.GetName();
                 pictureBoxPlayerBottomMechanicFace.Image = player.GetMechanicFace();
-                DisplayCardsForPlayer(player, flowLayoutPanelBottom);
+                flowLayoutPanelBottom.Controls.Clear();
+                flowLayoutPanelBottom.Controls.AddRange(CreateCardsForPlayer(player));
             }
         }
 
         /// <summary>
-        /// display the player's cards
+        /// create cards for the player
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="parent"></param>
-        private void DisplayCardsForPlayer(Player player, Control parent)
+        private PictureBox[] CreateCardsForPlayer(Player player)
         {
-            parent.Controls.Clear();
+
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
             foreach (Card card in player.GetCardsInHand())
             {
                 PictureBox pictureBox = new PictureBox();
@@ -107,8 +108,9 @@ namespace fzzzt_game
                 pictureBox.Image = card.GetFace();
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBox.DoubleClick += new System.EventHandler(this.cardsInHand_DoubleClick);
-                parent.Controls.Add(pictureBox);
+                pictureBoxes.Add(pictureBox);
             }
+            return pictureBoxes.ToArray();
         }
 
         /// <summary>
@@ -122,7 +124,8 @@ namespace fzzzt_game
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.BidCard();
-            DisplayCardsForPlayer(cardContext.Onwer, flowLayoutPanelBottom);
+            flowLayoutPanelBottom.Controls.Clear();
+            flowLayoutPanelBottom.Controls.AddRange(CreateCardsForPlayer(cardContext.Onwer));
             UpdateMessag(clickedPictureBox.Tag + " has been double clicked");
         }
 
