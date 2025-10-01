@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace fzzzt_game
@@ -376,13 +377,14 @@ namespace fzzzt_game
             // in the beginning of the game, pick 8 cards for audciton
             while (indices.Count < 8)
             {
-                indices.Add(random.Next(0, _deck.Count));
+                indices.Add(random.Next(0, _deck.Count - 1));
             }
             foreach (int index in indices)
             {
+                _gameView.UpdateMessage("index for conveyor belt:" + index);
                 _cardsInConveyorBelt.Add(_deck[index]);
-                _deck.RemoveAt(index);
             }
+            _deck.RemoveAll(card => _cardsInConveyorBelt.Contains(card));
         }
 
         /// <summary>

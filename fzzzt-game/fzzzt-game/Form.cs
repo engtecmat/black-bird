@@ -137,6 +137,24 @@ namespace fzzzt_game
         }
 
         /// <summary>
+        /// create cards for production units
+        /// </summary>
+        /// <param name="player"></param>
+        private PictureBox[] CreateCardsInProductionUnitForPlayer(Player player)
+        {
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
+            foreach (Card card in player.GetProductionUnits())
+            {
+                PictureBox pictureBox = CreateDeafultPictureBox();
+                pictureBox.Size = new Size(50, 70);
+                pictureBox.Image = card.GetFace();
+                pictureBox.Tag = new CardContext(card, player);
+                pictureBoxes.Add(pictureBox);
+            }
+            return pictureBoxes.ToArray();
+        }
+
+        /// <summary>
         /// handl double click event
         /// </summary>
         /// <param name="sender"></param>
@@ -153,7 +171,7 @@ namespace fzzzt_game
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.BidCard();
 
-            DisplayCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Onwer);
         }
 
         /// <summary>
@@ -172,18 +190,20 @@ namespace fzzzt_game
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.CanelBidCard();
-            DisplayCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Onwer);
         }
 
         /// <summary>
-        /// display cards for player
+        /// refresh cards for player,
+        /// cards in hand, cards in bid, cards in discard pile, cards in production units
         /// </summary>
         /// <param name="player"></param>
-        private void DisplayCardsForPlayer(Player player)
+        private void RefreshCardsForPlayer(Player player)
         {
             UpdateMessage(player.ToString());
             PictureBox[] cardsInHand = CreateCardsInHandForPlayer(player);
             PictureBox[] cardsInBid = CreateCardsInBidForPlayer(player);
+            PictureBox[] cardsInProductionUnits = CreateCardsInProductionUnitForPlayer(player);
 
             Panel cardsInHandPanel = GetCardInHandPanel(player);
             cardsInHandPanel.Controls.Clear();
@@ -199,6 +219,10 @@ namespace fzzzt_game
             {
                 discardPile.Image = GameEngine.CardBack;
             }
+
+            Panel productionUnitPanel = GetProductionUnitPanel(player);
+            productionUnitPanel.Controls.Clear();
+            productionUnitPanel.Controls.AddRange(cardsInProductionUnits);
         }
 
         /// <summary>
@@ -227,6 +251,20 @@ namespace fzzzt_game
                 return topBidPanel;
             }
             return bottomBidPanel;
+        }
+
+        /// <summary>
+        /// get the panel to display production units
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        private FlowLayoutPanel GetProductionUnitPanel(Player player)
+        {
+            if (player.AtTop())
+            {
+                return topProductionUnitPanel;
+            }
+            return bottomProductionUnitPanel;
         }
 
         /// <summary>
@@ -490,7 +528,7 @@ namespace fzzzt_game
         public void Bid(CardContext cardContext)
         {
             cardContext.BidCard();
-            DisplayCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Onwer);
         }
 
         private void bottomBidButton_Click(object sender, EventArgs e)
@@ -522,7 +560,7 @@ namespace fzzzt_game
         /// </summary>
         public void RefreshCardsForPlayers()
         {
-            _engine.GetPlayers().ForEach(player => DisplayCardsForPlayer(player));
+            _engine.GetPlayers().ForEach(player => RefreshCardsForPlayer(player));
         }
     }
 }
