@@ -342,7 +342,7 @@ namespace fzzzt_game
             {
                 Card card = cards[i];
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = GameEngine.CardBack;
+                pictureBox.Image = card.CurrentState;
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 

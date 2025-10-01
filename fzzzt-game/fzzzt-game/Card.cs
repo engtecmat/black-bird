@@ -33,6 +33,11 @@ namespace fzzzt_game
         private int _conveyorBeltNumber;
 
         /// <summary>
+        /// current state of the card, face up or face down.
+        /// </summary>
+        public Bitmap CurrentState { get => _currentState; set => _currentState = value; }
+
+        /// <summary>
         /// build a card with a face image, point value, and power.
         /// </summary>
         /// <param name="face"></param>
@@ -41,6 +46,7 @@ namespace fzzzt_game
         protected Card(Bitmap face, int pointValue, int power, int conveyorBeltNumber)
         {
             _face = face;
+            CurrentState = GameEngine.CardBack;
             _pointValue = pointValue;
             _power = power;
             _conveyorBeltNumber = conveyorBeltNumber;
@@ -56,12 +62,12 @@ namespace fzzzt_game
                 return;
             }
 
-            if (_currentState == GameEngine.CardBack)
+            if (CurrentState == GameEngine.CardBack)
             {
-                _currentState = _face;
+                CurrentState = _face;
                 return;
             }
-            _currentState = GameEngine.CardBack;
+            CurrentState = GameEngine.CardBack;
         }
 
         /// <summary>
