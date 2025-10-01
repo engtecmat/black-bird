@@ -139,6 +139,11 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInHand_DoubleClick(object sender, EventArgs e)
         {
+            if (!_engine.IsAuctionStarted())
+            {
+                return;
+            }
+
             PictureBox clickedPictureBox = sender as PictureBox;
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
@@ -154,6 +159,11 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInBid_DoubleClick(object sender, EventArgs e)
         {
+            if (!_engine.IsAuctionStarted())
+            {
+                return;
+            }
+
             PictureBox clickedPictureBox = sender as PictureBox;
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
@@ -292,13 +302,13 @@ namespace fzzzt_game
             if (chiefMechanic.AtTop())
             {
                 labelChiefMechanicTop.Visible = true;
-                buttonStartAuctionTop.Visible = true;
+                topStartAuction.Visible = true;
                 return;
             }
             if (chiefMechanic.AtBottom())
             {
                 labelChiefMechanicBottom.Visible = true;
-                buttonStartAuctionBottom.Visible = true;
+                bottomStartAuction.Visible = true;
             }
         }
 
@@ -317,13 +327,10 @@ namespace fzzzt_game
         /// </summary>
         private void buttonStartAuctionTop_Click(object sender, EventArgs e)
         {
-            DealCards();
+            _engine.StartAuction();
         }
 
-        /// <summary>
-        /// Deal 8 cards to start an auction
-        /// </summary>
-        private void DealCards()
+        public void PrepareConveyorBelt()
         {
             // the first card is the furthest away from the conveyor belt deck
             List<Card> cards = _engine.GetAuctionCards();
@@ -357,7 +364,7 @@ namespace fzzzt_game
         /// </summary>
         private void buttonStartAuctionBottom_Click(object sender, EventArgs e)
         {
-            DealCards();
+            _engine.StartAuction();
         }
 
         /// <summary>
@@ -372,8 +379,8 @@ namespace fzzzt_game
             labelChiefMechanicTop.Visible = false;
             labelChiefMechanicBottom.Visible = false;
 
-            buttonStartAuctionBottom.Visible = false;
-            buttonStartAuctionTop.Visible = false;
+            bottomStartAuction.Visible = false;
+            topStartAuction.Visible = false;
 
             buttonStartGame.Enabled = true;
 
@@ -391,6 +398,15 @@ namespace fzzzt_game
         public void UpdateMessag(string message)
         {
             _messageLogForm.UpdateMessage(message);
+        }
+
+        /// <summary>
+        /// disable start auction buttions
+        /// </summary>
+        public void HideStartAuctionButtons()
+        {
+            topStartAuction.Visible = false;
+            bottomStartAuction.Visible = false;
         }
     }
 }

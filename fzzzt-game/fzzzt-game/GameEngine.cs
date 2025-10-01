@@ -60,6 +60,11 @@ namespace fzzzt_game
         private GameView _gameView;
 
         /// <summary>
+        /// auction state
+        /// </summary>
+        private bool _isAuctionStarted;
+
+        /// <summary>
         /// build game engine with game view
         /// </summary>
         /// <param name="gameView"></param>
@@ -325,6 +330,26 @@ namespace fzzzt_game
         public bool FacingUpAllowed()
         {
             return _facedUpCards.Count < _allowedFacedUpCardCount;
+        }
+
+        /// <summary>
+        /// start an auction
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        public void StartAuction()
+        {
+            _isAuctionStarted = true;
+            _gameView.PrepareConveyorBelt();
+            _gameView.HideStartAuctionButtons();
+        }
+
+        /// <summary>
+        /// reutrn auction state
+        /// </summary>
+        /// <returns>true or false</returns>
+        public bool IsAuctionStarted()
+        {
+            return _isAuctionStarted;
         }
     }
 }

@@ -36,13 +36,13 @@
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonStartAuctionBottom = new System.Windows.Forms.Button();
+            this.bottomStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
             this.bottomCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOperations = new System.Windows.Forms.Panel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.buttonStartAuctionTop = new System.Windows.Forms.Button();
+            this.topStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.labelPlayerTop = new System.Windows.Forms.Label();
             this.pictureBoxDiscardPileOne = new System.Windows.Forms.PictureBox();
@@ -131,7 +131,7 @@
             // panelBottom
             // 
             this.panelBottom.Controls.Add(this.bottomBidPanel);
-            this.panelBottom.Controls.Add(this.buttonStartAuctionBottom);
+            this.panelBottom.Controls.Add(this.bottomStartAuction);
             this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
             this.panelBottom.Controls.Add(this.labelPlayerBottom);
             this.panelBottom.Controls.Add(this.pictureBoxDiscardTwo);
@@ -155,16 +155,16 @@
             // 
             // buttonStartAuctionBottom
             // 
-            this.buttonStartAuctionBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStartAuctionBottom.Location = new System.Drawing.Point(366, 338);
-            this.buttonStartAuctionBottom.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonStartAuctionBottom.Name = "buttonStartAuctionBottom";
-            this.buttonStartAuctionBottom.Size = new System.Drawing.Size(86, 36);
-            this.buttonStartAuctionBottom.TabIndex = 29;
-            this.buttonStartAuctionBottom.Text = "Start Auction";
-            this.buttonStartAuctionBottom.UseVisualStyleBackColor = true;
-            this.buttonStartAuctionBottom.Visible = false;
-            this.buttonStartAuctionBottom.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
+            this.bottomStartAuction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomStartAuction.Location = new System.Drawing.Point(366, 338);
+            this.bottomStartAuction.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomStartAuction.Name = "buttonStartAuctionBottom";
+            this.bottomStartAuction.Size = new System.Drawing.Size(86, 36);
+            this.bottomStartAuction.TabIndex = 29;
+            this.bottomStartAuction.Text = "Start Auction";
+            this.bottomStartAuction.UseVisualStyleBackColor = true;
+            this.bottomStartAuction.Visible = false;
+            this.bottomStartAuction.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
             // labelChiefMechanicBottom
             // 
@@ -213,7 +213,7 @@
             // panelTop
             // 
             this.panelTop.Controls.Add(this.topBidPanel);
-            this.panelTop.Controls.Add(this.buttonStartAuctionTop);
+            this.panelTop.Controls.Add(this.topStartAuction);
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
             this.panelTop.Controls.Add(this.labelPlayerTop);
             this.panelTop.Controls.Add(this.pictureBoxDiscardPileOne);
@@ -229,16 +229,16 @@
             // 
             // buttonStartAuctionTop
             // 
-            this.buttonStartAuctionTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStartAuctionTop.Location = new System.Drawing.Point(366, 18);
-            this.buttonStartAuctionTop.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonStartAuctionTop.Name = "buttonStartAuctionTop";
-            this.buttonStartAuctionTop.Size = new System.Drawing.Size(86, 36);
-            this.buttonStartAuctionTop.TabIndex = 28;
-            this.buttonStartAuctionTop.Text = "Start Auction";
-            this.buttonStartAuctionTop.UseVisualStyleBackColor = true;
-            this.buttonStartAuctionTop.Visible = false;
-            this.buttonStartAuctionTop.Click += new System.EventHandler(this.buttonStartAuctionTop_Click);
+            this.topStartAuction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topStartAuction.Location = new System.Drawing.Point(366, 18);
+            this.topStartAuction.Margin = new System.Windows.Forms.Padding(2);
+            this.topStartAuction.Name = "buttonStartAuctionTop";
+            this.topStartAuction.Size = new System.Drawing.Size(86, 36);
+            this.topStartAuction.TabIndex = 28;
+            this.topStartAuction.Text = "Start Auction";
+            this.topStartAuction.UseVisualStyleBackColor = true;
+            this.topStartAuction.Visible = false;
+            this.topStartAuction.Click += new System.EventHandler(this.buttonStartAuctionTop_Click);
             // 
             // labelChiefMechanicTop
             // 
@@ -377,8 +377,8 @@
         private System.Windows.Forms.Label labelChiefMechanicBottom;
         private System.Windows.Forms.Label labelChiefMechanicTop;
         private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button buttonStartAuctionBottom;
-        private System.Windows.Forms.Button buttonStartAuctionTop;
+        private System.Windows.Forms.Button bottomStartAuction;
+        private System.Windows.Forms.Button topStartAuction;
         private System.Windows.Forms.FlowLayoutPanel bottomCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel topCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel conveyorBeltPanel;

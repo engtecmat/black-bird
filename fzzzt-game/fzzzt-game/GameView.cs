@@ -14,5 +14,15 @@
         /// update the message box for debugging
         /// </summary>
         void UpdateMessag(string message);
+
+        /// <summary>
+        /// set up conveyor belt for an auction
+        /// </summary>
+        void PrepareConveyorBelt();
+
+        /// <summary>
+        /// hide start auction buttons
+        /// </summary>
+        void HideStartAuctionButtons();
     }
 }
