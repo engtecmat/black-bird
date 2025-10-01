@@ -45,10 +45,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(469, 450);
             this.Controls.Add(this.messageBox);
+            this.Location = new System.Drawing.Point(1440, 0);
             this.Name = "MessageLogForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MessageLogForm";
             this.ResumeLayout(false);
             this.PerformLayout();
