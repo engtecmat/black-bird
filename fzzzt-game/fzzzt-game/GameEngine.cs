@@ -38,7 +38,7 @@ namespace fzzzt_game
         /// <summary>
         /// current auction cards on the conveyor belt
         /// </summary>
-        private List<Card> _auctionCards = new List<Card>();
+        private List<Card> _cardsInConveyorBelt = new List<Card>();
 
         /// <summary>
         /// the players, current versio has two players
@@ -101,7 +101,7 @@ namespace fzzzt_game
 
             _deck.Clear();
             _allowedFacedUpCardCount = 0;
-            _auctionCards.Clear();
+            _cardsInConveyorBelt.Clear();
             _players.Clear();
             _facedUpCards.Clear();
             _chiefMechanic = null;
@@ -276,9 +276,9 @@ namespace fzzzt_game
         /// <returns>eight cards</returns>
         public List<Card> GetAuctionCards()
         {
-            _auctionCards = _deck.GetRange(0, 8);
+            _cardsInConveyorBelt = _deck.GetRange(0, 8);
             _deck.RemoveRange(0, 8);
-            return _auctionCards;
+            return _cardsInConveyorBelt;
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool IsFirstCardOnConveyorBelt(Card clickedCard)
         {
-            return _auctionCards.FindIndex(c => c == clickedCard) == 0;
+            return _cardsInConveyorBelt.FindIndex(c => c == clickedCard) == 0;
         }
 
         /// <summary>
@@ -431,6 +431,48 @@ namespace fzzzt_game
                 _gameView.UpdateMessag(winner.GetName() + " discard pile  = " + winner.GetProductionUnits().Count);
                 return;
             }
+        }
+
+        /// <summary>
+        /// print the game state for debugging
+        /// </summary>
+        public void PrintGameState()
+        {
+            _gameView.UpdateMessag("********** Game State **********");
+            _gameView.UpdateMessag("Cards in Deck: " + _deck.Count);
+            _gameView.UpdateMessag("");
+            _gameView.UpdateMessag("Cards in Conveyor Belt: " + _cardsInConveyorBelt.Count);
+            foreach (Card card in _cardsInConveyorBelt)
+            {
+                _gameView.UpdateMessag(card.ToString());
+            }
+
+            _gameView.UpdateMessag("");
+            foreach (Player player in _players)
+            {
+                _gameView.UpdateMessag(player.GetName() + " hand cards:" + player.GetCardsInHand().Count);
+                foreach (Card card in player.GetCardsInHand())
+                {
+                    _gameView.UpdateMessag(card.ToString());
+                }
+                _gameView.UpdateMessag(player.GetName() + " bid cards:" + player.GetCardsInBid().Count);
+                foreach (Card card in player.GetCardsInBid())
+                {
+                    _gameView.UpdateMessag(card.ToString());
+                }
+                _gameView.UpdateMessag(player.GetName() + " discard pile:" + player.GetDiscardPile().Count);
+                foreach (Card card in player.GetDiscardPile())
+                {
+                    _gameView.UpdateMessag(card.ToString());
+                }
+                _gameView.UpdateMessag(player.GetName() + " production units:" + player.GetProductionUnits().Count);
+                foreach (Card card in player.GetProductionUnits())
+                {
+                    _gameView.UpdateMessag(card.ToString());
+                }
+            }
+
+            _gameView.UpdateMessag("********** Game State **********");
         }
     }
 }

@@ -13,9 +13,9 @@ namespace fzzzt_game
         private Bitmap _face;
 
         /// <summary>
-        /// the image associated with the current instance.
+        /// faceup or facedown
         /// </summary>
-        private Bitmap _currentState;
+        private CardState _currentState;
 
         /// <summary>
         /// the point value of the card can be used to determine the winner of the game.
@@ -35,7 +35,7 @@ namespace fzzzt_game
         /// <summary>
         /// current state of the card, face up or face down.
         /// </summary>
-        public Bitmap CurrentState { get => _currentState; set => _currentState = value; }
+        public CardState CurrentState { get => _currentState; set => _currentState = value; }
 
         /// <summary>
         /// build a card with a face image, point value, and power.
@@ -46,28 +46,23 @@ namespace fzzzt_game
         protected Card(Bitmap face, int pointValue, int power, int conveyorBeltNumber)
         {
             _face = face;
-            CurrentState = GameEngine.CardBack;
+            CurrentState = CardState.FaceDown;
             _pointValue = pointValue;
             _power = power;
             _conveyorBeltNumber = conveyorBeltNumber;
         }
 
         /// <summary>
-        /// flip the card to show its front or back side.
+        /// flip the card to face up or face down
         /// </summary>
         public void Flip()
         {
-            if (_face == null)
+            if (CurrentState == CardState.FaceDown)
             {
+                CurrentState = CardState.FaceUp;
                 return;
             }
-
-            if (CurrentState == GameEngine.CardBack)
-            {
-                CurrentState = _face;
-                return;
-            }
-            CurrentState = GameEngine.CardBack;
+            CurrentState = CardState.FaceDown;
         }
 
         /// <summary>
@@ -110,7 +105,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public override string ToString()
         {
-            return "power: " + _power + ", pointValue:" + _pointValue + ", conveyorBeltNumber:" + _conveyorBeltNumber;
+            return "currentState:" + CurrentState;
         }
     }
 }

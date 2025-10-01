@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="CardContext.cs" />
+    <Compile Include="CardState.cs" />
     <Compile Include="ConstructionSymbol.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>

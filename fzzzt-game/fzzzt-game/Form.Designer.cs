@@ -53,6 +53,7 @@
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.printGameStateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
@@ -204,6 +205,7 @@
             // 
             // panelOperations
             // 
+            this.panelOperations.Controls.Add(this.printGameStateButton);
             this.panelOperations.Controls.Add(this.buttonReset);
             this.panelOperations.Controls.Add(this.buttonStartGame);
             this.panelOperations.Location = new System.Drawing.Point(0, 0);
@@ -342,6 +344,19 @@
             this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
+            // printGameStateButton
+            // 
+            this.printGameStateButton.AutoSize = true;
+            this.printGameStateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printGameStateButton.Location = new System.Drawing.Point(28, 613);
+            this.printGameStateButton.Margin = new System.Windows.Forms.Padding(2);
+            this.printGameStateButton.Name = "printGameStateButton";
+            this.printGameStateButton.Size = new System.Drawing.Size(100, 60);
+            this.printGameStateButton.TabIndex = 3;
+            this.printGameStateButton.Text = "Print";
+            this.printGameStateButton.UseVisualStyleBackColor = true;
+            this.printGameStateButton.Click += new System.EventHandler(this.printGameStateButton_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,5 +415,6 @@
         private System.Windows.Forms.FlowLayoutPanel bottomBidPanel;
         private System.Windows.Forms.FlowLayoutPanel topBidPanel;
         private System.Windows.Forms.Button bottomBidButton;
+        private System.Windows.Forms.Button printGameStateButton;
     }
 }

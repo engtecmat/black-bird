@@ -269,6 +269,7 @@ namespace fzzzt_game
                     return;
                 }
                 clickedPictureBox.Image = clickedCard.GetFace();
+                clickedCard.Flip();
                 _engine.AddFacedUpCard(clickedCard);
                 return;
             }
@@ -286,6 +287,7 @@ namespace fzzzt_game
                 if (_engine.FacingUpAllowed())
                 {
                     _engine.AddFacedUpCard(clickedCard);
+                    clickedCard.Flip();
                     clickedPictureBox.Image = clickedCard.GetFace();
                     return;
                 }
@@ -294,6 +296,7 @@ namespace fzzzt_game
 
             clickedPictureBox.Image = GameEngine.CardBack;
             _engine.RemoveFacedUpCard(clickedCard);
+            clickedCard.Flip();
             _engine.UpdateAllowedFacedUpCardCount();
         }
 
@@ -342,7 +345,7 @@ namespace fzzzt_game
             {
                 Card card = cards[i];
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = card.CurrentState;
+                pictureBox.Image = GameEngine.CardBack;
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 
@@ -484,6 +487,16 @@ namespace fzzzt_game
         public void UpdateUIAfterBidding(List<Player> players)
         {
             
+        }
+
+        /// <summary>
+        /// print game state for debugging
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void printGameStateButton_Click(object sender, EventArgs e)
+        {
+            _engine.PrintGameState();
         }
     }
 }
