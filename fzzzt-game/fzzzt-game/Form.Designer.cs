@@ -42,6 +42,7 @@
             this.panelOperations = new System.Windows.Forms.Panel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.labelPlayerTop = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bottomBidButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
@@ -130,6 +131,7 @@
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.bottomBidButton);
             this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.bottomStartAuction);
             this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
@@ -145,20 +147,20 @@
             this.panelBottom.TabIndex = 26;
             this.panelBottom.Visible = false;
             // 
-            // flowLayoutPanelBidBottom
+            // bottomBidPanel
             // 
             this.bottomBidPanel.Location = new System.Drawing.Point(454, 6);
             this.bottomBidPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.bottomBidPanel.Name = "flowLayoutPanelBidBottom";
+            this.bottomBidPanel.Name = "bottomBidPanel";
             this.bottomBidPanel.Size = new System.Drawing.Size(796, 140);
             this.bottomBidPanel.TabIndex = 30;
             // 
-            // buttonStartAuctionBottom
+            // bottomStartAuction
             // 
             this.bottomStartAuction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bottomStartAuction.Location = new System.Drawing.Point(366, 338);
             this.bottomStartAuction.Margin = new System.Windows.Forms.Padding(2);
-            this.bottomStartAuction.Name = "buttonStartAuctionBottom";
+            this.bottomStartAuction.Name = "bottomStartAuction";
             this.bottomStartAuction.Size = new System.Drawing.Size(86, 36);
             this.bottomStartAuction.TabIndex = 29;
             this.bottomStartAuction.Text = "Start Auction";
@@ -227,12 +229,20 @@
             this.panelTop.TabIndex = 27;
             this.panelTop.Visible = false;
             // 
-            // buttonStartAuctionTop
+            // topBidPanel
+            // 
+            this.topBidPanel.Location = new System.Drawing.Point(457, 230);
+            this.topBidPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.topBidPanel.Name = "topBidPanel";
+            this.topBidPanel.Size = new System.Drawing.Size(796, 140);
+            this.topBidPanel.TabIndex = 31;
+            // 
+            // topStartAuction
             // 
             this.topStartAuction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topStartAuction.Location = new System.Drawing.Point(366, 18);
             this.topStartAuction.Margin = new System.Windows.Forms.Padding(2);
-            this.topStartAuction.Name = "buttonStartAuctionTop";
+            this.topStartAuction.Name = "topStartAuction";
             this.topStartAuction.Size = new System.Drawing.Size(86, 36);
             this.topStartAuction.TabIndex = 28;
             this.topStartAuction.Text = "Start Auction";
@@ -311,21 +321,25 @@
             this.panelMiddle.TabIndex = 28;
             this.panelMiddle.Visible = false;
             // 
-            // flowLayoutPanelMiddle
+            // conveyorBeltPanel
             // 
             this.conveyorBeltPanel.Location = new System.Drawing.Point(215, 21);
             this.conveyorBeltPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.conveyorBeltPanel.Name = "flowLayoutPanelMiddle";
+            this.conveyorBeltPanel.Name = "conveyorBeltPanel";
             this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
-            // flowLayoutPanel1
+            // bottomBidButton
             // 
-            this.topBidPanel.Location = new System.Drawing.Point(457, 230);
-            this.topBidPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.topBidPanel.Name = "flowLayoutPanel1";
-            this.topBidPanel.Size = new System.Drawing.Size(796, 140);
-            this.topBidPanel.TabIndex = 31;
+            this.bottomBidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomBidButton.Location = new System.Drawing.Point(830, 338);
+            this.bottomBidButton.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomBidButton.Name = "bottomBidButton";
+            this.bottomBidButton.Size = new System.Drawing.Size(86, 36);
+            this.bottomBidButton.TabIndex = 31;
+            this.bottomBidButton.Text = "Bid";
+            this.bottomBidButton.UseVisualStyleBackColor = true;
+            this.bottomBidButton.Visible = false;
             // 
             // FormFzzztGame
             // 
@@ -384,5 +398,6 @@
         private System.Windows.Forms.FlowLayoutPanel conveyorBeltPanel;
         private System.Windows.Forms.FlowLayoutPanel bottomBidPanel;
         private System.Windows.Forms.FlowLayoutPanel topBidPanel;
+        private System.Windows.Forms.Button bottomBidButton;
     }
 }

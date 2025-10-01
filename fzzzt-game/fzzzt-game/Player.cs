@@ -15,6 +15,11 @@ namespace fzzzt_game
         private string _name;
 
         /// <summary>
+        /// indicate if the player is an AI
+        /// </summary>
+        private bool _isAI;
+
+        /// <summary>
         /// the position of the a palyer
         /// </summary>
         private Position _position;
@@ -36,16 +41,26 @@ namespace fzzzt_game
         private ISet<Card> _cardsInBid;
 
         /// <summary>
+        /// reutrn true if the player is an AI
+        /// </summary>
+        /// <returns></returns>
+        public bool IsAI()
+        {
+            return _isAI;
+        }
+
+        /// <summary>
         /// build a playe with name
         /// </summary>
         /// <param name="name"></param>
-        public Player(string name, Position position, Bitmap mechanic, ISet<Card> cardsInHand)
+        public Player(string name, Position position, Bitmap mechanic, ISet<Card> cardsInHand, bool isAIPlayer)
         {
             _name = name;
             _position = position;
             _mechanicFace = mechanic;
             _cardsInHand = cardsInHand;
             _cardsInBid = new HashSet<Card>();
+            _isAI = isAIPlayer;
         }
 
         /// <summary>

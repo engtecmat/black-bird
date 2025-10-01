@@ -101,13 +101,20 @@ namespace fzzzt_game
             List<PictureBox> pictureBoxes = new List<PictureBox>();
             foreach (Card card in player.GetCardsInHand())
             {
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Size = new Size(100, 140);
-                pictureBox.Margin = new Padding(0);
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox.Image = card.GetFace();
+                PictureBox pictureBox = CreateDeafultPictureBox();
+
+                if (player.IsAI())
+                {
+                    /// AI's cards in hand facing down
+                    pictureBox.Image = GameEngine.CardBack;
+                }
+                else
+                {
+                    pictureBox.Image = card.GetFace();
+                    pictureBox.DoubleClick += new System.EventHandler(this.cardsInHand_DoubleClick);
+                }
+
                 pictureBox.Tag = new CardContext(card, player);
-                pictureBox.DoubleClick += new System.EventHandler(this.cardsInHand_DoubleClick);
                 pictureBoxes.Add(pictureBox);
             }
             return pictureBoxes.ToArray();
@@ -231,15 +238,15 @@ namespace fzzzt_game
                 return;
             }
 
-            if (clickedPictureBox.Image == GameEngine.FzzztCardBack)
+            if (clickedPictureBox.Image == GameEngine.CardBack)
             {
                 clickedPictureBox.Image = (Image)clickedPictureBox.Tag;
-                clickedPictureBox.Tag = GameEngine.FzzztCardBack;
+                clickedPictureBox.Tag = GameEngine.CardBack;
                 return;
             }
 
             Image faceImage = clickedPictureBox.Image;
-            clickedPictureBox.Image = GameEngine.FzzztCardBack;
+            clickedPictureBox.Image = GameEngine.CardBack;
             clickedPictureBox.Tag = faceImage;
         }
 
@@ -289,7 +296,7 @@ namespace fzzzt_game
                 return;
             }
 
-            clickedPictureBox.Image = GameEngine.FzzztCardBack;
+            clickedPictureBox.Image = GameEngine.CardBack;
             _engine.RemoveFacedUpCard(clickedCard);
         }
 
@@ -338,7 +345,7 @@ namespace fzzzt_game
             {
                 Card card = cards[i];
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = GameEngine.FzzztCardBack;
+                pictureBox.Image = GameEngine.CardBack;
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 

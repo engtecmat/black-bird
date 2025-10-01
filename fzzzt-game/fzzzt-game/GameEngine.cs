@@ -12,7 +12,7 @@ namespace fzzzt_game
         /// <summary>
         /// a global card back
         /// </summary>
-        public static Bitmap FzzztCardBack = Properties.Resources.Fzzzt_Card_Back;
+        public static Bitmap CardBack = Properties.Resources.Fzzzt_Card_Back;
 
         /// <summary>
         /// indicates whether the game has started.
@@ -206,8 +206,8 @@ namespace fzzzt_game
             _deck.Remove(playerTwoPower2);
             _deck.Remove(playerTwoPower3);
 
-            _players.Add(new Player("Player 1", Position.Top, Properties.Resources.Mechanic_One, new HashSet<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }));
-            _players.Add(new Player("Player 2", Position.Bottom, Properties.Resources.Mechanic_Two, new HashSet<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }));
+            _players.Add(new Player("Player 1", Position.Top, Properties.Resources.Mechanic_One, new HashSet<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
+            _players.Add(new Player("Player 2", Position.Bottom, Properties.Resources.Mechanic_Two, new HashSet<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
 
             PickChiefMechanic();
         }
@@ -320,7 +320,7 @@ namespace fzzzt_game
         /// <returns>true or false</returns>
         public static bool IsCardBack(Image image)
         {
-            return FzzztCardBack == image;
+            return CardBack == image;
         }
 
         /// <summary>
