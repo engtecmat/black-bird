@@ -15,12 +15,12 @@ namespace fzzzt_game
         /// <summary>
         /// update the message box for debugging
         /// </summary>
-        void UpdateMessag(string message);
+        void UpdateMessage(string message);
 
         /// <summary>
         /// set up conveyor belt for an auction
         /// </summary>
-        void PrepareConveyorBelt();
+        void RefreshConveyorBelt();
 
         /// <summary>
         /// hide start auction buttons
@@ -48,8 +48,8 @@ namespace fzzzt_game
         void DisplayBidButton();
 
         /// <summary>
-        /// update UI after bidding
+        /// refresh cards for palyers
         /// </summary>
-        void UpdateUIAfterBidding(List<Player> players);
+        void RefreshCardsForPlayers();
     }
 }

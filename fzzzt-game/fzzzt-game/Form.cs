@@ -181,6 +181,7 @@ namespace fzzzt_game
         /// <param name="player"></param>
         private void DisplayCardsForPlayer(Player player)
         {
+            UpdateMessage(player.ToString());
             PictureBox[] cardsInHand = CreateCardsInHandForPlayer(player);
             PictureBox[] cardsInBid = CreateCardsInBidForPlayer(player);
 
@@ -337,15 +338,20 @@ namespace fzzzt_game
             _engine.StartAuction();
         }
 
-        public void PrepareConveyorBelt()
+        /// <summary>
+        /// refreash the conveyor belt
+        /// </summary>
+        public void RefreshConveyorBelt()
         {
+            conveyorBeltPanel.Controls.Clear();
             // the first card is the furthest away from the conveyor belt deck
             List<Card> cards = _engine.GetAuctionCards();
             for (int i = cards.Count - 1; i >= 0; i--)
             {
                 Card card = cards[i];
+                UpdateMessage(card.ToString());
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = GameEngine.CardBack;
+                pictureBox.Image = card.CurrentState == CardState.FaceDown ? GameEngine.CardBack : card.GetFace();
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 
@@ -402,7 +408,7 @@ namespace fzzzt_game
         /// <summary>
         /// update message in the textbox
         /// </summary>
-        public void UpdateMessag(string message)
+        public void UpdateMessage(string message)
         {
             _messageLogForm.UpdateMessage(message);
         }
@@ -422,7 +428,7 @@ namespace fzzzt_game
         public void FlipCards()
         {
             int count = conveyorBeltPanel.Controls.Count;
-            UpdateMessag(count + " cards on the conveyor belt.");
+            UpdateMessage(count + " cards on the conveyor belt.");
             if (count == 0)
             {
                 return;
@@ -453,9 +459,10 @@ namespace fzzzt_game
         private void FaceUpCardOnConveyorBelt(int index)
         {
             PictureBox pictureBox = (PictureBox)conveyorBeltPanel.Controls[index];
-            Card firstCard = (Card)pictureBox.Tag;
-            pictureBox.Image = firstCard.GetFace();
-            _engine.AddFacedUpCard(firstCard);
+            Card card = (Card)pictureBox.Tag;
+            pictureBox.Image = card.GetFace();
+            card.Flip();
+            _engine.AddFacedUpCard(card);
         }
 
         /// <summary>
@@ -482,14 +489,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// update UI after bidding
-        /// </summary>
-        public void UpdateUIAfterBidding(List<Player> players)
-        {
-            
-        }
-
-        /// <summary>
         /// print game state for debugging
         /// </summary>
         /// <param name="sender"></param>
@@ -497,6 +496,17 @@ namespace fzzzt_game
         private void printGameStateButton_Click(object sender, EventArgs e)
         {
             _engine.PrintGameState();
+        }
+
+        /// <summary>
+        /// refresh cards for players
+        /// </summary>
+        public void RefreshCardsForPlayers()
+        {
+            foreach(Player palyer in _engine.GetPlayers())
+            {
+                DisplayCardsForPlayer(palyer);
+            }
         }
     }
 }

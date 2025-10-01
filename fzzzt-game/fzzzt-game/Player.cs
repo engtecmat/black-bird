@@ -213,7 +213,7 @@ namespace fzzzt_game
         /// </summary>
         /// <param name="auctionedCard"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void AddCardToDiscardPile(Card auctionedCard)
+        public void DiscardCard(Card auctionedCard)
         {
             _discardPile.Add(auctionedCard);
         }
@@ -222,7 +222,7 @@ namespace fzzzt_game
         /// add card to production units
         /// </summary>
         /// <param name="auctionedCard"></param>
-        public void AddCardToProductionUnits(Card auctionedCard)
+        public void CollectProductionUnit(Card auctionedCard)
         {
             _productionUnits.Add(auctionedCard);
         }
@@ -243,6 +243,36 @@ namespace fzzzt_game
         public ISet<Card> GetProductionUnits()
         {
             return _productionUnits;
+        }
+
+        /// <summary>
+        /// move bid cards to discard pile after bidding
+        /// for winner
+        /// </summary>
+        public void DiscardBidCards()
+        {
+            foreach (Card card in _cardsInBid)
+            {
+                _discardPile.Add(card);
+            }
+            _cardsInBid.Clear();
+        }
+
+        /// <summary>
+        ///  return bid cards to hand
+        /// </summary>
+        public void ReturnBidCardsToHand()
+        {
+            foreach (Card card in _cardsInBid)
+            {
+                _cardsInHand.Add(card);
+            }
+            _cardsInBid.Clear();
+        }
+
+        public override string ToString()
+        {
+            return _name + ", " + _position + "," + _cardsInBid.Count;
         }
     }
 }
