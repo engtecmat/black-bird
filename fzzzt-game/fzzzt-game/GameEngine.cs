@@ -117,6 +117,7 @@ namespace fzzzt_game
             _gameState = true;
             InitializeDeck();
             _gameView.EnpowerChiefMechanic();
+            _gameView.DisplayBidButton();
             StartAuctionIfChiefMechanicIsAI();
         }
 
@@ -131,6 +132,9 @@ namespace fzzzt_game
             }
             StartAuction();
             _gameView.FlipCards();
+            _gameView.Bid(new CardContext(_chiefMechanic.GetCardsInHand().First(), _chiefMechanic));
+            _chiefMechanic.Bid();
+            _gameView.UpdateMessag(_chiefMechanic.GetName() + " bid = " + _chiefMechanic.IsBid());
         }
 
         /// <summary>
@@ -303,8 +307,9 @@ namespace fzzzt_game
         /// </summary>
         public void UpdateAllowedFacedUpCardCount()
         {
-            if(_facedUpCards.Count !=1)
+            if (_facedUpCards.Count == 0)
             {
+                _allowedFacedUpCardCount = 0;
                 return;
             }
 
@@ -328,12 +333,10 @@ namespace fzzzt_game
         public void RemoveFacedUpCard(Card card)
         {
             _facedUpCards.Remove(card);
-            if (_facedUpCards.Count == 0)
-            {
-                _allowedFacedUpCardCount = 0;
-            }
+
             _gameView.UpdateMessag("face-up count:" + _facedUpCards.Count);
         }
+
 
         /// <summary>
         /// check if the image is a card back
@@ -372,6 +375,62 @@ namespace fzzzt_game
         public bool IsAuctionStarted()
         {
             return _isAuctionStarted;
+        }
+
+        /// <summary>
+        /// human player is bidding
+        /// </summary>
+        public void Bid()
+        {
+            Player humanPlayer = _players.Find(player => !player.IsAI());
+            humanPlayer.Bid();
+            _gameView.UpdateMessag(humanPlayer.GetName() + " bid = " + humanPlayer.IsBid());
+
+            FindWinnerIfBothPlayersBid();
+        }
+
+        /// <summary>
+        /// find the winner if both players have bid
+        /// </summary>
+        private void FindWinnerIfBothPlayersBid()
+        {
+            if (_players.FindIndex(player => !player.IsBid()) != -1)
+            {
+                return;
+            }
+            int winnerPower = 0;
+            Player winner = null;
+            foreach (Player player in _players)
+            {
+                int totalPower = player.GetTotalPowerInBid();
+                if (totalPower > winnerPower)
+                {
+                    winnerPower = totalPower;
+                    winner = player;
+                }
+            }
+
+            Card auctionedCard = _facedUpCards.First();
+
+            RemoveFacedUpCard(auctionedCard);
+
+            if (auctionedCard is RobotCard)
+            {
+                winner.AddCardToDiscardPile(auctionedCard);
+
+                _gameView.UpdateMessag(winner.GetName() + " wins a Robot Card with power " + winnerPower);
+                _gameView.UpdateMessag(winner.GetName() + " discard pile  = " + winner.GetDiscardPile().Count);
+                return;
+            }
+
+            if (auctionedCard is ProductionUnitCard)
+            {
+                winner.AddCardToProductionUnits(auctionedCard);
+
+                _gameView.UpdateMessag(winner.GetName() + " wins a Production Unit with power " + winnerPower);
+                _gameView.UpdateMessag(winner.GetName() + " discard pile  = " + winner.GetProductionUnits().Count);
+                return;
+            }
         }
     }
 }

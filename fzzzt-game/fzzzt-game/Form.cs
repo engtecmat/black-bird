@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Linq;
-using System.Reflection;
 
 namespace fzzzt_game
 {
@@ -155,7 +153,7 @@ namespace fzzzt_game
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.BidCard();
 
-            DisplayCardsForPlayer(cardContext);
+            DisplayCardsForPlayer(cardContext.Onwer);
         }
 
         /// <summary>
@@ -174,23 +172,23 @@ namespace fzzzt_game
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.CanelBidCard();
-            DisplayCardsForPlayer(cardContext);
+            DisplayCardsForPlayer(cardContext.Onwer);
         }
 
         /// <summary>
         /// display cards for player
         /// </summary>
-        /// <param name="cardContext"></param>
-        private void DisplayCardsForPlayer(CardContext cardContext)
+        /// <param name="player"></param>
+        private void DisplayCardsForPlayer(Player player)
         {
-            PictureBox[] cardsInHand = CreateCardsInHandForPlayer(cardContext.Onwer);
-            PictureBox[] cardsInBid = CreateCardsInBidForPlayer(cardContext.Onwer);
+            PictureBox[] cardsInHand = CreateCardsInHandForPlayer(player);
+            PictureBox[] cardsInBid = CreateCardsInBidForPlayer(player);
 
-            Panel cardsInHandPanel = GetCardInHandPanel(cardContext.Onwer);
+            Panel cardsInHandPanel = GetCardInHandPanel(player);
             cardsInHandPanel.Controls.Clear();
             cardsInHandPanel.Controls.AddRange(cardsInHand);
 
-            Panel cardsInBidPanel = GetCardBidPanel(cardContext.Onwer);
+            Panel cardsInBidPanel = GetCardBidPanel(player);
             cardsInBidPanel.Controls.Clear();
             cardsInBidPanel.Controls.AddRange(cardsInBid);
         }
@@ -296,6 +294,7 @@ namespace fzzzt_game
 
             clickedPictureBox.Image = GameEngine.CardBack;
             _engine.RemoveFacedUpCard(clickedCard);
+            _engine.UpdateAllowedFacedUpCardCount();
         }
 
         /// <summary>
@@ -454,6 +453,37 @@ namespace fzzzt_game
             Card firstCard = (Card)pictureBox.Tag;
             pictureBox.Image = firstCard.GetFace();
             _engine.AddFacedUpCard(firstCard);
+        }
+
+        /// <summary>
+        /// bid for AI player
+        /// </summary>
+        public void Bid(CardContext cardContext)
+        {
+            cardContext.BidCard();
+            DisplayCardsForPlayer(cardContext.Onwer);
+        }
+
+        private void bottomBidButton_Click(object sender, EventArgs e)
+        {
+            _engine.Bid();
+        }
+
+        /// <summary>
+        /// display bid button for human player
+        /// </summary>
+        /// <param name="cardContext"></param>
+        public void DisplayBidButton()
+        {
+            bottomBidButton.Visible = true;
+        }
+
+        /// <summary>
+        /// update UI after bidding
+        /// </summary>
+        public void UpdateUIAfterBidding(List<Player> players)
+        {
+            
         }
     }
 }

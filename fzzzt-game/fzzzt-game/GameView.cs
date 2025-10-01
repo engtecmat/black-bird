@@ -1,4 +1,6 @@
-﻿namespace fzzzt_game
+﻿using System.Collections.Generic;
+
+namespace fzzzt_game
 {
     /// <summary>
     /// define the methods that will affect the UI
@@ -34,5 +36,20 @@
         /// this is for AI player to face up cards
         /// </summary>
         void FlipCards();
+
+        /// <summary>
+        /// bid for AI player
+        /// </summary>
+        void Bid(CardContext cardContext);
+
+        /// <summary>
+        /// display bid button for human player
+        /// </summary>
+        void DisplayBidButton();
+
+        /// <summary>
+        /// update UI after bidding
+        /// </summary>
+        void UpdateUIAfterBidding(List<Player> players);
     }
 }

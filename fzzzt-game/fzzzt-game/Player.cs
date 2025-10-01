@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 
 namespace fzzzt_game
@@ -18,6 +20,11 @@ namespace fzzzt_game
         /// indicate if the player is an AI
         /// </summary>
         private bool _isAI;
+
+        /// <summary>
+        /// indicate if the player is bid
+        /// </summary>
+        private bool _isBid;
 
         /// <summary>
         /// the position of the a palyer
@@ -41,6 +48,16 @@ namespace fzzzt_game
         private ISet<Card> _cardsInBid;
 
         /// <summary>
+        /// discard pile
+        /// </summary>
+        private ISet<Card> _discardPile;
+
+        /// <summary>
+        /// production units
+        /// </summary>
+        private ISet<Card> _productionUnits;
+
+        /// <summary>
         /// reutrn true if the player is an AI
         /// </summary>
         /// <returns></returns>
@@ -60,6 +77,8 @@ namespace fzzzt_game
             _mechanicFace = mechanic;
             _cardsInHand = cardsInHand;
             _cardsInBid = new HashSet<Card>();
+            _discardPile = new HashSet<Card>();
+            _productionUnits = new HashSet<Card>();
             _isAI = isAIPlayer;
         }
 
@@ -154,5 +173,76 @@ namespace fzzzt_game
             _cardsInHand.Remove(card);
         }
 
+        /// <summary>
+        /// set to true if the player is bid
+        /// </summary>
+        public void Bid()
+        {
+            _isBid = true;
+        }
+
+        /// <summary>
+        /// reset the bid status to false
+        /// </summary>
+        public void ResetBid()
+        {
+            _isBid = false;
+        }
+
+        /// <summary>
+        /// return bid status
+        /// </summary>
+        /// <returns></returns>
+        public bool IsBid()
+        {
+            return _isBid;
+
+        }
+
+        /// <summary>
+        /// get the total power in bid
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalPowerInBid()
+        {
+            return _cardsInBid.Sum(card => card.GetPower());
+        }
+
+        /// <summary>
+        /// add card to discard pile
+        /// </summary>
+        /// <param name="auctionedCard"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void AddCardToDiscardPile(Card auctionedCard)
+        {
+            _discardPile.Add(auctionedCard);
+        }
+
+        /// <summary>
+        /// add card to production units
+        /// </summary>
+        /// <param name="auctionedCard"></param>
+        public void AddCardToProductionUnits(Card auctionedCard)
+        {
+            _productionUnits.Add(auctionedCard);
+        }
+
+        /// <summary>
+        /// return discard pile
+        /// </summary>
+        /// <returns></returns>
+        public ISet<Card> GetDiscardPile()
+        {
+            return _discardPile;
+        }
+
+        /// <summary>
+        /// get production units
+        /// </summary>
+        /// <returns></returns>
+        public ISet<Card> GetProductionUnits()
+        {
+            return _productionUnits;
+        }
     }
 }

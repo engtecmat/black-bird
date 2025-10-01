@@ -33,22 +33,23 @@
             // 
             // messageBox
             // 
-            this.messageBox.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageBox.Location = new System.Drawing.Point(0, 0);
             this.messageBox.Margin = new System.Windows.Forms.Padding(0);
             this.messageBox.Multiline = true;
             this.messageBox.Name = "messageBox";
             this.messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.messageBox.Size = new System.Drawing.Size(460, 450);
+            this.messageBox.Size = new System.Drawing.Size(916, 862);
             this.messageBox.TabIndex = 0;
             // 
             // MessageLogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 450);
+            this.ClientSize = new System.Drawing.Size(938, 865);
             this.Controls.Add(this.messageBox);
             this.Location = new System.Drawing.Point(1440, 0);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MessageLogForm";

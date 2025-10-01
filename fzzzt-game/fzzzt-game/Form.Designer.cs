@@ -35,6 +35,7 @@
             this.labelPlayerBottom = new System.Windows.Forms.Label();
             this.pictureBoxProductionUnitTwo = new System.Windows.Forms.PictureBox();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.bottomBidButton = new System.Windows.Forms.Button();
             this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bottomBidButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiscardTwo)).BeginInit();
@@ -146,6 +146,19 @@
             this.panelBottom.Size = new System.Drawing.Size(1253, 400);
             this.panelBottom.TabIndex = 26;
             this.panelBottom.Visible = false;
+            // 
+            // bottomBidButton
+            // 
+            this.bottomBidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomBidButton.Location = new System.Drawing.Point(830, 338);
+            this.bottomBidButton.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomBidButton.Name = "bottomBidButton";
+            this.bottomBidButton.Size = new System.Drawing.Size(86, 36);
+            this.bottomBidButton.TabIndex = 31;
+            this.bottomBidButton.Text = "Bid";
+            this.bottomBidButton.UseVisualStyleBackColor = true;
+            this.bottomBidButton.Visible = false;
+            this.bottomBidButton.Click += new System.EventHandler(this.bottomBidButton_Click);
             // 
             // bottomBidPanel
             // 
@@ -329,19 +342,7 @@
             this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
-            // bottomBidButton
-            // 
-            this.bottomBidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bottomBidButton.Location = new System.Drawing.Point(830, 338);
-            this.bottomBidButton.Margin = new System.Windows.Forms.Padding(2);
-            this.bottomBidButton.Name = "bottomBidButton";
-            this.bottomBidButton.Size = new System.Drawing.Size(86, 36);
-            this.bottomBidButton.TabIndex = 31;
-            this.bottomBidButton.Text = "Bid";
-            this.bottomBidButton.UseVisualStyleBackColor = true;
-            this.bottomBidButton.Visible = false;
-            // 
-            // FormFzzztGame
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -353,7 +354,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormFzzztGame";
+            this.Name = "GameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FzzztGame";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).EndInit();
