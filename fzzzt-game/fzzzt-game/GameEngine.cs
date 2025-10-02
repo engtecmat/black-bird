@@ -406,13 +406,13 @@ namespace fzzzt_game
             _gameView.UpdateMessage(humanPlayer.GetName() + " bid = " + humanPlayer.IsBid());
 
             FindWinnerIfBothPlayersBid();
-            _players.ForEach(player => player.ReturnBidCardsToHand());
 
-            AutomateBidForAI();
+            _players.ForEach(player => player.ReturnBidCardsToHand());
 
             CheckIfNoCardInHand();
             _gameView.RefreshConveyorBelt();
             _gameView.RefreshCardsForPlayers();
+            AutomateBidForAI();
         }
 
         /// <summary>
