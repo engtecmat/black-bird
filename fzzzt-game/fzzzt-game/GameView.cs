@@ -40,7 +40,7 @@ namespace fzzzt_game
         /// <summary>
         /// bid for AI player
         /// </summary>
-        void Bid(CardContext cardContext);
+        void AIBid(CardContext cardContext);
 
         /// <summary>
         /// display bid button for human player

@@ -40,22 +40,22 @@ namespace fzzzt_game
         /// cards in hand
         /// int the beginning, each player has a 1 power, 2 power and 3 power card
         /// </summary>
-        private ISet<Card> _cardsInHand;
+        private List<Card> _cardsInHand;
 
         /// <summary>
         /// cards are chosen for bidding
         /// </summary>
-        private ISet<Card> _cardsInBid;
+        private List<Card> _cardsInBid;
 
         /// <summary>
         /// discard pile
         /// </summary>
-        private ISet<Card> _discardPile;
+        private List<Card> _discardPile;
 
         /// <summary>
         /// production units
         /// </summary>
-        private ISet<Card> _productionUnits;
+        private List<Card> _productionUnits;
 
         /// <summary>
         /// reutrn true if the player is an AI
@@ -70,15 +70,15 @@ namespace fzzzt_game
         /// build a playe with name
         /// </summary>
         /// <param name="name"></param>
-        public Player(string name, Position position, Bitmap mechanic, ISet<Card> cardsInHand, bool isAIPlayer)
+        public Player(string name, Position position, Bitmap mechanic, List<Card> cardsInHand, bool isAIPlayer)
         {
             _name = name;
             _position = position;
             _mechanicFace = mechanic;
             _cardsInHand = cardsInHand;
-            _cardsInBid = new HashSet<Card>();
-            _discardPile = new HashSet<Card>();
-            _productionUnits = new HashSet<Card>();
+            _cardsInBid = new List<Card>();
+            _discardPile = new List<Card>();
+            _productionUnits = new List<Card>();
             _isAI = isAIPlayer;
         }
 
@@ -122,7 +122,7 @@ namespace fzzzt_game
         /// get the cards in hand
         /// </summary>
         /// <returns>a set of cards</returns>
-        public ISet<Card> GetCardsInHand()
+        public List<Card> GetCardsInHand()
         {
             return _cardsInHand;
         }
@@ -131,7 +131,7 @@ namespace fzzzt_game
         /// get the cards in bid
         /// </summary>
         /// <returns>a set of cards</returns>
-        public ISet<Card> GetCardsInBid()
+        public List<Card> GetCardsInBid()
         {
             return _cardsInBid;
         }
@@ -176,7 +176,7 @@ namespace fzzzt_game
         /// <summary>
         /// set to true if the player is bid
         /// </summary>
-        public void Bid()
+        public void ConfirmBidding()
         {
             _isBid = true;
         }
@@ -231,7 +231,7 @@ namespace fzzzt_game
         /// return discard pile
         /// </summary>
         /// <returns></returns>
-        public ISet<Card> GetDiscardPile()
+        public List<Card> GetDiscardPile()
         {
             return _discardPile;
         }
@@ -240,7 +240,7 @@ namespace fzzzt_game
         /// get production units
         /// </summary>
         /// <returns></returns>
-        public ISet<Card> GetProductionUnits()
+        public List<Card> GetProductionUnits()
         {
             return _productionUnits;
         }
@@ -270,9 +270,28 @@ namespace fzzzt_game
             _cardsInBid.Clear();
         }
 
+        /// <summary>
+        /// has no card in hand
+        /// </summary>
+        /// <returns></returns>
+        public bool HasNoCardInHand()
+        {
+            return _cardsInHand == null || _cardsInHand.Count == 0;
+        }
+
         public override string ToString()
         {
             return _name + ", " + _position + "," + _cardsInBid.Count;
+        }
+
+        /// <summary>
+        /// tack back cards from discard pile
+        /// </summary>
+        public void TakeBackCards()
+        {
+            List<int> indices = Utils.GenerateIndices(6, _discardPile.Count);
+            indices.ForEach(i => _cardsInHand.Add(_discardPile[i]));
+            _cardsInHand.ForEach(card => _discardPile.Remove(card));
         }
     }
 }

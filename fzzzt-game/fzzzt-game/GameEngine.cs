@@ -134,8 +134,8 @@ namespace fzzzt_game
             }
             StartAuction();
             _gameView.FlipCards();
-            _gameView.Bid(new CardContext(_chiefMechanic.GetCardsInHand().First(), _chiefMechanic));
-            _chiefMechanic.Bid();
+            _gameView.AIBid(new CardContext(_chiefMechanic.GetCardsInHand().First(), _chiefMechanic));
+            _chiefMechanic.ConfirmBidding();
             _gameView.UpdateMessage(_chiefMechanic.GetName() + " bid = " + _chiefMechanic.IsBid());
         }
 
@@ -228,8 +228,8 @@ namespace fzzzt_game
             _deck.Remove(playerTwoPower2);
             _deck.Remove(playerTwoPower3);
 
-            _players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, new HashSet<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
-            _players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, new HashSet<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
+            _players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, new List<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
+            _players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, new List<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
 
             PickChiefMechanic();
         }
@@ -397,18 +397,53 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// human player is bidding
+        /// award card to the winner
         /// </summary>
-        public void Bid()
+        public void AwardCard()
         {
             Player humanPlayer = _players.Find(player => !player.IsAI());
-            humanPlayer.Bid();
+            humanPlayer.ConfirmBidding();
             _gameView.UpdateMessage(humanPlayer.GetName() + " bid = " + humanPlayer.IsBid());
 
             FindWinnerIfBothPlayersBid();
             _players.ForEach(player => player.ReturnBidCardsToHand());
+
+            AutomateBidForAI();
+
+            CheckIfNoCardInHand();
             _gameView.RefreshConveyorBelt();
             _gameView.RefreshCardsForPlayers();
+        }
+
+        /// <summary>
+        /// check if no cards in hand
+        /// </summary>
+        private void CheckIfNoCardInHand()
+        {
+            if (_cardsInConveyorBelt.Count == 0)
+            {
+                return;
+            }
+            if (_players.All(player => player.HasNoCardInHand()))
+            {
+                _players.ForEach(player => player.TakeBackCards());
+            }
+        }
+
+        /// <summary>
+        /// automate AI bid
+        /// </summary>
+        private void AutomateBidForAI()
+        {
+            List<Card> cardsInHand = _chiefMechanic.GetCardsInHand();
+            if (cardsInHand.Count > 0)
+            {
+                _gameView.AIBid(new CardContext(cardsInHand.First(), _chiefMechanic));
+            }
+            else
+            {
+                _chiefMechanic.ConfirmBidding();
+            }
         }
 
         /// <summary>
@@ -431,7 +466,10 @@ namespace fzzzt_game
                     winner = player;
                 }
             }
-
+            if (_facedUpCards.Count == 0)
+            {
+                return;
+            }
             Card auctionedCard = _facedUpCards.First();
 
             RemoveFacedUpCard(auctionedCard);

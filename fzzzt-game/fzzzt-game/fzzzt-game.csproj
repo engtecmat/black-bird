@@ -74,6 +74,7 @@
     <Compile Include="MechanicCard.cs" />
     <Compile Include="RobotUpGradeCard.cs" />
     <Compile Include="RobotCard.cs" />
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>

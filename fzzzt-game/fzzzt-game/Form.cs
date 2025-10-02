@@ -525,7 +525,7 @@ namespace fzzzt_game
         /// <summary>
         /// bid for AI player
         /// </summary>
-        public void Bid(CardContext cardContext)
+        public void AIBid(CardContext cardContext)
         {
             cardContext.BidCard();
             RefreshCardsForPlayer(cardContext.Onwer);
@@ -533,7 +533,7 @@ namespace fzzzt_game
 
         private void bottomBidButton_Click(object sender, EventArgs e)
         {
-            _engine.Bid();
+            _engine.AwardCard();
         }
 
         /// <summary>
