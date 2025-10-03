@@ -8,11 +8,6 @@ namespace fzzzt_game
     public interface GameView
     {
         /// <summary>
-        /// reset UI
-        /// </summary>
-        void Reset();
-
-        /// <summary>
         /// update the message box for debugging
         /// </summary>
         void UpdateMessage(string message);

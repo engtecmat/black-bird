@@ -110,26 +110,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// resets the game state to its initial condition.
-        /// </summary>
-        public void ResetGame()
-        {
-            // 1. reset game status
-            GameState = false;
-
-            // 2. clear data
-            Deck.Clear();
-            _allowedFacedUpCardCount = 0;
-            CardsInConveyorBelt.Clear();
-            Players.Clear();
-            FacedUpCards.Clear();
-            ChiefMechanic = null;
-
-            // 3. update UI
-            GameView.Reset();
-        }
-
-        /// <summary>
         /// starts the game by transitioning the game state to true.
         /// </summary>
         public void StartGame()

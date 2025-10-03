@@ -418,16 +418,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// Reset the visibility of elements and re-enable the Start Game button.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonReset_Click(object sender, EventArgs e)
-        {
-            Engine.ResetGame();
-        }
-
-        /// <summary>
         /// Handles the click event for the "Start Auction Top" button.
         /// </summary>
         private void buttonStartAuctionTop_Click(object sender, EventArgs e)
@@ -475,31 +465,6 @@ namespace fzzzt_game
         private void buttonStartAuctionBottom_Click(object sender, EventArgs e)
         {
             Engine.StartAuction();
-        }
-
-        /// <summary>
-        /// reset UI to its initial state
-        /// </summary>
-        public void Reset()
-        {
-            panelTop.Visible = false;
-            panelMiddle.Visible = false;
-            panelBottom.Visible = false;
-
-            labelChiefMechanicTop.Visible = false;
-            labelChiefMechanicBottom.Visible = false;
-
-            bottomStartAuction.Visible = false;
-            topStartAuction.Visible = false;
-
-            buttonStartGame.Enabled = true;
-
-            topCardInHandPanel.Controls.Clear();
-            conveyorBeltPanel.Controls.Clear();
-            bottomCardInHandPanel.Controls.Clear();
-
-            topBidPanel.Controls.Clear();
-            bottomBidPanel.Controls.Clear();
         }
 
         /// <summary>
