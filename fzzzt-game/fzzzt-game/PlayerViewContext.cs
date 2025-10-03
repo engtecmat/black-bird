@@ -32,5 +32,15 @@ namespace fzzzt_game
         /// a picture box to display mechanic card
         /// </summary>
         public PictureBox MechanicPictureBox { get; set; }
+
+        /// <summary>
+        /// a bid button for a player
+        /// </summary>
+        public Button BidButton { get; set; }
+
+        /// <summary>
+        /// a start auction button for a player
+        /// </summary>
+        public Button StartAcutionButton { get; set; }
     }
 }

@@ -34,7 +34,7 @@
             this.bottomDiscardPile = new System.Windows.Forms.PictureBox();
             this.bottomPlayerLabel = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.bottomOperationPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bottomPlayerOperationPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomBidButton = new System.Windows.Forms.Button();
             this.bottomProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +46,6 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.topProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.topStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
             this.topPlayerLabel = new System.Windows.Forms.Label();
             this.topDiscardPile = new System.Windows.Forms.PictureBox();
@@ -58,7 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bottomMechanicPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).BeginInit();
             this.panelBottom.SuspendLayout();
-            this.bottomOperationPanel.SuspendLayout();
+            this.bottomPlayerOperationPanel.SuspendLayout();
             this.panelOperations.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topDiscardPile)).BeginInit();
@@ -121,7 +120,7 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.bottomOperationPanel);
+            this.panelBottom.Controls.Add(this.bottomPlayerOperationPanel);
             this.panelBottom.Controls.Add(this.bottomProductionUnitPanel);
             this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.bottomStartAuction);
@@ -139,12 +138,12 @@
             // 
             // bottomOperationPanel
             // 
-            this.bottomOperationPanel.Controls.Add(this.bottomBidButton);
-            this.bottomOperationPanel.Location = new System.Drawing.Point(775, 338);
-            this.bottomOperationPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.bottomOperationPanel.Name = "bottomOperationPanel";
-            this.bottomOperationPanel.Size = new System.Drawing.Size(116, 37);
-            this.bottomOperationPanel.TabIndex = 34;
+            this.bottomPlayerOperationPanel.Controls.Add(this.bottomBidButton);
+            this.bottomPlayerOperationPanel.Location = new System.Drawing.Point(775, 338);
+            this.bottomPlayerOperationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomPlayerOperationPanel.Name = "bottomOperationPanel";
+            this.bottomPlayerOperationPanel.Size = new System.Drawing.Size(116, 37);
+            this.bottomPlayerOperationPanel.TabIndex = 34;
             // 
             // bottomBidButton
             // 
@@ -185,7 +184,6 @@
             this.bottomStartAuction.TabIndex = 29;
             this.bottomStartAuction.Text = "Start Auction";
             this.bottomStartAuction.UseVisualStyleBackColor = true;
-            this.bottomStartAuction.Visible = false;
             this.bottomStartAuction.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
             // labelChiefMechanicBottom
@@ -236,7 +234,6 @@
             // 
             this.panelTop.Controls.Add(this.topProductionUnitPanel);
             this.panelTop.Controls.Add(this.topBidPanel);
-            this.panelTop.Controls.Add(this.topStartAuction);
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
             this.panelTop.Controls.Add(this.topPlayerLabel);
             this.panelTop.Controls.Add(this.topDiscardPile);
@@ -264,19 +261,6 @@
             this.topBidPanel.Name = "topBidPanel";
             this.topBidPanel.Size = new System.Drawing.Size(796, 140);
             this.topBidPanel.TabIndex = 31;
-            // 
-            // topStartAuction
-            // 
-            this.topStartAuction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topStartAuction.Location = new System.Drawing.Point(633, 18);
-            this.topStartAuction.Margin = new System.Windows.Forms.Padding(2);
-            this.topStartAuction.Name = "topStartAuction";
-            this.topStartAuction.Size = new System.Drawing.Size(86, 36);
-            this.topStartAuction.TabIndex = 28;
-            this.topStartAuction.Text = "Start Auction";
-            this.topStartAuction.UseVisualStyleBackColor = true;
-            this.topStartAuction.Visible = false;
-            this.topStartAuction.Click += new System.EventHandler(this.buttonStartAuctionTop_Click);
             // 
             // labelChiefMechanicTop
             // 
@@ -366,7 +350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bottomMechanicPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).EndInit();
             this.panelBottom.ResumeLayout(false);
-            this.bottomOperationPanel.ResumeLayout(false);
+            this.bottomPlayerOperationPanel.ResumeLayout(false);
             this.panelOperations.ResumeLayout(false);
             this.panelOperations.PerformLayout();
             this.panelTop.ResumeLayout(false);
@@ -394,7 +378,6 @@
         private System.Windows.Forms.Label labelChiefMechanicBottom;
         private System.Windows.Forms.Label labelChiefMechanicTop;
         private System.Windows.Forms.Button bottomStartAuction;
-        private System.Windows.Forms.Button topStartAuction;
         private System.Windows.Forms.FlowLayoutPanel bottomCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel topCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel conveyorBeltPanel;
@@ -404,6 +387,6 @@
         private System.Windows.Forms.Button printGameStateButton;
         private System.Windows.Forms.FlowLayoutPanel bottomProductionUnitPanel;
         private System.Windows.Forms.FlowLayoutPanel topProductionUnitPanel;
-        private System.Windows.Forms.FlowLayoutPanel bottomOperationPanel;
+        private System.Windows.Forms.FlowLayoutPanel bottomPlayerOperationPanel;
     }
 }

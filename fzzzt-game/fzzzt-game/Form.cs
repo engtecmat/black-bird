@@ -42,7 +42,7 @@ namespace fzzzt_game
             InitializeComponent();
 
             Engine = new GameEngine();
-            Engine.GameView= this;
+            Engine.GameView = this;
 
             PlayerViewContexts = new List<PlayerViewContext>();
 
@@ -77,8 +77,11 @@ namespace fzzzt_game
                     Player = player,
                     NameLabel = bottomPlayerLabel,
                     CardInHandPanel = bottomCardInHandPanel,
-                    MechanicPictureBox = bottomMechanicPictureBox
+                    MechanicPictureBox = bottomMechanicPictureBox,
+                    BidButton = bottomBidButton,
+                    StartAcutionButton = bottomStartAuction
                 };
+                bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
             }
         }
@@ -113,7 +116,7 @@ namespace fzzzt_game
                 // player at the top
                 if (player.AtTop())
                 {
-                    topPlayerLabel.Text = player.GetName();
+                    topPlayerLabel.Text = player.Name;
                     topMechanicPictureBox.Image = player.MechanicFace;
                     topCardInHandPanel.Controls.Clear();
                     topCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
@@ -121,7 +124,7 @@ namespace fzzzt_game
                 }
 
                 // player at the bottom
-                bottomPlayerLabel.Text = player.GetName();
+                bottomPlayerLabel.Text = player.Name;
                 bottomMechanicPictureBox.Image = player.MechanicFace;
                 bottomCardInHandPanel.Controls.Clear();
                 bottomCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
@@ -140,7 +143,7 @@ namespace fzzzt_game
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
 
-                if (player.IsAI())
+                if (player.IsAI)
                 {
                     /// AI's cards in hand facing down
                     pictureBox.Image = GameEngine.CardBack;
@@ -201,7 +204,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInHand_DoubleClick(object sender, EventArgs e)
         {
-            if (!Engine.IsAuctionStarted())
+            if (!Engine.AuctionState)
             {
                 return;
             }
@@ -221,7 +224,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInBid_DoubleClick(object sender, EventArgs e)
         {
-            if (!Engine.IsAuctionStarted())
+            if (!Engine.AuctionState)
             {
                 return;
             }
@@ -407,13 +410,11 @@ namespace fzzzt_game
             if (chiefMechanic.AtTop())
             {
                 labelChiefMechanicTop.Visible = true;
-                topStartAuction.Visible = true;
                 return;
             }
             if (chiefMechanic.AtBottom())
             {
                 labelChiefMechanicBottom.Visible = true;
-                bottomStartAuction.Visible = true;
             }
         }
 
@@ -480,8 +481,6 @@ namespace fzzzt_game
         /// </summary>
         public void HideStartAuctionButtons()
         {
-            topStartAuction.Visible = false;
-            bottomStartAuction.Visible = false;
         }
 
         /// <summary>
@@ -582,7 +581,19 @@ namespace fzzzt_game
                 context.CardInHandPanel.Visible = true;
                 context.CardInHandPanel.Controls.Clear();
                 context.CardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(context.Player));
+
+                if (context.BidButton != null)
+                {
+                    context.BidButton.Visible = true;
+                }
+                if (context.StartAcutionButton != null && !Engine.AuctionState)
+                {
+                    
+                    context.StartAcutionButton.Visible = context.Player.IsChiefMechanic;
+                }
             });
+
+            RefreshConveyorBelt();
         }
     }
 }

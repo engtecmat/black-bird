@@ -65,13 +65,11 @@ namespace fzzzt_game
         public List<Card> DiscardPile { get => _discardPile; set => _discardPile = value; }
 
         /// <summary>
-        /// reutrn true if the player is an AI
+        /// indicate if the player is the chief mechanic
         /// </summary>
-        /// <returns></returns>
-        public bool IsAI()
-        {
-            return _isAI;
-        }
+        public bool IsChiefMechanic { get; set; }
+        public bool IsAI { get => _isAI; set => _isAI = value; }
+
 
         /// <summary>
         /// build a playe with name
@@ -86,7 +84,7 @@ namespace fzzzt_game
             CardsInBid = new List<Card>();
             DiscardPile = new List<Card>();
             ProductionUnits = new List<Card>();
-            _isAI = isAIPlayer;
+            IsAI = isAIPlayer;
         }
 
         /// <summary>
@@ -105,15 +103,6 @@ namespace fzzzt_game
         public bool AtBottom()
         {
             return _position == Position.Bottom;
-        }
-
-        /// <summary>
-        ///  get the player's name
-        /// </summary>
-        /// <returns>string</returns>
-        public string GetName()
-        {
-            return Name;
         }
 
         /// <summary>
