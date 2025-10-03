@@ -12,10 +12,15 @@ namespace fzzzt_game
         /// </summary>
         private GameEngine _engine;
 
+        private List<PlayerViewContext> _playerViewContexts;
+
         /// <summary>
         /// for displaying game informaiton
         /// </summary>
         private MessageLogForm _messageLogForm;
+
+        public GameEngine Engine { get => _engine; set => _engine = value; }
+        public List<PlayerViewContext> PlayerViewContexts { get => _playerViewContexts; set => _playerViewContexts = value; }
 
         /// <summary>
         /// build form without message log form
@@ -23,7 +28,9 @@ namespace fzzzt_game
         public GameForm()
         {
             InitializeComponent();
-            _engine = new GameEngine(this);
+            Engine = new GameEngine();
+            Engine.GameView = this;
+            PlayerViewContexts = new List<PlayerViewContext>();
         }
 
         /// <summary>
@@ -33,8 +40,47 @@ namespace fzzzt_game
         public GameForm(MessageLogForm messageLogForm)
         {
             InitializeComponent();
-            _engine = new GameEngine(this);
+
+            Engine = new GameEngine();
+            Engine.GameView= this;
+
+            PlayerViewContexts = new List<PlayerViewContext>();
+
+            Engine.Players.ForEach(player => BindPlayerContext(player));
+
             _messageLogForm = messageLogForm;
+        }
+
+        /// <summary>
+        /// create relacitonship between player and controls
+        /// </summary>
+        /// <param name="player"></param>
+        private void BindPlayerContext(Player player)
+        {
+            if (player.AtTop())
+            {
+                PlayerViewContext playerViewContext = new PlayerViewContext
+                {
+                    Player = player,
+                    NameLabel = topPlayerLabel,
+                    CardInHandPanel = topCardInHandPanel,
+                    MechanicPictureBox = topMechanicPictureBox
+                };
+                PlayerViewContexts.Add(playerViewContext);
+                return;
+            }
+
+            if (player.AtBottom())
+            {
+                PlayerViewContext playerViewContext = new PlayerViewContext
+                {
+                    Player = player,
+                    NameLabel = bottomPlayerLabel,
+                    CardInHandPanel = bottomCardInHandPanel,
+                    MechanicPictureBox = bottomMechanicPictureBox
+                };
+                PlayerViewContexts.Add(playerViewContext);
+            }
         }
 
         /// <summary>
@@ -44,22 +90,16 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-            if (_engine.IsGameStarted())
-            {
-                return;
-            }
 
             panelTop.Visible = true;
             panelMiddle.Visible = true;
             panelBottom.Visible = true;
 
-            buttonStartGame.Enabled = false;
-
-            _engine.StartGame();
+            Engine.StartGame();
 
             pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
 
-            DisplayPlayers();
+            //DisplayPlayers();
         }
 
         /// <summary>
@@ -68,21 +108,21 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         private void DisplayPlayers()
         {
-            foreach (Player player in _engine.GetPlayers())
+            foreach (Player player in Engine.GetPlayers())
             {
                 // player at the top
                 if (player.AtTop())
                 {
-                    labelPlayerTop.Text = player.GetName();
-                    pictureBoxPlayerTopMechanicFace.Image = player.GetMechanicFace();
+                    topPlayerLabel.Text = player.GetName();
+                    topMechanicPictureBox.Image = player.MechanicFace;
                     topCardInHandPanel.Controls.Clear();
                     topCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
                     continue;
                 }
 
                 // player at the bottom
-                labelPlayerBottom.Text = player.GetName();
-                pictureBoxPlayerBottomMechanicFace.Image = player.GetMechanicFace();
+                bottomPlayerLabel.Text = player.GetName();
+                bottomMechanicPictureBox.Image = player.MechanicFace;
                 bottomCardInHandPanel.Controls.Clear();
                 bottomCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
             }
@@ -96,7 +136,7 @@ namespace fzzzt_game
         {
 
             List<PictureBox> pictureBoxes = new List<PictureBox>();
-            foreach (Card card in player.GetCardsInHand())
+            foreach (Card card in player.CardsInHand)
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
 
@@ -125,7 +165,7 @@ namespace fzzzt_game
         {
 
             List<PictureBox> pictureBoxes = new List<PictureBox>();
-            foreach (Card card in player.GetCardsInBid())
+            foreach (Card card in player.CardsInBid)
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Image = card.GetFace();
@@ -143,7 +183,7 @@ namespace fzzzt_game
         private PictureBox[] CreateCardsInProductionUnitForPlayer(Player player)
         {
             List<PictureBox> pictureBoxes = new List<PictureBox>();
-            foreach (Card card in player.GetProductionUnits())
+            foreach (Card card in player.ProductionUnits)
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Size = new Size(50, 70);
@@ -161,7 +201,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInHand_DoubleClick(object sender, EventArgs e)
         {
-            if (!_engine.IsAuctionStarted())
+            if (!Engine.IsAuctionStarted())
             {
                 return;
             }
@@ -181,7 +221,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void cardsInBid_DoubleClick(object sender, EventArgs e)
         {
-            if (!_engine.IsAuctionStarted())
+            if (!Engine.IsAuctionStarted())
             {
                 return;
             }
@@ -215,7 +255,7 @@ namespace fzzzt_game
 
 
             PictureBox discardPile = GetDiscardPilePictureBox(player);
-            if (player.GetDiscardPile().Count > 0)
+            if (player.DiscardPile.Count > 0)
             {
                 discardPile.Image = GameEngine.CardBack;
             }
@@ -320,20 +360,20 @@ namespace fzzzt_game
 
             // if no card is faced up and clickedCard is not the first card, do nothing
             Card clickedCard = ((Card)clickedPictureBox.Tag);
-            if (_engine.GetAllowedFacedUpCardCount() == 0)
+            if (Engine.GetAllowedFacedUpCardCount() == 0)
             {
-                if (!_engine.IsFirstCardOnConveyorBelt(clickedCard))
+                if (!Engine.IsFirstCardOnConveyorBelt(clickedCard))
                 {
                     return;
                 }
                 clickedPictureBox.Image = clickedCard.GetFace();
                 clickedCard.Flip();
-                _engine.AddFacedUpCard(clickedCard);
+                Engine.AddFacedUpCard(clickedCard);
                 return;
             }
 
             // if there are cards facing up, the first card should be faced down
-            if ((_engine.IsFirstCardOnConveyorBelt(clickedCard) && _engine.GetFacedUpCards().Count > 1))
+            if ((Engine.IsFirstCardOnConveyorBelt(clickedCard) && Engine.GetFacedUpCards().Count > 1))
             {
                 return;
             }
@@ -342,9 +382,9 @@ namespace fzzzt_game
             // if face-up cards is less than or equal to the allowed count, then turn up the card
             if (GameEngine.IsCardBack(clickedPictureBox.Image))
             {
-                if (_engine.FacingUpAllowed())
+                if (Engine.FacingUpAllowed())
                 {
-                    _engine.AddFacedUpCard(clickedCard);
+                    Engine.AddFacedUpCard(clickedCard);
                     clickedCard.Flip();
                     clickedPictureBox.Image = clickedCard.GetFace();
                     return;
@@ -353,9 +393,9 @@ namespace fzzzt_game
             }
 
             clickedPictureBox.Image = GameEngine.CardBack;
-            _engine.RemoveFacedUpCard(clickedCard);
+            Engine.RemoveFacedUpCard(clickedCard);
             clickedCard.Flip();
-            _engine.UpdateAllowedFacedUpCardCount();
+            Engine.UpdateAllowedFacedUpCardCount();
         }
 
         /// <summary>
@@ -363,7 +403,7 @@ namespace fzzzt_game
         /// </summary>
         public void EnpowerChiefMechanic()
         {
-            Player chiefMechanic = _engine.GetChiefMechanic();
+            Player chiefMechanic = Engine.ChiefMechanic;
             if (chiefMechanic.AtTop())
             {
                 labelChiefMechanicTop.Visible = true;
@@ -384,7 +424,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            _engine.ResetGame();
+            Engine.ResetGame();
         }
 
         /// <summary>
@@ -392,7 +432,7 @@ namespace fzzzt_game
         /// </summary>
         private void buttonStartAuctionTop_Click(object sender, EventArgs e)
         {
-            _engine.StartAuction();
+            Engine.StartAuction();
         }
 
         /// <summary>
@@ -402,7 +442,7 @@ namespace fzzzt_game
         {
             conveyorBeltPanel.Controls.Clear();
             // the first card is the furthest away from the conveyor belt deck
-            List<Card> cards = _engine.GetAuctionCards();
+            List<Card> cards = Engine.CardsInConveyorBelt;
             for (int i = cards.Count - 1; i >= 0; i--)
             {
                 Card card = cards[i];
@@ -434,7 +474,7 @@ namespace fzzzt_game
         /// </summary>
         private void buttonStartAuctionBottom_Click(object sender, EventArgs e)
         {
-            _engine.StartAuction();
+            Engine.StartAuction();
         }
 
         /// <summary>
@@ -497,9 +537,9 @@ namespace fzzzt_game
             ISet<int> indices = new HashSet<int>();
 
             /// get indices based on the conveyor belt number
-            while (indices.Count < _engine.GetAllowedFacedUpCardCount() - 1)
+            while (indices.Count < Engine.GetAllowedFacedUpCardCount() - 1)
             {
-                indices.Add(random.Next(0, Math.Min(_engine.GetAllowedFacedUpCardCount(), count - 1)));
+                indices.Add(random.Next(0, Math.Min(Engine.GetAllowedFacedUpCardCount(), count - 1)));
             }
 
             // face up the cards
@@ -519,7 +559,7 @@ namespace fzzzt_game
             Card card = (Card)pictureBox.Tag;
             pictureBox.Image = card.GetFace();
             card.Flip();
-            _engine.AddFacedUpCard(card);
+            Engine.AddFacedUpCard(card);
         }
 
         /// <summary>
@@ -533,7 +573,7 @@ namespace fzzzt_game
 
         private void bottomBidButton_Click(object sender, EventArgs e)
         {
-            _engine.AwardCard();
+            Engine.AwardCard();
         }
 
         /// <summary>
@@ -552,7 +592,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void printGameStateButton_Click(object sender, EventArgs e)
         {
-            _engine.PrintGameState();
+            Engine.PrintGameState();
         }
 
         /// <summary>
@@ -560,7 +600,24 @@ namespace fzzzt_game
         /// </summary>
         public void RefreshCardsForPlayers()
         {
-            _engine.GetPlayers().ForEach(player => RefreshCardsForPlayer(player));
+            Engine.GetPlayers().ForEach(player => RefreshCardsForPlayer(player));
+        }
+
+        /// <summary>
+        /// refrash UI
+        /// </summary>
+        public void RefreshUI()
+        {
+            PlayerViewContexts.ForEach(context =>
+            {
+                context.NameLabel.Text = context.Player.Name;
+
+                context.MechanicPictureBox.Image = context.Player.MechanicFace;
+
+                context.CardInHandPanel.Visible = true;
+                context.CardInHandPanel.Controls.Clear();
+                context.CardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(context.Player));
+            });
         }
     }
 }

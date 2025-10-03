@@ -57,6 +57,13 @@ namespace fzzzt_game
         /// </summary>
         private List<Card> _productionUnits;
 
+        public string Name { get => _name; set => _name = value; }
+        public List<Card> CardsInHand { get => _cardsInHand; set => _cardsInHand = value; }
+        public Bitmap MechanicFace { get => _mechanicFace; set => _mechanicFace = value; }
+        public List<Card> CardsInBid { get => _cardsInBid; set => _cardsInBid = value; }
+        public List<Card> ProductionUnits { get => _productionUnits; set => _productionUnits = value; }
+        public List<Card> DiscardPile { get => _discardPile; set => _discardPile = value; }
+
         /// <summary>
         /// reutrn true if the player is an AI
         /// </summary>
@@ -70,15 +77,15 @@ namespace fzzzt_game
         /// build a playe with name
         /// </summary>
         /// <param name="name"></param>
-        public Player(string name, Position position, Bitmap mechanic, List<Card> cardsInHand, bool isAIPlayer)
+        public Player(string name, Position position, Bitmap mechanic, bool isAIPlayer)
         {
-            _name = name;
+            Name = name;
             _position = position;
-            _mechanicFace = mechanic;
-            _cardsInHand = cardsInHand;
-            _cardsInBid = new List<Card>();
-            _discardPile = new List<Card>();
-            _productionUnits = new List<Card>();
+            MechanicFace = mechanic;
+            CardsInHand = new List<Card>();
+            CardsInBid = new List<Card>();
+            DiscardPile = new List<Card>();
+            ProductionUnits = new List<Card>();
             _isAI = isAIPlayer;
         }
 
@@ -106,34 +113,7 @@ namespace fzzzt_game
         /// <returns>string</returns>
         public string GetName()
         {
-            return _name;
-        }
-
-        /// <summary>
-        /// get the mechanic face
-        /// </summary>
-        /// <returns>Bitmap</returns>
-        public Bitmap GetMechanicFace()
-        {
-            return _mechanicFace;
-        }
-
-        /// <summary>
-        /// get the cards in hand
-        /// </summary>
-        /// <returns>a set of cards</returns>
-        public List<Card> GetCardsInHand()
-        {
-            return _cardsInHand;
-        }
-
-        /// <summary>
-        /// get the cards in bid
-        /// </summary>
-        /// <returns>a set of cards</returns>
-        public List<Card> GetCardsInBid()
-        {
-            return _cardsInBid;
+            return Name;
         }
 
         /// <summary>
@@ -142,7 +122,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void AddCardToBid(Card card)
         {
-            _cardsInBid.Add(card);
+            CardsInBid.Add(card);
         }
 
         /// <summary>
@@ -151,7 +131,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void RemoveCardFromBid(Card card)
         {
-            _cardsInBid.Remove(card);
+            CardsInBid.Remove(card);
         }
 
 
@@ -161,7 +141,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void AddCardToHand(Card card)
         {
-            _cardsInHand.Add(card);
+            CardsInHand.Add(card);
         }
 
         /// <summary>
@@ -170,7 +150,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void RemoveCardFromHand(Card card)
         {
-            _cardsInHand.Remove(card);
+            CardsInHand.Remove(card);
         }
 
         /// <summary>
@@ -205,7 +185,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public int GetTotalPowerInBid()
         {
-            return _cardsInBid.Sum(card => card.GetPower());
+            return CardsInBid.Sum(card => card.GetPower());
         }
 
         /// <summary>
@@ -215,7 +195,7 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         public void DiscardCard(Card auctionedCard)
         {
-            _discardPile.Add(auctionedCard);
+            DiscardPile.Add(auctionedCard);
         }
 
         /// <summary>
@@ -224,25 +204,7 @@ namespace fzzzt_game
         /// <param name="auctionedCard"></param>
         public void CollectProductionUnit(Card auctionedCard)
         {
-            _productionUnits.Add(auctionedCard);
-        }
-
-        /// <summary>
-        /// return discard pile
-        /// </summary>
-        /// <returns></returns>
-        public List<Card> GetDiscardPile()
-        {
-            return _discardPile;
-        }
-
-        /// <summary>
-        /// get production units
-        /// </summary>
-        /// <returns></returns>
-        public List<Card> GetProductionUnits()
-        {
-            return _productionUnits;
+            ProductionUnits.Add(auctionedCard);
         }
 
         /// <summary>
@@ -251,11 +213,11 @@ namespace fzzzt_game
         /// </summary>
         public void DiscardBidCards()
         {
-            foreach (Card card in _cardsInBid)
+            foreach (Card card in CardsInBid)
             {
-                _discardPile.Add(card);
+                DiscardPile.Add(card);
             }
-            _cardsInBid.Clear();
+            CardsInBid.Clear();
         }
 
         /// <summary>
@@ -263,11 +225,11 @@ namespace fzzzt_game
         /// </summary>
         public void ReturnBidCardsToHand()
         {
-            foreach (Card card in _cardsInBid)
+            foreach (Card card in CardsInBid)
             {
-                _cardsInHand.Add(card);
+                CardsInHand.Add(card);
             }
-            _cardsInBid.Clear();
+            CardsInBid.Clear();
         }
 
         /// <summary>
@@ -276,12 +238,12 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool HasNoCardInHand()
         {
-            return _cardsInHand == null || _cardsInHand.Count == 0;
+            return CardsInHand == null || CardsInHand.Count == 0;
         }
 
         public override string ToString()
         {
-            return _name + ", " + _position + "," + _cardsInBid.Count;
+            return Name + ", " + _position + "," + CardsInBid.Count;
         }
 
         /// <summary>
@@ -289,9 +251,20 @@ namespace fzzzt_game
         /// </summary>
         public void TakeBackCards()
         {
-            List<int> indices = Utils.GenerateIndices(6, _discardPile.Count);
-            indices.ForEach(i => _cardsInHand.Add(_discardPile[i]));
-            _cardsInHand.ForEach(card => _discardPile.Remove(card));
+            List<int> indices = Utils.GenerateIndices(6, DiscardPile.Count);
+            indices.ForEach(i => CardsInHand.Add(DiscardPile[i]));
+            CardsInHand.ForEach(card => DiscardPile.Remove(card));
+        }
+
+        /// <summary>
+        /// clear all the cards with the player
+        /// </summary>
+        public void Clear()
+        {
+            CardsInBid.Clear();
+            CardsInHand.Clear();
+            DiscardPile.Clear();
+            ProductionUnits.Clear();
         }
     }
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace fzzzt_game
 {
@@ -58,31 +56,48 @@ namespace fzzzt_game
         private Player _chiefMechanic;
 
         /// <summary>
-        /// use game view to update UI
-        /// </summary>
-        private GameView _gameView;
-
-        /// <summary>
         /// auction state
         /// </summary>
         private bool _isAuctionStarted;
+
+        public List<Player> Players { get => _players; set => _players = value; }
+        public List<Card> Deck { get => _deck; set => _deck = value; }
+        public Player ChiefMechanic { get => _chiefMechanic; set => _chiefMechanic = value; }
+
+        /// <summary>
+        /// game view is reponsible to update UI
+        /// </summary>
+        public GameView GameView { get ; set ; }
+        public List<Card> CardsInConveyorBelt { get => _cardsInConveyorBelt; set => _cardsInConveyorBelt = value; }
+        public bool GameState { get => _gameState; set => _gameState = value; }
+        public List<Card> FacedUpCards { get => _facedUpCards; set => _facedUpCards = value; }
 
         /// <summary>
         /// build game engine with game view
         /// </summary>
         /// <param name="gameView"></param>
-        public GameEngine(GameView gameView)
+        public GameEngine()
         {
-            _gameView = gameView;
+            InitializeGame();
         }
 
         /// <summary>
-        /// return the player who is the chief mechanic
+        /// initialize game data
         /// </summary>
-        /// <returns></returns>
-        public Player GetChiefMechanic()
+        /// <exception cref="NotImplementedException"></exception>
+        private void InitializeGame()
         {
-            return _chiefMechanic;
+            InitializeCards();
+
+            InitializePlayers();                       
+        }
+
+        /// <summary>
+        /// issue 3 cards to each player
+        /// </summary>
+        private void IssueCardsToPlayers()
+        {
+            Players.ForEach(player => player.CardsInHand = TakeThreeCards());
         }
 
         /// <summary>
@@ -91,7 +106,7 @@ namespace fzzzt_game
         /// <returns><see langword="true"/> if the game has started; otherwise, <see langword="false"/>.</returns>
         public bool IsGameStarted()
         {
-            return _gameState;
+            return GameState;
         }
 
         /// <summary>
@@ -99,16 +114,19 @@ namespace fzzzt_game
         /// </summary>
         public void ResetGame()
         {
-            _gameState = false;
+            // 1. reset game status
+            GameState = false;
 
-            _deck.Clear();
+            // 2. clear data
+            Deck.Clear();
             _allowedFacedUpCardCount = 0;
-            _cardsInConveyorBelt.Clear();
-            _players.Clear();
-            _facedUpCards.Clear();
-            _chiefMechanic = null;
+            CardsInConveyorBelt.Clear();
+            Players.Clear();
+            FacedUpCards.Clear();
+            ChiefMechanic = null;
 
-            _gameView.Reset();
+            // 3. update UI
+            GameView.Reset();
         }
 
         /// <summary>
@@ -116,11 +134,44 @@ namespace fzzzt_game
         /// </summary>
         public void StartGame()
         {
-            _gameState = true;
-            InitializeDeck();
-            _gameView.EnpowerChiefMechanic();
-            _gameView.DisplayBidButton();
+            GameState = true;
+
+            CollectCards();
+
+            IssueCardsToPlayers();
+
+            PickChiefMechanic();
+
+            // 2. update UI
+            //InitializeDeck();
+            //_gameView.EnpowerChiefMechanic();
+            //_gameView.DisplayBidButton();
+            GameView.RefreshUI();
+
+            // 3. auotmate
             StartAuctionIfChiefMechanicIsAI();
+        }
+
+        /// <summary>
+        /// collect cards from conveyor belt and players
+        /// </summary>
+        private void CollectCards()
+        {
+            Players.ForEach(player =>
+            {
+                Deck.AddRange(player.CardsInHand);
+                Deck.AddRange(player.CardsInBid);
+                Deck.AddRange(player.ProductionUnits);
+                Deck.AddRange(player.DiscardPile);
+
+                player.Clear();
+            });
+
+            Deck.AddRange(CardsInConveyorBelt);
+            CardsInConveyorBelt.Clear();
+
+            Deck.AddRange(FacedUpCards);
+            FacedUpCards.Clear();
         }
 
         /// <summary>
@@ -128,110 +179,169 @@ namespace fzzzt_game
         /// </summary>
         private void StartAuctionIfChiefMechanicIsAI()
         {
-            if (_players.FindIndex(player => _chiefMechanic == player && player.IsAI()) == -1)
+            if (Players.FindIndex(player => ChiefMechanic == player && player.IsAI()) == -1)
             {
                 return;
             }
             StartAuction();
-            _gameView.FlipCards();
-            _gameView.AIBid(new CardContext(_chiefMechanic.GetCardsInHand().First(), _chiefMechanic));
-            _chiefMechanic.ConfirmBidding();
-            _gameView.UpdateMessage(_chiefMechanic.GetName() + " bid = " + _chiefMechanic.IsBid());
+            GameView.FlipCards();
+            GameView.AIBid(new CardContext(ChiefMechanic.CardsInHand.First(), ChiefMechanic));
+            ChiefMechanic.ConfirmBidding();
+            GameView.UpdateMessage(ChiefMechanic.GetName() + " bid = " + ChiefMechanic.IsBid());
         }
 
         /// <summary>
-        /// initialize 52 cards
+        /// take three cards
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        private void InitializeDeck()
+        private List<Card> TakeThreeCards()
         {
-            // create 12 robot cards with 1 power
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Bolt }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Nut, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Bolt_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
+            List<Card> cards = new List<Card>();
 
-            // create 8 robot cards with 2 power
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Cog, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Oil, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Nut, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Bolt, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Cog, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Oil, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Nut, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Bolt, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            Card power1 = Deck.Find(c => c.GetPower() == 1);
+            Card power2 = Deck.Find(c => c.GetPower() == 2);
+            Card power3 = Deck.Find(c => c.GetPower() == 3);
 
-            // create 8 robot cards with 3 power
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Cog, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Oil, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Nut, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Bolt, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Cog, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Oil, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Nut, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Bolt, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            cards.Add(power1);
+            cards.Add(power2);
+            cards.Add(power3);
 
-            // create 4 robot cards with 4 power
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Cog, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Oil, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Nut, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Bolt, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            Deck.Remove(power1);
+            Deck.Remove(power2);
+            Deck.Remove(power3);
 
-            // create 4 robot cards with 5 power
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Cog, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Oil, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Nut, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
-            _deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Bolt, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            return cards;
+        }
 
-            // create 2 robot upgrade card with 8 conveyor belt number
-            _deck.Add(new RobotUpgradeCard(Properties.Resources.Robot_Upgrade));
-            _deck.Add(new RobotUpgradeCard(Properties.Resources.Robot_Upgrade));
+        /// <summary>
+        /// initialize two players
+        /// </summary>
+        private void InitializePlayers()
+        {
+            Players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, true));
+            Players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, false));
+        }
 
-            // create 4 fzzzt cards
-            _deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
-            _deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
-            _deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
-            _deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
+        /// <summary>
+        /// Initialize cards
+        /// </summary>
+        private void InitializeCards()
+        {
+            InitializeCardsWithOnePower();
+            InitializeCardsWithTwoPower();
+            InitializeCardsWithThreePower();
+            InitializeCardsWithFourPower();
+            InitializeCardsWithFivePower();
+            InitializeRobotUpgradeCards();
+            InitializeFzzztCards();
+            InitializeProductionUnitCards();
+        }
 
-            //create 10 production unit cards
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut_Oil, 13, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut, 9, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut, 9, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Nut_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Oil, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Oil }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Nut }));
-            _deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
+        /// <summary>
+        /// initialize 10 production unit cards
+        /// </summary>
+        private void InitializeProductionUnitCards()
+        {
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut_Oil, 13, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut, 9, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog_Nut, 9, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Cog, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Nut_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Oil, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Oil }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Bolt_Nut, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Nut }));
+            Deck.Add(new ProductionUnitCard(Properties.Resources.Production_Unit_Cog_Oil, 6, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
+        }
 
-            Card playerOnePower1 = _deck.Find(c => c.GetPower() == 1);
-            Card playerOnePower2 = _deck.Find(c => c.GetPower() == 2);
-            Card playerOnePower3 = _deck.Find(c => c.GetPower() == 3);
-            _deck.Remove(playerOnePower1);
-            _deck.Remove(playerOnePower2);
-            _deck.Remove(playerOnePower3);
+        /// <summary>
+        /// initialize 4 fzzzt cards
+        /// </summary>
+        private void InitializeFzzztCards()
+        {
+            Deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
+            Deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
+            Deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
+            Deck.Add(new FzzztCard(Properties.Resources.Fzzzt));
+        }
 
-            Card playerTwoPower1 = _deck.Find(c => c.GetPower() == 1);
-            Card playerTwoPower2 = _deck.Find(c => c.GetPower() == 2);
-            Card playerTwoPower3 = _deck.Find(c => c.GetPower() == 3);
+        /// <summary>
+        /// initialize 2 robot upgrade cards
+        /// </summary>
+        private void InitializeRobotUpgradeCards()
+        {
+            Deck.Add(new RobotUpgradeCard(Properties.Resources.Robot_Upgrade));
+            Deck.Add(new RobotUpgradeCard(Properties.Resources.Robot_Upgrade));
+        }
 
-            _deck.Remove(playerTwoPower1);
-            _deck.Remove(playerTwoPower2);
-            _deck.Remove(playerTwoPower3);
+        /// <summary>
+        /// initialize 4 cards with 4 power
+        /// </summary>
+        private void InitializeCardsWithFivePower()
+        {
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Cog, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Oil, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Nut, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Five_Bolt, 1, 3, 5, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+        }
 
-            _players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, new List<Card> { playerOnePower1, playerOnePower2, playerOnePower3 }, true));
-            _players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, new List<Card> { playerTwoPower1, playerTwoPower2, playerTwoPower3 }, false));
+        /// <summary>
+        /// initialize 4 cards with 4 power
+        /// </summary>
+        private void InitializeCardsWithFourPower()
+        {
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Cog, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Oil, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Nut, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Four_Bolt, 2, 3, 4, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+        }
 
-            PickChiefMechanic();
+        /// <summary>
+        /// initialize 8 cards with 3 power
+        /// </summary>
+        private void InitializeCardsWithThreePower()
+        {
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Cog, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Oil, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Nut, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Bolt, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Cog, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Oil, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Nut, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Three_Bolt, 2, 2, 3, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+        }
+
+        /// <summary>
+        /// initilize 8 cards with 2 power
+        /// </summary>
+        private void InitializeCardsWithTwoPower()
+        {
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Cog, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Oil, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Nut, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Bolt, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Cog, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Oil, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Nut, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_Two_Bolt, 4, 2, 2, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+        }
+
+        /// <summary>
+        /// initialize cards with one power
+        /// </summary>
+        private void InitializeCardsWithOnePower()
+        {
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Bolt }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Cog_Nut, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Cog, ConstructionSymbol.Nut }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Bolt_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Oil, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Oil }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
+            Deck.Add(new RobotCard(Properties.Resources.Robot_Power_One_Nut_Bolt_Cog, 4, 1, 1, new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut, ConstructionSymbol.Bolt, ConstructionSymbol.Cog }));
         }
 
         /// <summary>
@@ -239,8 +349,7 @@ namespace fzzzt_game
         /// </summary>
         private void PickChiefMechanic()
         {
-            _chiefMechanic = _players[_random.Next() % 2];
-            _gameView.UpdateMessage(_chiefMechanic.GetName() + " is the chief Mechanic.");
+            ChiefMechanic = Players[_random.Next() % 2];
         }
 
         /// <summary>
@@ -249,7 +358,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public List<Card> GetDeck()
         {
-            return _deck;
+            return Deck;
         }
 
         /// <summary>
@@ -259,7 +368,7 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         public List<Player> GetPlayers()
         {
-            return _players;
+            return Players;
         }
 
         /// <summary>
@@ -269,16 +378,7 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         public List<Card> GetFacedUpCards()
         {
-            return _facedUpCards;
-        }
-
-        /// <summary>
-        /// get the auction cards, which are the first 8 cards on the deck
-        /// </summary>
-        /// <returns>eight cards</returns>
-        public List<Card> GetAuctionCards()
-        {
-            return _cardsInConveyorBelt;
+            return FacedUpCards;
         }
 
         /// <summary>
@@ -288,7 +388,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool IsFirstCardOnConveyorBelt(Card clickedCard)
         {
-            return _cardsInConveyorBelt.FindIndex(c => c == clickedCard) == 0;
+            return CardsInConveyorBelt.FindIndex(c => c == clickedCard) == 0;
         }
 
         /// <summary>
@@ -297,9 +397,9 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void AddFacedUpCard(Card card)
         {
-            _facedUpCards.Add(card);
+            FacedUpCards.Add(card);
             UpdateAllowedFacedUpCardCount();
-            _gameView.UpdateMessage("face-up count:" + _facedUpCards.Count);
+            GameView.UpdateMessage("face-up count:" + FacedUpCards.Count);
         }
 
         /// <summary>
@@ -307,14 +407,14 @@ namespace fzzzt_game
         /// </summary>
         public void UpdateAllowedFacedUpCardCount()
         {
-            if (_facedUpCards.Count == 0)
+            if (FacedUpCards.Count == 0)
             {
                 _allowedFacedUpCardCount = 0;
                 return;
             }
 
-            _allowedFacedUpCardCount = _facedUpCards.First().GetConveyorBeltNumber();
-            _gameView.UpdateMessage("allowed count:" + _allowedFacedUpCardCount);
+            _allowedFacedUpCardCount = FacedUpCards.First().GetConveyorBeltNumber();
+            GameView.UpdateMessage("allowed count:" + _allowedFacedUpCardCount);
         }
 
         /// <summary>
@@ -332,9 +432,9 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void RemoveFacedUpCard(Card card)
         {
-            _facedUpCards.Remove(card);
+            FacedUpCards.Remove(card);
 
-            _gameView.UpdateMessage("face-up count:" + _facedUpCards.Count);
+            GameView.UpdateMessage("face-up count:" + FacedUpCards.Count);
         }
 
 
@@ -354,7 +454,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool FacingUpAllowed()
         {
-            return _facedUpCards.Count < _allowedFacedUpCardCount;
+            return FacedUpCards.Count < _allowedFacedUpCardCount;
         }
 
         /// <summary>
@@ -365,8 +465,8 @@ namespace fzzzt_game
         {
             _isAuctionStarted = true;
             PickCardsForConveyorBelt();
-            _gameView.RefreshConveyorBelt();
-            _gameView.HideStartAuctionButtons();
+            GameView.RefreshConveyorBelt();
+            GameView.HideStartAuctionButtons();
         }
 
         private void PickCardsForConveyorBelt()
@@ -377,14 +477,14 @@ namespace fzzzt_game
             // in the beginning of the game, pick 8 cards for audciton
             while (indices.Count < 8)
             {
-                indices.Add(random.Next(0, _deck.Count - 1));
+                indices.Add(random.Next(0, Deck.Count));
             }
             foreach (int index in indices)
             {
-                _gameView.UpdateMessage("index for conveyor belt:" + index);
-                _cardsInConveyorBelt.Add(_deck[index]);
+                GameView.UpdateMessage("index for conveyor belt:" + index);
+                CardsInConveyorBelt.Add(Deck[index]);
             }
-            _deck.RemoveAll(card => _cardsInConveyorBelt.Contains(card));
+            Deck.RemoveAll(card => CardsInConveyorBelt.Contains(card));
         }
 
         /// <summary>
@@ -401,17 +501,17 @@ namespace fzzzt_game
         /// </summary>
         public void AwardCard()
         {
-            Player humanPlayer = _players.Find(player => !player.IsAI());
+            Player humanPlayer = Players.Find(player => !player.IsAI());
             humanPlayer.ConfirmBidding();
-            _gameView.UpdateMessage(humanPlayer.GetName() + " bid = " + humanPlayer.IsBid());
+            GameView.UpdateMessage(humanPlayer.GetName() + " bid = " + humanPlayer.IsBid());
 
             FindWinnerIfBothPlayersBid();
 
-            _players.ForEach(player => player.ReturnBidCardsToHand());
+            Players.ForEach(player => player.ReturnBidCardsToHand());
 
             CheckIfNoCardInHand();
-            _gameView.RefreshConveyorBelt();
-            _gameView.RefreshCardsForPlayers();
+            GameView.RefreshConveyorBelt();
+            GameView.RefreshCardsForPlayers();
             AutomateBidForAI();
         }
 
@@ -420,13 +520,13 @@ namespace fzzzt_game
         /// </summary>
         private void CheckIfNoCardInHand()
         {
-            if (_cardsInConveyorBelt.Count == 0)
+            if (CardsInConveyorBelt.Count == 0)
             {
                 return;
             }
-            if (_players.All(player => player.HasNoCardInHand()))
+            if (Players.All(player => player.HasNoCardInHand()))
             {
-                _players.ForEach(player => player.TakeBackCards());
+                Players.ForEach(player => player.TakeBackCards());
             }
         }
 
@@ -435,14 +535,14 @@ namespace fzzzt_game
         /// </summary>
         private void AutomateBidForAI()
         {
-            List<Card> cardsInHand = _chiefMechanic.GetCardsInHand();
+            List<Card> cardsInHand = ChiefMechanic.CardsInHand;
             if (cardsInHand.Count > 0)
             {
-                _gameView.AIBid(new CardContext(cardsInHand.First(), _chiefMechanic));
+                GameView.AIBid(new CardContext(cardsInHand.First(), ChiefMechanic));
             }
             else
             {
-                _chiefMechanic.ConfirmBidding();
+                ChiefMechanic.ConfirmBidding();
             }
         }
 
@@ -451,13 +551,13 @@ namespace fzzzt_game
         /// </summary>
         private void FindWinnerIfBothPlayersBid()
         {
-            if (_players.FindIndex(player => !player.IsBid()) != -1)
+            if (Players.FindIndex(player => !player.IsBid()) != -1)
             {
                 return;
             }
             int winnerPower = 0;
             Player winner = null;
-            foreach (Player player in _players)
+            foreach (Player player in Players)
             {
                 int totalPower = player.GetTotalPowerInBid();
                 if (totalPower > winnerPower)
@@ -466,14 +566,14 @@ namespace fzzzt_game
                     winner = player;
                 }
             }
-            if (_facedUpCards.Count == 0)
+            if (FacedUpCards.Count == 0)
             {
                 return;
             }
-            Card auctionedCard = _facedUpCards.First();
+            Card auctionedCard = FacedUpCards.First();
 
             RemoveFacedUpCard(auctionedCard);
-            _cardsInConveyorBelt.Remove(auctionedCard);
+            CardsInConveyorBelt.Remove(auctionedCard);
 
             //discard winner's bid cards
             winner.DiscardBidCards();
@@ -482,8 +582,8 @@ namespace fzzzt_game
             {
                 winner.DiscardCard(auctionedCard);
 
-                _gameView.UpdateMessage(winner.GetName() + " wins a Robot Card with power " + winnerPower);
-                _gameView.UpdateMessage(winner.GetName() + " discard pile  = " + winner.GetDiscardPile().Count);
+                GameView.UpdateMessage(winner.GetName() + " wins a Robot Card with power " + winnerPower);
+                GameView.UpdateMessage(winner.GetName() + " discard pile  = " + winner.DiscardPile.Count);
                 return;
             }
 
@@ -491,8 +591,8 @@ namespace fzzzt_game
             {
                 winner.CollectProductionUnit(auctionedCard);
 
-                _gameView.UpdateMessage(winner.GetName() + " wins a Production Unit with power " + winnerPower);
-                _gameView.UpdateMessage(winner.GetName() + " discard pile  = " + winner.GetProductionUnits().Count);
+                GameView.UpdateMessage(winner.GetName() + " wins a Production Unit with power " + winnerPower);
+                GameView.UpdateMessage(winner.GetName() + " discard pile  = " + winner.ProductionUnits.Count);
                 return;
             }
         }
@@ -502,42 +602,45 @@ namespace fzzzt_game
         /// </summary>
         public void PrintGameState()
         {
-            _gameView.UpdateMessage("********** Game State **********");
-            _gameView.UpdateMessage("Cards in Deck: " + _deck.Count);
-            _gameView.UpdateMessage("");
-            _gameView.UpdateMessage("Cards in Conveyor Belt: " + _cardsInConveyorBelt.Count);
-            foreach (Card card in _cardsInConveyorBelt)
+            GameView.UpdateMessage("********** Game State **********");
+            GameView.UpdateMessage("");
+            GameView.UpdateMessage("Cards in Deck: " + Deck.Count);
+            GameView.UpdateMessage("Players: " + Players.Count);
+            GameView.UpdateMessage(ChiefMechanic.Name + " is the chief Mechanic.");
+            GameView.UpdateMessage("Cards in Conveyor Belt: " + CardsInConveyorBelt.Count);
+
+            foreach (Card card in CardsInConveyorBelt)
             {
-                _gameView.UpdateMessage(card.ToString());
+                GameView.UpdateMessage(card.ToString());
             }
 
-            _gameView.UpdateMessage("");
-            foreach (Player player in _players)
+            GameView.UpdateMessage("");
+            foreach (Player player in Players)
             {
-                _gameView.UpdateMessage(player.GetName() + " hand cards:" + player.GetCardsInHand().Count);
-                foreach (Card card in player.GetCardsInHand())
+                GameView.UpdateMessage(player.GetName() + " hand cards:" + player.CardsInHand.Count);
+                foreach (Card card in player.CardsInHand)
                 {
-                    _gameView.UpdateMessage(card.ToString());
+                    GameView.UpdateMessage(card.ToString());
                 }
-                _gameView.UpdateMessage(player.GetName() + " bid cards:" + player.GetCardsInBid().Count);
-                foreach (Card card in player.GetCardsInBid())
+                GameView.UpdateMessage(player.GetName() + " bid cards:" + player.CardsInBid.Count);
+                foreach (Card card in player.CardsInBid)
                 {
-                    _gameView.UpdateMessage(card.ToString());
+                    GameView.UpdateMessage(card.ToString());
                 }
-                _gameView.UpdateMessage(player.GetName() + " discard pile:" + player.GetDiscardPile().Count);
-                foreach (Card card in player.GetDiscardPile())
+                GameView.UpdateMessage(player.GetName() + " discard pile:" + player.DiscardPile.Count);
+                foreach (Card card in player.DiscardPile)
                 {
-                    _gameView.UpdateMessage(card.ToString());
+                    GameView.UpdateMessage(card.ToString());
                 }
-                _gameView.UpdateMessage(player.GetName() + " production units:" + player.GetProductionUnits().Count);
-                foreach (Card card in player.GetProductionUnits())
+                GameView.UpdateMessage(player.GetName() + " production units:" + player.ProductionUnits.Count);
+                foreach (Card card in player.ProductionUnits)
                 {
-                    _gameView.UpdateMessage(card.ToString());
+                    GameView.UpdateMessage(card.ToString());
                 }
-                _gameView.UpdateMessage("");
+                GameView.UpdateMessage("");
             }
 
-            _gameView.UpdateMessage("********** Game State **********");
+            GameView.UpdateMessage("********** Game State **********");
         }
     }
 }

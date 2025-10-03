@@ -30,9 +30,9 @@
         {
             this.pictureBoxConveyorBeltDeck = new System.Windows.Forms.PictureBox();
             this.buttonStartGame = new System.Windows.Forms.Button();
-            this.pictureBoxPlayerBottomMechanicFace = new System.Windows.Forms.PictureBox();
+            this.bottomMechanicPictureBox = new System.Windows.Forms.PictureBox();
             this.bottomDiscardPile = new System.Windows.Forms.PictureBox();
-            this.labelPlayerBottom = new System.Windows.Forms.Label();
+            this.bottomPlayerLabel = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.bottomProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomBidButton = new System.Windows.Forms.Button();
@@ -48,21 +48,23 @@
             this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topStartAuction = new System.Windows.Forms.Button();
             this.labelChiefMechanicTop = new System.Windows.Forms.Label();
-            this.labelPlayerTop = new System.Windows.Forms.Label();
+            this.topPlayerLabel = new System.Windows.Forms.Label();
             this.topDiscardPile = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayerTopMechanicFace = new System.Windows.Forms.PictureBox();
+            this.topMechanicPictureBox = new System.Windows.Forms.PictureBox();
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bottomOperationPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomMechanicPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).BeginInit();
             this.panelBottom.SuspendLayout();
             this.panelOperations.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topDiscardPile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topMechanicPictureBox)).BeginInit();
             this.panelMiddle.SuspendLayout();
+            this.bottomOperationPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxConveyorBeltDeck
@@ -90,13 +92,13 @@
             // 
             // pictureBoxPlayerBottomMechanicFace
             // 
-            this.pictureBoxPlayerBottomMechanicFace.Location = new System.Drawing.Point(352, 151);
-            this.pictureBoxPlayerBottomMechanicFace.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxPlayerBottomMechanicFace.Name = "pictureBoxPlayerBottomMechanicFace";
-            this.pictureBoxPlayerBottomMechanicFace.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxPlayerBottomMechanicFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPlayerBottomMechanicFace.TabIndex = 22;
-            this.pictureBoxPlayerBottomMechanicFace.TabStop = false;
+            this.bottomMechanicPictureBox.Location = new System.Drawing.Point(352, 151);
+            this.bottomMechanicPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomMechanicPictureBox.Name = "pictureBoxPlayerBottomMechanicFace";
+            this.bottomMechanicPictureBox.Size = new System.Drawing.Size(100, 140);
+            this.bottomMechanicPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bottomMechanicPictureBox.TabIndex = 22;
+            this.bottomMechanicPictureBox.TabStop = false;
             // 
             // bottomDiscardPile
             // 
@@ -108,26 +110,26 @@
             this.bottomDiscardPile.TabIndex = 21;
             this.bottomDiscardPile.TabStop = false;
             // 
-            // labelPlayerBottom
+            // bottomPlayerLabel
             // 
-            this.labelPlayerBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPlayerBottom.Location = new System.Drawing.Point(553, 337);
-            this.labelPlayerBottom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPlayerBottom.Name = "labelPlayerBottom";
-            this.labelPlayerBottom.Size = new System.Drawing.Size(76, 37);
-            this.labelPlayerBottom.TabIndex = 20;
-            this.labelPlayerBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bottomPlayerLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bottomPlayerLabel.Location = new System.Drawing.Point(553, 337);
+            this.bottomPlayerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.bottomPlayerLabel.Name = "bottomPlayerLabel";
+            this.bottomPlayerLabel.Size = new System.Drawing.Size(76, 37);
+            this.bottomPlayerLabel.TabIndex = 20;
+            this.bottomPlayerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.bottomOperationPanel);
             this.panelBottom.Controls.Add(this.bottomProductionUnitPanel);
-            this.panelBottom.Controls.Add(this.bottomBidButton);
             this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.bottomStartAuction);
             this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
-            this.panelBottom.Controls.Add(this.labelPlayerBottom);
+            this.panelBottom.Controls.Add(this.bottomPlayerLabel);
             this.panelBottom.Controls.Add(this.bottomDiscardPile);
-            this.panelBottom.Controls.Add(this.pictureBoxPlayerBottomMechanicFace);
+            this.panelBottom.Controls.Add(this.bottomMechanicPictureBox);
             this.panelBottom.Controls.Add(this.bottomCardInHandPanel);
             this.panelBottom.Location = new System.Drawing.Point(169, 586);
             this.panelBottom.Margin = new System.Windows.Forms.Padding(2);
@@ -147,8 +149,8 @@
             // bottomBidButton
             // 
             this.bottomBidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bottomBidButton.Location = new System.Drawing.Point(830, 338);
-            this.bottomBidButton.Margin = new System.Windows.Forms.Padding(2);
+            this.bottomBidButton.Location = new System.Drawing.Point(0, 0);
+            this.bottomBidButton.Margin = new System.Windows.Forms.Padding(0);
             this.bottomBidButton.Name = "bottomBidButton";
             this.bottomBidButton.Size = new System.Drawing.Size(86, 36);
             this.bottomBidButton.TabIndex = 31;
@@ -242,9 +244,9 @@
             this.panelTop.Controls.Add(this.topBidPanel);
             this.panelTop.Controls.Add(this.topStartAuction);
             this.panelTop.Controls.Add(this.labelChiefMechanicTop);
-            this.panelTop.Controls.Add(this.labelPlayerTop);
+            this.panelTop.Controls.Add(this.topPlayerLabel);
             this.panelTop.Controls.Add(this.topDiscardPile);
-            this.panelTop.Controls.Add(this.pictureBoxPlayerTopMechanicFace);
+            this.panelTop.Controls.Add(this.topMechanicPictureBox);
             this.panelTop.Controls.Add(this.topCardInHandPanel);
             this.panelTop.Location = new System.Drawing.Point(169, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(2);
@@ -297,13 +299,13 @@
             // 
             // labelPlayerTop
             // 
-            this.labelPlayerTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPlayerTop.Location = new System.Drawing.Point(553, 17);
-            this.labelPlayerTop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPlayerTop.Name = "labelPlayerTop";
-            this.labelPlayerTop.Size = new System.Drawing.Size(76, 37);
-            this.labelPlayerTop.TabIndex = 20;
-            this.labelPlayerTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.topPlayerLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topPlayerLabel.Location = new System.Drawing.Point(553, 17);
+            this.topPlayerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.topPlayerLabel.Name = "labelPlayerTop";
+            this.topPlayerLabel.Size = new System.Drawing.Size(76, 37);
+            this.topPlayerLabel.TabIndex = 20;
+            this.topPlayerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // topDiscardPile
             // 
@@ -317,13 +319,13 @@
             // 
             // pictureBoxPlayerTopMechanicFace
             // 
-            this.pictureBoxPlayerTopMechanicFace.Location = new System.Drawing.Point(352, 84);
-            this.pictureBoxPlayerTopMechanicFace.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxPlayerTopMechanicFace.Name = "pictureBoxPlayerTopMechanicFace";
-            this.pictureBoxPlayerTopMechanicFace.Size = new System.Drawing.Size(100, 140);
-            this.pictureBoxPlayerTopMechanicFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPlayerTopMechanicFace.TabIndex = 22;
-            this.pictureBoxPlayerTopMechanicFace.TabStop = false;
+            this.topMechanicPictureBox.Location = new System.Drawing.Point(352, 84);
+            this.topMechanicPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.topMechanicPictureBox.Name = "pictureBoxPlayerTopMechanicFace";
+            this.topMechanicPictureBox.Size = new System.Drawing.Size(100, 140);
+            this.topMechanicPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.topMechanicPictureBox.TabIndex = 22;
+            this.topMechanicPictureBox.TabStop = false;
             // 
             // topCardInHandPanel
             // 
@@ -351,6 +353,15 @@
             this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
+            // bottomOperationPanel
+            // 
+            this.bottomOperationPanel.Controls.Add(this.bottomBidButton);
+            this.bottomOperationPanel.Location = new System.Drawing.Point(775, 338);
+            this.bottomOperationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomOperationPanel.Name = "bottomOperationPanel";
+            this.bottomOperationPanel.Size = new System.Drawing.Size(116, 37);
+            this.bottomOperationPanel.TabIndex = 34;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,15 +378,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FzzztGame";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerBottomMechanicFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomMechanicPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).EndInit();
             this.panelBottom.ResumeLayout(false);
             this.panelOperations.ResumeLayout(false);
             this.panelOperations.PerformLayout();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.topDiscardPile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTopMechanicFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topMechanicPictureBox)).EndInit();
             this.panelMiddle.ResumeLayout(false);
+            this.bottomOperationPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -384,15 +396,15 @@
 
         private System.Windows.Forms.PictureBox pictureBoxConveyorBeltDeck;
         private System.Windows.Forms.Button buttonStartGame;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerBottomMechanicFace;
+        private System.Windows.Forms.PictureBox bottomMechanicPictureBox;
         private System.Windows.Forms.PictureBox bottomDiscardPile;
-        private System.Windows.Forms.Label labelPlayerBottom;
+        private System.Windows.Forms.Label bottomPlayerLabel;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelOperations;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelPlayerTop;
+        private System.Windows.Forms.Label topPlayerLabel;
         private System.Windows.Forms.PictureBox topDiscardPile;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerTopMechanicFace;
+        private System.Windows.Forms.PictureBox topMechanicPictureBox;
         private System.Windows.Forms.Panel panelMiddle;
         private System.Windows.Forms.Label labelChiefMechanicBottom;
         private System.Windows.Forms.Label labelChiefMechanicTop;
@@ -408,5 +420,6 @@
         private System.Windows.Forms.Button printGameStateButton;
         private System.Windows.Forms.FlowLayoutPanel bottomProductionUnitPanel;
         private System.Windows.Forms.FlowLayoutPanel topProductionUnitPanel;
+        private System.Windows.Forms.FlowLayoutPanel bottomOperationPanel;
     }
 }

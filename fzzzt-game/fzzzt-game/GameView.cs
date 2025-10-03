@@ -51,5 +51,10 @@ namespace fzzzt_game
         /// refresh cards for palyers
         /// </summary>
         void RefreshCardsForPlayers();
+
+        /// <summary>
+        /// refresh UI
+        /// </summary>
+        void RefreshUI();
     }
 }

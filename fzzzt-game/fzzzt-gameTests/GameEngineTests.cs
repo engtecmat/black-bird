@@ -14,7 +14,7 @@ namespace fzzzt_game.Tests
         [TestMethod()]
         public void Test_Beginning_State()
         {
-            GameEngine engine = new GameEngine(null);
+            GameEngine engine = new GameEngine();
             engine.StartGame();
 
             Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 1).Count);
