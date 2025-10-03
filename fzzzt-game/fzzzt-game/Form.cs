@@ -434,7 +434,7 @@ namespace fzzzt_game
             conveyorBeltPanel.Controls.Clear();
             // the first card is the furthest away from the conveyor belt deck
             List<Card> cards = Engine.CardsInConveyorBelt;
-            for (int i = cards.Count - 1; i >= 0; i--)
+            for (int i = 0; i < cards.Count - 1; i++)
             {
                 Card card = cards[i];
                 UpdateMessage(card.ToString());

@@ -136,12 +136,12 @@
             this.panelBottom.TabIndex = 26;
             this.panelBottom.Visible = false;
             // 
-            // bottomOperationPanel
+            // bottomPlayerOperationPanel
             // 
             this.bottomPlayerOperationPanel.Controls.Add(this.bottomBidButton);
             this.bottomPlayerOperationPanel.Location = new System.Drawing.Point(775, 338);
             this.bottomPlayerOperationPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.bottomPlayerOperationPanel.Name = "bottomOperationPanel";
+            this.bottomPlayerOperationPanel.Name = "bottomPlayerOperationPanel";
             this.bottomPlayerOperationPanel.Size = new System.Drawing.Size(116, 37);
             this.bottomPlayerOperationPanel.TabIndex = 34;
             // 
@@ -325,10 +325,11 @@
             // 
             // conveyorBeltPanel
             // 
+            this.conveyorBeltPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.conveyorBeltPanel.Location = new System.Drawing.Point(215, 21);
             this.conveyorBeltPanel.Margin = new System.Windows.Forms.Padding(0);
             this.conveyorBeltPanel.Name = "conveyorBeltPanel";
-            this.conveyorBeltPanel.Size = new System.Drawing.Size(1035, 140);
+            this.conveyorBeltPanel.Size = new System.Drawing.Size(872, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
             // GameForm

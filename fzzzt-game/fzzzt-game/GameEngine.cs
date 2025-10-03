@@ -110,6 +110,8 @@ namespace fzzzt_game
             AuctionState = false;
 
             CollectCards();
+            
+            ResetCards();
 
             IssueCardsToPlayers();
 
@@ -122,6 +124,14 @@ namespace fzzzt_game
 
             GameView.RefreshUI();
 
+        }
+
+        /// <summary>
+        /// reset cards to facedown
+        /// </summary>
+        private void ResetCards()
+        {
+            _deck.ForEach(card => card.CurrentState = CardState.FaceDown);
         }
 
         /// <summary>
@@ -159,16 +169,16 @@ namespace fzzzt_game
                     if (CardsInConveyorBelt.Count > 0)
                     {
                         // get first card
-                        Card firstCard = CardsInConveyorBelt[CardsInConveyorBelt.Count - 1];
+                        Card firstCard = CardsInConveyorBelt[0];
                         firstCard.Flip();
 
                         GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
 
                         // face up cards its conveyor belt number
-                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber, CardsInConveyorBelt.Count);
+                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, CardsInConveyorBelt.Count);
                         GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
 
-                        CardsInConveyorBelt.ForEach(card => card.Flip());
+                        indices.ForEach(index => CardsInConveyorBelt[index].Flip());
                     }
                 }
             }
