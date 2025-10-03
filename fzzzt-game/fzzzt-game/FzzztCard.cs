@@ -17,14 +17,12 @@ namespace fzzzt_game
         /// </summary>
         private const int Power = 3;
 
-        // the conveyor belt number of a fzzzt card is 1
-        private const int ConveyorBeltNumber = 1;
-
         /// <summary>
         /// build a fzzzt card with a face image.
+        /// the conveyor belt number of a fzzzt card is 1
         /// </summary>
         /// <param name="face"></param>
-        public FzzztCard(Bitmap face) : base(face, PointValue, Power, ConveyorBeltNumber)
+        public FzzztCard(Bitmap face) : base(face, PointValue, Power, 1)
         {
         }
     }

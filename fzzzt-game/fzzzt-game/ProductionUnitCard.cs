@@ -13,9 +13,6 @@ namespace fzzzt_game
         /// </summary>
         private const int Power = 0;
 
-        // the value is always 3 for production unit cards
-        private const int ConveyorBeltNumber = 3;
-
         /// <summary>
         /// a construction symbol, e.g, Bolt, Cog, Nut, Oil
         /// </summary>
@@ -23,11 +20,12 @@ namespace fzzzt_game
 
         /// <summary>
         /// build a production unit card with a face image, point value and construction symbols.
+        /// the value is always 3 for production unit cards
         /// </summary>
         /// <param name="face"></param>
         /// <param name="pointValue"></param>
         /// <param name="constructionSymbols"></param>
-        public ProductionUnitCard(Bitmap face, int pointValue, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, Power, ConveyorBeltNumber)
+        public ProductionUnitCard(Bitmap face, int pointValue, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, Power, 3)
         {
             _constructionSymbols = constructionSymbols;
         }

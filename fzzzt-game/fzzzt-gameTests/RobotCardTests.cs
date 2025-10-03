@@ -12,7 +12,7 @@ namespace fzzzt_game.Tests
             ISet<ConstructionSymbol> constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Nut };
             RobotCard card = new RobotCard(null, 4, 2, 1, constructionSymbols);
 
-            Assert.AreEqual(4, card.GetConveyorBeltNumber());
+            Assert.AreEqual(4, card.ConveyorBeltNumber);
             Assert.AreEqual(2, card.GetPointValue());
             Assert.AreEqual(1, card.GetPower());
             Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());
@@ -25,7 +25,7 @@ namespace fzzzt_game.Tests
             ISet<ConstructionSymbol> constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Oil };
             RobotCard card = new RobotCard(null, 3, 1, 2, constructionSymbols);
 
-            Assert.AreEqual(3, card.GetConveyorBeltNumber());
+            Assert.AreEqual(3, card.ConveyorBeltNumber);
             Assert.AreEqual(1, card.GetPointValue());
             Assert.AreEqual(2, card.GetPower());
             Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());

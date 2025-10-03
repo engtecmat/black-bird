@@ -22,9 +22,9 @@ namespace fzzzt_game.Tests
             Assert.AreEqual(6, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 3).Count);
             Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 4).Count);
             Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 5).Count);
-            Assert.AreEqual(2, engine.GetDeck().FindAll(c => c is RobotUpgradeCard card && card.GetConveyorBeltNumber() == 8).Count);
-            Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is FzzztCard card && card.GetConveyorBeltNumber() == 1).Count);
-            Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is ProductionUnitCard card && card.GetConveyorBeltNumber() == 3).Count);
+            Assert.AreEqual(2, engine.GetDeck().FindAll(c => c is RobotUpgradeCard card && card.ConveyorBeltNumber == 8).Count);
+            Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is FzzztCard card && card.ConveyorBeltNumber == 1).Count);
+            Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is ProductionUnitCard card && card.ConveyorBeltNumber == 3).Count);
             Assert.AreEqual(46, engine.GetDeck().Count);
 
             Assert.AreEqual(2, engine.GetPlayers().Count);

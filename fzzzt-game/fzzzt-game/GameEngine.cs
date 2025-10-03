@@ -115,14 +115,13 @@ namespace fzzzt_game
 
             PickChiefMechanic();
 
-            // 2. update UI
-            //InitializeDeck();
             //_gameView.EnpowerChiefMechanic();
             //_gameView.DisplayBidButton();
+
+            Automate();
+
             GameView.RefreshUI();
 
-            // 3. auotmate
-            Automate();
         }
 
         /// <summary>
@@ -154,10 +153,28 @@ namespace fzzzt_game
         {
             if (Players.Exists(player => player.IsChiefMechanic && player.IsAI))
             {
-                StartAuction();
+                if (AuctionState == false)
+                {
+                    StartAuction();
+                    if (CardsInConveyorBelt.Count > 0)
+                    {
+                        // get first card
+                        Card firstCard = CardsInConveyorBelt[CardsInConveyorBelt.Count - 1];
+                        firstCard.Flip();
+
+                        GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
+
+                        // face up cards its conveyor belt number
+                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber, CardsInConveyorBelt.Count);
+                        GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
+
+                        CardsInConveyorBelt.ForEach(card => card.Flip());
+                    }
+                }
             }
 
             //GameView.FlipCards();
+
             //GameView.AIBid(new CardContext(ChiefMechanic.CardsInHand.First(), ChiefMechanic));
             //ChiefMechanic.ConfirmBidding();
             //GameView.UpdateMessage(ChiefMechanic.Name + " bid = " + ChiefMechanic.IsBid());
@@ -390,7 +407,7 @@ namespace fzzzt_game
                 return;
             }
 
-            _allowedFacedUpCardCount = FacedUpCards.First().GetConveyorBeltNumber();
+            _allowedFacedUpCardCount = FacedUpCards.First().ConveyorBeltNumber;
             GameView.UpdateMessage("allowed count:" + _allowedFacedUpCardCount);
         }
 

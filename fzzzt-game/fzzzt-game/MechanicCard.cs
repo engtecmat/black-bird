@@ -18,21 +18,17 @@ namespace fzzzt_game
         private const int Power = 0;
 
         /// <summary>
-        /// mechanic card has no conveyor belt number
-        /// </summary>
-        private const int ConveyorBeltNumber = 0;
-
-        /// <summary>
         /// the play number of a mechanic card is used to determine who is the chief mechanic.
         /// </summary>
         private int _playNumber;
 
         /// <summary>
         /// build a mechanic card with a face image and play number.
+        /// mechanic card has no conveyor belt number
         /// </summary>
         /// <param name="face"></param>
         /// <param name="playNumber"></param>
-        public MechanicCard(Bitmap face, int playNumber) : base(face, PointValue, Power, ConveyorBeltNumber)
+        public MechanicCard(Bitmap face, int playNumber) : base(face, PointValue, Power, 0)
         {
             _playNumber = playNumber;
         }

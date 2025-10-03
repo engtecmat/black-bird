@@ -12,7 +12,7 @@ namespace fzzzt_game.Tests
 
             Assert.AreEqual(0, card.GetPointValue());
             Assert.AreEqual(0, card.GetPower());
-            Assert.AreEqual(8, card.GetConveyorBeltNumber());
+            Assert.AreEqual(8, card.ConveyorBeltNumber);
         }
     }
 }
