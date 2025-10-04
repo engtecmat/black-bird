@@ -168,7 +168,7 @@ namespace fzzzt_game
         {
             Player aiPlayer = Players.Find(player => player.IsAI);
 
-            if(!AuctionState && aiPlayer.IsChiefMechanic)
+            if (!AuctionState && aiPlayer.IsChiefMechanic)
             {
                 // if AI is the chief mechanic, start auction immediately
                 StartAuction();
@@ -496,10 +496,6 @@ namespace fzzzt_game
         /// </summary>
         public void AwardCard()
         {
-            Player humanPlayer = Players.Find(player => !player.IsAI);
-            humanPlayer.IsBid = true;
-            GameView.UpdateMessage(humanPlayer.Name + " bid = " + humanPlayer.IsBid);
-
             FindWinnerIfBothPlayersBid();
 
             Players.ForEach(player => player.ReturnBidCardsToHand());
@@ -546,28 +542,37 @@ namespace fzzzt_game
         /// </summary>
         private void FindWinnerIfBothPlayersBid()
         {
-            if (Players.FindIndex(player => !player.IsBid) != -1)
+            if (Players.Any(player => !player.IsBid))
             {
                 return;
             }
-            int winnerPower = 0;
-            Player winner = null;
-            foreach (Player player in Players)
-            {
-                int totalPower = player.GetTotalPowerInBid();
-                if (totalPower > winnerPower)
-                {
-                    winnerPower = totalPower;
-                    winner = player;
-                }
-            }
-            if (FacedUpCards.Count == 0)
-            {
-                return;
-            }
-            Card auctionedCard = FacedUpCards.First();
 
-            RemoveFacedUpCard(auctionedCard);
+            var winnerGroup = Players.GroupBy(player => player.GetTotalPowerInBid())
+                .Select(group => new { TotoalPower = group.Key, Players = group.ToList() })
+                .OrderByDescending(group => group.TotoalPower)
+                .First();
+
+            Player winner = null;
+            if (winnerGroup.Players.Count > 1)
+            {
+                winner = winnerGroup.Players.Find(player => player.IsChiefMechanic);
+            }
+            else
+            {
+                winner = winnerGroup.Players.First();
+            }
+
+            GameView.UpdateMessage("The winnder is: " + winner.Name);
+
+
+            //award the first face up card on conveyor belt to the winner
+            List<Card> faceUpCardsInConveyorBelt = CardsInConveyorBelt.FindAll(card => card.CurrentState == CardState.FaceUp);
+            if (faceUpCardsInConveyorBelt.Count == 0)
+            {
+                return;
+            }
+            Card auctionedCard = faceUpCardsInConveyorBelt.First();
+
             CardsInConveyorBelt.Remove(auctionedCard);
 
             //discard winner's bid cards
@@ -577,7 +582,6 @@ namespace fzzzt_game
             {
                 winner.DiscardCard(auctionedCard);
 
-                GameView.UpdateMessage(winner.Name + " wins a Robot Card with power " + winnerPower);
                 GameView.UpdateMessage(winner.Name + " discard pile  = " + winner.DiscardPile.Count);
                 return;
             }
@@ -586,7 +590,6 @@ namespace fzzzt_game
             {
                 winner.CollectProductionUnit(auctionedCard);
 
-                GameView.UpdateMessage(winner.Name + " wins a Production Unit with power " + winnerPower);
                 GameView.UpdateMessage(winner.Name + " discard pile  = " + winner.ProductionUnits.Count);
                 return;
             }

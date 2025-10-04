@@ -65,7 +65,8 @@ namespace fzzzt_game
                     NameLabel = topPlayerLabel,
                     CardInHandPanel = topCardInHandPanel,
                     MechanicPictureBox = topMechanicPictureBox,
-                    CardInBidPanel = topBidPanel
+                    CardInBidPanel = topBidPanel,
+                    DiscardPilePictureBox = topDiscardPile
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -81,7 +82,8 @@ namespace fzzzt_game
                     MechanicPictureBox = bottomMechanicPictureBox,
                     BidButton = bottomBidButton,
                     StartAcutionButton = bottomStartAuction,
-                    CardInBidPanel = bottomBidPanel
+                    CardInBidPanel = bottomBidPanel,
+                    DiscardPilePictureBox = bottomDiscardPile
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -494,6 +496,14 @@ namespace fzzzt_game
 
         private void bottomBidButton_Click(object sender, EventArgs e)
         {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+            Player player = button.Tag as Player;
+            player.IsBid = true;
+
             Engine.AwardCard();
         }
 
@@ -559,6 +569,15 @@ namespace fzzzt_game
                     {
                         context.StartAcutionButton.Visible = false;
                     }
+                }
+
+                if (context.Player.DiscardPile.Count > 0)
+                {
+                    context.DiscardPilePictureBox.Image = GameEngine.CardBack;
+                }
+                else
+                {
+                    context.DiscardPilePictureBox.Image = null;
                 }
             });
 

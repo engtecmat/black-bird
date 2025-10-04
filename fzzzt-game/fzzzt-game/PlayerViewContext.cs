@@ -39,6 +39,11 @@ namespace fzzzt_game
         public PictureBox MechanicPictureBox { get; set; }
 
         /// <summary>
+        /// a picture box to display discard pile
+        /// </summary>
+        public PictureBox DiscardPilePictureBox { get; set; }
+
+        /// <summary>
         /// a bid button for a player
         /// </summary>
         public Button BidButton { get; set; }
