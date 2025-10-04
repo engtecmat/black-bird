@@ -434,7 +434,7 @@ namespace fzzzt_game
             conveyorBeltPanel.Controls.Clear();
             // the first card is the furthest away from the conveyor belt deck
             List<Card> cards = Engine.CardsInConveyorBelt;
-            for (int i = 0; i < cards.Count - 1; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
                 Card card = cards[i];
                 UpdateMessage(card.ToString());
@@ -586,10 +586,18 @@ namespace fzzzt_game
                 {
                     context.BidButton.Visible = true;
                 }
-                if (context.StartAcutionButton != null && !Engine.AuctionState)
+
+                // only human player has Start Auction button
+                if (context.StartAcutionButton != null)
                 {
-                    
-                    context.StartAcutionButton.Visible = context.Player.IsChiefMechanic;
+                    if (!Engine.AuctionState)
+                    {
+                        context.StartAcutionButton.Visible = context.Player.IsChiefMechanic;
+                    }
+                    else
+                    {
+                        context.StartAcutionButton.Visible = false;
+                    }
                 }
             });
 

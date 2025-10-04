@@ -184,6 +184,7 @@
             this.bottomStartAuction.TabIndex = 29;
             this.bottomStartAuction.Text = "Start Auction";
             this.bottomStartAuction.UseVisualStyleBackColor = true;
+            this.bottomStartAuction.Visible = false;
             this.bottomStartAuction.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
             // labelChiefMechanicBottom

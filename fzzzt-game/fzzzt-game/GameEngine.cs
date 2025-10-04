@@ -95,10 +95,15 @@ namespace fzzzt_game
 
         /// <summary>
         /// issue 3 cards to each player
+        /// set stat
         /// </summary>
-        private void IssueCardsToPlayers()
+        private void ResetPlayers()
         {
-            Players.ForEach(player => player.CardsInHand = TakeThreeCards());
+            Players.ForEach(player =>
+            {
+                player.CardsInHand = TakeThreeCards();
+                player.IsChiefMechanic = false;
+            });
         }
 
         /// <summary>
@@ -110,10 +115,10 @@ namespace fzzzt_game
             AuctionState = false;
 
             CollectCards();
-            
+
             ResetCards();
 
-            IssueCardsToPlayers();
+            ResetPlayers();
 
             PickChiefMechanic();
 
