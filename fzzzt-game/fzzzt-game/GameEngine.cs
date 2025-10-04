@@ -180,7 +180,7 @@ namespace fzzzt_game
                         GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
 
                         // face up cards its conveyor belt number
-                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, CardsInConveyorBelt.Count);
+                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, 1, CardsInConveyorBelt.Count);
                         GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
 
                         indices.ForEach(index => CardsInConveyorBelt[index].Flip());
