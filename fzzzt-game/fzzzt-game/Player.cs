@@ -69,7 +69,7 @@ namespace fzzzt_game
         /// </summary>
         public bool IsChiefMechanic { get; set; }
         public bool IsAI { get => _isAI; set => _isAI = value; }
-
+        public bool IsBid { get => _isBid; set => _isBid = value; }
 
         /// <summary>
         /// build a playe with name
@@ -140,32 +140,6 @@ namespace fzzzt_game
         public void RemoveCardFromHand(Card card)
         {
             CardsInHand.Remove(card);
-        }
-
-        /// <summary>
-        /// set to true if the player is bid
-        /// </summary>
-        public void ConfirmBidding()
-        {
-            _isBid = true;
-        }
-
-        /// <summary>
-        /// reset the bid status to false
-        /// </summary>
-        public void ResetBid()
-        {
-            _isBid = false;
-        }
-
-        /// <summary>
-        /// return bid status
-        /// </summary>
-        /// <returns></returns>
-        public bool IsBid()
-        {
-            return _isBid;
-
         }
 
         /// <summary>
@@ -254,6 +228,21 @@ namespace fzzzt_game
             CardsInHand.Clear();
             DiscardPile.Clear();
             ProductionUnits.Clear();
+        }
+
+
+        /// <summary>
+        /// pikc card or cards for bidding
+        /// </summary>
+        public void PickCardForBidding()
+        {
+            if(CardsInHand.Count == 0)
+            {
+                return;
+            }
+            Card firstCard = CardsInHand.First();
+            CardsInBid.Add(CardsInHand.First());
+            CardsInHand.Remove(firstCard);
         }
     }
 }

@@ -166,33 +166,38 @@ namespace fzzzt_game
         /// </summary>
         private void Automate()
         {
-            if (Players.Exists(player => player.IsChiefMechanic && player.IsAI))
+            Player aiPlayer = Players.Find(player => player.IsAI);
+
+            if(!AuctionState && aiPlayer.IsChiefMechanic)
             {
-                if (AuctionState == false)
-                {
-                    StartAuction();
-                    if (CardsInConveyorBelt.Count > 0)
-                    {
-                        // get first card
-                        Card firstCard = CardsInConveyorBelt[0];
-                        firstCard.Flip();
+                // if AI is the chief mechanic, start auction immediately
+                StartAuction();
 
-                        GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
+                /// face up cards on conveyor belt
+                FaceUpOnConveyorBelt();
 
-                        // face up cards its conveyor belt number
-                        List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, 1, CardsInConveyorBelt.Count);
-                        GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
-
-                        indices.ForEach(index => CardsInConveyorBelt[index].Flip());
-                    }
-                }
+                // Bid for AI player
+                aiPlayer.PickCardForBidding();
+                aiPlayer.IsBid = true;
             }
+        }
 
-            //GameView.FlipCards();
+        private void FaceUpOnConveyorBelt()
+        {
+            if (CardsInConveyorBelt.Count > 0)
+            {
+                // get first card
+                Card firstCard = CardsInConveyorBelt[0];
+                firstCard.Flip();
 
-            //GameView.AIBid(new CardContext(ChiefMechanic.CardsInHand.First(), ChiefMechanic));
-            //ChiefMechanic.ConfirmBidding();
-            //GameView.UpdateMessage(ChiefMechanic.Name + " bid = " + ChiefMechanic.IsBid());
+                GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
+
+                // face up cards its conveyor belt number
+                List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, 1, CardsInConveyorBelt.Count);
+                GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
+
+                indices.ForEach(index => CardsInConveyorBelt[index].Flip());
+            }
         }
 
         /// <summary>
@@ -494,8 +499,8 @@ namespace fzzzt_game
         public void AwardCard()
         {
             Player humanPlayer = Players.Find(player => !player.IsAI);
-            humanPlayer.ConfirmBidding();
-            GameView.UpdateMessage(humanPlayer.Name + " bid = " + humanPlayer.IsBid());
+            humanPlayer.IsBid = true;
+            GameView.UpdateMessage(humanPlayer.Name + " bid = " + humanPlayer.IsBid);
 
             FindWinnerIfBothPlayersBid();
 
@@ -534,7 +539,7 @@ namespace fzzzt_game
             }
             else
             {
-                ChiefMechanic.ConfirmBidding();
+                ChiefMechanic.IsBid = true;
             }
         }
 
@@ -543,7 +548,7 @@ namespace fzzzt_game
         /// </summary>
         private void FindWinnerIfBothPlayersBid()
         {
-            if (Players.FindIndex(player => !player.IsBid()) != -1)
+            if (Players.FindIndex(player => !player.IsBid) != -1)
             {
                 return;
             }

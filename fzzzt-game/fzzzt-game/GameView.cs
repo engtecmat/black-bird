@@ -28,11 +28,6 @@ namespace fzzzt_game
         void EnpowerChiefMechanic();
 
         /// <summary>
-        /// this is for AI player to face up cards
-        /// </summary>
-        void FlipCards();
-
-        /// <summary>
         /// bid for AI player
         /// </summary>
         void AIBid(CardContext cardContext);

@@ -484,36 +484,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// this is for AI player to face up cards
-        /// </summary>
-        public void FlipCards()
-        {
-            int count = conveyorBeltPanel.Controls.Count;
-            UpdateMessage(count + " cards on the conveyor belt.");
-            if (count == 0)
-            {
-                return;
-            }
-
-            FaceUpCardOnConveyorBelt(conveyorBeltPanel.Controls.Count - 1);
-
-            Random random = new Random();
-            ISet<int> indices = new HashSet<int>();
-
-            /// get indices based on the conveyor belt number
-            while (indices.Count < Engine.GetAllowedFacedUpCardCount() - 1)
-            {
-                indices.Add(random.Next(0, Math.Min(Engine.GetAllowedFacedUpCardCount(), count - 1)));
-            }
-
-            // face up the cards
-            foreach (int index in indices)
-            {
-                FaceUpCardOnConveyorBelt(index);
-            }
-        }
-
-        /// <summary>
         /// face up a card based on its index
         /// </summary>
         /// <param name="index"></param>
