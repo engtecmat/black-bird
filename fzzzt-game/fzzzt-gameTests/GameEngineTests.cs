@@ -27,7 +27,7 @@ namespace fzzzt_game.Tests
             Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is ProductionUnitCard card && card.ConveyorBeltNumber == 3).Count);
             Assert.AreEqual(46, engine.GetDeck().Count);
 
-            Assert.AreEqual(2, engine.GetPlayers().Count);
+            Assert.AreEqual(2, engine.Players.Count);
         }
     }
 }

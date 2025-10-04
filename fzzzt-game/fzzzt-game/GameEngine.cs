@@ -70,8 +70,8 @@ namespace fzzzt_game
         public GameView GameView { get; set; }
         public List<Card> CardsInConveyorBelt { get => _cardsInConveyorBelt; set => _cardsInConveyorBelt = value; }
         public bool GameState { get => _gameState; set => _gameState = value; }
-        public List<Card> FacedUpCards { get => _facedUpCards; set => _facedUpCards = value; }
         public bool AuctionState { get => _isAuctionStarted; set => _isAuctionStarted = value; }
+        public int AllowedFacedUpCardCount { get => _allowedFacedUpCardCount; set => _allowedFacedUpCardCount = value; }
 
         /// <summary>
         /// build game engine with game view
@@ -156,9 +156,6 @@ namespace fzzzt_game
 
             Deck.AddRange(CardsInConveyorBelt);
             CardsInConveyorBelt.Clear();
-
-            Deck.AddRange(FacedUpCards);
-            FacedUpCards.Clear();
         }
 
         /// <summary>
@@ -375,23 +372,12 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// get the players, current version has two players
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public List<Player> GetPlayers()
-        {
-            return Players;
-        }
-
-        /// <summary>
         /// get the faced up cards on the table
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public List<Card> GetFacedUpCards()
         {
-            return FacedUpCards;
+            return CardsInConveyorBelt.FindAll(card => card.CurrentState == CardState.FaceUp);
         }
 
         /// <summary>
@@ -410,10 +396,7 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void AddFacedUpCard(Card card)
         {
-            FacedUpCards.Add(card);
             UpdateAllowedFacedUpCardCount();
-            CardsInConveyorBelt.Remove(card);
-            GameView.UpdateMessage("face-up count:" + FacedUpCards.Count);
         }
 
         /// <summary>
@@ -421,23 +404,13 @@ namespace fzzzt_game
         /// </summary>
         public void UpdateAllowedFacedUpCardCount()
         {
-            if (FacedUpCards.Count == 0)
+            if (GetFacedUpCards().Count == 0)
             {
-                _allowedFacedUpCardCount = 0;
+                AllowedFacedUpCardCount = 0;
                 return;
             }
 
-            _allowedFacedUpCardCount = FacedUpCards.First().ConveyorBeltNumber;
-            GameView.UpdateMessage("allowed count:" + _allowedFacedUpCardCount);
-        }
-
-        /// <summary>
-        /// get the allowed faced up card count
-        /// </summary>
-        /// <returns></returns>
-        public int GetAllowedFacedUpCardCount()
-        {
-            return _allowedFacedUpCardCount;
+            AllowedFacedUpCardCount = GetFacedUpCards().First().ConveyorBeltNumber;
         }
 
         /// <summary>
@@ -446,9 +419,6 @@ namespace fzzzt_game
         /// <param name="card"></param>
         public void RemoveFacedUpCard(Card card)
         {
-            FacedUpCards.Remove(card);
-            CardsInConveyorBelt.Add(card);
-            GameView.UpdateMessage("face-up count:" + FacedUpCards.Count);
         }
 
 
@@ -468,7 +438,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public bool FacingUpAllowed()
         {
-            return FacedUpCards.Count < _allowedFacedUpCardCount;
+            return GetFacedUpCards().Count < AllowedFacedUpCardCount;
         }
 
         /// <summary>
@@ -605,6 +575,8 @@ namespace fzzzt_game
             GameView.UpdateMessage("Auction State " + AuctionState.ToString());
             GameView.UpdateMessage("Cards in Deck: " + Deck.Count);
             GameView.UpdateMessage("Players: " + Players.Count);
+            GameView.UpdateMessage("Allowed face-up count on belt: " + AllowedFacedUpCardCount);
+
             GameView.UpdateMessage("Cards in Conveyor Belt: " + CardsInConveyorBelt.Count);
 
             foreach (Card card in CardsInConveyorBelt)

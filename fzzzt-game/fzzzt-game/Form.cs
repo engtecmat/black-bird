@@ -117,7 +117,7 @@ namespace fzzzt_game
         /// <exception cref="NotImplementedException"></exception>
         private void DisplayPlayers()
         {
-            foreach (Player player in Engine.GetPlayers())
+            foreach (Player player in Engine.Players)
             {
                 // player at the top
                 if (player.AtTop())
@@ -369,7 +369,7 @@ namespace fzzzt_game
 
             // if no card is faced up and clickedCard is not the first card, do nothing
             Card clickedCard = ((Card)clickedPictureBox.Tag);
-            if (Engine.GetAllowedFacedUpCardCount() == 0)
+            if (Engine.AllowedFacedUpCardCount == 0)
             {
                 if (!Engine.IsFirstCardOnConveyorBelt(clickedCard))
                 {
@@ -377,12 +377,13 @@ namespace fzzzt_game
                 }
                 clickedPictureBox.Image = clickedCard.GetFace();
                 clickedCard.Flip();
-                Engine.AddFacedUpCard(clickedCard);
+                Engine.UpdateAllowedFacedUpCardCount();
+                RefreshConveyorBelt();
                 return;
             }
 
             // if there are cards facing up, the first card should be faced down
-            if ((Engine.IsFirstCardOnConveyorBelt(clickedCard) && Engine.GetFacedUpCards().Count > 1))
+            if (Engine.IsFirstCardOnConveyorBelt(clickedCard) && Engine.GetFacedUpCards().Count > 1)
             {
                 return;
             }
@@ -393,16 +394,15 @@ namespace fzzzt_game
             {
                 if (Engine.FacingUpAllowed())
                 {
-                    Engine.AddFacedUpCard(clickedCard);
                     clickedCard.Flip();
                     clickedPictureBox.Image = clickedCard.GetFace();
+                    Engine.UpdateAllowedFacedUpCardCount();
                     return;
                 }
                 return;
             }
 
             clickedPictureBox.Image = GameEngine.CardBack;
-            Engine.RemoveFacedUpCard(clickedCard);
             clickedCard.Flip();
             Engine.UpdateAllowedFacedUpCardCount();
         }
@@ -533,7 +533,7 @@ namespace fzzzt_game
         /// </summary>
         public void RefreshCardsForPlayers()
         {
-            Engine.GetPlayers().ForEach(player => RefreshCardsForPlayer(player));
+            Engine.Players.ForEach(player => RefreshCardsForPlayer(player));
         }
 
         /// <summary>
