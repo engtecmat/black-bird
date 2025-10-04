@@ -66,7 +66,8 @@ namespace fzzzt_game
                     CardInHandPanel = topCardInHandPanel,
                     MechanicPictureBox = topMechanicPictureBox,
                     CardInBidPanel = topBidPanel,
-                    DiscardPilePictureBox = topDiscardPile
+                    DiscardPilePictureBox = topDiscardPile,
+                    ProductionUnitPanel = topProductionUnitPanel
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -83,7 +84,8 @@ namespace fzzzt_game
                     BidButton = bottomBidButton,
                     StartAcutionButton = bottomStartAuction,
                     CardInBidPanel = bottomBidPanel,
-                    DiscardPilePictureBox = bottomDiscardPile
+                    DiscardPilePictureBox = bottomDiscardPile,
+                    ProductionUnitPanel = bottomProductionUnitPanel
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -552,6 +554,10 @@ namespace fzzzt_game
                 context.CardInBidPanel.Visible = true;
                 context.CardInBidPanel.Controls.Clear();
                 context.CardInBidPanel.Controls.AddRange(CreateCardsInBidForPlayer(context.Player));
+
+                context.ProductionUnitPanel.Visible = true;
+                context.ProductionUnitPanel.Controls.Clear();
+                context.ProductionUnitPanel.Controls.AddRange(CreateCardsInProductionUnitForPlayer(context.Player));
 
                 if (context.BidButton != null)
                 {

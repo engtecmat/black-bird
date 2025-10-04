@@ -34,6 +34,11 @@ namespace fzzzt_game
         public Panel CardInBidPanel { get; set; }
 
         /// <summary>
+        /// a panel is used to display production units
+        /// </summary>
+        public Panel ProductionUnitPanel { get; set; }
+
+        /// <summary>
         /// a picture box to display mechanic card
         /// </summary>
         public PictureBox MechanicPictureBox { get; set; }
