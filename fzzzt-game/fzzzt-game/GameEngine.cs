@@ -474,13 +474,11 @@ namespace fzzzt_game
         /// <summary>
         /// start an auction
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public void StartAuction()
         {
             AuctionState = true;
             PickCardsForConveyorBelt();
             GameView.RefreshConveyorBelt();
-            GameView.HideStartAuctionButtons();
         }
 
         private void PickCardsForConveyorBelt()

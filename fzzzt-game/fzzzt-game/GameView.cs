@@ -18,11 +18,6 @@ namespace fzzzt_game
         void RefreshConveyorBelt();
 
         /// <summary>
-        /// hide start auction buttons
-        /// </summary>
-        void HideStartAuctionButtons();
-
-        /// <summary>
         /// Updates the UI to reflect the selected chief mechanic.
         /// </summary>
         void EnpowerChiefMechanic();

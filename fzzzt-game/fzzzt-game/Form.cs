@@ -64,7 +64,8 @@ namespace fzzzt_game
                     Player = player,
                     NameLabel = topPlayerLabel,
                     CardInHandPanel = topCardInHandPanel,
-                    MechanicPictureBox = topMechanicPictureBox
+                    MechanicPictureBox = topMechanicPictureBox,
+                    CardInBidPanel = topBidPanel
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -79,7 +80,8 @@ namespace fzzzt_game
                     CardInHandPanel = bottomCardInHandPanel,
                     MechanicPictureBox = bottomMechanicPictureBox,
                     BidButton = bottomBidButton,
-                    StartAcutionButton = bottomStartAuction
+                    StartAcutionButton = bottomStartAuction,
+                    CardInBidPanel = bottomBidPanel
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -419,14 +421,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// Handles the click event for the "Start Auction Top" button.
-        /// </summary>
-        private void buttonStartAuctionTop_Click(object sender, EventArgs e)
-        {
-            Engine.StartAuction();
-        }
-
-        /// <summary>
         /// refreash the conveyor belt
         /// </summary>
         public void RefreshConveyorBelt()
@@ -474,13 +468,6 @@ namespace fzzzt_game
         public void UpdateMessage(string message)
         {
             _messageLogForm.UpdateMessage(message);
-        }
-
-        /// <summary>
-        /// disable start auction buttions
-        /// </summary>
-        public void HideStartAuctionButtons()
-        {
         }
 
         /// <summary>
@@ -551,6 +538,10 @@ namespace fzzzt_game
                 context.CardInHandPanel.Visible = true;
                 context.CardInHandPanel.Controls.Clear();
                 context.CardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(context.Player));
+
+                context.CardInBidPanel.Visible = true;
+                context.CardInBidPanel.Controls.Clear();
+                context.CardInBidPanel.Controls.AddRange(CreateCardsInBidForPlayer(context.Player));
 
                 if (context.BidButton != null)
                 {

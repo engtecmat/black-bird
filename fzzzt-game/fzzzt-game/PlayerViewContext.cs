@@ -29,6 +29,11 @@ namespace fzzzt_game
         public Panel CardInHandPanel { get; set; }
 
         /// <summary>
+        /// a palnel is used to display cards in bid
+        /// </summary>
+        public Panel CardInBidPanel { get; set; }
+
+        /// <summary>
         /// a picture box to display mechanic card
         /// </summary>
         public PictureBox MechanicPictureBox { get; set; }
