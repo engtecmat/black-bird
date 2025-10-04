@@ -76,6 +76,12 @@
     <Compile Include="RobotUpGradeCard.cs" />
     <Compile Include="RobotCard.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="WidgetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WidgetForm.Designer.cs">
+      <DependentUpon>WidgetForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +98,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WidgetForm.resx">
+      <DependentUpon>WidgetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

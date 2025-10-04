@@ -589,5 +589,13 @@ namespace fzzzt_game
 
             RefreshConveyorBelt();
         }
+
+        /// <summary>
+        /// open a window to build production units
+        /// </summary>
+        public void StartBuildingWigets()
+        {
+            new WidgetForm().ShowDialog();
+        }
     }
 }

@@ -41,5 +41,11 @@ namespace fzzzt_game
         /// refresh UI
         /// </summary>
         void RefreshUI();
+
+        /// <summary>
+        /// open a window to build production units
+        /// </summary>
+        void StartBuildingWigets();
+
     }
 }

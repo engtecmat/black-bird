@@ -128,7 +128,6 @@ namespace fzzzt_game
             Automate();
 
             GameView.RefreshUI();
-
         }
 
         /// <summary>
@@ -176,6 +175,21 @@ namespace fzzzt_game
                 // Bid for AI player
                 aiPlayer.PickCardForBidding();
                 aiPlayer.IsBid = true;
+            }
+
+            CheckIfAuctionState();
+        }
+
+        /// <summary>
+        /// there is no cards on the conveyor belt, auction is over, start building widgets
+        /// </summary>
+        private void CheckIfAuctionState()
+        {
+            // if there is no cards on conveyor belt and at least one of players has production units can be used to build widget,
+            // then start building widgets
+            if (CardsInConveyorBelt.Count == 0 && Players.Any(player => player.ProductionUnits.Count > 0))
+            {
+                GameView.StartBuildingWigets();
             }
         }
 
@@ -471,9 +485,11 @@ namespace fzzzt_game
             Players.ForEach(player => player.ReturnBidCardsToHand());
 
             CheckIfNoCardInHand();
+            AutomateBidForAI();
+            CheckIfAuctionState();
             GameView.RefreshConveyorBelt();
             GameView.RefreshCardsForPlayers();
-            AutomateBidForAI();
+
         }
 
         /// <summary>
