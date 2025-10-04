@@ -39,6 +39,11 @@ namespace fzzzt_game
         public Panel ProductionUnitPanel { get; set; }
 
         /// <summary>
+        /// a panel is used to display production units for building widgets
+        /// </summary>
+        public FlowLayoutPanel WidgetProductionUnitPanel { get; set; }
+
+        /// <summary>
         /// a picture box to display mechanic card
         /// </summary>
         public PictureBox MechanicPictureBox { get; set; }

@@ -67,7 +67,8 @@ namespace fzzzt_game
                     MechanicPictureBox = topMechanicPictureBox,
                     CardInBidPanel = topBidPanel,
                     DiscardPilePictureBox = topDiscardPile,
-                    ProductionUnitPanel = topProductionUnitPanel
+                    ProductionUnitPanel = topProductionUnitPanel,
+                    WidgetProductionUnitPanel = new FlowLayoutPanel()
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -85,7 +86,8 @@ namespace fzzzt_game
                     StartAcutionButton = bottomStartAuction,
                     CardInBidPanel = bottomBidPanel,
                     DiscardPilePictureBox = bottomDiscardPile,
-                    ProductionUnitPanel = bottomProductionUnitPanel
+                    ProductionUnitPanel = bottomProductionUnitPanel,
+                    WidgetProductionUnitPanel = new FlowLayoutPanel()
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -595,7 +597,35 @@ namespace fzzzt_game
         /// </summary>
         public void StartBuildingWigets()
         {
-            new WidgetForm().ShowDialog();
+            WidgetForm widgetForm = new WidgetForm();
+
+            PlayerViewContexts.ForEach(context =>
+            {
+                int y = 0;
+                int height = context.Player.ProductionUnits.Count * 70;
+                if (context.Player.AtBottom())
+                {
+                    y = widgetForm.Height - height - 50;
+                    context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.BottomUp;
+                }
+                else
+                {
+                    y = 10;
+                    context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.TopDown;
+                }
+
+                context.WidgetProductionUnitPanel.Controls.Clear();
+                context.WidgetProductionUnitPanel.Location = new Point(2, y);
+                context.WidgetProductionUnitPanel.Size = new Size(50, height);
+                context.WidgetProductionUnitPanel.Margin = new Padding(0, 2, 0, 0);
+                context.WidgetProductionUnitPanel.BorderStyle = BorderStyle.FixedSingle;
+                context.WidgetProductionUnitPanel.Controls.AddRange(CreateCardsInProductionUnitForPlayer(context.Player));
+
+
+                widgetForm.Controls.Add(context.WidgetProductionUnitPanel);
+            });
+
+            widgetForm.ShowDialog();
         }
     }
 }
