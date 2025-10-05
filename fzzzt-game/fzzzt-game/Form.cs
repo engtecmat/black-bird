@@ -56,12 +56,14 @@ namespace fzzzt_game
 
             MessageLogForm = messageLogForm;
 
+            // handle the event when the widget form is closed
             WidgetForm.VisibleChanged += (sender, e) =>
             {
                 if (!WidgetForm.Visible)
                 {
                     List<Player> winners = Engine.DetermineWinner();
 
+                    // show winner information
                     if(winners.Count == 1)
                     {
                         MessageBox.Show($"The winner is {winners[0].Name} with {winners[0].GetTotalScore()} victory points!");
@@ -136,33 +138,6 @@ namespace fzzzt_game
 
             pictureBoxConveyorBeltDeck.Image = Properties.Resources.Conveyor_Belt_Deck;
 
-            //DisplayPlayers();
-        }
-
-        /// <summary>
-        /// display the players, e.g, name, card, .etc.
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        private void DisplayPlayers()
-        {
-            foreach (Player player in Engine.Players)
-            {
-                // player at the top
-                if (player.AtTop())
-                {
-                    topPlayerLabel.Text = player.Name;
-                    topMechanicPictureBox.Image = player.MechanicFace;
-                    topCardInHandPanel.Controls.Clear();
-                    topCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
-                    continue;
-                }
-
-                // player at the bottom
-                bottomPlayerLabel.Text = player.Name;
-                bottomMechanicPictureBox.Image = player.MechanicFace;
-                bottomCardInHandPanel.Controls.Clear();
-                bottomCardInHandPanel.Controls.AddRange(CreateCardsInHandForPlayer(player));
-            }
         }
 
         /// <summary>
