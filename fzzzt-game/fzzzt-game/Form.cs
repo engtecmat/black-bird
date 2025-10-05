@@ -630,13 +630,29 @@ namespace fzzzt_game
                 int height = context.Player.ProductionUnits.Count * 70 + 10;
                 if (context.Player.AtBottom())
                 {
-                    y = 803 - height;
+                    y = 853 - height;
                     context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.BottomUp;
+                    for (int i = 0; i < context.Player.ProductionUnits.Count; i++)
+                    {
+                        FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+                        flowLayoutPanel.Size = new Size(50, 70);
+                        flowLayoutPanel.Margin = new Padding(0);
+                        flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
+                        flowLayoutPanel.Location = new Point(64, 853 - 70 * (i + 1));
+                        WidgetForm.Controls.Add(flowLayoutPanel);
+                    }
                 }
                 else
                 {
                     y = 94;
                     context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.TopDown;
+                    for (int i = 0; i < context.Player.ProductionUnits.Count; i++)
+                    {
+                        UpdateMessage("Hello");
+                        FlowLayoutPanel flowLayoutPanel = CreatePanelForBuidlingPorductionUnit();
+                        flowLayoutPanel.Location = new Point(64, 94 + 70 * i);
+                        WidgetForm.Controls.Add(flowLayoutPanel);
+                    }
                 }
 
                 context.WidgetProductionUnitPanel.Controls.Clear();
@@ -645,11 +661,23 @@ namespace fzzzt_game
                 context.WidgetProductionUnitPanel.Margin = new Padding(0);
                 context.WidgetProductionUnitPanel.Controls.AddRange(CreateCardsInProductionUnitForPlayer(context.Player));
 
-
                 WidgetForm.Controls.Add(context.WidgetProductionUnitPanel);
             });
 
             WidgetForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// create a panel for each production unit
+        /// </summary>
+        /// <returns></returns>
+        private static FlowLayoutPanel CreatePanelForBuidlingPorductionUnit()
+        {
+            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+            flowLayoutPanel.Size = new Size(50, 70);
+            flowLayoutPanel.Margin = new Padding(0);
+            flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
+            return flowLayoutPanel;
         }
 
         /// <summary>
@@ -661,6 +689,7 @@ namespace fzzzt_game
         {
             PlayerViewContexts.ForEach(context =>
             {
+                UpdateMessage(context.Player.CardsInHand.Count.ToString());
                 context.Player.ProductionUnits.AddRange(context.Player.CardsInHand);
                 context.WidgetRobotPanel.Controls.Clear();
                 context.WidgetRobotPanel.Controls.AddRange(CreateRobotCardsForPlayer(context.Player));
