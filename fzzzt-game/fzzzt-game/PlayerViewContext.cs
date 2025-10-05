@@ -44,6 +44,11 @@ namespace fzzzt_game
         public FlowLayoutPanel WidgetProductionUnitPanel { get; set; }
 
         /// <summary>
+        /// a panel is used to display robot cards for building widgets
+        /// </summary>
+        public FlowLayoutPanel WidgetRobotPanel { get; set; }
+
+        /// <summary>
         /// a picture box to display mechanic card
         /// </summary>
         public PictureBox MechanicPictureBox { get; set; }
