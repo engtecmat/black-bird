@@ -23,16 +23,10 @@ namespace fzzzt_game
         /// <param name="constructionSymbols"></param>
         public RobotCard(Bitmap face, int conveyorBeltNumber, int pointValue, int power, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, power, conveyorBeltNumber)
         {
-            _constructionSymbols = constructionSymbols;
+            ConstructionSymbols = constructionSymbols;
         }
 
-        /// <summary>
-        /// get the construction symbols
-        /// </summary>
-        /// <returns></returns>
-        public ISet<ConstructionSymbol> GetConstructionSymbols()
-        {
-            return _constructionSymbols;
-        }
+        public ISet<ConstructionSymbol> ConstructionSymbols { get => _constructionSymbols; set => _constructionSymbols = value; }
+
     }
 }

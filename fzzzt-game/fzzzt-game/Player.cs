@@ -57,6 +57,11 @@ namespace fzzzt_game
         /// </summary>
         private List<Card> _productionUnits;
 
+        /// <summary>
+        /// widgets built by the player
+        /// </summary>
+        private List<Widget> _widgets;
+
         public string Name { get => _name; set => _name = value; }
         public List<Card> CardsInHand { get => _cardsInHand; set => _cardsInHand = value; }
         public Bitmap MechanicFace { get => _mechanicFace; set => _mechanicFace = value; }
@@ -70,6 +75,8 @@ namespace fzzzt_game
         public bool IsChiefMechanic { get; set; }
         public bool IsAI { get => _isAI; set => _isAI = value; }
         public bool IsBid { get => _isBid; set => _isBid = value; }
+        public List<Widget> Widgets { get => _widgets; set => _widgets = value; }
+        public Widget CurrentBuildingWidget { get; set; }
 
         /// <summary>
         /// build a playe with name
@@ -230,19 +237,70 @@ namespace fzzzt_game
             ProductionUnits.Clear();
         }
 
-
         /// <summary>
         /// pikc card or cards for bidding
         /// </summary>
         public void PickCardForBidding()
         {
-            if(CardsInHand.Count == 0)
+            if (CardsInHand.Count == 0)
             {
                 return;
             }
             Card firstCard = CardsInHand.First();
             CardsInBid.Add(CardsInHand.First());
             CardsInHand.Remove(firstCard);
+        }
+
+        /// <summary>
+        /// create or update widgets
+        /// </summary>
+        public void RefreshWidgets()
+        {
+            if (Widgets == null)
+            {
+                Widgets = new List<Widget>();
+            }
+            ProductionUnits.ForEach(p =>
+            {
+                Widget widget = new Widget();
+                widget.ProductionUnit = p;
+                widget.RobotCards = new List<Card>();
+                widget.Owner = this;
+                Widgets.Add(widget);
+            });
+            ProductionUnits.Clear();
+
+            if (!IsAI)
+            {
+                return;
+            }
+            foreach (Widget widget in Widgets)
+            {
+                if (widget.RobotCards == null)
+                {
+                    widget.RobotCards = new List<Card>();
+                }
+                foreach (Card card in CardsInHand.Concat(CardsInBid).Concat(DiscardPile))
+                {
+                    bool isRobot = card is RobotCard;
+                    if (!isRobot)
+                    {
+                        continue;
+                    }
+                    RobotCard robotCard = card as RobotCard;
+                    ProductionUnitCard productionUnit = widget.ProductionUnit as ProductionUnitCard;
+                    if (robotCard.ConstructionSymbols.Intersect(productionUnit.ConstructionSymbols).Count() > 0)
+                    {
+                        widget.AddCard(card);
+                    }
+                }
+                foreach (Card card in widget.RobotCards)
+                {
+                    CardsInHand.Remove(card);
+                    CardsInBid.Remove(card);
+                    DiscardPile.Remove(card);
+                }
+            }
         }
     }
 }

@@ -37,6 +37,7 @@ namespace fzzzt_game
         /// </summary>
         public CardState CurrentState { get => _currentState; set => _currentState = value; }
         public int ConveyorBeltNumber { get => _conveyorBeltNumber; set => _conveyorBeltNumber = value; }
+        public Bitmap Face { get => _face; set => _face = value; }
 
         /// <summary>
         /// build a card with a face image, point value, and power.
@@ -46,7 +47,7 @@ namespace fzzzt_game
         /// <param name="power"></param>
         protected Card(Bitmap face, int pointValue, int power, int conveyorBeltNumber)
         {
-            _face = face;
+            Face = face;
             CurrentState = CardState.FaceDown;
             _pointValue = pointValue;
             _power = power;
@@ -80,15 +81,6 @@ namespace fzzzt_game
         public int GetPower()
         {
             return _power;
-        }
-
-        /// <summary>
-        /// get the face of the card
-        /// </summary>
-        /// <returns>Bitmap</returns>
-        public Bitmap GetFace()
-        {
-            return _face;
         }
 
         /// <summary>

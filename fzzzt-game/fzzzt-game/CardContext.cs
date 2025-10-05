@@ -24,19 +24,20 @@ namespace fzzzt_game
         /// <param name="palyer"></param>
         public CardContext(Card card, Player palyer)
         {
-            _card = card;
+            Card = card;
             _onwer = palyer;
         }
 
-        public Player Onwer { get => _onwer; }
+        public Player Owner { get => _onwer; }
+        public Card Card { get => _card; set => _card = value; }
 
         /// <summary>
         /// remove card from hand and add card to bid
         /// </summary>
         public void BidCard()
         {
-            _onwer.RemoveCardFromHand(_card);
-            _onwer.AddCardToBid(_card);
+            _onwer.RemoveCardFromHand(Card);
+            _onwer.AddCardToBid(Card);
         }
 
         /// <summary>
@@ -44,8 +45,19 @@ namespace fzzzt_game
         /// </summary>
         public void CanelBidCard()
         {
-            _onwer.RemoveCardFromBid(_card);
-            _onwer.AddCardToHand(_card);
+            _onwer.RemoveCardFromBid(Card);
+            _onwer.AddCardToHand(Card);
+        }
+
+        /// <summary>
+        /// add card to the widget that the player is building
+        /// </summary>
+        public void AddCardToWidget()
+        {
+            Owner.CurrentBuildingWidget.AddCard(Card);
+            Owner.CardsInHand.Remove(Card);
+            Owner.CardsInBid.Remove(Card);
+            Owner.DiscardPile.Remove(Card);
         }
     }
 }

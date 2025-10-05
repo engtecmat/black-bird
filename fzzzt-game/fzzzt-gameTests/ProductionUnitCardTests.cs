@@ -14,7 +14,7 @@ namespace fzzzt_game.Tests
 
             Assert.AreEqual(13, card.GetPointValue());
             Assert.AreEqual(3, card.ConveyorBeltNumber);
-            Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());
+            Assert.AreEqual(constructionSymbols, card.ConstructionSymbols);
         }
 
         [TestMethod()]
@@ -25,7 +25,7 @@ namespace fzzzt_game.Tests
 
             Assert.AreEqual(9, card.GetPointValue());
             Assert.AreEqual(3, card.ConveyorBeltNumber);
-            Assert.AreEqual(constructionSymbols, card.GetConstructionSymbols());
+            Assert.AreEqual(constructionSymbols, card.ConstructionSymbols);
         }
     }
 }

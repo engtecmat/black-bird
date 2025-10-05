@@ -76,6 +76,7 @@
     <Compile Include="RobotUpGradeCard.cs" />
     <Compile Include="RobotCard.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="Widget.cs" />
     <Compile Include="WidgetForm.cs">
       <SubType>Form</SubType>
     </Compile>

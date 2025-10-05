@@ -37,18 +37,18 @@ namespace fzzzt_game
             // 
             // confirmBuildingButton
             // 
+            this.confirmBuildingButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.confirmBuildingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmBuildingButton.Location = new System.Drawing.Point(664, 945);
+            this.confirmBuildingButton.Location = new System.Drawing.Point(0, 952);
             this.confirmBuildingButton.Name = "confirmBuildingButton";
-            this.confirmBuildingButton.Size = new System.Drawing.Size(79, 33);
+            this.confirmBuildingButton.Size = new System.Drawing.Size(1424, 33);
             this.confirmBuildingButton.TabIndex = 0;
-            this.confirmBuildingButton.Text = "Confirm";
-            this.confirmBuildingButton.UseVisualStyleBackColor = true;
+            this.confirmBuildingButton.Text = "Close";
             this.confirmBuildingButton.Click += new System.EventHandler(this.confirmBuildingButton_Click);
             // 
             // topRobotCardPanel
             // 
-            this.topRobotCardPanel.Location = new System.Drawing.Point(9, 13);
+            this.topRobotCardPanel.Location = new System.Drawing.Point(13, 13);
             this.topRobotCardPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topRobotCardPanel.Name = "topRobotCardPanel";
             this.topRobotCardPanel.Size = new System.Drawing.Size(1402, 70);
@@ -86,5 +86,6 @@ namespace fzzzt_game
 
         public FlowLayoutPanel TopRobotCardPanel { get => topRobotCardPanel; set => topRobotCardPanel = value; }
         public FlowLayoutPanel BottomRobotCardPanel { get => bottomRobotCardPanel; set => bottomRobotCardPanel = value; }
+        public Button ConfirmBuildingButton { get => confirmBuildingButton; set => confirmBuildingButton = value; }
     }
 }

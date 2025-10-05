@@ -27,15 +27,10 @@ namespace fzzzt_game
         /// <param name="constructionSymbols"></param>
         public ProductionUnitCard(Bitmap face, int pointValue, ISet<ConstructionSymbol> constructionSymbols) : base(face, pointValue, Power, 3)
         {
-            _constructionSymbols = constructionSymbols;
+            ConstructionSymbols = constructionSymbols;
         }
 
-        /// <summary>
-        /// get the construction symbols
-        /// </summary>
-        public ISet<ConstructionSymbol> GetConstructionSymbols()
-        {
-            return _constructionSymbols;
-        }
+        public ISet<ConstructionSymbol> ConstructionSymbols { get => _constructionSymbols; set => _constructionSymbols = value; }
+
     }
 }

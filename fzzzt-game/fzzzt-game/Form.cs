@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -167,7 +168,7 @@ namespace fzzzt_game
                 }
                 else
                 {
-                    pictureBox.Image = card.GetFace();
+                    pictureBox.Image = card.Face;
                     pictureBox.DoubleClick += new System.EventHandler(this.cardsInHand_DoubleClick);
                 }
 
@@ -188,7 +189,7 @@ namespace fzzzt_game
             foreach (Card card in player.CardsInBid)
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = card.GetFace();
+                pictureBox.Image = card.Face;
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBox.DoubleClick += new System.EventHandler(this.cardsInBid_DoubleClick);
                 pictureBoxes.Add(pictureBox);
@@ -207,8 +208,28 @@ namespace fzzzt_game
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Size = new Size(50, 70);
-                pictureBox.Image = card.GetFace();
+                pictureBox.Image = card.Face;
                 pictureBox.Tag = new CardContext(card, player);
+                pictureBoxes.Add(pictureBox);
+            }
+            return pictureBoxes.ToArray();
+        }
+
+
+
+        /// <summary>
+        /// create widget production unit
+        /// </summary>
+        /// <param name="player"></param>
+        private PictureBox[] CreateWdigetProductionUnitsForPlayer(Player player)
+        {
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
+            foreach (Widget widget in player.Widgets)
+            {
+                PictureBox pictureBox = CreateDeafultPictureBox();
+                pictureBox.Size = new Size(50, 70);
+                pictureBox.Image = widget.ProductionUnit.Face;
+                pictureBox.Tag = new CardContext(widget.ProductionUnit, player);
                 pictureBoxes.Add(pictureBox);
             }
             return pictureBoxes.ToArray();
@@ -225,11 +246,36 @@ namespace fzzzt_game
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Size = new Size(50, 70);
-                pictureBox.Image = card.GetFace();
+                pictureBox.Image = card.Face;
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBoxes.Add(pictureBox);
+                pictureBox.Click += new System.EventHandler(this.HandleAddingRobotCard_Click);
             }
             return pictureBoxes.ToArray();
+        }
+
+        /// <summary>
+        /// add a robot card to the widget
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleAddingRobotCard_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            if (clickedPictureBox == null)
+            {
+                return;
+            }
+            CardContext cardContext = (CardContext)clickedPictureBox.Tag;
+
+            if (cardContext.Owner.CurrentBuildingWidget == null)
+            {
+                MessageBox.Show("Please select a production unit to build first.");
+                return;
+            }
+
+            cardContext.AddCardToWidget();
+            RefreshWidgetFrom();
         }
 
         /// <summary>
@@ -249,7 +295,7 @@ namespace fzzzt_game
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.BidCard();
 
-            RefreshCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Owner);
         }
 
         /// <summary>
@@ -268,7 +314,7 @@ namespace fzzzt_game
 
             CardContext cardContext = (CardContext)clickedPictureBox.Tag;
             cardContext.CanelBidCard();
-            RefreshCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Owner);
         }
 
         /// <summary>
@@ -404,7 +450,7 @@ namespace fzzzt_game
                 {
                     return;
                 }
-                clickedPictureBox.Image = clickedCard.GetFace();
+                clickedPictureBox.Image = clickedCard.Face;
                 clickedCard.Flip();
                 Engine.UpdateAllowedFacedUpCardCount();
                 RefreshConveyorBelt();
@@ -424,7 +470,7 @@ namespace fzzzt_game
                 if (Engine.FacingUpAllowed())
                 {
                     clickedCard.Flip();
-                    clickedPictureBox.Image = clickedCard.GetFace();
+                    clickedPictureBox.Image = clickedCard.Face;
                     Engine.UpdateAllowedFacedUpCardCount();
                     return;
                 }
@@ -466,7 +512,7 @@ namespace fzzzt_game
                 Card card = cards[i];
                 UpdateMessage(card.ToString());
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = card.CurrentState == CardState.FaceDown ? GameEngine.CardBack : card.GetFace();
+                pictureBox.Image = card.CurrentState == CardState.FaceDown ? GameEngine.CardBack : card.Face;
                 pictureBox.Tag = card;
                 pictureBox.Click += new System.EventHandler(this.pictureBoxOnConveyorBelt_Click);
 
@@ -511,7 +557,7 @@ namespace fzzzt_game
         {
             PictureBox pictureBox = (PictureBox)conveyorBeltPanel.Controls[index];
             Card card = (Card)pictureBox.Tag;
-            pictureBox.Image = card.GetFace();
+            pictureBox.Image = card.Face;
             card.Flip();
             Engine.AddFacedUpCard(card);
         }
@@ -522,7 +568,7 @@ namespace fzzzt_game
         public void AIBid(CardContext cardContext)
         {
             cardContext.BidCard();
-            RefreshCardsForPlayer(cardContext.Onwer);
+            RefreshCardsForPlayer(cardContext.Owner);
         }
 
         private void bottomBidButton_Click(object sender, EventArgs e)
@@ -624,47 +670,102 @@ namespace fzzzt_game
         /// </summary>
         public void StartBuildingWigets()
         {
+            RefreshWidgetFrom();
+            WidgetForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// referesh the widget form
+        /// </summary>
+        private void RefreshWidgetFrom()
+        {
+            WidgetForm.Controls.Clear();
+            WidgetForm.Controls.Add(WidgetForm.ConfirmBuildingButton);
+            const int bottomY = 853;
             PlayerViewContexts.ForEach(context =>
             {
-                int y = 0;
-                int height = context.Player.ProductionUnits.Count * 70 + 10;
-                if (context.Player.AtBottom())
+                if (context.Player.AtTop())
                 {
-                    y = 853 - height;
-                    context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.BottomUp;
-                    for (int i = 0; i < context.Player.ProductionUnits.Count; i++)
+                    for (int i = 0; i < context.Player.Widgets.Count; i++)
                     {
-                        FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-                        flowLayoutPanel.Size = new Size(50, 70);
-                        flowLayoutPanel.Margin = new Padding(0);
-                        flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
-                        flowLayoutPanel.Location = new Point(64, 853 - 70 * (i + 1));
+                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], 94 + 70 * i);
+
                         WidgetForm.Controls.Add(flowLayoutPanel);
                     }
                 }
                 else
                 {
-                    y = 94;
-                    context.WidgetProductionUnitPanel.FlowDirection = FlowDirection.TopDown;
-                    for (int i = 0; i < context.Player.ProductionUnits.Count; i++)
+                    for (int i = 0; i < context.Player.Widgets.Count; i++)
                     {
-                        UpdateMessage("Hello");
-                        FlowLayoutPanel flowLayoutPanel = CreatePanelForBuidlingPorductionUnit();
-                        flowLayoutPanel.Location = new Point(64, 94 + 70 * i);
+                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], bottomY - 70 * (i + 1));
                         WidgetForm.Controls.Add(flowLayoutPanel);
                     }
                 }
+                context.WidgetRobotPanel.Controls.Clear();
+                context.WidgetRobotPanel.Controls.AddRange(CreateRobotCardsForPlayer(context.Player));
 
-                context.WidgetProductionUnitPanel.Controls.Clear();
-                context.WidgetProductionUnitPanel.Location = new Point(9, y);
-                context.WidgetProductionUnitPanel.Size = new Size(50, height);
-                context.WidgetProductionUnitPanel.Margin = new Padding(0);
-                context.WidgetProductionUnitPanel.Controls.AddRange(CreateCardsInProductionUnitForPlayer(context.Player));
+                WidgetForm.Controls.Add(context.WidgetRobotPanel);
 
-                WidgetForm.Controls.Add(context.WidgetProductionUnitPanel);
             });
+        }
 
-            WidgetForm.ShowDialog();
+        /// <summary>
+        /// Create a panel for each widget for the player
+        /// </summary>
+        private FlowLayoutPanel CreatePanelForWidget(Widget widget, int y)
+        {
+            FlowLayoutPanel flowLayoutPanel = CreatePanelForBuidlingPorductionUnit();
+            flowLayoutPanel.Location = new Point(9, y);
+            flowLayoutPanel.Size = new Size(1402, 70);
+            PictureBox productionUnit = CreateDeafultPictureBox();
+            productionUnit.Size = new Size(50, 70);
+            productionUnit.Image = widget.ProductionUnit.Face;
+            productionUnit.Tag = widget;
+            productionUnit.Margin = new Padding(0, 0, 5, 0);
+            productionUnit.Cursor = Cursors.Hand;
+            productionUnit.Click += new System.EventHandler(this.HandleWidgetProductionUnit_Click);
+
+            if (widget == widget.Owner.CurrentBuildingWidget)
+            {
+                productionUnit.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else
+            {
+                productionUnit.BorderStyle = BorderStyle.None;
+            }
+
+            flowLayoutPanel.Controls.Add(productionUnit);
+
+            foreach (Card card in widget.RobotCards)
+            {
+                PictureBox robotCard = CreateDeafultPictureBox();
+                robotCard.Size = new Size(50, 70);
+                robotCard.Image = card.Face;
+                robotCard.Tag = widget;
+                //robotCard.Click += new System.EventHandler(this.HandleAddingRobotCard_Click());
+
+                flowLayoutPanel.Controls.Add(robotCard);
+            }
+
+            return flowLayoutPanel;
+        }
+
+
+        /// <summary>
+        /// handle the click event of a production unit in widget form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleWidgetProductionUnit_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            if (clickedPictureBox == null)
+            {
+                return;
+            }
+            Widget widget = (Widget)clickedPictureBox.Tag;
+            widget.Owner.CurrentBuildingWidget = widget;
+            RefreshWidgetFrom();
         }
 
         /// <summary>
@@ -676,7 +777,7 @@ namespace fzzzt_game
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
             flowLayoutPanel.Size = new Size(50, 70);
             flowLayoutPanel.Margin = new Padding(0);
-            flowLayoutPanel.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel.FlowDirection = FlowDirection.LeftToRight;
             return flowLayoutPanel;
         }
 
@@ -687,14 +788,7 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void testWidgetButton_Click(object sender, EventArgs e)
         {
-            PlayerViewContexts.ForEach(context =>
-            {
-                UpdateMessage(context.Player.CardsInHand.Count.ToString());
-                context.Player.ProductionUnits.AddRange(context.Player.CardsInHand);
-                context.WidgetRobotPanel.Controls.Clear();
-                context.WidgetRobotPanel.Controls.AddRange(CreateRobotCardsForPlayer(context.Player));
-            });
-            StartBuildingWigets();
+            Engine.CheckIfAuctionState();
         }
     }
 }
