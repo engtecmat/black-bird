@@ -214,9 +214,9 @@ namespace fzzzt_game
         {
             List<Card> cards = new List<Card>();
 
-            Card power1 = Deck.Find(c => c.GetPower() == 1);
-            Card power2 = Deck.Find(c => c.GetPower() == 2);
-            Card power3 = Deck.Find(c => c.GetPower() == 3);
+            Card power1 = Deck.Find(c => c.Power == 1);
+            Card power2 = Deck.Find(c => c.Power == 2);
+            Card power3 = Deck.Find(c => c.Power == 3);
 
             cards.Add(power1);
             cards.Add(power2);

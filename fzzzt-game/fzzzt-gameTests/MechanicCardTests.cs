@@ -11,8 +11,9 @@ namespace fzzzt_game.Tests
             MechanicCard card = new MechanicCard(null, 1);
 
             Assert.AreEqual(0, card.PointValue);
-            Assert.AreEqual(0, card.GetPower());
-            Assert.AreEqual(1, card.GetPlayNumber());
+            Assert.AreEqual(0, card.Power);
+            Assert.AreEqual(1, card.PlayNumber
+                );
         }
 
         [TestMethod()]
@@ -21,8 +22,8 @@ namespace fzzzt_game.Tests
             MechanicCard card = new MechanicCard(null, 2);
 
             Assert.AreEqual(0, card.PointValue);
-            Assert.AreEqual(0, card.GetPower());
-            Assert.AreEqual(2, card.GetPlayNumber());
+            Assert.AreEqual(0, card.Power);
+            Assert.AreEqual(2, card.PlayNumber);
         }
     }
 }

@@ -8,11 +8,6 @@ namespace fzzzt_game
     /// </summary>
     public class RobotUpgradeCard : Card
     {
-                /// <summary>
-        /// the power of a robot upgrade card is 0
-        /// </summary>
-        private const int Power = 0;
-
         /// <summary>
         /// construction symbols, e.g, Bolt, Cog, Nut, Oil
         /// </summary>
@@ -22,9 +17,10 @@ namespace fzzzt_game
         /// build a robot upgrade card with a face image.
         /// the conveyor belt number of a robot upgrade card is 8
         /// the point value of a robot upgrade card is 0
+        /// the power of a robot upgrade card is 0
         /// </summary>
         /// <param name="face"></param>
-        public RobotUpgradeCard(Bitmap face) : base(face, 0, Power, 8)
+        public RobotUpgradeCard(Bitmap face) : base(face, 0, 0, 8)
         {
             // the construction symbols of a robot upgrade card are Bolt, Cog, Nut, Oil
             _constructionSymbols = new HashSet<ConstructionSymbol> { ConstructionSymbol.Bolt, ConstructionSymbol.Cog, ConstructionSymbol.Nut, ConstructionSymbol.Oil };

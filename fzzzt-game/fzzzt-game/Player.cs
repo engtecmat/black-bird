@@ -156,7 +156,7 @@ namespace fzzzt_game
         /// <returns></returns>
         public int GetTotalPowerInBid()
         {
-            return CardsInBid.Sum(card => card.GetPower());
+            return CardsInBid.Sum(card => card.Power);
         }
 
         /// <summary>
