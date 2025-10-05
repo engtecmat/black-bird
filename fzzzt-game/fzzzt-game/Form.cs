@@ -32,14 +32,11 @@ namespace fzzzt_game
         public LogForm MessageLogForm { get => _messageLogForm; set => _messageLogForm = value; }
 
         /// <summary>
-        /// build form without message log form
+        /// default constructor
         /// </summary>
         public GameForm()
         {
             InitializeComponent();
-            Engine = new GameEngine();
-            Engine.GameView = this;
-            PlayerViewContexts = new List<PlayerViewContext>();
         }
 
         /// <summary>
@@ -58,6 +55,24 @@ namespace fzzzt_game
             Engine.Players.ForEach(player => BindPlayerContext(player));
 
             MessageLogForm = messageLogForm;
+
+            WidgetForm.VisibleChanged += (sender, e) =>
+            {
+                if (!WidgetForm.Visible)
+                {
+                    List<Player> winners = Engine.DetermineWinner();
+
+                    if(winners.Count == 1)
+                    {
+                        MessageBox.Show($"The winner is {winners[0].Name} with {winners[0].GetTotalScore()} victory points!");
+                    }
+                    else
+                    {
+                        string winnerNames = string.Join(", ", winners.Select(w => w.Name));
+                        MessageBox.Show($"It's a tie between {winnerNames}, each with {winners[0].GetTotalScore()} victory points!");
+                    }
+                }
+            };
         }
 
         /// <summary>
