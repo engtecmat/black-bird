@@ -3,21 +3,21 @@ using System.Windows.Forms;
 
 namespace fzzzt_game
 {
-    public partial class MessageLogForm : Form
+    public partial class LogForm : Form
     {
         /// <summary>
         /// a form for displaying game inforamiton 
         /// </summary>
-        public MessageLogForm()
+        public LogForm()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// pdate message
+        /// add message to the message box
         /// </summary>
         /// <param name="message"></param>
-        public void UpdateMessage(string message)
+        public void AddMessage(string message)
         {
             messageBox.AppendText(message);
             messageBox.AppendText(Environment.NewLine);

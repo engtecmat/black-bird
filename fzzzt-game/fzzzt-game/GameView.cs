@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace fzzzt_game
+﻿namespace fzzzt_game
 {
     /// <summary>
     /// define the methods that will affect the UI
@@ -8,9 +6,9 @@ namespace fzzzt_game
     public interface GameView
     {
         /// <summary>
-        /// update the message box for debugging
+        /// a method for adding message to the message box for debugging
         /// </summary>
-        void UpdateMessage(string message);
+        void Log(string message);
 
         /// <summary>
         /// set up conveyor belt for an auction

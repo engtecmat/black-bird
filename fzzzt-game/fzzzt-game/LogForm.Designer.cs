@@ -1,6 +1,6 @@
 ﻿namespace fzzzt_game
 {
-    partial class MessageLogForm
+    partial class LogForm
     {
         /// <summary>
         /// Required designer variable.

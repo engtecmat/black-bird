@@ -197,11 +197,11 @@ namespace fzzzt_game
                 Card firstCard = CardsInConveyorBelt[0];
                 firstCard.Flip();
 
-                GameView.UpdateMessage("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
+                GameView.Log("first cards's conveyor belt number is: " + firstCard.ConveyorBeltNumber);
 
                 // face up cards its conveyor belt number
                 List<int> indices = Utils.GenerateIndices(firstCard.ConveyorBeltNumber - 1, 1, CardsInConveyorBelt.Count);
-                GameView.UpdateMessage("randomly indices are: " + string.Join(",", indices));
+                GameView.Log("randomly indices are: " + string.Join(",", indices));
 
                 indices.ForEach(index => CardsInConveyorBelt[index].Flip());
             }
@@ -466,7 +466,7 @@ namespace fzzzt_game
         {
             foreach (int index in Utils.GenerateIndices(8, Deck.Count))
             {
-                GameView.UpdateMessage("index for conveyor belt:" + index);
+                GameView.Log("index for conveyor belt:" + index);
                 CardsInConveyorBelt.Add(Deck[index]);
             }
             Deck.RemoveAll(card => CardsInConveyorBelt.Contains(card));
@@ -527,7 +527,7 @@ namespace fzzzt_game
                 winner = winnerGroup.Players.First();
             }
 
-            GameView.UpdateMessage("The winnder is: " + winner.Name);
+            GameView.Log("The winnder is: " + winner.Name);
 
 
             //award the first face up card on conveyor belt to the winner
@@ -547,7 +547,7 @@ namespace fzzzt_game
             {
                 winner.DiscardCard(auctionedCard);
 
-                GameView.UpdateMessage(winner.Name + " discard pile  = " + winner.DiscardPile.Count);
+                GameView.Log(winner.Name + " discard pile  = " + winner.DiscardPile.Count);
                 return;
             }
 
@@ -555,7 +555,7 @@ namespace fzzzt_game
             {
                 winner.CollectProductionUnit(auctionedCard);
 
-                GameView.UpdateMessage(winner.Name + " discard pile  = " + winner.ProductionUnits.Count);
+                GameView.Log(winner.Name + " discard pile  = " + winner.ProductionUnits.Count);
                 return;
             }
         }
@@ -565,53 +565,53 @@ namespace fzzzt_game
         /// </summary>
         public void PrintGameState()
         {
-            GameView.UpdateMessage("********** Game State **********");
-            GameView.UpdateMessage("");
-            GameView.UpdateMessage("Auction State " + AuctionState.ToString());
-            GameView.UpdateMessage("Cards in Deck: " + Deck.Count);
-            GameView.UpdateMessage("Players: " + Players.Count);
-            GameView.UpdateMessage("Allowed face-up count on belt: " + AllowedFacedUpCardCount);
+            GameView.Log("********** Game State **********");
+            GameView.Log("");
+            GameView.Log("Auction State " + AuctionState.ToString());
+            GameView.Log("Cards in Deck: " + Deck.Count);
+            GameView.Log("Players: " + Players.Count);
+            GameView.Log("Allowed face-up count on belt: " + AllowedFacedUpCardCount);
 
-            GameView.UpdateMessage("Cards in Conveyor Belt: " + CardsInConveyorBelt.Count);
+            GameView.Log("Cards in Conveyor Belt: " + CardsInConveyorBelt.Count);
 
             foreach (Card card in CardsInConveyorBelt)
             {
-                GameView.UpdateMessage(card.ToString());
+                GameView.Log(card.ToString());
             }
 
-            GameView.UpdateMessage("");
+            GameView.Log("");
             foreach (Player player in Players)
             {
-                GameView.UpdateMessage(player.Name + " is the chief Mechanic: " + player.IsChiefMechanic.ToString());
-                GameView.UpdateMessage(player.Name + " hand cards:" + player.CardsInHand.Count);
+                GameView.Log(player.Name + " is the chief Mechanic: " + player.IsChiefMechanic.ToString());
+                GameView.Log(player.Name + " hand cards:" + player.CardsInHand.Count);
                 foreach (Card card in player.CardsInHand)
                 {
-                    GameView.UpdateMessage(card.ToString());
+                    GameView.Log(card.ToString());
                 }
-                GameView.UpdateMessage(player.Name + " bid cards:" + player.CardsInBid.Count);
+                GameView.Log(player.Name + " bid cards:" + player.CardsInBid.Count);
                 foreach (Card card in player.CardsInBid)
                 {
-                    GameView.UpdateMessage(card.ToString());
+                    GameView.Log(card.ToString());
                 }
-                GameView.UpdateMessage(player.Name + " discard pile:" + player.DiscardPile.Count);
+                GameView.Log(player.Name + " discard pile:" + player.DiscardPile.Count);
                 foreach (Card card in player.DiscardPile)
                 {
-                    GameView.UpdateMessage(card.ToString());
+                    GameView.Log(card.ToString());
                 }
-                GameView.UpdateMessage(player.Name + " production units:" + player.ProductionUnits.Count);
+                GameView.Log(player.Name + " production units:" + player.ProductionUnits.Count);
                 foreach (Card card in player.ProductionUnits)
                 {
-                    GameView.UpdateMessage(card.ToString());
+                    GameView.Log(card.ToString());
                 }
-                GameView.UpdateMessage(player.Name + " widgets:" + player.Widgets.Count);
+                GameView.Log(player.Name + " widgets:" + player.Widgets.Count);
                 foreach (Widget widget in player.Widgets)
                 {
-                    GameView.UpdateMessage(widget.ProductionUnit.ToString());
+                    GameView.Log(widget.ProductionUnit.ToString());
                 }
-                GameView.UpdateMessage("");
+                GameView.Log("");
             }
 
-            GameView.UpdateMessage("********** Game State **********");
+            GameView.Log("********** Game State **********");
         }
     }
 }

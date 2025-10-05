@@ -19,7 +19,7 @@ namespace fzzzt_game
         /// <summary>
         /// for displaying game informaiton
         /// </summary>
-        private MessageLogForm _messageLogForm;
+        private LogForm _messageLogForm;
 
         /// <summary>
         /// a form to build widgets
@@ -29,6 +29,7 @@ namespace fzzzt_game
         public GameEngine Engine { get => _engine; set => _engine = value; }
         public List<PlayerViewContext> PlayerViewContexts { get => _playerViewContexts; set => _playerViewContexts = value; }
         public WidgetForm WidgetForm { get => _widgetForm; set => _widgetForm = value; }
+        public LogForm MessageLogForm { get => _messageLogForm; set => _messageLogForm = value; }
 
         /// <summary>
         /// build form without message log form
@@ -45,7 +46,7 @@ namespace fzzzt_game
         /// build form with message log form
         /// </summary>
         /// <param name="messageLogForm"></param>
-        public GameForm(MessageLogForm messageLogForm)
+        public GameForm(LogForm messageLogForm)
         {
             InitializeComponent();
 
@@ -56,7 +57,7 @@ namespace fzzzt_game
 
             Engine.Players.ForEach(player => BindPlayerContext(player));
 
-            _messageLogForm = messageLogForm;
+            MessageLogForm = messageLogForm;
         }
 
         /// <summary>
@@ -325,7 +326,6 @@ namespace fzzzt_game
         /// <param name="player"></param>
         private void RefreshCardsForPlayer(Player player)
         {
-            UpdateMessage(player.ToString());
             PictureBox[] cardsInHand = CreateCardsInHandForPlayer(player);
             PictureBox[] cardsInBid = CreateCardsInBidForPlayer(player);
             PictureBox[] cardsInProductionUnits = CreateCardsInProductionUnitForPlayer(player);
@@ -511,7 +511,6 @@ namespace fzzzt_game
             for (int i = 0; i < cards.Count; i++)
             {
                 Card card = cards[i];
-                UpdateMessage(card.ToString());
                 PictureBox pictureBox = CreateDeafultPictureBox();
                 pictureBox.Image = card.CurrentState == CardState.FaceDown ? GameEngine.CardBack : card.Face;
                 pictureBox.Tag = card;
@@ -543,11 +542,11 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// update message in the textbox
+        /// add message to the message log form
         /// </summary>
-        public void UpdateMessage(string message)
+        public void Log(string message)
         {
-            _messageLogForm.UpdateMessage(message);
+            MessageLogForm.AddMessage(message);
         }
 
         /// <summary>

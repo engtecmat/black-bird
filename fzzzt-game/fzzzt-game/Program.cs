@@ -14,7 +14,7 @@ namespace fzzzt_game
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MessageLogForm messageLogForm = new MessageLogForm();
+            LogForm messageLogForm = new LogForm();
             messageLogForm.Show();
             Application.Run(new GameForm(messageLogForm));
             //Application.Run(new FormFzzztGame());
