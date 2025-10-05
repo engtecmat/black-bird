@@ -38,6 +38,7 @@ namespace fzzzt_game
         public CardState CurrentState { get => _currentState; set => _currentState = value; }
         public int ConveyorBeltNumber { get => _conveyorBeltNumber; set => _conveyorBeltNumber = value; }
         public Bitmap Face { get => _face; set => _face = value; }
+        public int PointValue { get => _pointValue; set => _pointValue = value; }
 
         /// <summary>
         /// build a card with a face image, point value, and power.
@@ -49,7 +50,7 @@ namespace fzzzt_game
         {
             Face = face;
             CurrentState = CardState.FaceDown;
-            _pointValue = pointValue;
+            PointValue = pointValue;
             _power = power;
             ConveyorBeltNumber = conveyorBeltNumber;
         }
@@ -65,14 +66,6 @@ namespace fzzzt_game
                 return;
             }
             CurrentState = CardState.FaceDown;
-        }
-
-        /// <summary>
-        /// get the point value
-        /// </summary>
-        public int GetPointValue()
-        {
-            return _pointValue;
         }
 
         /// <summary>

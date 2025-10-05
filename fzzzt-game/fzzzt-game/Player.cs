@@ -91,6 +91,7 @@ namespace fzzzt_game
             CardsInBid = new List<Card>();
             DiscardPile = new List<Card>();
             ProductionUnits = new List<Card>();
+            Widgets = new List<Widget>();
             IsAI = isAIPlayer;
         }
 
@@ -303,6 +304,21 @@ namespace fzzzt_game
                     DiscardPile.Remove(card);
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the total score of the player
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalScore()
+        {
+            Predicate<Widget> hasNoRobotCards = w => w.RobotCards == null || w.RobotCards.Count == 0;
+            Predicate<Widget> hasRobotCards = w => w.RobotCards != null && w.RobotCards.Count > 0;
+            return CardsInHand.Concat(CardsInBid)
+                .Concat(DiscardPile)
+                .Concat(Widgets.FindAll(hasRobotCards).SelectMany(w => w.RobotCards))
+                .Concat(Widgets.FindAll(w => w.IsComplete).Select(w => w.ProductionUnit))
+                .Sum(c => c.PointValue) + Widgets.FindAll(hasNoRobotCards).Sum(w => 0 - w.ProductionUnit.PointValue);
         }
     }
 }

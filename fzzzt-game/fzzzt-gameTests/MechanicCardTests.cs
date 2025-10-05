@@ -10,7 +10,7 @@ namespace fzzzt_game.Tests
         {
             MechanicCard card = new MechanicCard(null, 1);
 
-            Assert.AreEqual(0, card.GetPointValue());
+            Assert.AreEqual(0, card.PointValue);
             Assert.AreEqual(0, card.GetPower());
             Assert.AreEqual(1, card.GetPlayNumber());
         }
@@ -20,7 +20,7 @@ namespace fzzzt_game.Tests
         {
             MechanicCard card = new MechanicCard(null, 2);
 
-            Assert.AreEqual(0, card.GetPointValue());
+            Assert.AreEqual(0, card.PointValue);
             Assert.AreEqual(0, card.GetPower());
             Assert.AreEqual(2, card.GetPlayNumber());
         }

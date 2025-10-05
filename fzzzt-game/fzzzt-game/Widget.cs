@@ -28,6 +28,11 @@ namespace fzzzt_game
         public Player Owner { get => _owner; set => _owner = value; }
 
         /// <summary>
+        /// indicate if the widget is complete
+        /// </summary>
+        public bool IsComplete { get; set; }
+
+        /// <summary>
         /// add a robot card to the widget
         /// </summary>
         /// <param name="card"></param>

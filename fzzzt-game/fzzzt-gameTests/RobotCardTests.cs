@@ -13,7 +13,7 @@ namespace fzzzt_game.Tests
             RobotCard card = new RobotCard(null, 4, 2, 1, constructionSymbols);
 
             Assert.AreEqual(4, card.ConveyorBeltNumber);
-            Assert.AreEqual(2, card.GetPointValue());
+            Assert.AreEqual(2, card.PointValue);
             Assert.AreEqual(1, card.GetPower());
             Assert.AreEqual(constructionSymbols, card.ConstructionSymbols);
 
@@ -26,7 +26,7 @@ namespace fzzzt_game.Tests
             RobotCard card = new RobotCard(null, 3, 1, 2, constructionSymbols);
 
             Assert.AreEqual(3, card.ConveyorBeltNumber);
-            Assert.AreEqual(1, card.GetPointValue());
+            Assert.AreEqual(1, card.PointValue);
             Assert.AreEqual(2, card.GetPower());
             Assert.AreEqual(constructionSymbols, card.ConstructionSymbols);
         }

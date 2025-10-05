@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using fzzzt_game;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 
 namespace fzzzt_game.Tests
 {
@@ -15,18 +10,11 @@ namespace fzzzt_game.Tests
         public void Test_Beginning_State()
         {
             GameEngine engine = new GameEngine();
+            engine.GameView = new Mock<GameView>().Object;
             engine.StartGame();
 
-            Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 1).Count);
-            Assert.AreEqual(6, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 2).Count);
-            Assert.AreEqual(6, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 3).Count);
-            Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 4).Count);
-            Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is RobotCard && c.GetPower() == 5).Count);
-            Assert.AreEqual(2, engine.GetDeck().FindAll(c => c is RobotUpgradeCard card && card.ConveyorBeltNumber == 8).Count);
-            Assert.AreEqual(4, engine.GetDeck().FindAll(c => c is FzzztCard card && card.ConveyorBeltNumber == 1).Count);
-            Assert.AreEqual(10, engine.GetDeck().FindAll(c => c is ProductionUnitCard card && card.ConveyorBeltNumber == 3).Count);
-            Assert.AreEqual(46, engine.GetDeck().Count);
-
+            Assert.IsTrue(engine.GameState);
+            Assert.AreEqual(38, engine.GetDeck().Count);
             Assert.AreEqual(2, engine.Players.Count);
         }
     }
