@@ -780,15 +780,5 @@ namespace fzzzt_game
             flowLayoutPanel.FlowDirection = FlowDirection.LeftToRight;
             return flowLayoutPanel;
         }
-
-        /// <summary>
-        /// test widget form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void testWidgetButton_Click(object sender, EventArgs e)
-        {
-            Engine.CheckIfAuctionState();
-        }
     }
 }

@@ -53,7 +53,6 @@
             this.topCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.conveyorBeltPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.testWidgetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConveyorBeltDeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomMechanicPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomDiscardPile)).BeginInit();
@@ -211,7 +210,6 @@
             // 
             // panelOperations
             // 
-            this.panelOperations.Controls.Add(this.testWidgetButton);
             this.panelOperations.Controls.Add(this.printGameStateButton);
             this.panelOperations.Controls.Add(this.buttonStartGame);
             this.panelOperations.Location = new System.Drawing.Point(0, 0);
@@ -335,19 +333,6 @@
             this.conveyorBeltPanel.Size = new System.Drawing.Size(872, 140);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
-            // button1
-            // 
-            this.testWidgetButton.AutoSize = true;
-            this.testWidgetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testWidgetButton.Location = new System.Drawing.Point(28, 586);
-            this.testWidgetButton.Margin = new System.Windows.Forms.Padding(2);
-            this.testWidgetButton.Name = "button1";
-            this.testWidgetButton.Size = new System.Drawing.Size(108, 60);
-            this.testWidgetButton.TabIndex = 4;
-            this.testWidgetButton.Text = "Widget";
-            this.testWidgetButton.UseVisualStyleBackColor = true;
-            this.testWidgetButton.Click += new System.EventHandler(this.testWidgetButton_Click);
-            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,6 +390,5 @@
         private System.Windows.Forms.FlowLayoutPanel bottomProductionUnitPanel;
         private System.Windows.Forms.FlowLayoutPanel topProductionUnitPanel;
         private System.Windows.Forms.FlowLayoutPanel bottomPlayerOperationPanel;
-        private System.Windows.Forms.Button testWidgetButton;
     }
 }
