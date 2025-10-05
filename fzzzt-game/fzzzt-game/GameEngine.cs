@@ -171,12 +171,7 @@ namespace fzzzt_game
 
                 /// face up cards on conveyor belt
                 FaceUpOnConveyorBelt();
-
-                // Bid for AI player
-                aiPlayer.PickCardForBidding();
-                aiPlayer.IsBid = true;
             }
-
             CheckIfAuctionState();
         }
 
@@ -463,7 +458,8 @@ namespace fzzzt_game
         {
             AuctionState = true;
             PickCardsForConveyorBelt();
-            GameView.RefreshConveyorBelt();
+            Players.Find(player => player.IsAI).AutomateBidding();
+            GameView.RefreshUI();
         }
 
         private void PickCardsForConveyorBelt()
@@ -486,11 +482,9 @@ namespace fzzzt_game
             Players.ForEach(player => player.ReturnBidCardsToHand());
 
             CheckIfNoCardInHand();
-            AutomateBidForAI();
+            Players.Find(player => player.IsAI).AutomateBidding();
             CheckIfAuctionState();
-            GameView.RefreshConveyorBelt();
-            GameView.RefreshCardsForPlayers();
-
+            GameView.RefreshUI();
         }
 
         /// <summary>
@@ -505,22 +499,6 @@ namespace fzzzt_game
             if (Players.All(player => player.HasNoCardInHand()))
             {
                 Players.ForEach(player => player.TakeBackCards());
-            }
-        }
-
-        /// <summary>
-        /// automate AI bid
-        /// </summary>
-        private void AutomateBidForAI()
-        {
-            List<Card> cardsInHand = ChiefMechanic.CardsInHand;
-            if (cardsInHand.Count > 0)
-            {
-                GameView.AIBid(new CardContext(cardsInHand.First(), ChiefMechanic));
-            }
-            else
-            {
-                ChiefMechanic.IsBid = true;
             }
         }
 

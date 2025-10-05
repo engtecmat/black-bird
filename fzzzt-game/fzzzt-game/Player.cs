@@ -240,7 +240,7 @@ namespace fzzzt_game
         /// <summary>
         /// pikc card or cards for bidding
         /// </summary>
-        public void PickCardForBidding()
+        public void AutomateBidding()
         {
             if (CardsInHand.Count == 0)
             {
@@ -250,6 +250,7 @@ namespace fzzzt_game
             firstCard.CurrentState = CardState.FaceDown;
             CardsInBid.Add(CardsInHand.First());
             CardsInHand.Remove(firstCard);
+            IsBid = true;
         }
 
         /// <summary>
