@@ -320,5 +320,19 @@ namespace fzzzt_game
                 .Concat(Widgets.FindAll(w => w.IsComplete).Select(w => w.ProductionUnit))
                 .Sum(c => c.PointValue) + Widgets.FindAll(hasNoRobotCards).Sum(w => 0 - w.ProductionUnit.PointValue);
         }
+
+
+        /// <summary>
+        /// calculate the number of robot cards
+        /// </summary>
+        /// <returns></returns>
+        public int GetRobotCardsCount()
+        {
+            Predicate<Widget> hasRobotCards = w => w.RobotCards != null && w.RobotCards.Count > 0;
+            return CardsInHand.Concat(CardsInBid)
+                .Concat(DiscardPile)
+                .Concat(Widgets.FindAll(hasRobotCards).SelectMany(w => w.RobotCards))
+                .Count();
+        }
     }
 }

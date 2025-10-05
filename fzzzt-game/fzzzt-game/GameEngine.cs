@@ -613,5 +613,40 @@ namespace fzzzt_game
 
             GameView.Log("********** Game State **********");
         }
+
+        /// <summary>
+        /// determine the winner when the game ends
+        /// </summary>
+        /// <returns></returns>
+        public List<Player> DetermineWinner()
+        {
+
+            // find the player with the highest score
+            var groupingByScore = Players.GroupBy(p => p.GetTotalScore())
+                .Select(group => new { TotalPointValue = group.Key, Players = group.ToList() })
+                .OrderByDescending(g => g.TotalPointValue)
+                .First();
+
+            // if there is only one player with the highest score, return that player
+            if (groupingByScore.Players.Count == 1)
+            {
+                return new List<Player> { groupingByScore.Players.First() };
+            }
+
+            // if there are multiple players with the highest score, find the player with the fewest robot cards
+            var groupingByRobotCardCount = groupingByScore.Players.GroupBy(p => p.GetRobotCardsCount())
+                .Select(group => new { RobotCardCount = group.Key, Players = group.ToList() })
+                .OrderBy(g => g.RobotCardCount)
+                .First();
+
+            // if there is only one player with fewest robot cards, return the player
+            if (groupingByRobotCardCount.Players.Count == 1)
+            {
+                return new List<Player> { groupingByRobotCardCount.Players.First() };
+            }
+
+            // if there is still a tie, there are multiple winners. 
+            return groupingByRobotCardCount.Players;
+        }
     }
 }
