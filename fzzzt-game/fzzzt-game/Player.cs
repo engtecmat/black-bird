@@ -247,6 +247,7 @@ namespace fzzzt_game
                 return;
             }
             Card firstCard = CardsInHand.First();
+            firstCard.CurrentState = CardState.FaceDown;
             CardsInBid.Add(CardsInHand.First());
             CardsInHand.Remove(firstCard);
         }

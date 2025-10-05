@@ -188,8 +188,9 @@ namespace fzzzt_game
             List<PictureBox> pictureBoxes = new List<PictureBox>();
             foreach (Card card in player.CardsInBid)
             {
+                
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = card.Face;
+                pictureBox.Image = card.CurrentState == CardState.FaceUp ? card.Face: GameEngine.CardBack;
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBox.DoubleClick += new System.EventHandler(this.cardsInBid_DoubleClick);
                 pictureBoxes.Add(pictureBox);
