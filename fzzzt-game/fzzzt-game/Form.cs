@@ -224,10 +224,10 @@ namespace fzzzt_game
         private PictureBox[] CreateRobotCardsForPlayer(Player player)
         {
             List<PictureBox> pictureBoxes = new List<PictureBox>();
-            foreach (Card card in player.CardsInHand.Concat(player.DiscardPile))
+            foreach (Card card in player.CardsInHand.Concat(player.DiscardPile).Concat(player.CardsInBid))
             {
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Size = new Size(50, 70);
+                pictureBox.Size = new Size(100, 140);
                 pictureBox.Image = card.Face;
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBoxes.Add(pictureBox);
@@ -619,14 +619,16 @@ namespace fzzzt_game
         {
             WidgetForm.Controls.Clear();
             WidgetForm.Controls.Add(WidgetForm.ConfirmBuildingButton);
-            const int bottomY = 853;
+            const int bottomY = 809;
+            const int cardHeight = 140;
+            const int topY = 150;
             PlayerViewContexts.ForEach(context =>
             {
                 if (context.Player.AtTop())
                 {
                     for (int i = 0; i < context.Player.Widgets.Count; i++)
                     {
-                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], 94 + 70 * i);
+                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], topY + cardHeight * i);
 
                         WidgetForm.Controls.Add(flowLayoutPanel);
                     }
@@ -635,7 +637,7 @@ namespace fzzzt_game
                 {
                     for (int i = 0; i < context.Player.Widgets.Count; i++)
                     {
-                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], bottomY - 70 * (i + 1));
+                        FlowLayoutPanel flowLayoutPanel = CreatePanelForWidget(context.Player.Widgets[i], bottomY - cardHeight * (i + 1));
                         WidgetForm.Controls.Add(flowLayoutPanel);
                     }
                 }
@@ -653,10 +655,10 @@ namespace fzzzt_game
         private FlowLayoutPanel CreatePanelForWidget(Widget widget, int y)
         {
             FlowLayoutPanel flowLayoutPanel = CreatePanelForBuidlingPorductionUnit();
-            flowLayoutPanel.Location = new Point(9, y);
-            flowLayoutPanel.Size = new Size(1402, 70);
+            flowLayoutPanel.Location = new Point(13, y);
+            flowLayoutPanel.Size = new Size(1402, 140);
             PictureBox productionUnit = CreateDeafultPictureBox();
-            productionUnit.Size = new Size(50, 70);
+            productionUnit.Size = new Size(100, 140);
             productionUnit.Image = widget.ProductionUnit.Face;
             productionUnit.Tag = widget;
             productionUnit.Margin = new Padding(0, 0, 5, 0);
@@ -677,7 +679,7 @@ namespace fzzzt_game
             foreach (Card card in widget.RobotCards)
             {
                 PictureBox robotCard = CreateDeafultPictureBox();
-                robotCard.Size = new Size(50, 70);
+                robotCard.Size = new Size(100, 140);
                 robotCard.Image = card.Face;
                 robotCard.Tag = widget;
                 //robotCard.Click += new System.EventHandler(this.HandleAddingRobotCard_Click());
@@ -713,7 +715,7 @@ namespace fzzzt_game
         private static FlowLayoutPanel CreatePanelForBuidlingPorductionUnit()
         {
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-            flowLayoutPanel.Size = new Size(50, 70);
+            flowLayoutPanel.Size = new Size(100, 140);
             flowLayoutPanel.Margin = new Padding(0);
             flowLayoutPanel.FlowDirection = FlowDirection.LeftToRight;
             return flowLayoutPanel;

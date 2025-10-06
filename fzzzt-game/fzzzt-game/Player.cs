@@ -294,7 +294,10 @@ namespace fzzzt_game
                     ProductionUnitCard productionUnit = widget.ProductionUnit as ProductionUnitCard;
                     if (robotCard.ConstructionSymbols.Intersect(productionUnit.ConstructionSymbols).Count() > 0)
                     {
-                        widget.AddCard(card);
+                        if (widget.RobotCards.Count == 0)
+                        {
+                            widget.AddCard(card);
+                        }
                     }
                 }
                 foreach (Card card in widget.RobotCards)

@@ -48,18 +48,18 @@ namespace fzzzt_game
             // 
             // topRobotCardPanel
             // 
-            this.topRobotCardPanel.Location = new System.Drawing.Point(13, 13);
+            this.topRobotCardPanel.Location = new System.Drawing.Point(13, 7);
             this.topRobotCardPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topRobotCardPanel.Name = "topRobotCardPanel";
-            this.topRobotCardPanel.Size = new System.Drawing.Size(1402, 70);
+            this.topRobotCardPanel.Size = new System.Drawing.Size(1402, 140);
             this.topRobotCardPanel.TabIndex = 1;
             // 
             // bottomRobotCardPanel
             // 
-            this.bottomRobotCardPanel.Location = new System.Drawing.Point(9, 867);
+            this.bottomRobotCardPanel.Location = new System.Drawing.Point(13, 809);
             this.bottomRobotCardPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bottomRobotCardPanel.Name = "bottomRobotCardPanel";
-            this.bottomRobotCardPanel.Size = new System.Drawing.Size(1402, 70);
+            this.bottomRobotCardPanel.Size = new System.Drawing.Size(1402, 140);
             this.bottomRobotCardPanel.TabIndex = 2;
             // 
             // WidgetForm
@@ -67,6 +67,7 @@ namespace fzzzt_game
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 985);
+            this.ControlBox = false;
             this.Controls.Add(this.bottomRobotCardPanel);
             this.Controls.Add(this.topRobotCardPanel);
             this.Controls.Add(this.confirmBuildingButton);

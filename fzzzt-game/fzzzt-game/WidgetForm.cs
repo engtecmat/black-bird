@@ -27,7 +27,6 @@ namespace fzzzt_game
         /// <param name="e"></param>
         private void confirmBuildingButton_Click(object sender, EventArgs e)
         {
-            this.Controls.Clear();
             Hide();
         }
     }
