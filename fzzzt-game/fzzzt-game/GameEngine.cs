@@ -26,11 +26,6 @@ namespace fzzzt_game
         private List<Card> _deck = new List<Card>();
 
         /// <summary>
-        /// faced up cards on the conveyor belt
-        /// </summary>
-        private List<Card> _facedUpCards = new List<Card>();
-
-        /// <summary>
         /// allowed faced up card count
         /// </summary>
         private int _allowedFacedUpCardCount;
@@ -78,15 +73,6 @@ namespace fzzzt_game
         /// </summary>
         /// <param name="gameView"></param>
         public GameEngine()
-        {
-            InitializeGame();
-        }
-
-        /// <summary>
-        /// initialize game data
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        private void InitializeGame()
         {
             InitializeCards();
 
@@ -194,6 +180,9 @@ namespace fzzzt_game
             }
         }
 
+        /// <summary>
+        /// face up cards on conveyor belt
+        /// </summary>
         private void FaceUpOnConveyorBelt()
         {
             if (CardsInConveyorBelt.Count > 0)
@@ -406,15 +395,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// add a faced up card to the list
-        /// </summary>
-        /// <param name="card"></param>
-        public void AddFacedUpCard(Card card)
-        {
-            UpdateAllowedFacedUpCardCount();
-        }
-
-        /// <summary>
         /// update the allowed faced up card count
         /// </summary>
         public void UpdateAllowedFacedUpCardCount()
@@ -427,15 +407,6 @@ namespace fzzzt_game
 
             AllowedFacedUpCardCount = GetFacedUpCards().First().ConveyorBeltNumber;
         }
-
-        /// <summary>
-        /// remove a card the face-up cards
-        /// </summary>
-        /// <param name="card"></param>
-        public void RemoveFacedUpCard(Card card)
-        {
-        }
-
 
         /// <summary>
         /// check if the image is a card back
@@ -467,11 +438,14 @@ namespace fzzzt_game
             GameView.RefreshUI();
         }
 
+        /// <summary>
+        /// pick cards for the conveyor belt
+        /// </summary>
         private void PickCardsForConveyorBelt()
         {
+            // randomly indices
             foreach (int index in Utils.GenerateIndices(8, Deck.Count))
             {
-                GameView.Log("index for conveyor belt:" + index);
                 CardsInConveyorBelt.Add(Deck[index]);
             }
             Deck.RemoveAll(card => CardsInConveyorBelt.Contains(card));
