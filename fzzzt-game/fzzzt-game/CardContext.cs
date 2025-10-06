@@ -36,8 +36,9 @@ namespace fzzzt_game
         /// </summary>
         public void BidCard()
         {
-            _onwer.RemoveCardFromHand(Card);
-            _onwer.AddCardToBid(Card);
+            Card.CurrentState = CardState.FaceDown;
+            Owner.RemoveCardFromHand(Card);
+            Owner.AddCardToBid(Card);
         }
 
         /// <summary>
@@ -45,8 +46,9 @@ namespace fzzzt_game
         /// </summary>
         public void CanelBidCard()
         {
-            _onwer.RemoveCardFromBid(Card);
-            _onwer.AddCardToHand(Card);
+            Card.CurrentState = CardState.FaceUp;
+            Owner.RemoveCardFromBid(Card);
+            Owner.AddCardToHand(Card);
         }
 
         /// <summary>
