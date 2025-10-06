@@ -180,12 +180,20 @@ namespace fzzzt_game
         /// </summary>
         public void CheckIfAuctionState()
         {
-            // if there is no cards on conveyor belt and at least one of players has production units can be used to build widget,
-            // then start building widgets
-            if (CardsInConveyorBelt.Count == 0 && Players.Any(player => player.ProductionUnits.Count > 0))
+            // if there is no cards on conveyor belt and in auction
+            if (CardsInConveyorBelt.Count == 0 && AuctionState)
             {
-                Players.ForEach(player => player.RefreshWidgets());
-                GameView.StartBuildingWigets();
+                // at least one of players has production units can be used to build widget, then start building widgets
+                if (Players.Any(player => player.ProductionUnits.Count > 0))
+                {
+                    Players.ForEach(player => player.RefreshWidgets());
+                    GameView.StartBuildingWigets();
+                }
+                else
+                {
+                    GameView.ShowWinners();
+                }
+                AuctionState = false;
             }
         }
 

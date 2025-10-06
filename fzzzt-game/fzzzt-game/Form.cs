@@ -61,20 +61,28 @@ namespace fzzzt_game
             {
                 if (!WidgetForm.Visible)
                 {
-                    List<Player> winners = Engine.DetermineWinner();
-
-                    // show winner information
-                    if(winners.Count == 1)
-                    {
-                        MessageBox.Show($"The winner is {winners[0].Name} with {winners[0].GetTotalScore()} victory points!");
-                    }
-                    else
-                    {
-                        string winnerNames = string.Join(", ", winners.Select(w => w.Name));
-                        MessageBox.Show($"It's a tie between {winnerNames}, each with {winners[0].GetTotalScore()} victory points!");
-                    }
+                    ShowWinners();
                 }
             };
+        }
+
+        /// <summary>
+        /// show winners
+        /// </summary>
+        public void ShowWinners()
+        {
+            List<Player> winners = Engine.DetermineWinner();
+
+            // show winner information
+            if (winners.Count == 1)
+            {
+                MessageBox.Show($"The winner is {winners[0].Name} with {winners[0].GetTotalScore()} victory points!");
+            }
+            else
+            {
+                string winnerNames = string.Join(", ", winners.Select(w => w.Name));
+                MessageBox.Show($"It's a tie between {winnerNames}, each with {winners[0].GetTotalScore()} victory points!");
+            }
         }
 
         /// <summary>

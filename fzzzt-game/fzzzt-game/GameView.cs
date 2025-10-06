@@ -40,5 +40,10 @@
         /// </summary>
         void StartBuildingWigets();
 
+        /// <summary>
+        /// show winners
+        /// </summary>
+        void ShowWinners();
+
     }
 }
