@@ -21,11 +21,6 @@
         void EnpowerChiefMechanic();
 
         /// <summary>
-        /// bid for AI player
-        /// </summary>
-        void AIBid(CardContext cardContext);
-
-        /// <summary>
         /// display bid button for human player
         /// </summary>
         void DisplayBidButton();

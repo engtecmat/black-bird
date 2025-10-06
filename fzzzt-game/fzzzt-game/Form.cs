@@ -207,26 +207,6 @@ namespace fzzzt_game
             return pictureBoxes.ToArray();
         }
 
-
-
-        /// <summary>
-        /// create widget production unit
-        /// </summary>
-        /// <param name="player"></param>
-        private PictureBox[] CreateWdigetProductionUnitsForPlayer(Player player)
-        {
-            List<PictureBox> pictureBoxes = new List<PictureBox>();
-            foreach (Widget widget in player.Widgets)
-            {
-                PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Size = new Size(50, 70);
-                pictureBox.Image = widget.ProductionUnit.Face;
-                pictureBox.Tag = new CardContext(widget.ProductionUnit, player);
-                pictureBoxes.Add(pictureBox);
-            }
-            return pictureBoxes.ToArray();
-        }
-
         /// <summary>
         /// create robot cards for building widgets
         /// </summary>
@@ -537,28 +517,6 @@ namespace fzzzt_game
         public void Log(string message)
         {
             MessageLogForm.AddMessage(message);
-        }
-
-        /// <summary>
-        /// face up a card based on its index
-        /// </summary>
-        /// <param name="index"></param>
-        private void FaceUpCardOnConveyorBelt(int index)
-        {
-            PictureBox pictureBox = (PictureBox)conveyorBeltPanel.Controls[index];
-            Card card = (Card)pictureBox.Tag;
-            pictureBox.Image = card.Face;
-            card.Flip();
-            Engine.AddFacedUpCard(card);
-        }
-
-        /// <summary>
-        /// bid for AI player
-        /// </summary>
-        public void AIBid(CardContext cardContext)
-        {
-            cardContext.BidCard();
-            RefreshCardsForPlayer(cardContext.Owner);
         }
 
         private void bottomBidButton_Click(object sender, EventArgs e)
