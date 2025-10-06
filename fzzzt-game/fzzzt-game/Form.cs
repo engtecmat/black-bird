@@ -103,7 +103,8 @@ namespace fzzzt_game
                     DiscardPilePictureBox = topDiscardPile,
                     ProductionUnitPanel = topProductionUnitPanel,
                     WidgetProductionUnitPanel = new FlowLayoutPanel(),
-                    WidgetRobotPanel = WidgetForm.TopRobotCardPanel
+                    WidgetRobotPanel = WidgetForm.TopRobotCardPanel,
+                    ChiefMechanic = topChiefMechanicLabel
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -123,7 +124,8 @@ namespace fzzzt_game
                     DiscardPilePictureBox = bottomDiscardPile,
                     ProductionUnitPanel = bottomProductionUnitPanel,
                     WidgetProductionUnitPanel = new FlowLayoutPanel(),
-                    WidgetRobotPanel = WidgetForm.BottomRobotCardPanel
+                    WidgetRobotPanel = WidgetForm.BottomRobotCardPanel,
+                    ChiefMechanic = bottomChiefMechanicLabel
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -187,9 +189,9 @@ namespace fzzzt_game
             List<PictureBox> pictureBoxes = new List<PictureBox>();
             foreach (Card card in player.CardsInBid)
             {
-                
+
                 PictureBox pictureBox = CreateDeafultPictureBox();
-                pictureBox.Image = card.CurrentState == CardState.FaceUp ? card.Face: GameEngine.CardBack;
+                pictureBox.Image = card.CurrentState == CardState.FaceUp ? card.Face : GameEngine.CardBack;
                 pictureBox.Tag = new CardContext(card, player);
                 pictureBox.DoubleClick += new System.EventHandler(this.cardsInBid_DoubleClick);
                 pictureBoxes.Add(pictureBox);
@@ -462,23 +464,6 @@ namespace fzzzt_game
         }
 
         /// <summary>
-        /// Updates the UI to reflect the selected chief mechanic.
-        /// </summary>
-        public void EnpowerChiefMechanic()
-        {
-            Player chiefMechanic = Engine.ChiefMechanic;
-            if (chiefMechanic.AtTop())
-            {
-                labelChiefMechanicTop.Visible = true;
-                return;
-            }
-            if (chiefMechanic.AtBottom())
-            {
-                labelChiefMechanicBottom.Visible = true;
-            }
-        }
-
-        /// <summary>
         /// refreash the conveyor belt
         /// </summary>
         public void RefreshConveyorBelt()
@@ -575,6 +560,7 @@ namespace fzzzt_game
             PlayerViewContexts.ForEach(context =>
             {
                 context.NameLabel.Text = context.Player.Name;
+                context.ChiefMechanic.Visible = context.Player.IsChiefMechanic;
 
                 context.MechanicPictureBox.Image = context.Player.MechanicFace;
 

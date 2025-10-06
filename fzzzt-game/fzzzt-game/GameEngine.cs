@@ -122,9 +122,6 @@ namespace fzzzt_game
 
             PickChiefMechanic();
 
-            //_gameView.EnpowerChiefMechanic();
-            //_gameView.DisplayBidButton();
-
             Automate();
 
             GameView.RefreshUI();

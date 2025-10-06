@@ -39,14 +39,14 @@
             this.bottomProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomStartAuction = new System.Windows.Forms.Button();
-            this.labelChiefMechanicBottom = new System.Windows.Forms.Label();
+            this.bottomChiefMechanicLabel = new System.Windows.Forms.Label();
             this.bottomCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOperations = new System.Windows.Forms.Panel();
             this.printGameStateButton = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.topProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelChiefMechanicTop = new System.Windows.Forms.Label();
+            this.topChiefMechanicLabel = new System.Windows.Forms.Label();
             this.topPlayerLabel = new System.Windows.Forms.Label();
             this.topDiscardPile = new System.Windows.Forms.PictureBox();
             this.topMechanicPictureBox = new System.Windows.Forms.PictureBox();
@@ -124,7 +124,7 @@
             this.panelBottom.Controls.Add(this.bottomProductionUnitPanel);
             this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.bottomStartAuction);
-            this.panelBottom.Controls.Add(this.labelChiefMechanicBottom);
+            this.panelBottom.Controls.Add(this.bottomChiefMechanicLabel);
             this.panelBottom.Controls.Add(this.bottomPlayerLabel);
             this.panelBottom.Controls.Add(this.bottomDiscardPile);
             this.panelBottom.Controls.Add(this.bottomMechanicPictureBox);
@@ -189,16 +189,16 @@
             // 
             // labelChiefMechanicBottom
             // 
-            this.labelChiefMechanicBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChiefMechanicBottom.Location = new System.Drawing.Point(730, 337);
-            this.labelChiefMechanicBottom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelChiefMechanicBottom.Name = "labelChiefMechanicBottom";
-            this.labelChiefMechanicBottom.Size = new System.Drawing.Size(26, 37);
-            this.labelChiefMechanicBottom.TabIndex = 26;
-            this.labelChiefMechanicBottom.Text = "CM";
-            this.labelChiefMechanicBottom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicBottom.Visible = false;
+            this.bottomChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bottomChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomChiefMechanicLabel.Location = new System.Drawing.Point(730, 337);
+            this.bottomChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.bottomChiefMechanicLabel.Name = "labelChiefMechanicBottom";
+            this.bottomChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
+            this.bottomChiefMechanicLabel.TabIndex = 26;
+            this.bottomChiefMechanicLabel.Text = "CM";
+            this.bottomChiefMechanicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bottomChiefMechanicLabel.Visible = false;
             // 
             // bottomCardInHandPanel
             // 
@@ -235,7 +235,7 @@
             // 
             this.panelTop.Controls.Add(this.topProductionUnitPanel);
             this.panelTop.Controls.Add(this.topBidPanel);
-            this.panelTop.Controls.Add(this.labelChiefMechanicTop);
+            this.panelTop.Controls.Add(this.topChiefMechanicLabel);
             this.panelTop.Controls.Add(this.topPlayerLabel);
             this.panelTop.Controls.Add(this.topDiscardPile);
             this.panelTop.Controls.Add(this.topMechanicPictureBox);
@@ -265,16 +265,16 @@
             // 
             // labelChiefMechanicTop
             // 
-            this.labelChiefMechanicTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelChiefMechanicTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChiefMechanicTop.Location = new System.Drawing.Point(730, 16);
-            this.labelChiefMechanicTop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelChiefMechanicTop.Name = "labelChiefMechanicTop";
-            this.labelChiefMechanicTop.Size = new System.Drawing.Size(26, 37);
-            this.labelChiefMechanicTop.TabIndex = 27;
-            this.labelChiefMechanicTop.Text = "CM";
-            this.labelChiefMechanicTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelChiefMechanicTop.Visible = false;
+            this.topChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topChiefMechanicLabel.Location = new System.Drawing.Point(730, 16);
+            this.topChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.topChiefMechanicLabel.Name = "labelChiefMechanicTop";
+            this.topChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
+            this.topChiefMechanicLabel.TabIndex = 27;
+            this.topChiefMechanicLabel.Text = "CM";
+            this.topChiefMechanicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.topChiefMechanicLabel.Visible = false;
             // 
             // topPlayerLabel
             // 
@@ -377,8 +377,8 @@
         private System.Windows.Forms.PictureBox topDiscardPile;
         private System.Windows.Forms.PictureBox topMechanicPictureBox;
         private System.Windows.Forms.Panel panelMiddle;
-        private System.Windows.Forms.Label labelChiefMechanicBottom;
-        private System.Windows.Forms.Label labelChiefMechanicTop;
+        private System.Windows.Forms.Label bottomChiefMechanicLabel;
+        private System.Windows.Forms.Label topChiefMechanicLabel;
         private System.Windows.Forms.Button bottomStartAuction;
         private System.Windows.Forms.FlowLayoutPanel bottomCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel topCardInHandPanel;

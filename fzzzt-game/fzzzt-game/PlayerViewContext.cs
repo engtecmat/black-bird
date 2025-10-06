@@ -67,5 +67,10 @@ namespace fzzzt_game
         /// a start auction button for a player
         /// </summary>
         public Button StartAcutionButton { get; set; }
+
+        /// <summary>
+        /// indiciate if the player is the chief mechanic
+        /// </summary>
+        public Label ChiefMechanic { get; set; }
     }
 }
