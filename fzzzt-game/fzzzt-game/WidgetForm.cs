@@ -20,8 +20,6 @@ namespace fzzzt_game
             InitializeComponent();
         }
 
-        
-
         /// <summary>
         /// handle the event when confirm building button is clicked
         /// </summary>
