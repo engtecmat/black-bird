@@ -512,6 +512,11 @@ namespace fzzzt_game
             MessageLogForm.AddMessage(message);
         }
 
+        /// <summary>
+        /// handle the event when the player clicked the bid button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bottomBidButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -523,15 +528,6 @@ namespace fzzzt_game
             player.IsBid = true;
 
             Engine.AwardCard();
-        }
-
-        /// <summary>
-        /// display bid button for human player
-        /// </summary>
-        /// <param name="cardContext"></param>
-        public void DisplayBidButton()
-        {
-            bottomBidButton.Visible = true;
         }
 
         /// <summary>

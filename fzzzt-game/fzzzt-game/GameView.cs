@@ -16,16 +16,6 @@
         void RefreshConveyorBelt();
 
         /// <summary>
-        /// Updates the UI to reflect the selected chief mechanic.
-        /// </summary>
-        void EnpowerChiefMechanic();
-
-        /// <summary>
-        /// display bid button for human player
-        /// </summary>
-        void DisplayBidButton();
-
-        /// <summary>
         /// refresh cards for palyers
         /// </summary>
         void RefreshCardsForPlayers();
