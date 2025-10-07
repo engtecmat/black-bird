@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// this form is used to display widgets

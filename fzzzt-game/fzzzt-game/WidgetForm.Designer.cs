@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     partial class WidgetForm
     {

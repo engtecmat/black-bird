@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// a production unit card

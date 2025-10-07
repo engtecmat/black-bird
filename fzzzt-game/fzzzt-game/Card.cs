@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// a base class for a card.

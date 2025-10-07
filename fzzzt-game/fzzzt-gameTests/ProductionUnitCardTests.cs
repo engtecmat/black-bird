@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace fzzzt_game.Tests
+namespace BlackBird.Tests
 {
     [TestClass()]
     public class ProductionUnitCardTests

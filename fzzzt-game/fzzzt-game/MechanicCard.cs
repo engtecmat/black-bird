@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// a mechanic card, which has 0 power and 0 point value.

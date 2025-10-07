@@ -1,4 +1,4 @@
-﻿namespace fzzzt_game
+﻿namespace BlackBird
 {
     /// <summary>
     /// define the methods that will affect the UI

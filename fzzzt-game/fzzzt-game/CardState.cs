@@ -1,4 +1,4 @@
-﻿namespace fzzzt_game
+﻿namespace BlackBird
 {
     /// <summary>
     /// represent the state of a card

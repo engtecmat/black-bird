@@ -1,4 +1,4 @@
-﻿namespace fzzzt_game
+﻿namespace BlackBird
 {
     partial class LogForm
     {

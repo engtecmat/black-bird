@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// represent a widget in the game

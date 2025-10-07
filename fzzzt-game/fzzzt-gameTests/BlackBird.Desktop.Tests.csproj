@@ -6,7 +6,7 @@
     <ProjectGuid>{3726DED1-CE0D-4E11-AC02-956886D94E9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>fzzzt_gameTests</RootNamespace>
+    <RootNamespace>BlackBird.Tests</RootNamespace>
     <AssemblyName>fzzzt-gameTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -75,9 +75,9 @@
     <Compile Include="UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\fzzzt-game\fzzzt-game.csproj">
+    <ProjectReference Include="..\fzzzt-game\BlackBird.Desktop.csproj">
       <Project>{618B563B-CA9F-4A4D-B522-41D3BE461AF4}</Project>
-      <Name>fzzzt-game</Name>
+      <Name>BlackBird.Desktop</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

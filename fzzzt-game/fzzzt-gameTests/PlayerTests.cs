@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace fzzzt_game.Tests
+namespace BlackBird.Tests
 {
     [TestClass()]
     public class PlayerTests

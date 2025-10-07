@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// the palyer's filed and behavors

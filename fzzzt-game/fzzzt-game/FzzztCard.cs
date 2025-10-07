@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// a fzzzt card, which has 3 powers an -1 point value.

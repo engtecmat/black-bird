@@ -1,4 +1,4 @@
-﻿namespace fzzzt_game
+﻿namespace BlackBird
 {
     /// <summary>
     /// the construction symbol. e.g, Bolt, Cog, Nut, Oil

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// a robot upgrade card, which has no power and 0 point value.

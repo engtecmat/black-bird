@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// the core game engine for managing and running the Fzzzt game.

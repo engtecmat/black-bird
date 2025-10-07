@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     public partial class GameForm : Form, GameView
     {

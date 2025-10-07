@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace fzzzt_game
+namespace BlackBird
 {
     /// <summary>
     /// represent the onwership between card and the player

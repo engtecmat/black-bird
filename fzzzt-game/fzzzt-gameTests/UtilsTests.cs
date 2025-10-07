@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using fzzzt_game;
+using BlackBird;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fzzzt_game.Tests
+namespace BlackBird.Tests
 {
     [TestClass()]
     public class UtilsTests
