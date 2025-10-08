@@ -63,6 +63,16 @@ namespace BlackBird.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Card_Back {
+            get {
+                object obj = ResourceManager.GetObject("Card_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Conveyor_Belt_Deck {
             get {
                 object obj = ResourceManager.GetObject("Conveyor_Belt_Deck", resourceCulture);
@@ -76,16 +86,6 @@ namespace BlackBird.Properties {
         internal static System.Drawing.Bitmap Fzzzt {
             get {
                 object obj = ResourceManager.GetObject("Fzzzt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Fzzzt_Card_Back {
-            get {
-                object obj = ResourceManager.GetObject("Fzzzt_Card_Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

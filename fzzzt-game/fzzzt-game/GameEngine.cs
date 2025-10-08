@@ -13,7 +13,7 @@ namespace BlackBird
         /// <summary>
         /// a global card back
         /// </summary>
-        public static Bitmap CardBack = Properties.Resources.Fzzzt_Card_Back;
+        public static Bitmap CardBack = Properties.Resources.Card_Back;
 
         /// <summary>
         /// indicates whether the game has started.
