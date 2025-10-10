@@ -7,7 +7,7 @@
     <ProjectGuid>{618B563B-CA9F-4A4D-B522-41D3BE461AF4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BlackBird</RootNamespace>
-    <AssemblyName>BlackBird.Desktop</AssemblyName>
+    <AssemblyName>BlackBird</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
