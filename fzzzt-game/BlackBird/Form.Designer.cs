@@ -70,7 +70,7 @@
             this.pictureBoxConveyorBeltDeck.Location = new System.Drawing.Point(109, 21);
             this.pictureBoxConveyorBeltDeck.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxConveyorBeltDeck.Name = "pictureBoxConveyorBeltDeck";
-            this.pictureBoxConveyorBeltDeck.Size = new System.Drawing.Size(100, 140);
+            this.pictureBoxConveyorBeltDeck.Size = new System.Drawing.Size(86, 135);
             this.pictureBoxConveyorBeltDeck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxConveyorBeltDeck.TabIndex = 0;
             this.pictureBoxConveyorBeltDeck.TabStop = false;
@@ -90,10 +90,10 @@
             // 
             // bottomMechanicPictureBox
             // 
-            this.bottomMechanicPictureBox.Location = new System.Drawing.Point(352, 151);
+            this.bottomMechanicPictureBox.Location = new System.Drawing.Point(352, 156);
             this.bottomMechanicPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.bottomMechanicPictureBox.Name = "bottomMechanicPictureBox";
-            this.bottomMechanicPictureBox.Size = new System.Drawing.Size(100, 140);
+            this.bottomMechanicPictureBox.Size = new System.Drawing.Size(86, 135);
             this.bottomMechanicPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bottomMechanicPictureBox.TabIndex = 22;
             this.bottomMechanicPictureBox.TabStop = false;
@@ -171,7 +171,7 @@
             this.bottomBidPanel.Location = new System.Drawing.Point(454, 6);
             this.bottomBidPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bottomBidPanel.Name = "bottomBidPanel";
-            this.bottomBidPanel.Size = new System.Drawing.Size(796, 140);
+            this.bottomBidPanel.Size = new System.Drawing.Size(796, 135);
             this.bottomBidPanel.TabIndex = 30;
             // 
             // bottomStartAuction
@@ -187,13 +187,13 @@
             this.bottomStartAuction.Visible = false;
             this.bottomStartAuction.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
-            // labelChiefMechanicBottom
+            // bottomChiefMechanicLabel
             // 
             this.bottomChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bottomChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bottomChiefMechanicLabel.Location = new System.Drawing.Point(730, 337);
             this.bottomChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.bottomChiefMechanicLabel.Name = "labelChiefMechanicBottom";
+            this.bottomChiefMechanicLabel.Name = "bottomChiefMechanicLabel";
             this.bottomChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
             this.bottomChiefMechanicLabel.TabIndex = 26;
             this.bottomChiefMechanicLabel.Text = "CM";
@@ -202,10 +202,10 @@
             // 
             // bottomCardInHandPanel
             // 
-            this.bottomCardInHandPanel.Location = new System.Drawing.Point(454, 151);
+            this.bottomCardInHandPanel.Location = new System.Drawing.Point(454, 156);
             this.bottomCardInHandPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bottomCardInHandPanel.Name = "bottomCardInHandPanel";
-            this.bottomCardInHandPanel.Size = new System.Drawing.Size(796, 140);
+            this.bottomCardInHandPanel.Size = new System.Drawing.Size(796, 135);
             this.bottomCardInHandPanel.TabIndex = 30;
             // 
             // panelOperations
@@ -260,16 +260,16 @@
             this.topBidPanel.Location = new System.Drawing.Point(457, 230);
             this.topBidPanel.Margin = new System.Windows.Forms.Padding(0);
             this.topBidPanel.Name = "topBidPanel";
-            this.topBidPanel.Size = new System.Drawing.Size(796, 140);
+            this.topBidPanel.Size = new System.Drawing.Size(796, 135);
             this.topBidPanel.TabIndex = 31;
             // 
-            // labelChiefMechanicTop
+            // topChiefMechanicLabel
             // 
             this.topChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.topChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topChiefMechanicLabel.Location = new System.Drawing.Point(730, 16);
             this.topChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.topChiefMechanicLabel.Name = "labelChiefMechanicTop";
+            this.topChiefMechanicLabel.Name = "topChiefMechanicLabel";
             this.topChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
             this.topChiefMechanicLabel.TabIndex = 27;
             this.topChiefMechanicLabel.Text = "CM";
@@ -301,7 +301,7 @@
             this.topMechanicPictureBox.Location = new System.Drawing.Point(352, 84);
             this.topMechanicPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.topMechanicPictureBox.Name = "topMechanicPictureBox";
-            this.topMechanicPictureBox.Size = new System.Drawing.Size(100, 140);
+            this.topMechanicPictureBox.Size = new System.Drawing.Size(86, 135);
             this.topMechanicPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.topMechanicPictureBox.TabIndex = 22;
             this.topMechanicPictureBox.TabStop = false;
@@ -310,7 +310,7 @@
             // 
             this.topCardInHandPanel.Location = new System.Drawing.Point(457, 84);
             this.topCardInHandPanel.Name = "topCardInHandPanel";
-            this.topCardInHandPanel.Size = new System.Drawing.Size(793, 140);
+            this.topCardInHandPanel.Size = new System.Drawing.Size(793, 135);
             this.topCardInHandPanel.TabIndex = 29;
             // 
             // panelMiddle
@@ -330,7 +330,7 @@
             this.conveyorBeltPanel.Location = new System.Drawing.Point(215, 21);
             this.conveyorBeltPanel.Margin = new System.Windows.Forms.Padding(0);
             this.conveyorBeltPanel.Name = "conveyorBeltPanel";
-            this.conveyorBeltPanel.Size = new System.Drawing.Size(872, 140);
+            this.conveyorBeltPanel.Size = new System.Drawing.Size(872, 135);
             this.conveyorBeltPanel.TabIndex = 10;
             // 
             // GameForm

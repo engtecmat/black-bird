@@ -444,7 +444,9 @@ namespace BlackBird
         private void PickCardsForConveyorBelt()
         {
             // randomly indices
-            foreach (int index in Utils.GenerateIndices(8, Deck.Count))
+            List<int> indices = Utils.GenerateIndices(8, Deck.Count);
+            Console.WriteLine(string.Join(",",indices));
+            foreach (int index in indices)
             {
                 CardsInConveyorBelt.Add(Deck[index]);
             }

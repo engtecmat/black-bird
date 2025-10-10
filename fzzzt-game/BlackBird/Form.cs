@@ -490,7 +490,7 @@ namespace BlackBird
         private PictureBox CreateDeafultPictureBox()
         {
             PictureBox pictureBox = new PictureBox();
-            pictureBox.Size = new Size(100, 140);
+            pictureBox.Size = new Size(86, 135);
             pictureBox.Margin = new Padding(0);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             return pictureBox;

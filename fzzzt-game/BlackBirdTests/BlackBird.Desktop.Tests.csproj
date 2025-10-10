@@ -75,7 +75,7 @@
     <Compile Include="UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\fzzzt-game\BlackBird.Desktop.csproj">
+    <ProjectReference Include="..\BlackBird\BlackBird.Desktop.csproj">
       <Project>{618B563B-CA9F-4A4D-B522-41D3BE461AF4}</Project>
       <Name>BlackBird.Desktop</Name>
     </ProjectReference>
