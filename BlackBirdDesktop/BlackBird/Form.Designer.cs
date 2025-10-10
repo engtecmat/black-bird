@@ -39,14 +39,12 @@
             this.bottomProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomBidPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bottomStartAuction = new System.Windows.Forms.Button();
-            this.bottomChiefMechanicLabel = new System.Windows.Forms.Label();
             this.bottomCardInHandPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOperations = new System.Windows.Forms.Panel();
             this.printGameStateButton = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.topProductionUnitPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topBidPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.topChiefMechanicLabel = new System.Windows.Forms.Label();
             this.topPlayerLabel = new System.Windows.Forms.Label();
             this.topDiscardPile = new System.Windows.Forms.PictureBox();
             this.topMechanicPictureBox = new System.Windows.Forms.PictureBox();
@@ -124,7 +122,6 @@
             this.panelBottom.Controls.Add(this.bottomProductionUnitPanel);
             this.panelBottom.Controls.Add(this.bottomBidPanel);
             this.panelBottom.Controls.Add(this.bottomStartAuction);
-            this.panelBottom.Controls.Add(this.bottomChiefMechanicLabel);
             this.panelBottom.Controls.Add(this.bottomPlayerLabel);
             this.panelBottom.Controls.Add(this.bottomDiscardPile);
             this.panelBottom.Controls.Add(this.bottomMechanicPictureBox);
@@ -187,19 +184,6 @@
             this.bottomStartAuction.Visible = false;
             this.bottomStartAuction.Click += new System.EventHandler(this.buttonStartAuctionBottom_Click);
             // 
-            // bottomChiefMechanicLabel
-            // 
-            this.bottomChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bottomChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bottomChiefMechanicLabel.Location = new System.Drawing.Point(730, 337);
-            this.bottomChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.bottomChiefMechanicLabel.Name = "bottomChiefMechanicLabel";
-            this.bottomChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
-            this.bottomChiefMechanicLabel.TabIndex = 26;
-            this.bottomChiefMechanicLabel.Text = "CM";
-            this.bottomChiefMechanicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bottomChiefMechanicLabel.Visible = false;
-            // 
             // bottomCardInHandPanel
             // 
             this.bottomCardInHandPanel.Location = new System.Drawing.Point(454, 156);
@@ -235,7 +219,6 @@
             // 
             this.panelTop.Controls.Add(this.topProductionUnitPanel);
             this.panelTop.Controls.Add(this.topBidPanel);
-            this.panelTop.Controls.Add(this.topChiefMechanicLabel);
             this.panelTop.Controls.Add(this.topPlayerLabel);
             this.panelTop.Controls.Add(this.topDiscardPile);
             this.panelTop.Controls.Add(this.topMechanicPictureBox);
@@ -262,19 +245,6 @@
             this.topBidPanel.Name = "topBidPanel";
             this.topBidPanel.Size = new System.Drawing.Size(796, 135);
             this.topBidPanel.TabIndex = 31;
-            // 
-            // topChiefMechanicLabel
-            // 
-            this.topChiefMechanicLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.topChiefMechanicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topChiefMechanicLabel.Location = new System.Drawing.Point(730, 16);
-            this.topChiefMechanicLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.topChiefMechanicLabel.Name = "topChiefMechanicLabel";
-            this.topChiefMechanicLabel.Size = new System.Drawing.Size(26, 37);
-            this.topChiefMechanicLabel.TabIndex = 27;
-            this.topChiefMechanicLabel.Text = "CM";
-            this.topChiefMechanicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.topChiefMechanicLabel.Visible = false;
             // 
             // topPlayerLabel
             // 
@@ -377,8 +347,6 @@
         private System.Windows.Forms.PictureBox topDiscardPile;
         private System.Windows.Forms.PictureBox topMechanicPictureBox;
         private System.Windows.Forms.Panel panelMiddle;
-        private System.Windows.Forms.Label bottomChiefMechanicLabel;
-        private System.Windows.Forms.Label topChiefMechanicLabel;
         private System.Windows.Forms.Button bottomStartAuction;
         private System.Windows.Forms.FlowLayoutPanel bottomCardInHandPanel;
         private System.Windows.Forms.FlowLayoutPanel topCardInHandPanel;

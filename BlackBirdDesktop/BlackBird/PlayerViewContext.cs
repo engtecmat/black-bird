@@ -45,7 +45,7 @@ namespace BlackBird
         /// <summary>
         /// a picture box to display mechanic card
         /// </summary>
-        public PictureBox MechanicPictureBox { get; set; }
+        public PictureBox PlayerPictureBox { get; set; }
 
         /// <summary>
         /// a picture box to display discard pile
@@ -62,9 +62,6 @@ namespace BlackBird
         /// </summary>
         public Button StartAcutionButton { get; set; }
 
-        /// <summary>
-        /// indiciate if the player is the chief mechanic
-        /// </summary>
-        public Label ChiefMechanic { get; set; }
+        public PictureBox PlayerCard { get; set; }
     }
 }

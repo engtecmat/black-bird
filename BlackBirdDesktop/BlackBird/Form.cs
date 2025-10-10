@@ -98,13 +98,12 @@ namespace BlackBird
                     Player = player,
                     NameLabel = topPlayerLabel,
                     CardInHandPanel = topCardInHandPanel,
-                    MechanicPictureBox = topMechanicPictureBox,
+                    PlayerPictureBox = topMechanicPictureBox,
                     CardInBidPanel = topBidPanel,
                     DiscardPilePictureBox = topDiscardPile,
                     ProductionUnitPanel = topProductionUnitPanel,
                     WidgetProductionUnitPanel = new FlowLayoutPanel(),
-                    WidgetRobotPanel = WidgetForm.TopRobotCardPanel,
-                    ChiefMechanic = topChiefMechanicLabel
+                    WidgetRobotPanel = WidgetForm.TopRobotCardPanel
                 };
                 PlayerViewContexts.Add(playerViewContext);
                 return;
@@ -117,15 +116,14 @@ namespace BlackBird
                     Player = player,
                     NameLabel = bottomPlayerLabel,
                     CardInHandPanel = bottomCardInHandPanel,
-                    MechanicPictureBox = bottomMechanicPictureBox,
+                    PlayerPictureBox = bottomMechanicPictureBox,
                     BidButton = bottomBidButton,
                     StartAcutionButton = bottomStartAuction,
                     CardInBidPanel = bottomBidPanel,
                     DiscardPilePictureBox = bottomDiscardPile,
                     ProductionUnitPanel = bottomProductionUnitPanel,
                     WidgetProductionUnitPanel = new FlowLayoutPanel(),
-                    WidgetRobotPanel = WidgetForm.BottomRobotCardPanel,
-                    ChiefMechanic = bottomChiefMechanicLabel
+                    WidgetRobotPanel = WidgetForm.BottomRobotCardPanel
                 };
                 bottomBidButton.Tag = player;
                 PlayerViewContexts.Add(playerViewContext);
@@ -556,9 +554,7 @@ namespace BlackBird
             PlayerViewContexts.ForEach(context =>
             {
                 context.NameLabel.Text = context.Player.Name;
-                context.ChiefMechanic.Visible = context.Player.IsChiefMechanic;
-
-                context.MechanicPictureBox.Image = context.Player.CardFace;
+                context.PlayerPictureBox.Image = context.Player.CardFace;
 
                 context.CardInHandPanel.Visible = true;
                 context.CardInHandPanel.Controls.Clear();

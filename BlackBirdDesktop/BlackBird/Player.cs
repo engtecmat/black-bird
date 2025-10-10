@@ -337,5 +337,11 @@ namespace BlackBird
                 .Concat(Widgets.FindAll(hasRobotCards).SelectMany(w => w.RobotCards))
                 .Count();
         }
+
+        public void Reset()
+        {
+            IsChiefMechanic = false;
+            CardFace = Properties.Resources.Engineer;
+        }
     }
 }

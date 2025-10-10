@@ -88,7 +88,7 @@ namespace BlackBird
             Players.ForEach(player =>
             {
                 player.CardsInHand = TakeThreeCards();
-                player.IsChiefMechanic = false;
+                player.Reset();
             });
         }
 
@@ -364,6 +364,8 @@ namespace BlackBird
             pickedPlayer.IsChiefMechanic = true;
             pickedPlayer.CardFace = Properties.Resources.Chief_Engineer;
             ChiefMechanic = pickedPlayer;
+
+            // reset other players
             Players.FindAll(player => player != pickedPlayer).ForEach(player => player.IsChiefMechanic = false);
         }
 
