@@ -64,7 +64,7 @@ namespace BlackBird
 
         public string Name { get => _name; set => _name = value; }
         public List<Card> CardsInHand { get => _cardsInHand; set => _cardsInHand = value; }
-        public Bitmap MechanicFace { get => _mechanicFace; set => _mechanicFace = value; }
+        public Bitmap CardFace { get => _mechanicFace; set => _mechanicFace = value; }
         public List<Card> CardsInBid { get => _cardsInBid; set => _cardsInBid = value; }
         public List<Card> ProductionUnits { get => _productionUnits; set => _productionUnits = value; }
         public List<Card> DiscardPile { get => _discardPile; set => _discardPile = value; }
@@ -86,7 +86,7 @@ namespace BlackBird
         {
             Name = name;
             _position = position;
-            MechanicFace = mechanic;
+            CardFace = mechanic;
             CardsInHand = new List<Card>();
             CardsInBid = new List<Card>();
             DiscardPile = new List<Card>();

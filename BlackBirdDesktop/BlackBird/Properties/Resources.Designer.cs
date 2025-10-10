@@ -73,6 +73,16 @@ namespace BlackBird.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Chief_Engineer {
+            get {
+                object obj = ResourceManager.GetObject("Chief_Engineer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Conveyor_Belt_Deck {
             get {
                 object obj = ResourceManager.GetObject("Conveyor_Belt_Deck", resourceCulture);
@@ -83,29 +93,19 @@ namespace BlackBird.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Engineer {
+            get {
+                object obj = ResourceManager.GetObject("Engineer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fzzzt {
             get {
                 object obj = ResourceManager.GetObject("Fzzzt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Mechanic_One {
-            get {
-                object obj = ResourceManager.GetObject("Mechanic_One", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Mechanic_Two {
-            get {
-                object obj = ResourceManager.GetObject("Mechanic_Two", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

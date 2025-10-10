@@ -558,7 +558,7 @@ namespace BlackBird
                 context.NameLabel.Text = context.Player.Name;
                 context.ChiefMechanic.Visible = context.Player.IsChiefMechanic;
 
-                context.MechanicPictureBox.Image = context.Player.MechanicFace;
+                context.MechanicPictureBox.Image = context.Player.CardFace;
 
                 context.CardInHandPanel.Visible = true;
                 context.CardInHandPanel.Controls.Clear();

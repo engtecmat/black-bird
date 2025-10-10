@@ -228,8 +228,8 @@ namespace BlackBird
         /// </summary>
         private void InitializePlayers()
         {
-            Players.Add(new Player("AI Player", Position.Top, Properties.Resources.Mechanic_One, true));
-            Players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Mechanic_Two, false));
+            Players.Add(new Player("AI Player", Position.Top, Properties.Resources.Engineer, true));
+            Players.Add(new Player("Tamati", Position.Bottom, Properties.Resources.Engineer, false));
         }
 
         /// <summary>
@@ -362,7 +362,8 @@ namespace BlackBird
         {
             Player pickedPlayer = Players[_random.Next() % 2];
             pickedPlayer.IsChiefMechanic = true;
-            _chiefMechanic = pickedPlayer;
+            pickedPlayer.CardFace = Properties.Resources.Chief_Engineer;
+            ChiefMechanic = pickedPlayer;
             Players.FindAll(player => player != pickedPlayer).ForEach(player => player.IsChiefMechanic = false);
         }
 
