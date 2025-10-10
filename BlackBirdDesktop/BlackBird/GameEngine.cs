@@ -68,6 +68,8 @@ namespace BlackBird
         public bool AuctionState { get => _isAuctionStarted; set => _isAuctionStarted = value; }
         public int AllowedFacedUpCardCount { get => _allowedFacedUpCardCount; set => _allowedFacedUpCardCount = value; }
 
+        public event Action ChiefEngineerChanged;
+
         /// <summary>
         /// build game engine with game view
         /// </summary>
@@ -367,6 +369,8 @@ namespace BlackBird
 
             // reset other players
             Players.FindAll(player => player != pickedPlayer).ForEach(player => player.IsChiefMechanic = false);
+
+            ChiefEngineerChanged?.Invoke();
         }
 
         /// <summary>

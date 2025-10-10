@@ -50,6 +50,9 @@ namespace BlackBird
             Engine = new GameEngine();
             Engine.GameView = this;
 
+            Engine.ChiefEngineerChanged += HandleChiefEngineerChanged;
+
+
             PlayerViewContexts = new List<PlayerViewContext>();
 
             Engine.Players.ForEach(player => BindPlayerContext(player));
@@ -64,6 +67,17 @@ namespace BlackBird
                     ShowWinners();
                 }
             };
+        }
+
+        private void HandleChiefEngineerChanged()
+        {
+            Invoke(new Action(() =>
+            {
+                PlayerViewContexts.ForEach(context =>
+                {
+                    context.PlayerPictureBox.Image = context.Player.CardFace;
+                });
+            }));
         }
 
         /// <summary>
@@ -554,7 +568,6 @@ namespace BlackBird
             PlayerViewContexts.ForEach(context =>
             {
                 context.NameLabel.Text = context.Player.Name;
-                context.PlayerPictureBox.Image = context.Player.CardFace;
 
                 context.CardInHandPanel.Visible = true;
                 context.CardInHandPanel.Controls.Clear();

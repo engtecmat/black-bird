@@ -61,7 +61,5 @@ namespace BlackBird
         /// a start auction button for a player
         /// </summary>
         public Button StartAcutionButton { get; set; }
-
-        public PictureBox PlayerCard { get; set; }
     }
 }
